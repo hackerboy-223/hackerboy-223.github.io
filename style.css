@@ -1,3 +1,28 @@
+body {
+  font-size: 2vw; /* La taille du texte s'ajuste à la largeur de la fenêtre */
+}
+
+/* Styles par défaut (pour les grands écrans) */
+body {
+  font-size: 16px;
+}
+
+/* Pour les écrans de moins de 768px (tablettes et mobiles) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Pour les écrans de moins de 480px (smartphones) */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+
+
 header {
     background-image: url(téléchargement.png);
     color: blue;               /* Couleur du texte en blanc */
