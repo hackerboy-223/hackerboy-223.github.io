@@ -1,5 +1,6 @@
 body {
   font-size: 2vw; /* La taille du texte s'ajuste à la largeur de la fenêtre */
+  background-color: black;
 }
 .gang{
   margin-top: 0%;
