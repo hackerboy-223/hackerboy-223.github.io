@@ -1,6 +1,9 @@
 body {
   font-size: 2vw; /* La taille du texte s'ajuste à la largeur de la fenêtre */
 }
+.gang{
+  margin-top: 30%;
+}
 
 /* Styles par défaut (pour les grands écrans) */
 body {
