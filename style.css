@@ -28,6 +28,14 @@ body{
     background-color: grey;
 }
 
+@media (max-width: 768px) {
+    /* Styles spécifiques aux écrans de moins de 768px (comme les téléphones) */
+    .container {
+      padding: 10px;
+    }
+  }
+  
+
 .text{
     text-align: center;
 }
