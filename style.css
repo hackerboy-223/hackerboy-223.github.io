@@ -20,6 +20,10 @@ header h3:hover {
     background-color: rgb(138, 134, 134);   /* Changer la couleur de fond au survol */
 }
 
+body{
+    background-color: grey;
+}
+
 .text{
     text-align: center;
 }
