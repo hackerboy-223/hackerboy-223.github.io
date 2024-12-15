@@ -1,0 +1,64 @@
+header {
+    background-image: url(téléchargement.png);
+    color: blue;               /* Couleur du texte en blanc */
+    text-align: center;         /* Centrer le texte */
+    padding: 50px 0;            /* Ajouter de l'espace autour du texte */
+    margin-bottom: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header p {
+    font-size: 20px;
+}
+
+header h3:hover {
+    color: blue;            /* Changer la couleur du lien en jaune pâle au survol */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Animation fluide */
+    transform: scale(1.1);       /* Agrandir l'élément à 110% de sa taille */
+    background-color: rgb(138, 134, 134);   /* Changer la couleur de fond au survol */
+}
+
+.text{
+    text-align: center;
+}
+
+.learn{
+    text-align: center;
+}
+
+.divi{
+    margin-left: 170px;
+    text-decoration: none;
+}
+
+.lien1{
+    text-decoration: none;
+}
+.lien1:hover{
+    color: aqua;
+}
+
+.lien2{
+    text-decoration: none;
+    margin-left: 140px;
+}
+.lien2:hover{
+    color: aqua;
+}
+
+.lien3{
+    text-decoration: none;
+    margin-left: 180px;
+}
+.lien3:hover{
+    color: aqua;
+}
+
+footer{
+    color: white;
+    background-color: black;
+}
+
+
