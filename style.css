@@ -25,6 +25,7 @@ body {
 
 header {
     background-image: url(téléchargement.png);
+    margin-top: 0px;
     color: blue;               /* Couleur du texte en blanc */
     text-align: center;         /* Centrer le texte */
     padding: 50px 0;            /* Ajouter de l'espace autour du texte */
