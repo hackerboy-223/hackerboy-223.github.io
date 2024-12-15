@@ -3,6 +3,9 @@ body {
 }
 .gang{
   margin-top: 0%;
+  width: 100%;
+  
+  height: 100px;
 }
 
 /* Styles par défaut (pour les grands écrans) */
