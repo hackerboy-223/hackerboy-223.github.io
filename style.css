@@ -1,112 +1,86 @@
 body {
-  font-size: 2vw; /* La taille du texte s'ajuste à la largeur de la fenêtre */
-  background-color: black;
+    font-size: 2vw; /* La taille du texte s'ajuste à la largeur de la fenêtre */
+    background-color: grey; /* Arrière-plan gris */
+    margin: 0;
+    padding: 0;
 }
-.gang{
-  margin-top: 0%;
-  width: 100%;
-  height: 100px;
+
+.gang {
+    margin-top: 0;
+    width: 100%;
+    height: 100px;
 }
 
 @media screen and (min-width: 80rem) {
-   body{
-    margin: 1em 2em;
-  }
+   body {
+       margin: 1em 2em;
+   }
 }
-
 
 header {
     background-image: url(téléchargement.png);
     margin-top: 0px;
-    color: blue;               /* Couleur du texte en blanc */
-    text-align: center;         /* Centrer le texte */
-    padding: 80px 0;            /* Ajouter de l'espace autour du texte */
-    width: 100%; /* largeur de 100% */
-    height: 100px; /* ou toute autre hauteur souhaitée */
+    color: blue;
+    text-align: center;
+    padding: 80px 0;
+    width: 100%;
+    height: 100px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.YOU{
-    text-align: center;
-}
-
-header p {
-    font-size: 20px;
-}
-
 header h3:hover {
-    color: blue;            /* Changer la couleur du lien en jaune pâle au survol */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Animation fluide */
-    transform: scale(1.1);       /* Agrandir l'élément à 110% de sa taille */
-    background-color: rgb(138, 134, 134);   /* Changer la couleur de fond au survol */
+    color: blue;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: scale(1.1);
+    background-color: rgb(138, 134, 134);
 }
 
-body{
-    background-color: grey;
-}
-  
-
-.text{
+.text {
     text-align: center;
 }
 
-.learn{
+.learn {
     text-align: center;
 }
 
-.att{
+.att {
     text-align: center;
     color: red;
 }
 
-.att:hover{
+.att:hover {
     color: green;
     background-color: black;
 }
 
-.divi{
-    margin-left: 100px;
-    text-decoration: none;
-    text-align: center;
+.divi {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.lien1{
+.lien1, .lien2, .lien3 {
     text-decoration: none;
+    color: white;
 }
-.lien1:hover{
+
+.lien1:hover, .lien2:hover, .lien3:hover {
     color: aqua;
 }
 
-.lien2{
-    text-decoration: none;
-    margin-left: 120px;
-}
-.lien2:hover{
-    color: aqua;
-}
-
-.lien3{
-    text-decoration: none;
-    margin-left: 160px;
-}
-.lien3:hover{
-    color: aqua;
-}
-
-body, header, footer {
-  margin: 0;
-  padding: 0;
-}
-
-footer{
+footer {
     color: white;
     background-color: black;
-    text-align: centre;
+    text-align: center;
     position: relative;
     width: 100%;
     height: 100px;
+    bottom: 0;
+    padding-top: 40px;
 }
+
 
 
