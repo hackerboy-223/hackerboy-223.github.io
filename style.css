@@ -8,9 +8,11 @@ body {
   height: 100px;
 }
 
-
-
-
+@media screen and (min-width: 80rem) {
+   body{
+    margin: 1em 2em;
+  }
+}
 
 
 header {
