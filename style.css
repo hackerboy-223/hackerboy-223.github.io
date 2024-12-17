@@ -9,19 +9,7 @@ body {
 }
 
 
-/* Pour les écrans de moins de 768px (tablettes et mobiles) */
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-}
 
-/* Pour les écrans de moins de 480px (smartphones) */
-@media (max-width: 480px) {
-  body {
-    font-size: 12px;
-  }
-}
 
 
 
