@@ -46,13 +46,6 @@ header h3:hover {
 body{
     background-color: grey;
 }
-
-@media (max-width: 768px) {
-    /* Styles spécifiques aux écrans de moins de 768px (comme les téléphones) */
-    .container {
-      padding: 10px;
-    }
-  }
   
 
 .text{
@@ -74,7 +67,7 @@ body{
 }
 
 .divi{
-    margin-left: 170px;
+    margin-left: 100px;
     text-decoration: none;
     text-align: center;
 }
@@ -88,7 +81,7 @@ body{
 
 .lien2{
     text-decoration: none;
-    margin-left: 140px;
+    margin-left: 120px;
 }
 .lien2:hover{
     color: aqua;
@@ -96,7 +89,7 @@ body{
 
 .lien3{
     text-decoration: none;
-    margin-left: 180px;
+    margin-left: 160px;
 }
 .lien3:hover{
     color: aqua;
