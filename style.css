@@ -106,16 +106,6 @@ main {
   color: #ff5722;
 }
 
-.video-container {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.learn {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
 .att {
   font-size: 2rem;
   color: red;
