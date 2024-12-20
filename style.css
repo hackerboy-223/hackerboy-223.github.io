@@ -6,9 +6,9 @@
 }
 
 body {
-  font-size: 2vw;
-  background-color: #333;
-  color: white;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
   line-height: 1.6;
 }
 
@@ -53,18 +53,67 @@ header h3:hover {
   color: #00bcd4;
 }
 
+/* Blog Styles */
 main {
   padding: 40px 0;
-  text-align: center;
+}
+
+.blog-posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-post {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.post-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.post-content {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.read-more {
+  text-decoration: none;
+  color: #00bcd4;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: #ff5722;
 }
 
 .video-container {
-  margin-bottom: 40px;
+  margin-top: 40px;
+  text-align: center;
 }
 
 .learn {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .att {
@@ -76,10 +125,6 @@ main {
 .att:hover {
   color: #00bcd4;
   background-color: #000;
-}
-
-.alert-section {
-  margin-top: 40px;
 }
 
 @keyframes blink {
@@ -111,6 +156,10 @@ footer p {
     font-size: 4vw;
   }
 
+  .blog-posts {
+    grid-template-columns: 1fr;
+  }
+
   header h3 {
     font-size: 1.8rem;
   }
@@ -119,11 +168,11 @@ footer p {
     font-size: 1.2rem;
   }
 
-  .learn {
-    font-size: 1.2rem;
+  .post-title {
+    font-size: 1.5rem;
   }
 
-  .att {
-    font-size: 1.5rem;
+  .read-more {
+    font-size: 1.1rem;
   }
 }
