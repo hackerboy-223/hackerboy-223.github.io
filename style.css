@@ -84,7 +84,7 @@ header h3:hover {
   }
 }
 
-.lien1, .lien2, .lien3 {
+.att {
   animation: clignote 1s infinite;
 }
 
