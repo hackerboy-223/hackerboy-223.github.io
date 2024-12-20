@@ -71,6 +71,24 @@ header h3:hover {
     color: aqua;
 }
 
+/* styles.css */
+@keyframes clignote {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.lien1, .lien2, .lien3 {
+  animation: clignote 1s infinite;
+}
+
+
 footer {
     color: white;
     background-color: black;
