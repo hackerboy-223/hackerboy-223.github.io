@@ -1,101 +1,129 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-size: 2vw; /* La taille du texte s'ajuste à la largeur de la fenêtre */
-    background-color: grey; /* Arrière-plan gris */
-    margin: 0;
-    padding: 0;
-}
-
-.gang {
-    margin-top: 0;
-    width: 100%;
-    height: 100px;
-}
-
-@media screen and (min-width: 80rem) {
-   body {
-       margin: 1em 2em;
-   }
+  font-size: 2vw;
+  background-color: #333;
+  color: white;
+  line-height: 1.6;
 }
 
 header {
-    background-image: url(téléchargement.png);
-    margin-top: 0px;
-    color: blue;
-    text-align: center;
-    padding: 80px 0;
-    width: 100%;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-image: url('téléchargement.png');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+  text-align: center;
+  position: relative;
+}
+
+header .header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header h3 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 header h3:hover {
-    color: blue;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    transform: scale(1.1);
-    background-color: rgb(138, 134, 134);
+  color: #00bcd4;
+  transform: scale(1.1);
 }
 
-.text {
-    text-align: center;
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #00bcd4;
+}
+
+main {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.video-container {
+  margin-bottom: 40px;
 }
 
 .learn {
-    text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .att {
-    text-align: center;
-    color: red;
+  font-size: 2rem;
+  color: red;
+  animation: blink 1s infinite;
 }
 
 .att:hover {
-    color: green;
-    background-color: black;
+  color: #00bcd4;
+  background-color: #000;
 }
 
-.divi {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+.alert-section {
+  margin-top: 40px;
 }
 
-.lien1, .lien2, .lien3 {
-    text-decoration: none;
-    color: white;
-}
-
-.lien1:hover, .lien2:hover, .lien3:hover {
-    color: aqua;
-}
-
-/* styles.css */
-@keyframes clignote {
-  0% {
+@keyframes blink {
+  0%, 100% {
     opacity: 1;
   }
   50% {
     opacity: 0;
   }
-  100% {
-    opacity: 1;
-  }
 }
-
-.att {
-  animation: clignote 1s infinite;
-}
-
 
 footer {
-    color: white;
-    background-color: black;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    height: 100px;
-    bottom: 0;
-    padding-top: 40px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    font-size: 4vw;
+  }
+
+  header h3 {
+    font-size: 1.8rem;
+  }
+
+  .social-icon {
+    font-size: 1.2rem;
+  }
+
+  .learn {
+    font-size: 1.2rem;
+  }
+
+  .att {
+    font-size: 1.5rem;
+  }
 }
