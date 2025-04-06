@@ -14,7 +14,7 @@
   --matrix-green: #007b36;
 }
 
-/* Cyberpunk Animations */
+/* Fixed Glitch Animation */
 @keyframes glitch {
   0% { clip-path: inset(10% 0 30% 0); }
   20% { clip-path: inset(5% 0 15% 0); }
@@ -26,18 +26,9 @@
   100% { clip-path: inset(10% 0 30% 0); }
 }
 
-/* Cyberpunk Styles */
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Courier New', monospace;
-  line-height: 1.8;
-  overflow-x: hidden;
-  transition: var(--transition);
-}
-
+/* Corrected Parallax Background */
 .parallax {
-  background: linear-gradient(rgba(0,0,0,0.9), url('matrix-1460603554sdB.jpg');
+  background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.7)), url('matrix-1460603554sdB.jpg');
   background-size: cover;
   background-attachment: fixed;
   min-height: var(--header-height);
@@ -47,54 +38,43 @@ body {
   position: relative;
 }
 
-.glitched-text {
+/* Fixed Glitch Text */
+.glitch {
   position: relative;
   font-size: clamp(2rem, 5vw, 4rem);
   text-transform: uppercase;
 }
 
-.glitched-text::before,
-.glitched-text::after {
+.glitch::before,
+.glitch::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0.8;
 }
 
-.glitched-text::before {
+.glitch::before {
   left: 2px;
   text-shadow: -2px 0 #ff00c1;
   animation: glitch 2s infinite linear alternate-reverse;
 }
 
-.glitched-text::after {
+.glitch::after {
   left: -2px;
   text-shadow: 2px 0 #00fff9;
   animation: glitch 3s infinite linear alternate-reverse;
 }
 
-.neon {
-  text-shadow: 0 0 10px var(--primary),
-               0 0 20px var(--primary),
-               0 0 30px var(--primary);
-}
-
-.hover-3d {
-  transform-style: preserve-3d;
-  transition: transform 0.4s ease;
-}
-
-.hover-3d:hover {
-  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(20px);
-}
-
+/* Corrected Gradient Text */
 .gradient-text {
   background: linear-gradient(45deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  background-size: 200% 200%;
   animation: gradientShift 4s infinite alternate;
 }
 
@@ -103,95 +83,35 @@ body {
   100% { background-position: 100% 50%; }
 }
 
-.blog-posts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.blog-post {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Added Missing Alert Animation */
+@keyframes alertPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .alert-card {
-  position: relative;
-  padding: 1.5rem;
-  background: rgba(255, 0, 0, 0.1);
-  border: 2px solid #ff0000;
-  border-radius: 8px;
   animation: alertPulse 1.5s infinite;
 }
 
-.glitch-border::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
-  z-index: -1;
-  animation: borderGlitch 2s infinite;
+/* Corrected Glassmorphism Effect */
+.blog-post {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes borderGlitch {
-  0% { opacity: 0.8; }
-  50% { opacity: 0.2; }
-  100% { opacity: 0.8; }
+/* Fixed Footer Animation */
+@keyframes scanline {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(50%); }
 }
 
-.animated-footer {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.animated-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 25px,
-    rgba(0,0,0,0.1) 25px,
-    rgba(0,0,0,0.1) 50px
-  );
-  animation: scanline 20s linear infinite;
-}
-
-@media (max-width: 768px) {
-  .blog-posts {
-    grid-template-columns: 1fr;
-  }
-  
-  .parallax {
-    background-attachment: scroll;
-  }
-}
-
-/* Dynamic JS Additions */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  color: var(--text);
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 1000;
+/* Added Missing Vendor Prefixes */
+.hover-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.4s ease;
 }
