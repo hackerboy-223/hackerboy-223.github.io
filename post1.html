@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tout sur l'Informatique</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
+    <style>
+        section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-    <header class="animate__animated animate__fadeInDown">
+
+    <header>
         <div class="container">
             <h1>Introduction à l'Informatique</h1>
             <nav>
@@ -28,75 +35,77 @@
 
     <main>
         <div class="container">
-            <section id="def" class="reveal">
+            <section id="def">
                 <h2>Qu'est-ce que l'Informatique ?</h2>
-                <p>L'informatique est l'étude du traitement automatique de l'information...</p>
+                <p>L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent d'exécuter des programmes et de stocker des données.</p>
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" alt="Concept informatique">
             </section>
-            <section id="histoire" class="reveal">
+
+            <section id="histoire">
                 <h2>Histoire de l'Informatique</h2>
-                <p>L'informatique a des racines dans des siècles d'avancées...</p>
+                <p>L'informatique a des racines dans des siècles d'avancées en mathématiques et en logique. Les premières machines à calculer ont été créées au 17e siècle, mais c'est au 20e siècle que l'ordinateur moderne a émergé.</p>
                 <ul>
-                    <li><strong>1930s :</strong> Alan Turing...</li>
-                    <li><strong>1940s :</strong> Les premiers ordinateurs électroniques...</li>
-                    <li><strong>1950s-1970s :</strong> Mainframes, langages de prog...</li>
-                    <li><strong>1980s-1990s :</strong> PC, Internet...</li>
+                    <li><strong>1930s :</strong> Alan Turing pose les bases théoriques de l'informatique moderne.</li>
+                    <li><strong>1940s :</strong> Les premiers ordinateurs électroniques apparaissent.</li>
+                    <li><strong>1950s-1970s :</strong> L'ère des ordinateurs mainframes et la naissance des langages de programmation.</li>
+                    <li><strong>1980s-1990s :</strong> L'avènement des ordinateurs personnels et du réseau Internet.</li>
                 </ul>
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166" alt="Évolution des ordinateurs">
             </section>
-            <section id="matériel" class="reveal">
+
+            <section id="matériel">
                 <h2>Matériel Informatique</h2>
-                <p>Le matériel informatique se compose de tous les composants physiques...</p>
+                <p>Le matériel informatique se compose de tous les composants physiques nécessaires à l'exécution des logiciels. Cela inclut les ordinateurs, les périphériques, et les systèmes de stockage.</p>
                 <ul>
-                    <li><strong>Processeur :</strong> Le cerveau...</li>
-                    <li><strong>Carte mère :</strong> Le composant central...</li>
-                    <li><strong>RAM :</strong> Mémoire temporaire...</li>
-                    <li><strong>HDD/SSD :</strong> Stockage...</li>
-                    <li><strong>Carte graphique :</strong> Affichage visuel...</li>
+                    <li><strong>Processeur (CPU) :</strong> Le cerveau de l'ordinateur qui exécute les instructions.</li>
+                    <li><strong>Carte mère :</strong> Le composant central qui relie tous les autres composants.</li>
+                    <li><strong>Mémoire (RAM) :</strong> Permet de stocker temporairement les données en cours de traitement.</li>
+                    <li><strong>Disque dur (HDD) / SSD :</strong> Le stockage permanent des données.</li>
+                    <li><strong>Carte graphique :</strong> Gère l'affichage visuel sur l'écran.</li>
                 </ul>
+                <img src="https://images.unsplash.com/photo-1587202372775-dc0f768b0e9c" alt="Composants matériels">
             </section>
-            <section id="logiciel" class="reveal">
+
+            <section id="logiciel">
                 <h2>Logiciel Informatique</h2>
-                <p>Le logiciel est l'ensemble des programmes qui...</p>
+                <p>Le logiciel est l'ensemble des programmes qui permettent à un ordinateur de réaliser des tâches spécifiques. Il existe deux principaux types de logiciels : les logiciels systèmes et les logiciels applicatifs.</p>
                 <ul>
-                    <li><strong>Systèmes :</strong> OS comme Windows, Linux...</li>
-                    <li><strong>Applicatifs :</strong> Navigateur, éditeurs, jeux...</li>
+                    <li><strong>Logiciels systèmes :</strong> Ils assurent le fonctionnement de l'ordinateur (ex : système d'exploitation comme Windows, macOS, Linux).</li>
+                    <li><strong>Logiciels applicatifs :</strong> Permettent d'exécuter des tâches spécifiques pour l'utilisateur (ex : navigateurs web, éditeurs de texte, jeux vidéo).</li>
                 </ul>
+                <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f" alt="Développement logiciel">
             </section>
-            <section id="reseaux" class="reveal">
+
+            <section id="reseaux">
                 <h2>Réseaux Informatiques</h2>
-                <p>Les réseaux informatiques connectent les machines...</p>
+                <p>Les réseaux informatiques permettent de connecter plusieurs ordinateurs entre eux pour partager des données. Internet est le réseau informatique mondial le plus important.</p>
                 <ul>
-                    <li><strong>LAN :</strong> Réseau local...</li>
-                    <li><strong>WAN :</strong> Réseau étendu...</li>
-                    <li><strong>Protocoles :</strong> TCP/IP, HTTP...</li>
+                    <li><strong>LAN (Réseau Local) :</strong> Un réseau qui couvre une petite zone géographique, comme une maison ou un bureau.</li>
+                    <li><strong>WAN (Réseau Étendu) :</strong> Un réseau qui s'étend sur de grandes distances, comme Internet.</li>
+                    <li><strong>Protocoles de communication :</strong> Des règles définissant comment les ordinateurs communiquent entre eux (ex : TCP/IP, HTTP).</li>
                 </ul>
+                <img src="https://images.unsplash.com/photo-1600267165980-682ea3c9b0e2" alt="Connexion réseau moderne">
             </section>
-            <section id="programmation" class="reveal">
+
+            <section id="programmation">
                 <h2>Programmation Informatique</h2>
-                <p>La programmation est l'art de coder des instructions...</p>
+                <p>La programmation est l'art d'écrire des instructions que l'ordinateur peut exécuter. Les programmeurs utilisent des langages de programmation pour créer des logiciels.</p>
                 <ul>
-                    <li><strong>Langages :</strong> Python, Java, JS...</li>
-                    <li><strong>Paradigmes :</strong> OOP, fonctionnel...</li>
-                    <li><strong>Dev Web :</strong> HTML, CSS, JS...</li>
+                    <li><strong>Langages de programmation populaires :</strong> Python, Java, C++, JavaScript, Ruby.</li>
+                    <li><strong>Paradigmes de programmation :</strong> Procédural, orienté objet, fonctionnel, logique.</li>
+                    <li><strong>Développement web :</strong> Créer des applications web avec des technologies comme HTML, CSS, JavaScript.</li>
                 </ul>
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Écriture de code">
             </section>
         </div>
     </main>
 
-    <footer class="animate__animated animate__fadeInUp">
+    <footer>
         <div class="container">
             <p>&copy; 2024 H@CKERBOY</p>
         </div>
     </footer>
 
-    <script>
-        ScrollReveal().reveal('.reveal', {
-            delay: 100,
-            duration: 1000,
-            origin: 'bottom',
-            distance: '50px',
-            reset: true
-        });
-    </script>
 </body>
 </html>
 
