@@ -5,13 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tout sur l'Informatique</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #00ff9d;
+            --secondary: #ff2288;
+            --bg: #0a0a0a;
+            --text: #fff;
+            --matrix: #00ff41;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        header, footer {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            border: 1px solid var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background-color: rgba(0,255,157,0.1);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2rem;
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.05);
+        }
+
         section img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
             margin-top: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #111;
         }
     </style>
 </head>
@@ -35,7 +113,7 @@
 
     <main>
         <div class="container">
-            <section id="def">
+             <section id="def">
                 <h2>Qu'est-ce que l'Informatique ?</h2>
                 <p>L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent d'exécuter des programmes et de stocker des données.</p>
                 <img src="https://www.wmagence.com/upload/entreprise-informatique-1623657896-40246.jpg" alt="Concept informatique">
@@ -108,4 +186,3 @@
 
 </body>
 </html>
-
