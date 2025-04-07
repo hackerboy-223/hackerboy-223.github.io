@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A propos de H@CKERBOY</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00ff9d;
+            --secondary: #ff2288;
+            --bg: #0a0a0a;
+            --text: #fff;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2rem;
+            border: 1px solid var(--primary);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.05);
+        }
+
+        section img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        section h2 {
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Qui est H@CKERBOY ?</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section>
+                <h2>L'identité numérique</h2>
+                <p>H@CKERBOY est bien plus qu'un simple pseudonyme. C'est un symbole, une marque, un état d'esprit. Étudiant en informatique, développeur passionné de web et d'applications mobiles, il fusionne technologie et art digital dans un univers futuriste unique.</p>
+                <img src="https://images.unsplash.com/photo-1612197527520-6d5a1dd0d418?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="H@CKERBOY image tech">
+            </section>
+
+            <section>
+                <h2>La mission</h2>
+                <p>À travers son blog et ses créations numériques, H@CKERBOY veut démocratiser l'informatique, former la prochaine génération de devs, et inspirer une vision cybernétique, libre et consciente du digital. C'est un pont entre la technologie brute et l'humain sensible.</p>
+                <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Code and creativity">
+            </section>
+
+            <section>
+                <h2>Compétences clés</h2>
+                <ul>
+                    <li><strong>Développement Web :</strong> HTML, CSS, JavaScript, React, Node.js</li>
+                    <li><strong>Applications Mobiles :</strong> Flutter, Swift, Kotlin</li>
+                    <li><strong>Cybersécurité :</strong> Analyse de vulnérabilité, PenTesting</li>
+                    <li><strong>UX/UI :</strong> Design futuriste, interfaces immersives</li>
+                    <li><strong>Création de contenu :</strong> Blogging, tutoriels, éducation numérique</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Une vision futuriste</h2>
+                <p>H@CKERBOY rêve d’un monde connecté, éthique, inclusif et open-source. Là où chaque ligne de code est un poème, chaque bug une énigme, chaque interface un portail vers demain. Il incarne l’esprit hacker dans son sens le plus noble : comprendre, transformer, libérer.</p>
+                <img src="https://images.unsplash.com/photo-1558898479-33f5b1c4b81e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Vision du futur">
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 H@CKERBOY. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
