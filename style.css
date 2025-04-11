@@ -1,157 +1,176 @@
-/* ADDING MODERN TOUCHES */
-    :root {
-      --primary: #00bcd4;
-      --accent: #ff5722;
-      --bg: #0f0f0f;
-      --light: #f4f4f4;
-    }
+:root {
+  --primary: #00bcd4;
+  --accent: #ff5722;
+  --bg: #0f0f0f;
+  --light: #f4f4f4;
+}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg);
-      color: var(--light);
-      margin: 0;
-      overflow-x: hidden;
-    }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--light);
+  overflow-x: hidden;
+}
 
-    header {
-      background-image: url('matrix-1460603554sdB.jpg');
-      background-size: cover;
-      background-position: center;
-      padding: 120px 0;
-      text-align: center;
-      position: relative;
-      animation: fadeIn 2s ease-in;
-    }
+#matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: black;
+}
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+header {
+  text-align: center;
+  padding: 120px 20px 80px;
+  position: relative;
+}
 
-    header h3 {
-      font-size: 3rem;
-      color: #fff;
-      text-shadow: 2px 2px 10px rgba(0, 255, 255, 0.8);
-      transition: transform 0.3s ease;
-    }
+.header-content {
+  animation: fadeIn 2s ease-in;
+}
 
-    header h3:hover {
-      transform: scale(1.1);
-    }
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
-    .social-icons {
-      margin-top: 20px;
-      animation: slideIn 1.5s ease-in-out;
-    }
+.gang {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0, 255, 255, 0.8);
+  animation: glitch 1s infinite;
+}
 
-    @keyframes slideIn {
-      0% { transform: translateY(40px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
+@keyframes glitch {
+  0% { text-shadow: 2px 2px red, -2px -2px blue; }
+  20% { text-shadow: -2px 2px lime, 2px -2px purple; }
+  40% { text-shadow: 2px -2px orange, -2px 2px cyan; }
+  60% { text-shadow: -1px -1px white, 1px 1px gray; }
+  80% { text-shadow: 3px 0 red, -3px 0 blue; }
+  100% { text-shadow: 0 0 2px #0ff; }
+}
 
-    .social-icon {
-      font-size: 2rem;
-      margin: 0 15px;
-      color: white;
-      transition: color 0.3s, transform 0.3s;
-    }
+.social-icons {
+  margin-top: 20px;
+  animation: slideIn 1.5s ease-in-out;
+}
 
-    .social-icon:hover {
-      color: var(--accent);
-      transform: scale(1.2);
-    }
+@keyframes slideIn {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
 
-    main {
-      padding: 60px 20px;
-    }
+.social-icon {
+  font-size: 2rem;
+  margin: 0 15px;
+  color: white;
+  transition: color 0.3s, transform 0.3s;
+}
+.social-icon:hover {
+  color: var(--accent);
+  transform: scale(1.2);
+}
 
-    .blog-posts {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: auto;
-      animation: fadeIn 2s ease-in-out;
-    }
+main {
+  padding: 60px 20px;
+}
 
-    .blog-post {
-      background: #1a1a1a;
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+.blog-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    .blog-post:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
-    }
+.blog-post {
+  background: #1a1a1a;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    .post-title {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      color: var(--primary);
-    }
+.blog-post:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+}
 
-    .post-meta {
-      font-size: 0.9rem;
-      color: #bbb;
-      margin-bottom: 15px;
-    }
+.post-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+.blog-post:hover .post-title {
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
 
-    .post-content {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
+.post-meta {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin-bottom: 15px;
+}
 
-    .read-more {
-      text-decoration: none;
-      color: var(--accent);
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+.post-content {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
 
-    .read-more:hover {
-      color: var(--primary);
-    }
+.read-more {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.read-more:hover {
+  color: var(--primary);
+  text-shadow: 0 0 5px var(--accent);
+}
 
-    .alert-section {
-      margin-top: 60px;
-      text-align: center;
-    }
+.alert-section {
+  margin-top: 60px;
+  text-align: center;
+}
+.att {
+  font-size: 2rem;
+  color: red;
+  animation: blink 1s infinite;
+  background-color: #000;
+  padding: 10px;
+  border-radius: 10px;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
-    .att {
-      font-size: 2rem;
-      color: red;
-      animation: blink 1s infinite;
-      background-color: #000;
-      padding: 10px;
-      border-radius: 10px;
-    }
+/* SCROLL ANIMATIONS */
+.fade-in {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+.zoom-in {
+  opacity: 0;
+  animation: zoomIn 1s ease forwards;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    footer {
-      background-color: #000;
-      padding: 20px;
-      text-align: center;
-      color: #888;
-    }
-
-    @media (max-width: 768px) {
-      header h3 {
-        font-size: 2rem;
-      }
-
-      .post-title {
-        font-size: 1.5rem;
-      }
-
-      .post-content {
-        font-size: 1rem;
-      }
-    }
+footer {
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+  color: #888;
+}
