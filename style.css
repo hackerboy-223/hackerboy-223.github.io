@@ -35,6 +35,21 @@ body {
   overflow-x: hidden;
 }
 
+.cyber-btn {
+  background: none;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 10px 20px;
+  font-family: 'Orbitron';
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.cyber-btn:hover {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 10px #0ff;
+}
+
 .assistant-container {
   max-width: 600px;
   margin: 2rem auto;
