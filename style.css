@@ -6,6 +6,28 @@
 }
 
 body {
+  font-family: 'Share Tech Mono', monospace;
+  background-color: #0f0f0f;
+  color: #fff;
+}
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+.neon {
+  color: #00ffff;
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
+}
+.glow-border {
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+}
+body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg);
