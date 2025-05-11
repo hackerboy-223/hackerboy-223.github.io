@@ -13,6 +13,69 @@ body {
   overflow-x: hidden;
 }
 
+.assistant-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #0f0f0f;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+}
+
+.assistant-chat {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding-right: 0.5rem;
+}
+
+.msg {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.msg.bot {
+  background-color: #022c22;
+  color: #00ffcc;
+}
+
+.msg.user {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  text-align: right;
+}
+
+.assistant-inputs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.assistant-input {
+  flex-grow: 1;
+  padding: 0.5rem;
+  background-color: #1a1a1a;
+  border: 1px solid #0ff;
+  color: white;
+  border-radius: 5px;
+}
+
+.assistant-btn {
+  padding: 0.5rem 1rem;
+  background-color: #00ffff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.assistant-btn:hover {
+  background-color: #00dddd;
+}
+
 #matrix-bg {
   position: fixed;
   top: 0;
