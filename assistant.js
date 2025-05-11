@@ -17,20 +17,30 @@ function Assistant() {
   };
 
   return (
-    React.createElement('div', null,
-      messages.map((msg, i) =>
-        React.createElement('div', { key: i },
-          React.createElement('strong', null, msg.role === 'bot' ? 'H@CKERBOT' : 'Toi'),
-          ': ',
-          msg.content
+    React.createElement('div', { className: 'assistant-container' },
+      React.createElement('div', { className: 'assistant-chat' },
+        messages.map((msg, i) =>
+          React.createElement('div', {
+            key: i,
+            className: msg.role === 'bot' ? 'msg bot' : 'msg user'
+          },
+            React.createElement('strong', null, msg.role === 'bot' ? '🤖 H@CKERBOT' : '🧠 Toi'),
+            ': ' + msg.content
+          )
         )
       ),
-      React.createElement('input', {
-        value: input,
-        onChange: (e) => setInput(e.target.value),
-        placeholder: 'Pose ta question futuriste...'
-      }),
-      React.createElement('button', { onClick: handleSend }, 'Envoyer')
+      React.createElement('div', { className: 'assistant-inputs' },
+        React.createElement('input', {
+          className: 'assistant-input',
+          value: input,
+          onChange: (e) => setInput(e.target.value),
+          placeholder: 'Pose ta question futuriste...'
+        }),
+        React.createElement('button', {
+          className: 'assistant-btn',
+          onClick: handleSend
+        }, 'Envoyer')
+      )
     )
   );
 }
@@ -39,4 +49,3 @@ ReactDOM.render(
   React.createElement(Assistant),
   document.getElementById('assistant-root')
 );
-
