@@ -135,6 +135,14 @@
 <script src="assistant.js"></script>
 
   <script>
+  function toggleAssistant() {
+    const widget = document.getElementById('assistant-widget');
+    widget.style.display = widget.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
+
+
+  <script>
     // Animation au scroll
     const elements = document.querySelectorAll('[data-animate]');
     const animateOnScroll = () => {
