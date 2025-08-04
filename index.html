@@ -1,169 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Description (important pour Google) -->
-<meta name="description" content="Bienvenue sur le site de HackerBoy. Découvrez mes projets, tutoriels, et mon blog sur le développement et la cybersécurité.">
-
-<!-- Mots-clés (moins important mais encore utile) -->
-<meta name="keywords" content="cybersécurité, programmation, développement, hackerboy, H@CKERBOY, portfolio, github, html, css, javascript">
-
-<!-- Auteur -->
-<meta name="author" content="H@CKERBOY">
-  <!-- Description (important pour Google) -->
-<meta name="description" content="Bienvenue sur le site de HackerBoy. Découvrez mes projets, tutoriels, et mon blog sur le développement et la cybersécurité.">
-
-<!-- Mots-clés (moins important mais encore utile) -->
-<meta name="keywords" content="cybersécurité, programmation, développement, hackerboy, H@CKERBOY, portfolio, github, html, css, javascript">
-
-<!-- Auteur -->
-<meta name="author" content="H@CKERBOY">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Essential Meta Tags -->
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- Primary Meta Tags -->
-    <title>à propos de H@CKERBOY</title>
-    <meta name="title" content="H@CKERBOY">
-    <meta name="description" content="Bienvenue sur le site de H@CKERBOY. Découvrez mes projets, tutoriels, et mon blog sur le développement et la cybersécurité." />
-    <meta name="keywords" content="H@CKERBOY, H@CKERBOY - BLOG, cybersécurité, hacker éthique, développement, sécurité informatique">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Bienvenue sur le site de HackerBoy. Découvrez mes projets, tutoriels, et mon blog sur le développement et la cybersécurité." />
+    <meta name="keywords" content="cybersécurité, programmation, développement, hackerboy, H@CKERBOY, portfolio, github, html, css, javascript" />
     <meta name="author" content="H@CKERBOY" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    
+
     <!-- Open Graph / Facebook / Discord -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://hackerboy-223.github.io/" />
     <meta property="og:title" content="H@CKERBOY - Tech & Cybersécurité" />
-    <meta property="og:description" content="site de H@CKERBOY. Découvrez mes projets, tutoriels, et mon blog sur le développement et la cybersécurité." />
+    <meta property="og:description" content="Site de H@CKERBOY. Projets, tutos et blog tech & cybersécurité." />
     <meta property="og:image" content="https://hackerboy-223.github.io/hack8080.jpg" />
-    <meta property="og:site_name" content="H@CKERBOY" />
-    
-    <!-- Twitter -->
+
+    <!-- Twitter Meta -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@thedarknowledge" />
     <meta name="twitter:creator" content="@thedarknowledge" />
-    <meta name="twitter:title" content="H@CKERBOY GPT - tech & Cybersécurité" />
+    <meta name="twitter:title" content="H@CKERBOY GPT - Tech & Cybersécurité" />
     <meta name="twitter:description" content="Une IA innovante développée avec passion par H@CKERBOY." />
     <meta name="twitter:image" content="https://hackerboy-223.github.io/hack8080.jpg" />
-    <!-- Canonical -->
+
     <link rel="canonical" href="https://hackerboy-223.github.io/" />
-    
-    <!-- Social Media Links -->
     <link rel="me" href="https://www.instagram.com/the_dark_knowledge223" />
     <link rel="me" href="https://wa.me/22384122222" />
     <link rel="me" href="https://www.snapchat.com/add/lehackerboyduml" />
-    
-    <!-- Language -->
     <meta name="language" content="fr" />
     <meta http-equiv="Content-Language" content="fr" />
-  <meta name="google-site-verification" content="8znT5Cfz11BWiNJZlc6w6pUrGRJOQ1CXWc4i7momzBo" />
-  <title>H@CKERBOY °×͜×° - Blog</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <canvas id="matrix-bg"></canvas>
+    <meta name="google-site-verification" content="8znT5Cfz11BWiNJZlc6w6pUrGRJOQ1CXWc4i7momzBo" />
 
-  <header>
-    <div class="header-content">
-      <h3 class="gang">Bienvenue sur mon blog. Explorez mon univers !</h3>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/the_dark_knowledge223" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/22384122222" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.snapchat.com/add/lehackerboyduml" class="social-icon"><i class="fab fa-snapchat"></i></a>
+    <title>H@CKERBOY °×͜×° - Blog</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-black text-white font-mono">
+    <canvas id="matrix-bg" class="fixed top-0 left-0 w-full h-full z-[-1] bg-black"></canvas>
+
+    <header class="text-center py-32 relative animate-fadeIn">
+      <h1 class="text-4xl md:text-5xl font-bold text-cyan-400 glitch">Bienvenue sur mon blog. Explorez mon univers !</h1>
+      <div class="flex justify-center mt-6 space-x-6 text-2xl">
+        <a href="https://www.instagram.com/the_dark_knowledge223" class="hover:text-orange-400"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/22384122222" class="hover:text-green-400"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.snapchat.com/add/lehackerboyduml" class="hover:text-yellow-400"><i class="fab fa-snapchat"></i></a>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <section class="blog-posts" data-animate="fade-in">
-      <article class="blog-post">
-        <h2 class="post-title">Tous savoir sur l'informatique</h2>
-        <p class="post-meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
-        <p class="post-content">
-          L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent d'exécuter...
-        </p>
-        <a href="./post1.html" class="read-more">Lire la suite...</a>
-      </article>
+    <main class="px-4 md:px-10">
+      <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <article class="bg-gray-900 p-6 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2">
+          <h2 class="text-2xl font-bold text-cyan-300">Tout savoir sur l'informatique</h2>
+          <p class="text-sm text-gray-400 mb-2">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
+          <p>L'informatique est l'étude du traitement automatique de l'information...</p>
+          <a href="./post1.html" class="text-orange-400 font-semibold hover:text-cyan-300">Lire la suite...</a>
+        </article>
+        <article class="bg-gray-900 p-6 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2">
+          <h2 class="text-2xl font-bold text-cyan-300">C'est quoi un Hacker ?</h2>
+          <p class="text-sm text-gray-400 mb-2">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
+          <p>Le cryptage est un pilier fondamental de la sécurité en ligne...</p>
+          <a href="./post2.html" class="text-orange-400 font-semibold hover:text-cyan-300">Lire la suite...</a>
+        </article>
+        <article class="bg-gray-900 p-6 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2">
+          <h2 class="text-2xl font-bold text-cyan-300">Qui est H@CKERBOY ?</h2>
+          <p class="text-sm text-gray-400 mb-2">Publié le 11 avril 2025 | Par H@CKERBOY</p>
+          <p>H@CKERBOY est bien plus qu'un simple pseudonyme. C'est un symbole...</p>
+          <a href="./hackerboy.html" class="text-orange-400 font-semibold hover:text-cyan-300">Lire la suite...</a>
+        </article>
+      </section>
 
-      <article class="blog-post">
-        <h2 class="post-title">C'est quoi un Hacker ?</h2>
-        <p class="post-meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
-        <p class="post-content">
-          Le cryptage est un pilier fondamental de la sécurité en ligne. Dans cet article, nous discuterons des raisons pour lesquelles le cryptage est crucial pour protéger vos informations personnelles et vos communications...
-        </p>
-        <a href="./post2.html" class="read-more">Lire la suite...</a>
-      </article>
-      
-      <article class="blog-post">
-        <h2 class="post-title">Qui est H@CKERBOY ?</h2>
-        <p class="post-meta">Publié le 11 Avril 2025 | Par H@CKERBOY</p>
-        <p class="post-content">
-          H@CKERBOY est bien plus qu'un simple pseudonyme. C'est un symbole, une marque, un état d'esprit. Étudiant en informatique, développeur......
-        </p>
-        <a href="./hackerboy.html" class="read-more">Lire la suite...</a>
-      </article>
-    </section>
+      <section class="text-center mt-16">
+        <h2 class="text-2xl font-bold text-red-500 animate-pulse">⚠ Attention, ceci est un test !! ⚠</h2>
+      </section>
+    </main>
 
-    <section class="alert-section" data-animate="zoom-in">
-      <h2 class="att">⚠ Attention, ceci est un test !! ⚠</h2>
-    </section>
-  </main>
+    <footer class="text-center py-6 bg-black text-gray-500 mt-20">
+      <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
+    </footer>
 
-  <div id="assistant-toggle" onclick="toggleAssistant()">💬</div>
-<div id="assistant-widget" style="display: none;">
-  <div id="assistant-root"></div>
-</div>
-
-  <div id="assistant-root"></div>
-
-
-  <footer>
-    <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
-  </footer>
-
-  <script src="script.js"></script>
-
-  <!-- React + ReactDOM -->
-<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-
-<!-- assistant -->
-<script src="assistant.js"></script>
-
-  <script>
-  function toggleAssistant() {
-    const widget = document.getElementById('assistant-widget');
-    widget.style.display = widget.style.display === 'none' ? 'block' : 'none';
-  }
-</script>
-
-
-  <script>
-    // Animation au scroll
-    const elements = document.querySelectorAll('[data-animate]');
-    const animateOnScroll = () => {
-      elements.forEach(el => {
-        const pos = el.getBoundingClientRect().top;
-        if (pos < window.innerHeight - 100) {
-          el.classList.add(el.dataset.animate);
-        }
-      });
-    };
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-  </script>
-
-
-  ads
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1097593363373419"
-     crossorigin="anonymous"></script>
-
-  
-</body>
+    <!-- Matrix background script, assistant widget, animations... (à inclure ensuite) -->
+    <script src="script.js"></script>
+    <script src="assistant.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1097593363373419" crossorigin="anonymous"></script>
+  </body>
 </html>
