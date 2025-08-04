@@ -1,93 +1,269 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="Bienvenue sur le site de HackerBoy. Découvrez mes projets, tutoriels, et mon blog sur le développement et la cybersécurité." />
-    <meta name="keywords" content="cybersécurité, programmation, développement, hackerboy, H@CKERBOY, portfolio, github, html, css, javascript" />
-    <meta name="author" content="H@CKERBOY" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>H@CKERBOY °×͜×° - Blog Futuriste</title>
+<style>
+  /* Reset & base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    background: #0a0a0a;
+    color: #0ff;
+    font-family: 'Share Tech Mono', monospace, monospace;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
 
-    <!-- Open Graph / Facebook / Discord -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hackerboy-223.github.io/" />
-    <meta property="og:title" content="H@CKERBOY - Tech & Cybersécurité" />
-    <meta property="og:description" content="Site de H@CKERBOY. Projets, tutos et blog tech & cybersécurité." />
-    <meta property="og:image" content="https://hackerboy-223.github.io/hack8080.jpg" />
+  /* Glitch text effect */
+  .glitch {
+    position: relative;
+    color: #0ff;
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    animation: glitchAnim 2s infinite;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  }
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation: glitchAnimBefore 2s infinite;
+  }
+  .glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    animation: glitchAnimAfter 2s infinite;
+    clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
+  }
 
-    <!-- Twitter Meta -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@thedarknowledge" />
-    <meta name="twitter:creator" content="@thedarknowledge" />
-    <meta name="twitter:title" content="H@CKERBOY GPT - Tech & Cybersécurité" />
-    <meta name="twitter:description" content="Une IA innovante développée avec passion par H@CKERBOY." />
-    <meta name="twitter:image" content="https://hackerboy-223.github.io/hack8080.jpg" />
+  @keyframes glitchAnim {
+    0%, 100% { transform: translate(0);}
+    20% { transform: translate(-2px, 2px);}
+    40% { transform: translate(2px, -2px);}
+    60% { transform: translate(-2px, -2px);}
+    80% { transform: translate(2px, 2px);}
+  }
+  @keyframes glitchAnimBefore {
+    0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);}
+    50% { clip-path: polygon(0 5%, 100% 5%, 100% 28%, 0 28%);}
+  }
+  @keyframes glitchAnimAfter {
+    0%, 100% { clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);}
+    50% { clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%);}
+  }
 
-    <link rel="canonical" href="https://hackerboy-223.github.io/" />
-    <link rel="me" href="https://www.instagram.com/the_dark_knowledge223" />
-    <link rel="me" href="https://wa.me/22384122222" />
-    <link rel="me" href="https://www.snapchat.com/add/lehackerboyduml" />
-    <meta name="language" content="fr" />
-    <meta http-equiv="Content-Language" content="fr" />
-    <meta name="google-site-verification" content="8znT5Cfz11BWiNJZlc6w6pUrGRJOQ1CXWc4i7momzBo" />
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+  }
 
-    <title>H@CKERBOY °×͜×° - Blog</title>
+  /* Nav */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  nav a {
+    color: #0ff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #0ff;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after {
+    width: 100%;
+  }
 
-    <!-- Fonts & Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  /* Articles grid */
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+  }
+  article {
+    background: #111;
+    border: 1px solid #0ff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow:
+      0 0 5px #0ff,
+      inset 0 0 10px #0ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  article:hover {
+    transform: translateY(-10px);
+    box-shadow:
+      0 0 20px #0ff,
+      inset 0 0 15px #0ff;
+  }
+  article h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #0ff;
+    text-shadow: 0 0 8px #0ff;
+  }
+  article p.meta {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  article p.content {
+    line-height: 1.4;
+    color: #ccc;
+  }
+  article a.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #ff3c00;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  article a.read-more:hover {
+    color: #0ff;
+    text-shadow: 0 0 8px #0ff;
+  }
 
-    <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="bg-black text-white font-mono">
-    <canvas id="matrix-bg" class="fixed top-0 left-0 w-full h-full z-[-1] bg-black"></canvas>
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+    color: #333;
+    border-top: 1px solid #0ff;
+    margin-top: 4rem;
+  }
 
-    <header class="text-center py-32 relative animate-fadeIn">
-      <h1 class="text-4xl md:text-5xl font-bold text-cyan-400 glitch">Bienvenue sur mon blog. Explorez mon univers !</h1>
-      <div class="flex justify-center mt-6 space-x-6 text-2xl">
-        <a href="https://www.instagram.com/the_dark_knowledge223" class="hover:text-orange-400"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/22384122222" class="hover:text-green-400"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.snapchat.com/add/lehackerboyduml" class="hover:text-yellow-400"><i class="fab fa-snapchat"></i></a>
-      </div>
-    </header>
+  /* Matrix Canvas */
+  #matrix {
+    position: fixed;
+    top:0; left:0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: black;
+  }
 
-    <main class="px-4 md:px-10">
-      <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <article class="bg-gray-900 p-6 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2">
-          <h2 class="text-2xl font-bold text-cyan-300">Tout savoir sur l'informatique</h2>
-          <p class="text-sm text-gray-400 mb-2">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
-          <p>L'informatique est l'étude du traitement automatique de l'information...</p>
-          <a href="./post1.html" class="text-orange-400 font-semibold hover:text-cyan-300">Lire la suite...</a>
-        </article>
-        <article class="bg-gray-900 p-6 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2">
-          <h2 class="text-2xl font-bold text-cyan-300">C'est quoi un Hacker ?</h2>
-          <p class="text-sm text-gray-400 mb-2">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
-          <p>Le cryptage est un pilier fondamental de la sécurité en ligne...</p>
-          <a href="./post2.html" class="text-orange-400 font-semibold hover:text-cyan-300">Lire la suite...</a>
-        </article>
-        <article class="bg-gray-900 p-6 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-2">
-          <h2 class="text-2xl font-bold text-cyan-300">Qui est H@CKERBOY ?</h2>
-          <p class="text-sm text-gray-400 mb-2">Publié le 11 avril 2025 | Par H@CKERBOY</p>
-          <p>H@CKERBOY est bien plus qu'un simple pseudonyme. C'est un symbole...</p>
-          <a href="./hackerboy.html" class="text-orange-400 font-semibold hover:text-cyan-300">Lire la suite...</a>
-        </article>
-      </section>
+  /* Responsive text sizes */
+  @media (max-width: 768px) {
+    .glitch {
+      font-size: 2rem;
+    }
+  }
 
-      <section class="text-center mt-16">
-        <h2 class="text-2xl font-bold text-red-500 animate-pulse">⚠ Attention, ceci est un test !! ⚠</h2>
-      </section>
-    </main>
+</style>
+</head>
+<body>
 
-    <footer class="text-center py-6 bg-black text-gray-500 mt-20">
-      <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
-    </footer>
+<canvas id="matrix"></canvas>
 
-    <!-- Matrix background script, assistant widget, animations... (à inclure ensuite) -->
-    <script src="script.js"></script>
-    <script src="assistant.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1097593363373419" crossorigin="anonymous"></script>
-  </body>
+<header class="container">
+  <h1 class="glitch" data-text="H@CKERBOY BLOG">H@CKERBOY BLOG</h1>
+  <nav>
+    <a href="#post1">Informatique</a>
+    <a href="#post2">Hacker</a>
+    <a href="#post3">À propos</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="posts">
+    <article id="post1">
+      <h2>Tout savoir sur l'informatique</h2>
+      <p class="meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
+      <p class="content">L'informatique est l'étude du traitement automatique de l'information...</p>
+      <a href="./post1.html" class="read-more">Lire la suite...</a>
+    </article>
+
+    <article id="post2">
+      <h2>C'est quoi un Hacker ?</h2>
+      <p class="meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
+      <p class="content">Le cryptage est un pilier fondamental de la sécurité en ligne...</p>
+      <a href="./post2.html" class="read-more">Lire la suite...</a>
+    </article>
+
+    <article id="post3">
+      <h2>Qui est H@CKERBOY ?</h2>
+      <p class="meta">Publié le 11 avril 2025 | Par H@CKERBOY</p>
+      <p class="content">H@CKERBOY est bien plus qu'un simple pseudonyme. C'est un symbole...</p>
+      <a href="./hackerboy.html" class="read-more">Lire la suite...</a>
+    </article>
+  </section>
+
+  <section style="margin-top:3rem; text-align:center; color:#ff0000; font-weight:bold; animation: blink 1s infinite;">
+    ⚠ Attention, ceci est un test !! ⚠
+  </section>
+</main>
+
+<footer>
+  © 2025 H@CKERBOY. Tous droits réservés.
+</footer>
+
+<script>
+  // Matrix rain effect by H@CKERBOY v1.0
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  const letters = '01';
+  const fontSize = 14;
+  const columns = Math.floor(width / fontSize);
+  const drops = Array(columns).fill(1);
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0,0,0,0.1)';
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.fillStyle = '#0ff';
+    ctx.font = fontSize + 'px monospace';
+
+    for(let i = 0; i < drops.length; i++) {
+      const text = letters.charAt(Math.floor(Math.random() * letters.length));
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if(drops[i] * fontSize > height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 50);
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+</script>
+
+</body>
 </html>
