@@ -6,6 +6,56 @@ body {
     background-color: #fff;
     color: #1d1d1f;
     line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Stagger animation for grid items */
+@keyframes staggerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Container */
@@ -22,6 +72,7 @@ header {
     padding: 40px 0;
     text-align: center;
     border-bottom: 1px solid #d2d2d7;
+    animation: fadeIn 1s ease-out;
 }
 
 header h1 {
@@ -29,6 +80,7 @@ header h1 {
     font-weight: 600;
     margin: 0;
     letter-spacing: -0.02em;
+    animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 header nav ul {
@@ -64,12 +116,14 @@ section h2 {
     font-weight: 600;
     margin-bottom: 20px;
     color: #1d1d1f;
+    animation: fadeInUp 0.8s ease-out;
 }
 
 section p {
     font-size: 1rem;
     line-height: 1.6;
     color: #424245;
+    animation: fadeIn 0.6s ease-out;
 }
 
 section ul {
