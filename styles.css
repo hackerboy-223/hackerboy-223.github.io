@@ -92,10 +92,27 @@ section img {
 
 /* Posts grid */
 .posts {
+    margin: 80px 0;
+}
+
+.posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
-    margin: 80px 0;
+    margin-bottom: 60px;
+}
+
+.category {
+    margin-bottom: 80px;
+}
+
+.category h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007aff;
 }
 
 article {
