@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hackerboy-223.github.io/sitemap.xml
+
+# Crawl-delay may be added for specific bots if needed, e.g.:
+# Crawl-delay: 10

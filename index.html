@@ -4,20 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>H@CKERBOY - Blog</title>
-<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Blog de H@CKERBOY — articles sur l'informatique, la cybersécurité et l'innovation technologique.">
+<meta name="keywords" content="H@CKERBOY, cybersécurité, programmation, blog, informatique">
+<link rel="canonical" href="https://hackerboy-223.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.min.css">
+<link rel="stylesheet" href="header-fix.css">
+<meta name="author" content="H@CKERBOY">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:title" content="H@CKERBOY - Blog">
+<meta property="og:description" content="Articles sur l'informatique, la cybersécurité et l'innovation technologique.">
+<meta property="og:image" content="https://hackerboy-223.github.io/hack8080.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:url" content="https://hackerboy-223.github.io/">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
 <header>
   <div class="container">
+    <h1>H@CKERBOY</h1>
     <nav>
       <ul>
-        <li><a href="#post1">Informatique</a></li>
-        <li><a href="#post2">Hacker</a></li>
-        <li><a href="#post3">À propos</a></li>
-        <li><a href="#post4">CSS</a></li>
-        <li><a href="#post5">JavaScript</a></li>
-        <li><a href="#post6">Python</a></li>
+        <li><a href="#programmation">Programmation</a></li>
+        <li><a href="#informatique">Informatique</a></li>
+        <li><a href="#cybersécurité">Cybersécurité</a></li>
+        <li><a href="#apropos">À propos</a></li>
       </ul>
     </nav>
   </div>
@@ -31,7 +47,7 @@
     </div>
   </section>
 
-  <section class="category-section">
+  <section class="category-section" id="programmation">
     <div class="container">
       <h2>Programmation</h2>
       <div class="posts-grid">
@@ -59,7 +75,7 @@
     </div>
   </section>
 
-  <section class="category-section">
+  <section class="category-section" id="informatique">
     <div class="container">
       <h2>Informatique</h2>
       <div class="posts-grid">
@@ -73,7 +89,7 @@
     </div>
   </section>
 
-  <section class="category-section">
+  <section class="category-section" id="cybersécurité">
     <div class="container">
       <h2>Cybersécurité</h2>
       <div class="posts-grid">
@@ -87,7 +103,7 @@
     </div>
   </section>
 
-  <section class="category-section">
+  <section class="category-section" id="apropos">
     <div class="container">
       <h2>À propos</h2>
       <div class="posts-grid">
@@ -105,7 +121,24 @@
 <div id="assistant-root"></div>
 
 <footer>
-  <div class="container">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>H@CKERBOY</h3>
+      <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/the_dark_knowledge223" class="social-link" target="_blank" rel="noopener">📷</a>
+        <a href="https://wa.me/22384122222" class="social-link" target="_blank" rel="noopener">💬</a>
+        <a href="https://www.snapchat.com/add/lehackerboyduml" class="social-link" target="_blank" rel="noopener">👻</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#programmation">Programmation</a>
+      <a href="#informatique">Informatique</a>
+      <a href="#cybersécurité">Cybersécurité</a>
+      <a href="#apropos">À propos</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
     <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
   </div>
 </footer>
