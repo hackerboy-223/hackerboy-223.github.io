@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="header-fix.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-post-slug="post5">
 
     <header>
         <div class="container">
             <h1>Introduction à JavaScript</h1>
+            <input type="checkbox" id="nav-toggle" aria-hidden="true">
+            <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
@@ -63,7 +65,10 @@
         <div class="footer-bottom">
             <p>&copy; 2025 H@CKERBOY. Tous droits réservés.</p>
         </div>
+
     </footer>
 
-</body>
-</html>
+    <script src="js/dynamic.js"></script>
+
+    </body>
+    </html>

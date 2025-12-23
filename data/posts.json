@@ -1,0 +1,68 @@
+[
+  {
+    "id": "post1",
+    "slug": "post1",
+    "title": "Tout savoir sur l'informatique",
+    "date": "2024-12-20",
+    "author": "H@CKERBOY",
+    "category": "informatique",
+    "excerpt": "L'informatique est l'étude du traitement automatique de l'information.",
+    "content": "<h2>Qu'est-ce que l'Informatique ?</h2><p>L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent d'exécuter des programmes et de stocker des données.</p>",
+    "image": "images/post1.webp"
+  },
+  {
+    "id": "post2",
+    "slug": "post2",
+    "title": "C'est quoi un Hacker ?",
+    "date": "2024-12-20",
+    "author": "H@CKERBOY",
+    "category": "cybersécurité",
+    "excerpt": "Un hacker est une personne qui exploite les systèmes informatiques.",
+    "content": "<h2>Qu'est-ce qu'un Hacker ?</h2><p>Un hacker est une personne qui exploite les systèmes informatiques pour accéder à des informations ou systèmes de manière non autorisée.</p>",
+    "image": "images/post2.webp"
+  },
+  {
+    "id": "post3",
+    "slug": "post3",
+    "title": "Qui est H@CKERBOY ?",
+    "date": "2025-04-11",
+    "author": "H@CKERBOY",
+    "category": "apropos",
+    "excerpt": "H@CKERBOY est un symbole d'innovation et de passion pour la technologie.",
+    "content": "<h2>Qui est H@CKERBOY ?</h2><p>H@CKERBOY est bien plus qu'un simple pseudonyme. C'est un symbole d'innovation, de créativité et de passion pour la technologie.</p>",
+    "image": "images/post3.webp"
+  },
+  {
+    "id": "post4",
+    "slug": "post4",
+    "title": "Introduction au CSS",
+    "date": "2025-01-15",
+    "author": "H@CKERBOY",
+    "category": "programmation",
+    "excerpt": "Découvrez les bases du CSS pour styliser vos pages web.",
+    "content": "<h2>Introduction au CSS</h2><p>Découvrez les bases du CSS pour styliser vos pages web. Apprenez les sélecteurs, propriétés et bonnes pratiques.</p>",
+    "image": "images/post4.webp"
+  },
+  {
+    "id": "post5",
+    "slug": "post5",
+    "title": "Introduction à JavaScript",
+    "date": "2025-01-20",
+    "author": "H@CKERBOY",
+    "category": "programmation",
+    "excerpt": "Apprenez les fondamentaux de JavaScript pour créer des sites web interactifs.",
+    "content": "<h2>Introduction à JavaScript</h2><p>Apprenez les fondamentaux de JavaScript pour créer des sites web interactifs. Variables, fonctions, événements.</p>",
+    "image": "images/post5.webp"
+  },
+  {
+    "id": "post6",
+    "slug": "post6",
+    "title": "Introduction à Python",
+    "date": "2025-01-25",
+    "author": "H@CKERBOY",
+    "category": "programmation",
+    "excerpt": "Découvrez Python, un langage simple et puissant.",
+    "content": "<h2>Introduction à Python</h2><p>Découvrez Python, un langage de programmation simple et puissant. Parfait pour les débutants.</p>",
+    "image": "images/post6.webp"
+  }
+]

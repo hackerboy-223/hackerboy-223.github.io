@@ -1,3 +1,0 @@
-/* Header persistency override */
-header{transform:translateY(0) !important;transition:transform .3s !important;position:sticky !important;top:0 !important;z-index:1000 !important;background-color:inherit !important}
-header:hover{transform:translateY(0) !important}
