@@ -545,6 +545,22 @@ header { text-align: center; padding: 12px 0; position: relative; }
   #nav-toggle:checked ~ nav { display: block; }
 }
 
+/* Dropdown menu adjustments for post pages (smaller, inset, rounded) */
+@media (max-width: 900px) {
+  body[data-post-slug] header nav {
+    top: 48px;
+    left: 8px;
+    right: 8px;
+    max-width: calc(100% - 16px);
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.12);
+  }
+  body[data-post-slug] header nav ul { gap: .5rem; align-items: stretch; }
+  body[data-post-slug] header nav ul li a { display:block; padding:8px 10px; font-size:.95rem; border-radius:6px; text-align:left; }
+}
+
 @media (max-width: 768px) {
   .container { padding: 0 16px; }
   header { padding: 8px 0; }
