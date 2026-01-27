@@ -8,50 +8,41 @@
 
 
 <url>
-  <loc>https://hackerboy-223.github.io/</loc>
-  <lastmod>2025-05-16T17:02:20+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://hackerboy-223.github.io/post1.html</loc>
-  <lastmod>2025-05-16T17:02:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hackerboy-223.github.io/post2.html</loc>
-  <lastmod>2025-05-16T17:02:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hackerboy-223.github.io/post3.html</loc>
-  <lastmod>2025-05-16T17:02:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hackerboy-223.github.io/post4.html</loc>
-  <lastmod>2025-05-16T17:02:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hackerboy-223.github.io/post5.html</loc>
-  <lastmod>2025-05-16T17:02:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hackerboy-223.github.io/post6.html</loc>
-  <lastmod>2025-05-16T17:02:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hackerboy-223.github.io/hackerboy.html</loc>
-  <lastmod>2025-05-16T17:02:20+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://hackerboy-223.github.io/index.html</loc>
-  <lastmod>2025-05-16T17:02:20+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+    <loc>https://hackerboy-223.github.io/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://hackerboy-223.github.io/posts/post1.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://hackerboy-223.github.io/posts/post2.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://hackerboy-223.github.io/posts/post5.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://hackerboy-223.github.io/posts/post6.html</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://hackerboy-223.github.io/posts/hackerboy.html</loc>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://hackerboy-223.github.io/index.html</loc>
+    <priority>0.64</priority>
+  </url>
+
+
 
 
 </urlset>
