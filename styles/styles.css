@@ -1,3 +1,26 @@
+/* Responsive floating back button for mobile */
+@media (max-width: 600px) {
+  .btn-back-top {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 18px;
+    right: 18px;
+    left: auto;
+    z-index: 9999;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    opacity: 0.95;
+    background: #007aff;
+    color: #fff;
+    transition: background 0.2s, opacity 0.2s;
+  }
+  .btn-back-top:hover {
+    background: #0056cc;
+    opacity: 1;
+  }
+}
 /* Consolidated CSS for H@CKERBOY Blog - Formatted for readability */
 
 /* Base */
