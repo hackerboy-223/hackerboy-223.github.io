@@ -3,7 +3,7 @@
     try{
       const res = await fetch('/data/posts.json');
       if(!res.ok) throw new Error('Network response was not ok');
-      return await res.json().then(data => data.posts || []);
+      return await res.json();
     }catch(e){
       console.error('Cannot fetch posts:', e);
       return [];
