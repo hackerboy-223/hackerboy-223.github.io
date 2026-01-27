@@ -6,8 +6,8 @@
     "date": "2024-12-20",
     "author": "H@CKERBOY",
     "category": "informatique",
-    "excerpt": "L'informatique est l'étude du traitement automatique de l'information.",
-    "content": "<h2>Qu'est-ce que l'Informatique ?</h2><p>L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent d'exécuter des programmes et de stocker des données.</p>",
+    "excerpt": "L'informatique, c'est bien plus que des ordinateurs : découvrez ses domaines, son histoire et son impact sur notre quotidien.",
+    "content": "<h2>Qu'est-ce que l'informatique ?</h2><p>L'informatique est la science du traitement automatique de l'information. Elle englobe le matériel (hardware), les logiciels (software), les réseaux, la sécurité, l'intelligence artificielle et bien plus encore.</p><h3>Un peu d'histoire</h3><p>Des premiers calculateurs mécaniques à l'ordinateur quantique, l'informatique a révolutionné le monde. Alan Turing, Ada Lovelace, Steve Jobs ou Tim Berners-Lee sont quelques figures emblématiques.</p><h3>Domaines clés</h3><ul><li><strong>Programmation</strong> : écrire des instructions pour les machines.</li><li><strong>Réseaux</strong> : connecter les ordinateurs entre eux.</li><li><strong>Cybersécurité</strong> : protéger les données et systèmes.</li><li><strong>IA et Data Science</strong> : donner du sens aux données.</li></ul><h3>Pourquoi c'est important ?</h3><p>L'informatique est partout : santé, éducation, transport, communication, loisirs. Elle façonne notre avenir et nos modes de vie.</p><blockquote>\"L'informatique n'est pas une science, c'est un art de vivre !\"</blockquote>",
     "image": "images/post1.webp"
   },
   {
@@ -17,8 +17,8 @@
     "date": "2024-12-20",
     "author": "H@CKERBOY",
     "category": "cybersécurité",
-    "excerpt": "Un hacker est une personne qui exploite les systèmes informatiques.",
-    "content": "<h2>Qu'est-ce qu'un Hacker ?</h2><p>Un hacker est une personne qui exploite les systèmes informatiques pour accéder à des informations ou systèmes de manière non autorisée.</p>",
+    "excerpt": "Découvrez la vraie définition d'un hacker, ses motivations et les mythes qui l'entourent.",
+    "content": "<h2>Qu'est-ce qu'un Hacker ?</h2><p>Un hacker est une personne passionnée par la compréhension et la manipulation des systèmes informatiques. Contrairement aux idées reçues, tous les hackers ne sont pas des criminels !</p><h3>Les différents types de hackers</h3><ul><li><strong>White Hat</strong> : hackers éthiques, ils sécurisent les systèmes.</li><li><strong>Black Hat</strong> : hackers malveillants, ils exploitent les failles.</li><li><strong>Grey Hat</strong> : entre les deux, parfois hors-la-loi mais sans intention de nuire.</li></ul><h3>Pourquoi hacker ?</h3><p>Pour apprendre, sécuriser, défier, ou parfois pour de mauvaises raisons. Le hacking éthique est aujourd'hui un métier reconnu et recherché.</p><h3>Mythes et réalités</h3><ul><li>Un hacker n'est pas forcément un pirate !</li><li>La curiosité et la créativité sont ses principales qualités.</li></ul><blockquote>\"Le vrai hacker construit plus qu'il ne détruit.\"</blockquote>",
     "image": "images/post2.webp"
   },
   {
@@ -28,8 +28,8 @@
     "date": "2025-04-11",
     "author": "H@CKERBOY",
     "category": "apropos",
-    "excerpt": "H@CKERBOY est un symbole d'innovation et de passion pour la technologie.",
-    "content": "<h2>Qui est H@CKERBOY ?</h2><p>H@CKERBOY est bien plus qu'un simple pseudonyme. C'est un symbole d'innovation, de créativité et de passion pour la technologie.</p>",
+    "excerpt": "Découvrez le parcours, la vision et les passions de H@CKERBOY, créateur du blog.",
+    "content": "<h2>Qui est H@CKERBOY ?</h2><p>H@CKERBOY, c'est un passionné d'informatique, de cybersécurité et de partage de connaissances. Depuis l'enfance, il démonte, code, teste, apprend et transmet.</p><h3>Parcours</h3><ul><li>Autodidacte, curieux et créatif.</li><li>Expérience en développement web, sécurité, réseaux.</li><li>Contributeur à des projets open-source.</li></ul><h3>Vision</h3><p>Rendre l'informatique accessible à tous, démystifier le hacking, encourager l'apprentissage continu.</p><h3>Pourquoi ce blog ?</h3><p>Pour partager, vulgariser, inspirer et créer une communauté autour de la tech et de l'éthique numérique.</p>",
     "image": "images/post3.webp"
   },
   {
@@ -39,8 +39,8 @@
     "date": "2025-01-15",
     "author": "H@CKERBOY",
     "category": "programmation",
-    "excerpt": "Découvrez les bases du CSS pour styliser vos pages web.",
-    "content": "<h2>Introduction au CSS</h2><p>Découvrez les bases du CSS pour styliser vos pages web. Apprenez les sélecteurs, propriétés et bonnes pratiques.</p>",
+    "excerpt": "Le CSS permet de styliser vos pages web : couleurs, mise en page, animations... Découvrez ses bases et ses astuces !",
+    "content": "<h2>Qu'est-ce que le CSS ?</h2><p>Le CSS (Cascading Style Sheets) est le langage qui permet de mettre en forme vos pages HTML. Il sépare le contenu (HTML) de la présentation (CSS).</p><h3>Principes de base</h3><ul><li><strong>Sélecteurs</strong> : cibler des éléments HTML.</li><li><strong>Propriétés</strong> : définir la couleur, la taille, la police, etc.</li><li><strong>Responsivité</strong> : adapter le site à tous les écrans.</li></ul><h3>Exemple simple</h3><pre><code>body { background: #222; color: #fff; }</code></pre><h3>Bonnes pratiques</h3><ul><li>Utiliser des classes pour réutiliser les styles.</li><li>Minifier le CSS pour de meilleures performances.</li><li>Tester sur différents navigateurs.</li></ul><blockquote>"Un bon CSS rend le web plus beau !"</blockquote>",
     "image": "images/post4.webp"
   },
   {
@@ -50,8 +50,8 @@
     "date": "2025-01-20",
     "author": "H@CKERBOY",
     "category": "programmation",
-    "excerpt": "Apprenez les fondamentaux de JavaScript pour créer des sites web interactifs.",
-    "content": "<h2>Introduction à JavaScript</h2><p>Apprenez les fondamentaux de JavaScript pour créer des sites web interactifs. Variables, fonctions, événements.</p>",
+    "excerpt": "JavaScript rend vos sites interactifs ! Découvrez ses bases, ses usages et un exemple concret.",
+    "content": "<h2>Pourquoi JavaScript ?</h2><p>JavaScript est le langage de programmation du web. Il permet de rendre vos pages dynamiques, interactives et intelligentes.</p><h3>Fonctionnalités principales</h3><ul><li>Manipulation du DOM (structure HTML).</li><li>Gestion des événements (clics, formulaires...)</li><li>Appels API et AJAX.</li></ul><h3>Exemple de code</h3><pre><code>document.querySelector('button').addEventListener('click', function() { alert('Hello JS!'); });</code></pre><h3>Conseils</h3><ul><li>Bien commenter son code.</li><li>Tester dans la console du navigateur.</li><li>Utiliser <code>let</code> et <code>const</code> plutôt que <code>var</code>.</li></ul>",
     "image": "images/post5.webp"
   },
   {
@@ -61,8 +61,8 @@
     "date": "2025-01-25",
     "author": "H@CKERBOY",
     "category": "programmation",
-    "excerpt": "Découvrez Python, un langage simple et puissant.",
-    "content": "<h2>Introduction à Python</h2><p>Découvrez Python, un langage de programmation simple et puissant. Parfait pour les débutants.</p>",
+    "excerpt": "Python est un langage simple, puissant et polyvalent. Idéal pour débuter et aller loin !",
+    "content": "<h2>Pourquoi apprendre Python ?</h2><p>Python est réputé pour sa simplicité, sa lisibilité et sa puissance. Il est utilisé en data science, web, IA, automatisation, etc.</p><h3>Syntaxe de base</h3><pre><code>print('Hello, world!')\nfor i in range(5):\n    print(i)</code></pre><h3>Forces de Python</h3><ul><li>Lisible et concis.</li><li>Grande communauté et beaucoup de ressources.</li><li>Polyvalent (web, scripts, IA...)</li></ul><h3>Conseils pour débuter</h3><ul><li>Pratiquer avec des petits scripts.</li><li>Lire la documentation officielle.</li><li>Ne pas avoir peur de se tromper : c'est comme ça qu'on apprend !</li></ul>",
     "image": "images/post6.webp"
   }
 ]
