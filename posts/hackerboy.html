@@ -43,6 +43,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 </head>
+<style>
+.btn-back-top {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    z-index: 10;
+    background: #222;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+.btn-back-top:hover {
+    background: #444;
+}
+</style>
 <body data-post-slug="post3">
 
     <header>
@@ -52,7 +71,7 @@
             <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
             <h1>Qui est H@CKERBOY ?</h1>
         </div>
-        <a href="../index.html" class="btn-back">Retour à l'accueil</a>
+        <a href="../index.html" class="btn-back btn-back-top">Retour à l'accueil</a>
     </header>
 
     <main>

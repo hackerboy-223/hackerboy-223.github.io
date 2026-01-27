@@ -13,7 +13,7 @@
   function renderCard(post){
     const a = document.createElement('a');
     a.className = 'read-more';
-    a.href = `./${post.slug}.html`;
+    a.href = `./posts/${post.slug}.html`;
     a.textContent = 'Lire la suite';
 
     const article = document.createElement('article');

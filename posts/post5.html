@@ -12,13 +12,32 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
+<style>
+.btn-back-top {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    z-index: 10;
+    background: #222;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+.btn-back-top:hover {
+    background: #444;
+}
+</style>
 <body data-post-slug="post5">
 
     <header>
         <div class="container">
             <img src="../images/hack8080.jpg" alt="Logo H@CKERBOY 223 blog cybersécurité informatique" class="logo" width="64" height="64">
             <h1>Introduction à JavaScript</h1>
-            <a href="../index.html" class="btn-back">Retour à l'accueil</a>
+            <a href="../index.html" class="btn-back btn-back-top">Retour à l'accueil</a>
             <input type="checkbox" id="nav-toggle" aria-hidden="true">
             <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
             <nav>
