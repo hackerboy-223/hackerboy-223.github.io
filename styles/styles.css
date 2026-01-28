@@ -1,3 +1,77 @@
+/* Apple.com inspired cards and buttons */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 48px;
+  margin-bottom: 80px;
+  margin-top: 32px;
+}
+article {
+  background: #fff;
+  border-radius: 32px;
+  padding: 40px 32px 32px 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  transition: box-shadow 0.25s, transform 0.25s;
+  border: none;
+  opacity: 0;
+  animation: staggerFadeIn .7s ease-out forwards;
+  transform: translateY(30px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 340px;
+}
+article:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.13);
+  transform: translateY(-6px) scale(1.02);
+}
+article h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+}
+article p.meta {
+  font-size: 1rem;
+  color: #86868b;
+  margin-bottom: 18px;
+}
+article p.content {
+  font-size: 1.08rem;
+  color: #424245;
+  line-height: 1.6;
+}
+article a.read-more {
+  display: inline-block;
+  margin-top: 24px;
+  color: #fff;
+  background: linear-gradient(90deg,#0071e3 60%,#2997ff 100%);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.08rem;
+  padding: 12px 32px;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  letter-spacing: 0.01em;
+}
+article a.read-more:hover {
+  background: linear-gradient(90deg,#2997ff 60%,#0071e3 100%);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(0,113,227,0.13);
+}
+@media (max-width: 900px) {
+  .posts-grid { grid-template-columns: 1fr; gap: 32px; }
+  article { padding: 32px 16px; min-height: 220px; }
+}
+@media (max-width: 600px) {
+  .posts-grid { gap: 18px; }
+  article { padding: 18px 6px; min-height: 120px; }
+  article h2 { font-size: 1.2rem; }
+  article p.content { font-size: 0.98rem; }
+  article a.read-more { padding: 10px 18px; font-size: 1rem; }
+}
 /* Responsive floating back button for mobile */
 @media (max-width: 600px) {
   .btn-back-top {
