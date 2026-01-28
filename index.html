@@ -65,22 +65,131 @@
           <h1>H@CKERBOY</h1>
           <input type="checkbox" id="nav-toggle" aria-hidden="true">
           <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
-    <nav>
-        <ul>
-            <li> <a href="#programmation">Programmation</a> </li>
-            <li> <a href="#informatique">Informatique</a> </li>
-            <li> <a href="#cybersécurité">Cybersécurité</a> </li>
-            <li> <a href="#apropos">À propos</a> </li>
-        </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="container">
-      <h1>H@CKERBOY BLOG</h1>
-      <p>Découvrez mes articles sur l'informatique, la cybersécurité et l'innovation technologique.</p>
+    <header class="apple-header">
+      <div class="apple-header-inner">
+        <a href="./" class="apple-logo-link">
+          <img src="./images/hack8080.jpg" alt="Logo H@CKERBOY" class="apple-logo" width="44" height="44">
+        </a>
+        <nav class="apple-nav" id="apple-nav">
+          <ul>
+            <li><a href="#programmation">Programmation</a></li>
+            <li><a href="#informatique">Informatique</a></li>
+            <li><a href="#cybersécurité">Cybersécurité</a></li>
+            <li><a href="#apropos">À propos</a></li>
+          </ul>
+        </nav>
+        <button class="apple-burger" id="apple-burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <style>
+    /* Apple.com inspired header */
+    .apple-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      z-index: 1000;
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      transition: box-shadow 0.2s;
+    }
+    .apple-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 64px;
+    }
+    .apple-logo-link { display: flex; align-items: center; text-decoration: none; }
+    .apple-logo { border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.08); width: 44px; height: 44px; }
+    .apple-nav ul {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .apple-nav ul li a {
+      color: #222;
+      text-decoration: none;
+      font-size: 1.08rem;
+      font-weight: 500;
+      padding: 8px 0;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .apple-nav ul li a:hover, .apple-nav ul li a:focus {
+      color: #0071e3;
+    }
+    .apple-burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1100;
+    }
+    .apple-burger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: #222;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    @media (max-width: 900px) {
+      .apple-header-inner { padding: 0 12px; }
+      .apple-nav ul { gap: 1.2rem; }
+    }
+    @media (max-width: 700px) {
+      .apple-nav {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        transform: translateY(-120%);
+        transition: transform 0.3s;
+        z-index: 999;
+      }
+      .apple-nav.open { transform: translateY(0); }
+      .apple-nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 24px 0;
+        align-items: center;
+      }
+      .apple-burger { display: flex; }
+    }
+    </style>
+    <script>
+    // Burger menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const burger = document.getElementById('apple-burger');
+      const nav = document.getElementById('apple-nav');
+      burger.addEventListener('click', function() {
+        nav.classList.toggle('open');
+        burger.classList.toggle('open');
+      });
+      // Close nav on link click (mobile)
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          burger.classList.remove('open');
+        });
+      });
+    });
+    </script>
     </div>
   </section>
 
