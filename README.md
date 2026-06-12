@@ -94,3 +94,5 @@ If you want, I can:
 - Add `images/` placeholders and update pages to use `picture` markup for selected images.
 - Generate a PowerShell script that runs ImageMagick for all local images in the repo (you'll run it locally).
 
+Vérification effectuée le 12 juin 2026 par H@CKERBOY
+
