@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,7 +66,7 @@
           <h1>H@CKERBOY</h1>
           <input type="checkbox" id="nav-toggle" aria-hidden="true">
           <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
-    <header class="apple-header">
+          <div class="apple-header">
       <div class="apple-header-inner">
         <a href="./" class="apple-logo-link">
           <img src="./images/hack8080.jpg" alt="Logo H@CKERBOY" class="apple-logo" width="44" height="44">
@@ -82,7 +83,7 @@
           <span></span><span></span><span></span>
         </button>
       </div>
-    </header>
+    </div>
     <style>
     /* Apple.com inspired header */
     .apple-header {
@@ -177,21 +178,24 @@
     document.addEventListener('DOMContentLoaded', function() {
       const burger = document.getElementById('apple-burger');
       const nav = document.getElementById('apple-nav');
-      burger.addEventListener('click', function() {
-        nav.classList.toggle('open');
-        burger.classList.toggle('open');
-      });
-      // Close nav on link click (mobile)
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          nav.classList.remove('open');
-          burger.classList.remove('open');
+      if (burger && nav) {
+        burger.addEventListener('click', function() {
+          nav.classList.toggle('open');
+          burger.classList.toggle('open');
         });
-      });
+        // Close nav on link click (mobile)
+        nav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            nav.classList.remove('open');
+            burger.classList.remove('open');
+          });
+        });
+      }
     });
     </script>
     </div>
-  </section>
+  </header>
+  <main>
 
   <section class="category-section" id="programmation">
     <div class="container">
@@ -231,7 +235,7 @@
         <article id="post1">
           <h2>Tout savoir sur l'informatique</h2>
           <p class="meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
-          <p class="content">L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent d'exécuter des programmes et de stocker des données.</p>
+          <p class="content">L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent[...]
           <a href="./posts/post1.html" class="read-more">Lire la suite</a>
         </article>
       </div>
@@ -247,7 +251,7 @@
           <div class="content">
             <h2>C'est quoi un Hacker ?</h2>
             <p class="meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
-            <p class="content">Un hacker est une personne qui exploite les systèmes informatiques pour accéder à des informations ou systèmes de manière non autorisée. Les hackers sont souvent classifiés en fonction de leurs intentions.</p>
+            <p class="content">Un hacker est une personne qui exploite les systèmes informatiques pour accéder à des informations ou systèmes de manière non autorisée. Les hackers sont souv[...]
             <a href="./posts/post2.html" class="read-more">Lire la suite</a>
           </div>
         </article>
@@ -268,7 +272,7 @@
       </div>
     </div>
   </section>
-</main>
+  </main>
 
 <div id="assistant-root"></div>
 
