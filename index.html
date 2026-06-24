@@ -24,20 +24,22 @@
   <meta property="og:url" content="https://hackerboy-223.github.io/">
   <meta property="og:locale" content="fr_FR">
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="H@CKERBOY BLOG – Programmation, Informatique et Cybersécurité">
   <meta name="twitter:description" content="Blog de H@CKERBOY sur la programmation, l'informatique et la cybersécurité.">
   <meta name="twitter:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
 
-  <!-- Google Search Console (à remplacer quand tu auras le code) -->
+  <!-- Google Search Console -->
   <!-- <meta name="google-site-verification" content="TON_CODE_ICI"> -->
 
-  <!-- Fonts & CSS -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="./styles/styles.min.css">
-  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Poppins:wght@400;500;600&display=swap">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./styles/styles-merged.css">
 
   <!-- Données structurées JSON-LD -->
   <script type="application/ld+json">
@@ -55,252 +57,213 @@
   }
   </script>
 </head>
-      <!-- body -->
+
 <body>
 
-      <div class="background-mesh"></div>
+  <!-- Animated background canvas (driven by js/dynamic.js) -->
+  <div class="background-mesh"></div>
 
-<header>
-  <div class="container">
-          <img src="./images/hack8080.jpg" alt="Logo H@CKERBOY 223 blog cybersécurité informatique" width="64" height="64">
-          <h1>H@CKERBOY</h1>
-          <input type="checkbox" id="nav-toggle" aria-hidden="true">
-          <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
-          <div class="apple-header">
-      <div class="apple-header-inner">
-        <a href="./" class="apple-logo-link">
-          <img src="./images/hack8080.jpg" alt="Logo H@CKERBOY" class="apple-logo" width="44" height="44">
-        </a>
-        <nav class="apple-nav" id="apple-nav">
-          <ul>
-            <li><a href="#programmation">Programmation</a></li>
-            <li><a href="#informatique">Informatique</a></li>
-            <li><a href="#cybersécurité">Cybersécurité</a></li>
-            <li><a href="#apropos">À propos</a></li>
-          </ul>
-        </nav>
-        <button class="apple-burger" id="apple-burger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-    <style>
-    /* Apple.com inspired header */
-    .apple-header {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      z-index: 1000;
-      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
-      transition: box-shadow 0.2s;
-    }
-    .apple-header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-      height: 64px;
-    }
-    .apple-logo-link { display: flex; align-items: center; text-decoration: none; }
-    .apple-logo { border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.08); width: 44px; height: 44px; }
-    .apple-nav ul {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .apple-nav ul li a {
-      color: #222;
-      text-decoration: none;
-      font-size: 1.08rem;
-      font-weight: 500;
-      padding: 8px 0;
-      position: relative;
-      transition: color 0.2s;
-    }
-    .apple-nav ul li a:hover, .apple-nav ul li a:focus {
-      color: #0071e3;
-    }
-    .apple-burger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      gap: 5px;
-      z-index: 1100;
-    }
-    .apple-burger span {
-      display: block;
-      width: 26px;
-      height: 3px;
-      background: #222;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-    @media (max-width: 900px) {
-      .apple-header-inner { padding: 0 12px; }
-      .apple-nav ul { gap: 1.2rem; }
-    }
-    @media (max-width: 700px) {
-      .apple-nav {
-        position: fixed;
-        top: 64px;
-        left: 0;
-        right: 0;
-        background: #fff;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-        transform: translateY(-120%);
-        transition: transform 0.3s;
-        z-index: 999;
-      }
-      .apple-nav.open { transform: translateY(0); }
-      .apple-nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 24px 0;
-        align-items: center;
-      }
-      .apple-burger { display: flex; }
-    }
-    </style>
-    <script>
-    // Burger menu toggle
-    document.addEventListener('DOMContentLoaded', function() {
-      const burger = document.getElementById('apple-burger');
-      const nav = document.getElementById('apple-nav');
-      if (burger && nav) {
-        burger.addEventListener('click', function() {
-          nav.classList.toggle('open');
-          burger.classList.toggle('open');
-        });
-        // Close nav on link click (mobile)
-        nav.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            nav.classList.remove('open');
-            burger.classList.remove('open');
-          });
-        });
-      }
-    });
-    </script>
+  <!-- ═══════════════════════════════════════════
+       HEADER — single unified nav (Apple-style)
+       ═══════════════════════════════════════════ -->
+  <header class="apple-header" role="banner">
+    <div class="apple-header-inner">
+
+      <!-- Logo -->
+      <a href="./" class="apple-logo-link" aria-label="H@CKERBOY — accueil">
+        <img src="./images/hack8080.jpg"
+             alt="Logo H@CKERBOY"
+             class="apple-logo"
+             width="44" height="44">
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="apple-nav" id="apple-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#programmation">Programmation</a></li>
+          <li><a href="#informatique">Informatique</a></li>
+          <li><a href="#cybersécurité">Cybersécurité</a></li>
+          <li><a href="#apropos">À propos</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile burger button -->
+      <button class="apple-burger"
+              id="apple-burger"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+              aria-controls="apple-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
   </header>
-  <main>
+  <!-- /header -->
 
-  <section class="category-section" id="programmation">
-    <div class="container">
-      <h2>Programmation</h2>
-      <div class="posts-grid">
-        <article id="post4">
-          <h2>Introduction au CSS</h2>
-          <p class="meta">Publié le 15 janvier 2025 | Par H@CKERBOY</p>
-          <p class="content">Découvrez les bases du CSS pour styliser vos pages web. Apprenez les sélecteurs, propriétés et bonnes pratiques.</p>
-          <a href="./posts/post1.html" class="read-more">Lire la suite</a>
-        </article>
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+       ═══════════════════════════════════════════ -->
+  <main id="main-content">
 
-        <article id="post5" class="liquid-card">
-          <div class="shine"></div>
-          <div class="content">
-            <h2>Introduction à JavaScript</h2>
+    <!-- Programmation -->
+    <section class="category-section" id="programmation">
+      <div class="container">
+        <h2>Programmation</h2>
+        <div class="posts-grid">
+
+          <article id="post4">
+            <p class="meta">Publié le 15 janvier 2025 | Par H@CKERBOY</p>
+            <h2>Introduction au CSS</h2>
+            <p class="content">Découvrez les bases du CSS pour styliser vos pages web. Apprenez les sélecteurs, propriétés et bonnes pratiques.</p>
+            <a href="./posts/post1.html" class="read-more">Lire la suite</a>
+          </article>
+
+          <article id="post5" class="liquid-card">
+            <div class="shine" aria-hidden="true"></div>
             <p class="meta">Publié le 20 janvier 2025 | Par H@CKERBOY</p>
+            <h2>Introduction à JavaScript</h2>
             <p class="content">Apprenez les fondamentaux de JavaScript pour créer des sites web interactifs. Variables, fonctions, événements.</p>
             <a href="./posts/post5.html" class="read-more">Lire la suite</a>
-          </div>
-        </article>
+          </article>
 
-        <article id="post6">
-          <h2>Introduction à Python</h2>
-          <p class="meta">Publié le 25 janvier 2025 | Par H@CKERBOY</p>
-          <p class="content">Découvrez Python, un langage de programmation simple et puissant. Parfait pour les débutants.</p>
-          <a href="./posts/post6.html" class="read-more">Lire la suite</a>
-        </article>
+          <article id="post6">
+            <p class="meta">Publié le 25 janvier 2025 | Par H@CKERBOY</p>
+            <h2>Introduction à Python</h2>
+            <p class="content">Découvrez Python, un langage de programmation simple et puissant. Parfait pour les débutants.</p>
+            <a href="./posts/post6.html" class="read-more">Lire la suite</a>
+          </article>
+
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="category-section" id="informatique">
-    <div class="container">
-      <h2>Informatique</h2>
-      <div class="posts-grid">
-        <article id="post1">
-          <h2>Tout savoir sur l'informatique</h2>
-          <p class="meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
-          <p class="content">L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent[...]
-          <a href="./posts/post1.html" class="read-more">Lire la suite</a>
-        </article>
-      </div>
-    </div>
-  </section>
+    <!-- Informatique -->
+    <section class="category-section" id="informatique">
+      <div class="container">
+        <h2>Informatique</h2>
+        <div class="posts-grid">
 
-  <section class="category-section" id="cybersécurité">
-    <div class="container">
-      <h2>Cybersécurité</h2>
-      <div class="posts-grid">
-        <article id="post2" class="liquid-card">
-          <div class="shine"></div>
-          <div class="content">
-            <h2>C'est quoi un Hacker ?</h2>
+          <article id="post1">
             <p class="meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
-            <p class="content">Un hacker est une personne qui exploite les systèmes informatiques pour accéder à des informations ou systèmes de manière non autorisée. Les hackers sont souv[...]
+            <h2>Tout savoir sur l'informatique</h2>
+            <p class="content">L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent de stocker, traiter et transmettre des données.</p>
+            <a href="./posts/post1.html" class="read-more">Lire la suite</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Cybersécurité -->
+    <section class="category-section" id="cybersécurité">
+      <div class="container">
+        <h2>Cybersécurité</h2>
+        <div class="posts-grid">
+
+          <article id="post2" class="liquid-card">
+            <div class="shine" aria-hidden="true"></div>
+            <p class="meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
+            <h2>C'est quoi un Hacker ?</h2>
+            <p class="content">Un hacker est une personne qui exploite les systèmes informatiques pour accéder à des informations ou systèmes de manière non autorisée. Les hackers sont souvent classés en trois catégories : white hat, grey hat et black hat.</p>
             <a href="./posts/post2.html" class="read-more">Lire la suite</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+          </article>
 
-  <section class="category-section" id="apropos">
-    <div class="container">
-      <h2>À propos</h2>
-      <div class="posts-grid">
-        <article id="post3">
-          <h2>Qui est H@CKERBOY ?</h2>
-          <p class="meta">Publié le 11 avril 2025 | Par H@CKERBOY</p>
-          <p class="content">H@CKERBOY est bien plus qu'un simple pseudonyme. C'est un symbole d'innovation, de créativité et de passion pour la technologie.</p>
-          <a href="./posts/hackerboy.html" class="read-more">Lire la suite</a>
-        </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- À propos -->
+    <section class="category-section" id="apropos">
+      <div class="container">
+        <h2>À propos</h2>
+        <div class="posts-grid">
+
+          <article id="post3">
+            <p class="meta">Publié le 11 avril 2025 | Par H@CKERBOY</p>
+            <h2>Qui est H@CKERBOY ?</h2>
+            <p class="content">H@CKERBOY est bien plus qu'un simple pseudonyme. C'est un symbole d'innovation, de créativité et de passion pour la technologie.</p>
+            <a href="./posts/hackerboy.html" class="read-more">Lire la suite</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
   </main>
+  <!-- /main -->
 
-<div id="assistant-root"></div>
+  <!-- Assistant widget mount point -->
+  <div id="assistant-root" aria-live="polite"></div>
 
-<footer>
-  <div class="footer-content">
-    <div class="footer-brand">
-      <h3>H@CKERBOY</h3>
-      <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
-      <div class="social-links">
-        <a href="https://www.instagram.com/the_dark_knowledge223" class="social-link" target="_blank" rel="noopener">📷</a>
-        <a href="https://wa.me/22384122222" class="social-link" target="_blank" rel="noopener">💬</a>
-        <a href="https://www.snapchat.com/add/lehackerboyduml" class="social-link" target="_blank" rel="noopener">👻</a>
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-content">
+
+      <div class="footer-brand">
+        <h3>H@CKERBOY</h3>
+        <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/the_dark_knowledge223"
+             class="social-link"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram de H@CKERBOY">📷</a>
+          <a href="https://wa.me/22384122222"
+             class="social-link"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="WhatsApp de H@CKERBOY">💬</a>
+          <a href="https://www.snapchat.com/add/lehackerboyduml"
+             class="social-link"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Snapchat de H@CKERBOY">👻</a>
+        </div>
       </div>
-    </div>
-    <div class="footer-links">
-      <a href="#programmation">Programmation</a>
-      <a href="#informatique">Informatique</a>
-      <a href="#cybersécurité">Cybersécurité</a>
-      <a href="#apropos">À propos</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
-  </div>
-</footer>
 
-<script src="js/dynamic.js"></script>
-<script src="js/assistant.js"></script>
+      <nav class="footer-links" aria-label="Liens rapides">
+        <a href="#programmation">Programmation</a>
+        <a href="#informatique">Informatique</a>
+        <a href="#cybersécurité">Cybersécurité</a>
+        <a href="#apropos">À propos</a>
+      </nav>
+
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts — deferred so they don't block rendering -->
+  <script src="js/dynamic.js" defer></script>
+  <script src="js/assistant.js" defer></script>
+
+  <!-- Burger menu toggle — inline because it's tiny and critical for UX -->
+  <script>
+    (function () {
+      var burger = document.getElementById('apple-burger');
+      var nav    = document.getElementById('apple-nav');
+      if (!burger || !nav) return;
+
+      burger.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        burger.classList.toggle('open', isOpen);
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        burger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+      });
+
+      // Close nav when a link is clicked (mobile)
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('open');
+          burger.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+          burger.setAttribute('aria-label', 'Ouvrir le menu');
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
