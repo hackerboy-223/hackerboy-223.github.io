@@ -4,23 +4,23 @@
 
 /* ── Design Tokens ───────────────────────────── */
 :root {
-  --color-primary:    #007aff;
+  --color-primary: #007aff;
   --color-primary-dark: #0056cc;
-  --color-accent:     #ff5722;
-  --color-bg:         #ffffff;
-  --color-bg-alt:     #f5f5f7;
-  --color-text:       #1d1d1f;
+  --color-accent: #ff5722;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f5f7;
+  --color-text: #1d1d1f;
   --color-text-muted: #86868b;
-  --color-text-body:  #424245;
-  --color-border:     #d2d2d7;
-  --color-shadow-sm:  rgba(0, 0, 0, 0.06);
-  --color-shadow-md:  rgba(0, 0, 0, 0.12);
-  --color-cyber:      #00ffcc;
-  --color-cyber-dim:  #0ff;
-  --max-width:        1200px;
-  --radius-card:      20px;
-  --radius-btn:       25px;
-  --nav-height:       64px;
+  --color-text-body: #424245;
+  --color-border: #d2d2d7;
+  --color-shadow-sm: rgba(0, 0, 0, 0.06);
+  --color-shadow-md: rgba(0, 0, 0, 0.12);
+  --color-cyber: #00ffcc;
+  --color-cyber-dim: #0ff;
+  --max-width: 1200px;
+  --radius-card: 20px;
+  --radius-btn: 25px;
+  --nav-height: 64px;
 }
 
 /* ── Reset & Base ────────────────────────────── */
@@ -39,7 +39,7 @@ body {
   padding: 0;
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Poppins', system-ui, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
 }
@@ -51,7 +51,9 @@ img {
 }
 
 /* Heading typeface */
-h1, h2, h3,
+h1,
+h2,
+h3,
 .footer-brand h3 {
   font-family: 'Orbitron', sans-serif;
 }
@@ -64,7 +66,7 @@ h1, h2, h3,
 }
 
 /* ── Header / Nav ────────────────────────────── */
-.apple-header {
+.neo-header {
   position: sticky;
   top: 0;
   width: 100%;
@@ -74,7 +76,7 @@ h1, h2, h3,
   transition: box-shadow 0.2s;
 }
 
-.apple-header-inner {
+.neo-shell {
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
@@ -84,20 +86,20 @@ h1, h2, h3,
   height: var(--nav-height);
 }
 
-.apple-logo-link {
+.core-brand {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
 
-.apple-logo {
+.core-mark {
   width: 44px;
   height: 44px;
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.apple-nav ul {
+.drift-nav ul {
   display: flex;
   gap: 2.5rem;
   list-style: none;
@@ -105,7 +107,7 @@ h1, h2, h3,
   padding: 0;
 }
 
-.apple-nav ul li a {
+.drift-nav ul li a {
   color: var(--color-text);
   text-decoration: none;
   font-size: 1.08rem;
@@ -114,12 +116,12 @@ h1, h2, h3,
   transition: color 0.18s;
 }
 
-.apple-nav ul li a:hover,
-.apple-nav ul li a:focus {
+.drift-nav ul li a:hover,
+.drift-nav ul li a:focus {
   color: #0071e3;
 }
 
-.apple-burger {
+.pulse-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -133,7 +135,7 @@ h1, h2, h3,
   z-index: 1100;
 }
 
-.apple-burger span {
+.pulse-toggle span {
   display: block;
   width: 26px;
   height: 3px;
@@ -158,8 +160,13 @@ section {
   padding: 80px 0;
 }
 
-.category-section:nth-child(odd)  { background-color: var(--color-bg); }
-.category-section:nth-child(even) { background-color: var(--color-bg-alt); }
+.category-section:nth-child(odd) {
+  background-color: var(--color-bg);
+}
+
+.category-section:nth-child(even) {
+  background-color: var(--color-bg-alt);
+}
 
 section h2 {
   font-family: 'Orbitron', sans-serif;
@@ -220,13 +227,13 @@ section h2 {
   box-shadow: 0 18px 48px var(--color-shadow-md);
 }
 
-/* ── Liquid / Shimmer Card ───────────────────── */
-.liquid-card {
+/* ── Accent panel styling ───────────────────── */
+.luna-panel {
   position: relative;
   overflow: hidden;
 }
 
-.liquid-card .shine {
+.luna-panel .nova-glow {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -388,21 +395,46 @@ footer {
 
 /* ── Keyframes ───────────────────────────────── */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes glitch {
-  0%   { text-shadow:  2px  2px red,  -2px -2px blue; }
-  20%  { text-shadow: -2px  2px lime,   2px -2px purple; }
-  40%  { text-shadow:  2px -2px orange,-2px  2px cyan; }
-  60%  { text-shadow: -1px -1px white,  1px  1px gray; }
-  80%  { text-shadow:  3px  0   red,   -3px  0   blue; }
-  100% { text-shadow:  0    0   2px var(--color-cyber-dim); }
+  0% {
+    text-shadow: 2px 2px red, -2px -2px blue;
+  }
+
+  20% {
+    text-shadow: -2px 2px lime, 2px -2px purple;
+  }
+
+  40% {
+    text-shadow: 2px -2px orange, -2px 2px cyan;
+  }
+
+  60% {
+    text-shadow: -1px -1px white, 1px 1px gray;
+  }
+
+  80% {
+    text-shadow: 3px 0 red, -3px 0 blue;
+  }
+
+  100% {
+    text-shadow: 0 0 2px var(--color-cyber-dim);
+  }
 }
 
 /* ── Accessibility: Reduced Motion ───────────── */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -413,16 +445,30 @@ footer {
 
 /* ── Responsive — Tablet (≤900px) ───────────── */
 @media (max-width: 900px) {
-  .apple-header-inner { padding: 0 12px; }
-  .apple-nav ul       { gap: 1.2rem; }
-  .posts-grid         { gap: 32px; }
-  .container          { padding: 0 12px; }
-  .apple-burger       { display: flex; }
+  .neo-shell {
+    padding: 0 12px;
+  }
+
+  .drift-nav ul {
+    gap: 1.2rem;
+  }
+
+  .posts-grid {
+    gap: 32px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .pulse-toggle {
+    display: flex;
+  }
 }
 
 /* ── Responsive — Mobile Nav (≤700px) ───────── */
 @media (max-width: 700px) {
-  .apple-nav {
+  .drift-nav {
     position: fixed;
     top: var(--nav-height);
     left: 0;
@@ -433,11 +479,11 @@ footer {
     transition: transform 0.3s;
   }
 
-  .apple-nav.open {
+  .drift-nav.open {
     transform: translateY(0);
   }
 
-  .apple-nav ul {
+  .drift-nav ul {
     flex-direction: column;
     gap: 0.5rem;
     padding: 24px 0;
@@ -447,8 +493,21 @@ footer {
 
 /* ── Responsive — Small Mobile (≤600px) ─────── */
 @media (max-width: 600px) {
-  .posts-grid                   { gap: 18px; }
-  .posts-grid article           { padding: 18px 6px; min-height: 120px; }
-  .posts-grid article h2        { font-size: 1.1rem; }
-  .btn-back-top                 { padding: 10px 16px; font-size: 0.95rem; }
+  .posts-grid {
+    gap: 18px;
+  }
+
+  .posts-grid article {
+    padding: 18px 6px;
+    min-height: 120px;
+  }
+
+  .posts-grid article h2 {
+    font-size: 1.1rem;
+  }
+
+  .btn-back-top {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
 }

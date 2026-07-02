@@ -1,5 +1,5 @@
 /* =============================================
-   H@CKERBOY BLOG — Apple-style CSS
+   H@CKERBOY BLOG — Minimal modern CSS
    Fonts: Orbitron (headings) + Poppins (body)
    ============================================= */
 
@@ -45,9 +45,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--white);
+  background: var(--surface);
   color: var(--ink);
-  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-family: 'Poppins', system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   overflow-x: hidden;
@@ -84,21 +84,20 @@ h3 {
   padding: 0 24px;
 }
 
-/* ── Header (apple-header) ───────────────────── */
-.apple-header {
+/* ── Header / Top navigation ─────────────────── */
+.neo-header {
   position: sticky;
   top: 0;
   z-index: 1000;
   width: 100%;
-  /* Frosted glass */
-  background: rgba(255, 255, 255, 0.82);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   transition: box-shadow var(--transition);
 }
 
-.apple-header-inner {
+.neo-shell {
   max-width: var(--max-w);
   margin: 0 auto;
   display: flex;
@@ -109,24 +108,23 @@ h3 {
   gap: 16px;
 }
 
-.apple-logo-link {
+.core-brand {
   display: flex;
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.apple-logo {
+.core-mark {
   width: 36px;
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
-  /* Subtle ring */
-  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.25);
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.18);
 }
 
 /* Desktop nav */
-.apple-nav ul {
+.drift-nav ul {
   display: flex;
   gap: 0;
   list-style: none;
@@ -134,27 +132,27 @@ h3 {
   padding: 0;
 }
 
-.apple-nav ul li a {
+.drift-nav ul li a {
   display: block;
   color: var(--ink);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  padding: 6px 16px;
-  border-radius: 20px;
+  padding: 8px 16px;
+  border-radius: 999px;
   transition: color var(--transition), background var(--transition);
 }
 
-.apple-nav ul li a:hover,
-.apple-nav ul li a:focus-visible {
+.drift-nav ul li a:hover,
+.drift-nav ul li a:focus-visible {
   color: var(--blue);
-  background: rgba(0, 113, 227, 0.07);
+  background: rgba(0, 113, 227, 0.08);
   outline: none;
 }
 
-/* Burger — hidden on desktop */
-.apple-burger {
+/* Menu toggle — hidden on desktop */
+.pulse-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -166,15 +164,15 @@ h3 {
   cursor: pointer;
   gap: 5px;
   padding: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: background var(--transition);
 }
 
-.apple-burger:hover {
+.pulse-toggle:hover {
   background: var(--surface);
 }
 
-.apple-burger span {
+.pulse-toggle span {
   display: block;
   width: 22px;
   height: 2px;
@@ -183,17 +181,17 @@ h3 {
   transition: transform 0.28s ease, opacity 0.2s ease;
 }
 
-/* Burger → X when open */
-.apple-burger.open span:nth-child(1) {
+/* Menu toggle → X when open */
+.pulse-toggle.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 
-.apple-burger.open span:nth-child(2) {
+.pulse-toggle.open span:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
 
-.apple-burger.open span:nth-child(3) {
+.pulse-toggle.open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
@@ -210,23 +208,21 @@ h3 {
   background: var(--surface);
 }
 
-/* Section heading — signature cyber eyebrow treatment */
+/* Section heading — clean and crisp */
 .category-section h2 {
-  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 36px;
-  /* The one bold move: neon left-border, like a terminal prompt */
-  padding-left: 16px;
-  border-left: 3px solid var(--cyber);
-  /* NOT centered — category label sits flush left, editorial */
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* ── Posts grid ──────────────────────────────── */
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
 }
 
@@ -332,27 +328,23 @@ article a.read-more:hover::after {
   transform: translateX(3px);
 }
 
-/* ── Liquid / shimmer card ───────────────────── */
-.liquid-card {
+/* ── Accent panel styling ───────────────────── */
+.luna-panel {
   position: relative;
   overflow: hidden;
 }
 
-.liquid-card .shine {
+.luna-panel .nova-glow {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(115deg,
-      transparent 40%,
-      rgba(255, 255, 255, 0.45) 50%,
-      transparent 60%);
-  background-size: 200% 100%;
-  background-position: 200% 0;
-  transition: background-position 0.6s ease;
+  background: radial-gradient(circle at top left, rgba(10, 132, 255, 0.12), transparent 35%);
+  opacity: 0.9;
+  transition: opacity 0.45s ease;
 }
 
-.liquid-card:hover .shine {
-  background-position: -200% 0;
+.luna-panel:hover .nova-glow {
+  opacity: 0.65;
 }
 
 /* ── Footer ──────────────────────────────────── */
@@ -488,11 +480,11 @@ footer {
 
 /* ── Responsive — Tablet (≤860px) ───────────── */
 @media (max-width: 860px) {
-  .apple-burger {
+  .pulse-toggle {
     display: flex;
   }
 
-  .apple-nav {
+  .drift-nav {
     position: fixed;
     top: var(--nav-h);
     left: 0;
@@ -507,18 +499,18 @@ footer {
     z-index: 999;
   }
 
-  .apple-nav.open {
+  .drift-nav.open {
     transform: translateY(0);
   }
 
-  .apple-nav ul {
+  .drift-nav ul {
     flex-direction: column;
     gap: 0;
     padding: 12px 16px 20px;
     align-items: stretch;
   }
 
-  .apple-nav ul li a {
+  .drift-nav ul li a {
     padding: 12px 16px;
     border-radius: var(--radius-sm);
     font-size: 1rem;
@@ -539,22 +531,22 @@ footer {
     padding: 0 16px;
   }
 
-  .apple-header-inner {
+  .neo-shell {
     padding: 0 16px;
     gap: 12px;
   }
 
-  .apple-logo {
+  .core-mark {
     width: 32px;
     height: 32px;
   }
 
-  .apple-nav {
+  .drift-nav {
     max-height: calc(100vh - var(--nav-h));
     overflow-y: auto;
   }
 
-  .apple-nav ul li a {
+  .drift-nav ul li a {
     width: 100%;
     box-sizing: border-box;
   }
