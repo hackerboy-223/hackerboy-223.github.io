@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La Masterclass Python : De Zéro à H@CKER. Apprenez Python de manière intensive et pratique.">
+    <meta name="description"
+        content="La Masterclass Python : De Zéro à H@CKER. Apprenez Python de manière intensive et pratique.">
     <meta name="keywords" content="Python, programmation, développement, tutoriel, langage, hacker, masterclass">
     <meta name="author" content="H@CKERBOY">
     <link rel="icon" type="image/x-icon" href="../icon/hack8080.ico">
     <title>La Masterclass Python : De Zéro à H@CKER</title>
     <link rel="stylesheet" href="../styles/styles.min.css">
     <link rel="stylesheet" href="../styles/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </head>
 <style>
-.btn-back-top {
-    position: absolute;
-    top: 24px;
-    right: 32px;
-    z-index: 10;
-    background: #222;
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 24px;
-    text-decoration: none;
-    font-weight: 500;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: background 0.2s;
-}
-.btn-back-top:hover {
-    background: #444;
-}
+    .btn-back-top {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        z-index: 10;
+        background: #222;
+        color: #fff;
+        padding: 8px 18px;
+        border-radius: 24px;
+        text-decoration: none;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: background 0.2s;
+    }
+
+    .btn-back-top:hover {
+        background: #444;
+    }
 </style>
+
 <body data-post-slug="post6">
 
-    <header>
-        <div class="container">
-            <img src="../images/hack8080.jpg" alt="Logo H@CKERBOY 223 blog cybersécurité informatique" class="logo" width="64" height="64">
-            <h1>La Masterclass Python</h1>
-            <a href="../index.html" class="btn-back btn-back-top">Retour à l'accueil</a>
-            <input type="checkbox" id="nav-toggle" aria-hidden="true">
-            <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span></label>
-            <nav>
+    <header class="neo-header" role="banner">
+        <div class="neo-shell">
+            <a href="../index.html" class="core-brand" aria-label="H@CKERBOY — accueil">
+                <img src="../images/hack8080.jpg" alt="Logo H@CKERBOY" class="core-mark" width="44" height="44">
+            </a>
+
+            <nav class="drift-nav" id="drift-nav" aria-label="Navigation principale">
                 <ul>
-                    <li><a href="../index.html">Accueil</a></li>
-                    <li><a href="#lvl1">Lvl 1</a></li>
-                    <li><a href="#lvl2">Lvl 2</a></li>
-                    <li><a href="#lvl3">Lvl 3</a></li>
-                    <li><a href="#lvl4">Lvl 4</a></li>
+                    <li><a href="../index.html#programmation">Programmation</a></li>
+                    <li><a href="../index.html#informatique">Informatique</a></li>
+                    <li><a href="../index.html#cybersécurité">Cybersécurité</a></li>
+                    <li><a href="../index.html#apropos">À propos</a></li>
                 </ul>
             </nav>
+
+            <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
+                aria-controls="drift-nav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
@@ -60,7 +69,8 @@
         <header class="course-header">
             <div class="glass-badge">PYTHON_PROTOCOL_V1</div>
             <h1 class="neon-title">La Masterclass Python : De Zéro à H@CKER</h1>
-            <p class="course-intro">Le langage le plus puissant du monde, démystifié. Pas de blabla académique, juste du code pur pour automatiser, créer et dominer.</p>
+            <p class="course-intro">Le langage le plus puissant du monde, démystifié. Pas de blabla académique, juste du
+                code pur pour automatiser, créer et dominer.</p>
         </header>
 
         <!-- Navigation Rapide (Sticky si possible) -->
@@ -82,11 +92,14 @@
 
             <div class="glass-card content-block">
                 <h3>📦 Les Variables : Tes Containers</h3>
-                <p>Imagine une boîte en carton. Tu écris "Score" dessus, et tu mets "10" dedans. C'est ça, une variable. En Python, c'est le <strong>Typage Dynamique</strong> : le code devine tout seul ce qu'il y a dans la boîte.</p>
+                <p>Imagine une boîte en carton. Tu écris "Score" dessus, et tu mets "10" dedans. C'est ça, une variable.
+                    En Python, c'est le <strong>Typage Dynamique</strong> : le code devine tout seul ce qu'il y a dans
+                    la boîte.</p>
 
                 <!-- Placeholder pour l'image -->
                 <figure class="visual-concept">
-                    <img src="https://www.data-bird.co/images/blog/variables-python.png" alt="Schéma mémoire variable" class="img-fluid rounded shadow">
+                    <img src="https://www.data-bird.co/images/blog/variables-python.png" alt="Schéma mémoire variable"
+                        class="img-fluid rounded shadow">
                     <figcaption>Visualisation : La variable pointe vers la valeur en mémoire.</figcaption>
                 </figure>
 
@@ -112,10 +125,12 @@ print(f"User: {pseudo} | Lvl: {niveau}")
 
             <div class="glass-card content-block">
                 <h3>🧠 IF / ELSE : Le Cerveau</h3>
-                <p>C'est la prise de décision. Si X arrive, fais Y. Sinon, fais Z. Sans ça, ton programme est stupide.</p>
+                <p>C'est la prise de décision. Si X arrive, fais Y. Sinon, fais Z. Sans ça, ton programme est stupide.
+                </p>
 
                 <div class="hacker-tip">
-                    <strong>💡 PRO TIP :</strong> L'indentation (les espaces) est vitale en Python. Pas d'accolades {}, juste des tabulations.
+                    <strong>💡 PRO TIP :</strong> L'indentation (les espaces) est vitale en Python. Pas d'accolades {},
+                    juste des tabulations.
                 </div>
 
                 <div class="code-terminal">
@@ -134,7 +149,8 @@ else:
 
                 <figure class="visual-concept">
                     <!-- Lien vers l'image flowchart -->
-                    <img src="https://pynative.com/wp-content/uploads/2021/07/python-if-else-if-statement-flowchart.png" alt="Flowchart If Else" class="img-fluid rounded shadow">
+                    <img src="https://pynative.com/wp-content/uploads/2021/07/python-if-else-if-statement-flowchart.png"
+                        alt="Flowchart If Else" class="img-fluid rounded shadow">
                 </figure>
             </div>
         </section>
@@ -192,7 +208,8 @@ print(config["ports"][0]) # Affiche : 80
 
             <div class="glass-card content-block">
                 <h3>🏭 Classes & Objets : L'Usine</h3>
-                <p>Pour construire des gros systèmes, tu ne peux pas juste écrire du code en vrac. Tu as besoin de plans (Blueprints).</p>
+                <p>Pour construire des gros systèmes, tu ne peux pas juste écrire du code en vrac. Tu as besoin de plans
+                    (Blueprints).</p>
                 <ul class="feature-list">
                     <li><strong>Classe :</strong> Le plan de construction (Ex: Plan d'un Robot).</li>
                     <li><strong>Objet :</strong> Le robot construit (Ex: Terminator T-800).</li>
@@ -225,32 +242,47 @@ bot1.attack() # Output: T-800 frappe avec 500kg de force !
         </footer>
     </main>
 
-    <footer>
+    <section class="post-navigation container">
+        <h3>Autres articles</h3>
+        <ul>
+            <li><a href="post1.html">Tout savoir sur l'informatique</a></li>
+            <li><a href="post2.html">C'est quoi un Hacker ?</a></li>
+            <li><a href="post3.html">Qui est H@CKERBOY ?</a></li>
+            <li><a href="post4.html">Introduction au CSS</a></li>
+            <li><a href="post5.html">Introduction à JavaScript</a></li>
+            <li><a href="post6.html">Introduction à Python</a></li>
+            <li><a href="hackerboy.html">À propos</a></li>
+        </ul>
+    </section>
+
+    <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
                 <h3>H@CKERBOY</h3>
                 <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/the_dark_knowledge223" class="social-link" target="_blank" rel="noopener">📷</a>
-                    <a href="https://wa.me/22384122222" class="social-link" target="_blank" rel="noopener">💬</a>
-                    <a href="https://www.snapchat.com/add/lehackerboyduml" class="social-link" target="_blank" rel="noopener">👻</a>
+                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-snapchat"></i></a>
+                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="footer-links">
-                <a href="../index.html">Accueil</a>
-                <a href="#lvl1">Lvl 1</a>
-                <a href="#lvl2">Lvl 2</a>
-                <a href="#lvl3">Lvl 3</a>
-                <a href="#lvl4">Lvl 4</a>
-            </div>
+            <nav class="footer-links" aria-label="Liens rapides">
+                <a href="../index.html#programmation">Programmation</a>
+                <a href="../index.html#informatique">Informatique</a>
+                <a href="../index.html#cybersécurité">Cybersécurité</a>
+                <a href="../index.html#apropos">À propos</a>
+            </nav>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 H@CKERBOY. Tous droits réservés.</p>
+            <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
         </div>
-
     </footer>
 
     <script src="../js/dynamic.js"></script>
 
-    </body>
-    </html>
+</body>
+
+</html>

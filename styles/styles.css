@@ -347,6 +347,114 @@ article a.read-more:hover::after {
   opacity: 0.65;
 }
 
+/* ── Post page layout ────────────────────────── */
+.page-main {
+  padding: 90px 0 80px;
+}
+
+.page-hero {
+  background: var(--white);
+  border-radius: 28px;
+  padding: 64px 0 56px;
+  margin: 24px 0 40px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.06);
+}
+
+.page-hero .eyebrow {
+  display: inline-flex;
+  margin-bottom: 18px;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.page-hero h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin: 0 0 18px;
+  line-height: 1.05;
+}
+
+.page-hero .page-desc {
+  max-width: 760px;
+  color: var(--ink-muted);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.btn-back-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  background: var(--ink);
+  color: #fff;
+  padding: 13px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform var(--transition), background var(--transition);
+}
+
+.btn-back-top:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.content-article {
+  display: grid;
+  gap: 32px;
+}
+
+.content-article section {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+}
+
+.content-article section h2 {
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+}
+
+.content-article section p,
+.content-article section ul,
+.content-article section ol {
+  color: var(--ink-body);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.content-article section ul,
+.content-article section ol {
+  padding-left: 1.2rem;
+}
+
+.content-article section ul li,
+.content-article section ol li {
+  margin-bottom: 0.85rem;
+}
+
+.content-article section img {
+  width: 100%;
+  border-radius: 18px;
+  margin-top: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 860px) {
+  .page-main {
+    padding-top: 70px;
+  }
+
+  .page-hero {
+    margin: 20px 0 32px;
+    padding: 42px 0 38px;
+  }
+}
+
 /* ── Footer ──────────────────────────────────── */
 footer {
   background: var(--surface);
