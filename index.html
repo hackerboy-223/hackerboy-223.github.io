@@ -93,7 +93,11 @@
       </nav>
 
       <!-- Mobile menu button -->
-      <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
+      <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème" title="Mode sombre / clair">
+                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+
+            <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
         aria-controls="drift-nav">
         <span></span>
         <span></span>
@@ -109,6 +113,14 @@
        ═══════════════════════════════════════════ -->
   <main id="main-content">
 
+    <!-- Hero -->
+    <section class="post-hero" id="accueil">
+      <div class="container">
+        <h1>H@CKERBOY BLOG</h1>
+        <p class="meta">Programmation, informatique et cybersécurité — accessibles à tous.</p>
+      </div>
+    </section>
+
     <!-- Programmation -->
     <section class="category-section" id="programmation">
       <div class="container">
@@ -120,7 +132,7 @@
             <h2>Introduction au CSS</h2>
             <p class="content">Découvrez les bases du CSS pour styliser vos pages web. Apprenez les sélecteurs,
               propriétés et bonnes pratiques.</p>
-            <a href="./posts/post1.html" class="read-more">Lire la suite</a>
+            <a href="./posts/post4.html" class="read-more">Lire la suite</a>
           </article>
 
           <article id="post5" class="luna-panel">
@@ -130,6 +142,14 @@
             <p class="content">Apprenez les fondamentaux de JavaScript pour créer des sites web interactifs. Variables,
               fonctions, événements.</p>
             <a href="./posts/post5.html" class="read-more">Lire la suite</a>
+          </article>
+
+          <article id="post3">
+            <p class="meta">Publié le 10 janvier 2025 | Par H@CKERBOY</p>
+            <h2>Introduction au HTML</h2>
+            <p class="content">Le HTML est la fondation de toute page web. Structure, balises essentielles et bonnes
+              pratiques pour bien démarrer.</p>
+            <a href="./posts/post3.html" class="read-more">Lire la suite</a>
           </article>
 
           <article id="post6">
@@ -201,6 +221,16 @@
       </div>
     </section>
 
+    <!-- Assistant H@CKERBOT -->
+    <section class="category-section" id="assistant">
+      <div class="container">
+        <h2>H@CKERBOT — Assistant du blog</h2>
+        <p class="assistant-intro">Une question sur le blog, Python, JavaScript ou la cybersécurité ? Demande à
+          H@CKERBOT !</p>
+        <div id="assistant-root"></div>
+      </div>
+    </section>
+
   </main>
   <!-- /main -->
   <!-- ═══════════════════════════════════════════
@@ -241,6 +271,8 @@
   <!-- Scripts — deferred so they don't block rendering -->
   <script src="js/dynamic.js" defer></script>
   <script src="js/assistant.js" defer></script>
+  <script src="js/ios-theme-toggle.js" defer></script>
+  <script src="js/animations.js" defer></script>
 
   <!-- Menu toggle script -->
   <script>

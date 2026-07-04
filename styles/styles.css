@@ -699,3 +699,344 @@ footer {
     flex-wrap: wrap;
   }
 }
+/* ═══════════════════════════════════════════════
+   ADDITIONS — post hero, btn-back, thème sombre,
+   assistant H@CKERBOT, vignettes de cartes
+   ═══════════════════════════════════════════════ */
+
+/* ── Post hero (h1 + retour) ─────────────────── */
+.post-hero {
+  padding: 56px 0 8px;
+}
+
+.post-hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  margin-bottom: 0.4em;
+}
+
+.post-hero .meta {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  margin-top: 14px;
+}
+
+/* ── Bouton retour ───────────────────────────── */
+.btn-back {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--white);
+  padding: 8px 18px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-back:hover,
+.btn-back:focus-visible {
+  background: var(--blue);
+  transform: translateX(-3px);
+  outline: none;
+}
+
+/* ── Bouton thème clair/sombre ───────────────── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 1rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+.theme-toggle:hover {
+  background: var(--surface);
+  color: var(--blue);
+}
+
+/* ── Vignettes des cartes d'articles ─────────── */
+.card-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+}
+
+/* ── Assistant H@CKERBOT ─────────────────────── */
+.assistant-intro {
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+}
+
+.assistant-container {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 18px;
+  max-width: 640px;
+}
+
+.assistant-chat {
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 4px;
+}
+
+.assistant-chat .msg {
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  max-width: 88%;
+}
+
+.assistant-chat .msg.bot {
+  background: var(--surface);
+  align-self: flex-start;
+}
+
+.assistant-chat .msg.user {
+  background: rgba(0, 113, 227, 0.1);
+  align-self: flex-end;
+}
+
+.assistant-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.assistant-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.assistant-input:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+.assistant-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.assistant-btn:hover {
+  background: var(--blue-dark);
+}
+
+/* ── Thème sombre ────────────────────────────── */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  --white: #000000;
+  --surface: #0d0d0f;
+  --surface-card: #17171a;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  --ink: #f5f5f7;
+  --ink-muted: #9b9ba1;
+  --ink-body: #d1d1d6;
+  --blue: #2997ff;
+  --blue-dark: #0071e3;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+html.dark .neo-header {
+  background: rgba(13, 13, 15, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html.dark .btn-back {
+  background: var(--surface-card);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+html.dark .btn-back:hover,
+html.dark .btn-back:focus-visible {
+  background: var(--blue);
+  color: #fff;
+}
+
+html.dark .assistant-chat .msg.user {
+  background: rgba(41, 151, 255, 0.16);
+}
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS — scroll reveal, glitch, typing,
+   barre de lecture, micro-interactions
+   ═══════════════════════════════════════════════ */
+
+/* ── Scroll reveal ──────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease var(--reveal-delay, 0ms),
+    transform 0.6s cubic-bezier(0.22, 0.9, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+/* ── Glitch du titre (hero) ─────────────────── */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.glitch::before {
+  color: #00e5ff;
+  animation: glitch-shift 3.2s infinite steps(2, jump-none);
+}
+
+.glitch::after {
+  color: #ff2d78;
+  animation: glitch-shift 2.7s infinite steps(2, jump-none) reverse;
+}
+
+@keyframes glitch-shift {
+  0%, 86%, 100% { transform: translate(0); clip-path: inset(0 0 100% 0); }
+  87% { transform: translate(-3px, 1px); clip-path: inset(12% 0 58% 0); }
+  90% { transform: translate(3px, -1px); clip-path: inset(62% 0 8% 0); }
+  93% { transform: translate(-2px, 2px); clip-path: inset(30% 0 42% 0); }
+  96% { transform: translate(2px, -2px); clip-path: inset(80% 0 2% 0); }
+}
+
+/* ── Effet typing (sous-titre hero) ─────────── */
+.typing::after {
+  content: '▌';
+  margin-left: 2px;
+  color: var(--accent, #6c5ce7);
+  animation: caret-blink 0.85s step-end infinite;
+}
+
+.typing-done::after {
+  animation: caret-blink 0.85s step-end infinite, caret-fade 1s ease 2.2s forwards;
+}
+
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+@keyframes caret-fade {
+  to { opacity: 0; }
+}
+
+/* ── Barre de progression de lecture ────────── */
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #6c5ce7, #00e5ff);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 1200;
+}
+
+/* ── Micro-interactions ─────────────────────── */
+.posts-grid article:hover .read-more i,
+.posts-grid article:focus-within .read-more i {
+  animation: nudge-x 0.7s ease infinite alternate;
+}
+
+@keyframes nudge-x {
+  to { transform: translateX(5px); }
+}
+
+.theme-toggle:active i {
+  animation: spin-pop 0.45s ease;
+}
+
+@keyframes spin-pop {
+  50% { transform: rotate(160deg) scale(1.25); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.core-mark {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.core-brand:hover .core-mark {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.btn-back {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-back::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.25) 50%, transparent 60%);
+  transform: translateX(-110%);
+}
+
+.btn-back:hover::after {
+  animation: sheen 0.8s ease;
+}
+
+@keyframes sheen {
+  to { transform: translateX(110%); }
+}
+
+/* ── Accessibilité : mouvement réduit ───────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+  .glitch::before,
+  .glitch::after { display: none; }
+  .read-progress { display: none; }
+  .typing::after,
+  .typing-done::after,
+  .posts-grid article:hover .read-more i,
+  .theme-toggle:active i,
+  .btn-back:hover::after {
+    animation: none !important;
+  }
+}
