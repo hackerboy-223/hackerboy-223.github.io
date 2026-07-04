@@ -3,17 +3,53 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Apprenez les bases du HTML, le langage de balisage pour créer des pages web.">
-    <meta name="keywords" content="HTML, programmation, développement web, tutoriel">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introduction au HTML – H@CKERBOY BLOG</title>
+    <meta name="description" content="Apprenez les bases du HTML, le langage de balisage pour créer des pages web : structure, balises essentielles et bonnes pratiques.">
+    <meta name="keywords" content="HTML, programmation, développement web, tutoriel, balises, H@CKERBOY">
     <meta name="author" content="H@CKERBOY">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hackerboy-223.github.io/posts/post3.html">
     <link rel="icon" type="image/x-icon" href="../icon/hack8080.ico">
-    <title>Introduction au HTML</title>
-    <link rel="stylesheet" href="../styles/styles.min.css">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Introduction au HTML – H@CKERBOY BLOG">
+    <meta property="og:description" content="Apprenez les bases du HTML, le langage de balisage pour créer des pages web : structure, balises essentielles et bonnes pratiques.">
+    <meta property="og:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
+    <meta property="og:url" content="https://hackerboy-223.github.io/posts/post3.html">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Introduction au HTML – H@CKERBOY BLOG">
+    <meta name="twitter:description" content="Apprenez les bases du HTML, le langage de balisage pour créer des pages web : structure, balises essentielles et bonnes pratiques.">
+    <meta name="twitter:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Poppins:wght@400;500;600&display=swap">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../styles/styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap"
-        rel="stylesheet">
+
+    <!-- Données structurées JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Introduction au HTML – H@CKERBOY BLOG",
+      "inLanguage": "fr-FR",
+      "datePublished": "2025-01-10",
+      "author": { "@type": "Person", "name": "H@CKERBOY" },
+      "publisher": { "@type": "Person", "name": "H@CKERBOY" },
+      "mainEntityOfPage": "https://hackerboy-223.github.io/posts/post3.html"
+    }
+    </script>
 </head>
 
 <body data-post-slug="post3">
@@ -33,6 +69,10 @@
                 </ul>
             </nav>
 
+            <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème" title="Mode sombre / clair">
+                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+
             <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
                 aria-controls="drift-nav">
                 <span></span><span></span><span></span>
@@ -41,36 +81,53 @@
     </header>
 
     <main>
-        <section class="hero">
+        <section class="post-hero">
             <div class="container">
                 <h1>Introduction au HTML</h1>
-                <p>Découvrez les bases du langage de balisage pour créer des pages web.</p>
+                <!-- TODO résolu : .btn-back placé juste après le <h1> -->
+                <a class="btn-back" href="../index.html#programmation">&larr; Retour au blog</a>
+                <p class="meta">Publié le 10 janvier 2025 | Par H@CKERBOY</p>
             </div>
         </section>
 
-        <section>
-            <div class="container">
-                <section id="html">
-                    <h2>Qu'est-ce que le HTML ?</h2>
-                    <p>Le HTML (HyperText Markup Language) est le langage de base pour créer des pages web. Il utilise
-                        des balises pour structurer le contenu.</p>
-                    <h3>Structure de base</h3>
-                    <p>Une page HTML commence toujours par <code><!DOCTYPE html></code> et contient des éléments comme
-                        <code><head></code> et <code><body></code>.
-                    </p>
-                    <h3>Balises importantes</h3>
-                    <ul>
-                        <li><code><h1></code> à <code><h6></code> : Titres</li>
-                        <li><code><p></code> : Paragraphes</li>
-                        <li><code><a></code> : Liens</li>
-                        <li><code><img></code> : Images</li>
-                        <li><code><div></code> : Conteneurs</li>
-                    </ul>
-                    <img src="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals/html-elements.png"
-                        alt="Exemple de balises HTML" loading="lazy">
-                </section>
-            </div>
-        </section>
+        <div class="container">
+
+            <section id="html">
+                <h2>Qu'est-ce que le HTML ?</h2>
+                <p>Le HTML (HyperText Markup Language) est le langage de base pour créer des pages web. Il utilise
+                    des balises pour structurer le contenu.</p>
+                <h3>Structure de base</h3>
+                <p>Une page HTML commence toujours par <code>&lt;!DOCTYPE html&gt;</code> et contient des éléments comme
+                    <code>&lt;head&gt;</code> et <code>&lt;body&gt;</code>.</p>
+                <h3>Balises importantes</h3>
+                <ul>
+                    <li><code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> : Titres</li>
+                    <li><code>&lt;p&gt;</code> : Paragraphes</li>
+                    <li><code>&lt;a&gt;</code> : Liens</li>
+                    <li><code>&lt;img&gt;</code> : Images</li>
+                    <li><code>&lt;div&gt;</code> : Conteneurs</li>
+                </ul>
+                <h3>Exemple minimal</h3>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Ma première page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bonjour le monde !&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <h3>Bonnes pratiques</h3>
+                <ul>
+                    <li>Utiliser des balises sémantiques (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>,
+                        <code>&lt;footer&gt;</code>…).</li>
+                    <li>Toujours renseigner l'attribut <code>alt</code> des images.</li>
+                    <li>Valider son code avec le validateur du W3C.</li>
+                </ul>
+            </section>
+
+        </div>
     </main>
 
     <section class="post-navigation container">
@@ -78,11 +135,11 @@
         <ul>
             <li><a href="post1.html">Tout savoir sur l'informatique</a></li>
             <li><a href="post2.html">C'est quoi un Hacker ?</a></li>
-            <li><a href="post3.html">Qui est H@CKERBOY ?</a></li>
+            <li><a href="post3.html">Introduction au HTML</a></li>
             <li><a href="post4.html">Introduction au CSS</a></li>
             <li><a href="post5.html">Introduction à JavaScript</a></li>
             <li><a href="post6.html">Introduction à Python</a></li>
-            <li><a href="hackerboy.html">À propos</a></li>
+            <li><a href="hackerboy.html">Qui est H@CKERBOY ?</a></li>
         </ul>
     </section>
 
@@ -92,12 +149,12 @@
                 <h3>H@CKERBOY</h3>
                 <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
                 <div class="social-links">
-                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-snapchat"></i></a>
-                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"
+                        aria-label="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
+                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             <nav class="footer-links" aria-label="Liens rapides">
@@ -108,11 +165,12 @@
             </nav>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
+            <p>© 2026 H@CKERBOY. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="../js/dynamic.js"></script>
+    <script src="../js/dynamic.js" defer></script>
+    <script src="../js/ios-theme-toggle.js" defer></script>
     <script>
         (function () {
             var toggle = document.getElementById('pulse-toggle');
@@ -138,7 +196,5 @@
     </script>
 
 </body>
-
-</html>
 
 </html>

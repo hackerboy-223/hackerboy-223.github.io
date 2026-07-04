@@ -1,74 +1,56 @@
-<section class="post-navigation container">
-    <h3>Autres articles</h3>
-    <ul>
-        <li><a href="post1.html">Tout savoir sur l'informatique</a></li>
-        <li><a href="post2.html">C'est quoi un Hacker ?</a></li>
-        <li><a href="post3.html">Qui est H@CKERBOY ?</a></li>
-        <li><a href="post4.html">Introduction au CSS</a></li>
-        <li><a href="post5.html">Introduction à JavaScript</a></li>
-        <li><a href="post6.html">Introduction à Python</a></li>
-        <li><a href="hackerboy.html">À propos</a></li>
-    </ul>
-</section>
+<!DOCTYPE html>
+<html lang="fr">
 
-<footer role="contentinfo">
-    <div class="footer-content">
-        <div class="footer-brand">
-            <h3>H@CKERBOY</h3>
-            <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
-            <div class="social-links">
-                <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"><i
-                        class="fa-brands fa-snapchat"></i></a>
-                <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"><i
-                        class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"><i
-                        class="fa-brands fa-instagram"></i></a>
-            </div>
-        </div>
-        <nav class="footer-links" aria-label="Liens rapides">
-            <a href="../index.html#programmation">Programmation</a>
-            <a href="../index.html#informatique">Informatique</a>
-            <a href="../index.html#cybersécurité">Cybersécurité</a>
-            <a href="../index.html#apropos">À propos</a>
-        </nav>
-    </div>
-    <div class="footer-bottom">
-        <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
-    </div>
-</footer>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C'est quoi un Hacker ? – H@CKERBOY BLOG</title>
+    <meta name="description" content="Qui sont les hackers ? Types (white hat, grey hat, black hat), techniques, conséquences et comment se protéger. Guide cybersécurité par H@CKERBOY.">
+    <meta name="keywords" content="hacker, cybersécurité, white hat, black hat, piratage, sécurité informatique, H@CKERBOY">
+    <meta name="author" content="H@CKERBOY">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hackerboy-223.github.io/posts/post2.html">
+    <link rel="icon" type="image/x-icon" href="../icon/hack8080.ico">
 
-<script src="../js/dynamic.js"></script>
-<script>
-    (function () {
-        var toggle = document.getElementById('pulse-toggle');
-        var nav = document.getElementById('drift-nav');
-        if (!toggle || !nav) return;
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="C'est quoi un Hacker ? – H@CKERBOY BLOG">
+    <meta property="og:description" content="Qui sont les hackers ? Types (white hat, grey hat, black hat), techniques, conséquences et comment se protéger. Guide cybersécurité par H@CKERBOY.">
+    <meta property="og:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
+    <meta property="og:url" content="https://hackerboy-223.github.io/posts/post2.html">
+    <meta property="og:locale" content="fr_FR">
 
-        toggle.addEventListener('click', function () {
-            var isOpen = nav.classList.toggle('open');
-            toggle.classList.toggle('open', isOpen);
-            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-        });
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="C'est quoi un Hacker ? – H@CKERBOY BLOG">
+    <meta name="twitter:description" content="Qui sont les hackers ? Types (white hat, grey hat, black hat), techniques, conséquences et comment se protéger. Guide cybersécurité par H@CKERBOY.">
+    <meta name="twitter:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
 
-        nav.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                nav.classList.remove('open');
-                toggle.classList.remove('open');
-                toggle.setAttribute('aria-expanded', 'false');
-                toggle.setAttribute('aria-label', 'Ouvrir le menu');
-            });
-        });
-    })();
-</script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Poppins:wght@400;500;600&display=swap">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-</body>
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/styles.css">
 
-</html>
-.btn-back-top:hover {
-background: #444;
-}
-</style>
+    <!-- Données structurées JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "C'est quoi un Hacker ? – H@CKERBOY BLOG",
+      "inLanguage": "fr-FR",
+      "datePublished": "2024-12-20",
+      "author": { "@type": "Person", "name": "H@CKERBOY" },
+      "publisher": { "@type": "Person", "name": "H@CKERBOY" },
+      "mainEntityOfPage": "https://hackerboy-223.github.io/posts/post2.html"
+    }
+    </script>
+</head>
 
 <body data-post-slug="post2">
 
@@ -87,6 +69,10 @@ background: #444;
                 </ul>
             </nav>
 
+            <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème" title="Mode sombre / clair">
+                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+
             <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
                 aria-controls="drift-nav">
                 <span></span><span></span><span></span>
@@ -95,78 +81,141 @@ background: #444;
     </header>
 
     <main>
+        <section class="post-hero">
+            <div class="container">
+                <h1>C'est quoi un Hacker ?</h1>
+                <!-- TODO résolu : .btn-back placé juste après le <h1> -->
+                <a class="btn-back" href="../index.html#cybersécurité">&larr; Retour au blog</a>
+                <p class="meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
+            </div>
+        </section>
+
         <div class="container">
+
             <section id="def">
                 <h2>Qui sont les Hackers ?</h2>
                 <p>Un hacker est une personne qui exploite les systèmes informatiques pour accéder à des informations ou
-                    systèmes de manière non autorisée...</p>
+                    systèmes de manière non autorisée. Mais contrairement aux idées reçues, tous les hackers ne sont pas
+                    des criminels : beaucoup utilisent leurs compétences pour renforcer la sécurité des systèmes.</p>
                 <img src="https://www.avast.com/hubfs/New_Avast_Academy/Hackers/Hacker-Thumb-a1.png"
-                    alt="Hacker anonyme" loading="lazy">
+                    alt="Hacker anonyme" loading="lazy" decoding="async">
             </section>
 
             <section id="types">
                 <h2>Types de Hackers</h2>
-                <p>Les hackers sont souvent classifiés en fonction de leurs intentions...</p>
+                <p>Les hackers sont souvent classifiés en fonction de leurs intentions :</p>
+                <ul>
+                    <li><strong>White Hat :</strong> hackers éthiques, ils trouvent et corrigent les failles pour
+                        sécuriser les systèmes.</li>
+                    <li><strong>Black Hat :</strong> hackers malveillants, ils exploitent les failles à des fins
+                        personnelles ou criminelles.</li>
+                    <li><strong>Grey Hat :</strong> entre les deux, parfois hors-la-loi mais souvent sans intention de
+                        nuire.</li>
+                </ul>
                 <img src="https://dicc.in/blog/wp-content/uploads/2021/08/types-of-hackers-min.jpg"
-                    alt="Types de hackers" loading="lazy">
+                    alt="Types de hackers" loading="lazy" decoding="async">
             </section>
 
             <section id="techniques">
                 <h2>Techniques de Hacking</h2>
-                <p>Les hackers utilisent différentes techniques pour exploiter les vulnérabilités...</p>
+                <p>Les hackers utilisent différentes techniques pour exploiter les vulnérabilités : phishing, ingénierie
+                    sociale, injection SQL, force brute, malwares… Connaître ces techniques est la première étape pour
+                    s'en défendre.</p>
                 <img src="https://pg-p.ctme.caltech.edu/wp-content/uploads/sites/4/2024/02/ethical-hacking-tools.jpg"
-                    alt="Techniques de piratage" loading="lazy">
+                    alt="Techniques de piratage" loading="lazy" decoding="async">
             </section>
 
             <section id="consequences">
                 <h2>Conséquences du Hacking</h2>
-                <p>Les conséquences du hacking peuvent être graves...</p>
+                <p>Les conséquences du hacking peuvent être graves : vol de données personnelles, pertes financières,
+                    atteinte à la réputation des entreprises, voire paralysie de services essentiels.</p>
                 <img src="https://www.netexplorer.fr/wp-content/uploads/2023/03/visuel-quelles-sont-les-pertes-liees-au-piratage-informatique.jpg"
-                    alt="Conséquences d'une cyberattaque" loading="lazy">
+                    alt="Conséquences d'une cyberattaque" loading="lazy" decoding="async">
             </section>
 
             <section id="securite">
-                <h2>Sécuriser contre les Hackers</h2>
-                <p>La cybersécurité est essentielle pour se protéger contre les attaques...</p>
+                <h2>Se protéger contre les Hackers</h2>
+                <p>La cybersécurité est essentielle pour se protéger contre les attaques :</p>
+                <ul>
+                    <li>Utiliser des mots de passe forts et uniques (et un gestionnaire de mots de passe).</li>
+                    <li>Activer l'authentification à deux facteurs (2FA).</li>
+                    <li>Mettre à jour régulièrement ses logiciels et systèmes.</li>
+                    <li>Se méfier des e-mails et liens suspects (phishing).</li>
+                    <li>Sauvegarder ses données régulièrement.</li>
+                </ul>
                 <img src="https://www.reseauwebplus.com/wp-content/uploads/2018/03/securite-informatique.jpg"
-                    alt="Cyber protection" loading="lazy">
+                    alt="Cyber protection" loading="lazy" decoding="async">
             </section>
+
+            <blockquote>« Le vrai hacker construit plus qu'il ne détruit. »</blockquote>
+
         </div>
     </main>
 
-    <footer>
+    <section class="post-navigation container">
+        <h3>Autres articles</h3>
+        <ul>
+            <li><a href="post1.html">Tout savoir sur l'informatique</a></li>
+            <li><a href="post2.html">C'est quoi un Hacker ?</a></li>
+            <li><a href="post3.html">Introduction au HTML</a></li>
+            <li><a href="post4.html">Introduction au CSS</a></li>
+            <li><a href="post5.html">Introduction à JavaScript</a></li>
+            <li><a href="post6.html">Introduction à Python</a></li>
+            <li><a href="hackerboy.html">Qui est H@CKERBOY ?</a></li>
+        </ul>
+    </section>
+
+    <footer role="contentinfo">
         <div class="footer-content">
             <div class="footer-brand">
                 <h3>H@CKERBOY</h3>
                 <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
                 <div class="social-links">
-                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-snapchat"></i>
-                    </a>
-                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
+                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"
+                        aria-label="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
+                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="footer-links">
-                <a href="../index.html">Accueil</a>
-                <a href="#def">Qui sont les Hackers ?</a>
-                <a href="#types">Types de Hackers</a>
-                <a href="#techniques">Techniques de Hacking</a>
-                <a href="#consequences">Conséquences du Hacking</a>
-                <a href="#securite">Sécuriser contre les Hackers</a>
-            </div>
+            <nav class="footer-links" aria-label="Liens rapides">
+                <a href="../index.html#programmation">Programmation</a>
+                <a href="../index.html#informatique">Informatique</a>
+                <a href="../index.html#cybersécurité">Cybersécurité</a>
+                <a href="../index.html#apropos">À propos</a>
+            </nav>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 H@CKERBOY. Tous droits réservés.</p>
+            <p>© 2026 H@CKERBOY. Tous droits réservés.</p>
         </div>
-
     </footer>
 
-    <script src="../js/dynamic.js"></script>
+    <script src="../js/dynamic.js" defer></script>
+    <script src="../js/ios-theme-toggle.js" defer></script>
+    <script>
+        (function () {
+            var toggle = document.getElementById('pulse-toggle');
+            var nav = document.getElementById('drift-nav');
+            if (!toggle || !nav) return;
+
+            toggle.addEventListener('click', function () {
+                var isOpen = nav.classList.toggle('open');
+                toggle.classList.toggle('open', isOpen);
+                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+            });
+
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    nav.classList.remove('open');
+                    toggle.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+                });
+            });
+        })();
+    </script>
 
 </body>
 

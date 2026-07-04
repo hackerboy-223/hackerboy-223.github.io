@@ -3,39 +3,54 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Apprenez les bases du CSS, le langage de style pour créer des pages web attrayantes.">
-    <meta name="keywords" content="CSS, programmation, développement web, tutoriel, styles">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introduction au CSS – H@CKERBOY BLOG</title>
+    <meta name="description" content="Apprenez les bases du CSS : sélecteurs, propriétés essentielles et bonnes pratiques pour créer des pages web attrayantes.">
+    <meta name="keywords" content="CSS, programmation, développement web, tutoriel, styles, H@CKERBOY">
     <meta name="author" content="H@CKERBOY">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hackerboy-223.github.io/posts/post4.html">
     <link rel="icon" type="image/x-icon" href="../icon/hack8080.ico">
-    <title>Introduction au CSS</title>
-    <link rel="stylesheet" href="../styles/styles.min.css">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap"
-        rel="stylesheet">
-</head>
-<style>
-    .btn-back-top {
-        position: absolute;
-        top: 24px;
-        right: 32px;
-        z-index: 10;
-        background: #222;
-        color: #fff;
-        padding: 8px 18px;
-        border-radius: 24px;
-        text-decoration: none;
-        font-weight: 500;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        transition: background 0.2s;
-    }
 
-    .btn-back-top:hover {
-        background: #444;
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Introduction au CSS – H@CKERBOY BLOG">
+    <meta property="og:description" content="Apprenez les bases du CSS : sélecteurs, propriétés essentielles et bonnes pratiques pour créer des pages web attrayantes.">
+    <meta property="og:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
+    <meta property="og:url" content="https://hackerboy-223.github.io/posts/post4.html">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Introduction au CSS – H@CKERBOY BLOG">
+    <meta name="twitter:description" content="Apprenez les bases du CSS : sélecteurs, propriétés essentielles et bonnes pratiques pour créer des pages web attrayantes.">
+    <meta name="twitter:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Poppins:wght@400;500;600&display=swap">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/styles.css">
+
+    <!-- Données structurées JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Introduction au CSS – H@CKERBOY BLOG",
+      "inLanguage": "fr-FR",
+      "datePublished": "2025-01-15",
+      "author": { "@type": "Person", "name": "H@CKERBOY" },
+      "publisher": { "@type": "Person", "name": "H@CKERBOY" },
+      "mainEntityOfPage": "https://hackerboy-223.github.io/posts/post4.html"
     }
-</style>
+    </script>
+</head>
 
 <body data-post-slug="post4">
 
@@ -54,6 +69,10 @@
                 </ul>
             </nav>
 
+            <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème" title="Mode sombre / clair">
+                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+
             <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
                 aria-controls="drift-nav">
                 <span></span><span></span><span></span>
@@ -62,34 +81,53 @@
     </header>
 
     <main>
-        <section>
+        <section class="post-hero">
             <div class="container">
-                <section id="css">
-                    <h2>Qu'est-ce que le CSS ?</h2>
-                    <p>Le CSS (Cascading Style Sheets) est un langage de style utilisé pour décrire la présentation d'un
-                        document écrit en HTML.</p>
-                    <h3>Syntaxe de base</h3>
-                    <p>Un règle CSS se compose d'un sélecteur et d'un bloc de déclarations.</p>
-                    <h3>Sélecteurs courants</h3>
-                    <ul>
-                        <li><code>*</code> : Sélecteur universel</li>
-                        <li><code>element</code> : Sélecteur d'élément</li>
-                        <li><code>.class</code> : Sélecteur de classe</li>
-                        <li><code>#id</code> : Sélecteur d'ID</li>
-                    </ul>
-                    <h3>Propriétés importantes</h3>
-                    <ul>
-                        <li><code>color</code> : Couleur du texte</li>
-                        <li><code>font-size</code> : Taille de la police</li>
-                        <li><code>background-color</code> : Couleur de fond</li>
-                        <li><code>margin</code> : Marge extérieure</li>
-                        <li><code>padding</code> : Marge intérieure</li>
-                    </ul>
-                    <img src="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS/css-declaration-small.png"
-                        alt="Exemple de déclaration CSS" loading="lazy">
-                </section>
+                <h1>Introduction au CSS</h1>
+                <!-- TODO résolu : .btn-back placé juste après le <h1> -->
+                <a class="btn-back" href="../index.html#programmation">&larr; Retour au blog</a>
+                <p class="meta">Publié le 15 janvier 2025 | Par H@CKERBOY</p>
             </div>
         </section>
+
+        <div class="container">
+
+            <section id="css">
+                <h2>Qu'est-ce que le CSS ?</h2>
+                <p>Le CSS (Cascading Style Sheets) est un langage de style utilisé pour décrire la présentation d'un
+                    document écrit en HTML.</p>
+                <h3>Syntaxe de base</h3>
+                <p>Une règle CSS se compose d'un sélecteur et d'un bloc de déclarations :</p>
+                <pre><code>body {
+  background: #222;
+  color: #fff;
+}</code></pre>
+                <h3>Sélecteurs courants</h3>
+                <ul>
+                    <li><code>*</code> : Sélecteur universel</li>
+                    <li><code>element</code> : Sélecteur d'élément</li>
+                    <li><code>.class</code> : Sélecteur de classe</li>
+                    <li><code>#id</code> : Sélecteur d'ID</li>
+                </ul>
+                <h3>Propriétés importantes</h3>
+                <ul>
+                    <li><code>color</code> : Couleur du texte</li>
+                    <li><code>font-size</code> : Taille de la police</li>
+                    <li><code>background-color</code> : Couleur de fond</li>
+                    <li><code>margin</code> : Marge extérieure</li>
+                    <li><code>padding</code> : Marge intérieure</li>
+                </ul>
+                <h3>Bonnes pratiques</h3>
+                <ul>
+                    <li>Utiliser des classes pour réutiliser les styles.</li>
+                    <li>Minifier le CSS en production pour de meilleures performances.</li>
+                    <li>Tester sur différents navigateurs et tailles d'écran.</li>
+                </ul>
+                <img src="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS/css-declaration-small.png"
+                    alt="Exemple de déclaration CSS" loading="lazy" decoding="async">
+            </section>
+
+        </div>
     </main>
 
     <section class="post-navigation container">
@@ -97,11 +135,11 @@
         <ul>
             <li><a href="post1.html">Tout savoir sur l'informatique</a></li>
             <li><a href="post2.html">C'est quoi un Hacker ?</a></li>
-            <li><a href="post3.html">Qui est H@CKERBOY ?</a></li>
+            <li><a href="post3.html">Introduction au HTML</a></li>
             <li><a href="post4.html">Introduction au CSS</a></li>
             <li><a href="post5.html">Introduction à JavaScript</a></li>
             <li><a href="post6.html">Introduction à Python</a></li>
-            <li><a href="hackerboy.html">À propos</a></li>
+            <li><a href="hackerboy.html">Qui est H@CKERBOY ?</a></li>
         </ul>
     </section>
 
@@ -111,12 +149,12 @@
                 <h3>H@CKERBOY</h3>
                 <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
                 <div class="social-links">
-                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-snapchat"></i></a>
-                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"
+                        aria-label="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
+                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             <nav class="footer-links" aria-label="Liens rapides">
@@ -127,11 +165,12 @@
             </nav>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
+            <p>© 2026 H@CKERBOY. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <script src="../js/dynamic.js"></script>
+    <script src="../js/dynamic.js" defer></script>
+    <script src="../js/ios-theme-toggle.js" defer></script>
     <script>
         (function () {
             var toggle = document.getElementById('pulse-toggle');

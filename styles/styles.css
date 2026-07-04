@@ -699,3 +699,195 @@ footer {
     flex-wrap: wrap;
   }
 }
+/* ═══════════════════════════════════════════════
+   ADDITIONS — post hero, btn-back, thème sombre,
+   assistant H@CKERBOT, vignettes de cartes
+   ═══════════════════════════════════════════════ */
+
+/* ── Post hero (h1 + retour) ─────────────────── */
+.post-hero {
+  padding: 56px 0 8px;
+}
+
+.post-hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  margin-bottom: 0.4em;
+}
+
+.post-hero .meta {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  margin-top: 14px;
+}
+
+/* ── Bouton retour ───────────────────────────── */
+.btn-back {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--white);
+  padding: 8px 18px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-back:hover,
+.btn-back:focus-visible {
+  background: var(--blue);
+  transform: translateX(-3px);
+  outline: none;
+}
+
+/* ── Bouton thème clair/sombre ───────────────── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 1rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+.theme-toggle:hover {
+  background: var(--surface);
+  color: var(--blue);
+}
+
+/* ── Vignettes des cartes d'articles ─────────── */
+.card-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+}
+
+/* ── Assistant H@CKERBOT ─────────────────────── */
+.assistant-intro {
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+}
+
+.assistant-container {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 18px;
+  max-width: 640px;
+}
+
+.assistant-chat {
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 4px;
+}
+
+.assistant-chat .msg {
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  max-width: 88%;
+}
+
+.assistant-chat .msg.bot {
+  background: var(--surface);
+  align-self: flex-start;
+}
+
+.assistant-chat .msg.user {
+  background: rgba(0, 113, 227, 0.1);
+  align-self: flex-end;
+}
+
+.assistant-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.assistant-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.assistant-input:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+.assistant-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.assistant-btn:hover {
+  background: var(--blue-dark);
+}
+
+/* ── Thème sombre ────────────────────────────── */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  --white: #000000;
+  --surface: #0d0d0f;
+  --surface-card: #17171a;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.18);
+  --ink: #f5f5f7;
+  --ink-muted: #9b9ba1;
+  --ink-body: #d1d1d6;
+  --blue: #2997ff;
+  --blue-dark: #0071e3;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+html.dark .neo-header {
+  background: rgba(13, 13, 15, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html.dark .btn-back {
+  background: var(--surface-card);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+html.dark .btn-back:hover,
+html.dark .btn-back:focus-visible {
+  background: var(--blue);
+  color: #fff;
+}
+
+html.dark .assistant-chat .msg.user {
+  background: rgba(41, 151, 255, 0.16);
+}

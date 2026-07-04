@@ -42,6 +42,32 @@ Vos retours et commentaires sont précieux ! N'hésitez pas à interagir, poser 
 
 *© 2024 H@CKERBOY. Tous droits réservés.*
 
+## 🗂️ Structure du projet
+
+```
+├── index.html          # Accueil (cartes générées depuis data/posts.json)
+├── posts/              # Articles statiques (post1..post6, hackerboy)
+├── js/
+│   ├── dynamic.js      # Cartes de l'accueil + fond animé (particules)
+│   ├── assistant.js    # Widget H@CKERBOT (accueil)
+│   └── ios-theme-toggle.js  # Mode sombre/clair persistant
+├── styles/             # styles.css + styles.min.css (généré)
+├── data/posts.json     # Métadonnées des articles (source des cartes)
+├── api/posts.php       # API locale optionnelle (ne fonctionne PAS sur GitHub Pages)
+├── robots.txt          # À la racine (requis par les moteurs de recherche)
+└── sitemap.xml
+```
+
+> ⚠️ GitHub Pages ne sert que des fichiers statiques : `api/posts.php` n'est utile
+> qu'en local (`php -S localhost:8000`). Le site lit directement `data/posts.json`.
+
+## 🧪 Développement local
+
+```bash
+python3 -m http.server 8000
+# puis ouvrir http://localhost:8000
+```
+
 ## 📈 Performance & Image Optimization (local)
 
 If you want faster load times and smaller bandwidth usage, generate optimized responsive images locally and serve them with `picture`/`srcset`.

@@ -10,35 +10,16 @@
     <meta name="author" content="H@CKERBOY">
     <link rel="icon" type="image/x-icon" href="../icon/hack8080.ico">
     <title>La Masterclass Python : De Zéro à H@CKER</title>
-    <link rel="stylesheet" href="../styles/styles.min.css">
+    <link rel="canonical" href="https://hackerboy-223.github.io/posts/post6.html">
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap"
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
 </head>
-<style>
-    .btn-back-top {
-        position: absolute;
-        top: 24px;
-        right: 32px;
-        z-index: 10;
-        background: #222;
-        color: #fff;
-        padding: 8px 18px;
-        border-radius: 24px;
-        text-decoration: none;
-        font-weight: 500;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        transition: background 0.2s;
-    }
-
-    .btn-back-top:hover {
-        background: #444;
-    }
-</style>
 
 <body data-post-slug="post6">
 
@@ -57,6 +38,10 @@
                 </ul>
             </nav>
 
+            <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème" title="Mode sombre / clair">
+                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+
             <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
                 aria-controls="drift-nav">
                 <span></span><span></span><span></span>
@@ -69,6 +54,8 @@
         <header class="course-header">
             <div class="glass-badge">PYTHON_PROTOCOL_V1</div>
             <h1 class="neon-title">La Masterclass Python : De Zéro à H@CKER</h1>
+            <!-- TODO résolu : .btn-back placé juste après le <h1> -->
+            <a class="btn-back" href="../index.html#programmation">&larr; Retour au blog</a>
             <p class="course-intro">Le langage le plus puissant du monde, démystifié. Pas de blabla académique, juste du
                 code pur pour automatiser, créer et dominer.</p>
         </header>
@@ -238,7 +225,7 @@ bot1.attack() # Output: T-800 frappe avec 500kg de force !
         <footer class="course-footer">
             <h3>Prêt à déployer ?</h3>
             <p>Le code ne s'apprend pas en lisant, mais en tapant. Ouvre VS Code.</p>
-            <a href="#" class="liquid-btn">Lancer l'IDE</a>
+            <a href="https://vscode.dev" target="_blank" rel="noopener noreferrer" class="liquid-btn">Lancer l'IDE</a>
         </footer>
     </main>
 
@@ -281,7 +268,31 @@ bot1.attack() # Output: T-800 frappe avec 500kg de force !
         </div>
     </footer>
 
-    <script src="../js/dynamic.js"></script>
+    <script src="../js/dynamic.js" defer></script>
+    <script src="../js/ios-theme-toggle.js" defer></script>
+    <script>
+        (function () {
+            var toggle = document.getElementById('pulse-toggle');
+            var nav = document.getElementById('drift-nav');
+            if (!toggle || !nav) return;
+
+            toggle.addEventListener('click', function () {
+                var isOpen = nav.classList.toggle('open');
+                toggle.classList.toggle('open', isOpen);
+                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+            });
+
+            nav.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    nav.classList.remove('open');
+                    toggle.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+                });
+            });
+        })();
+    </script>
 
 </body>
 
