@@ -891,3 +891,152 @@ html.dark .btn-back:focus-visible {
 html.dark .assistant-chat .msg.user {
   background: rgba(41, 151, 255, 0.16);
 }
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS — scroll reveal, glitch, typing,
+   barre de lecture, micro-interactions
+   ═══════════════════════════════════════════════ */
+
+/* ── Scroll reveal ──────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease var(--reveal-delay, 0ms),
+    transform 0.6s cubic-bezier(0.22, 0.9, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+/* ── Glitch du titre (hero) ─────────────────── */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.glitch::before {
+  color: #00e5ff;
+  animation: glitch-shift 3.2s infinite steps(2, jump-none);
+}
+
+.glitch::after {
+  color: #ff2d78;
+  animation: glitch-shift 2.7s infinite steps(2, jump-none) reverse;
+}
+
+@keyframes glitch-shift {
+  0%, 86%, 100% { transform: translate(0); clip-path: inset(0 0 100% 0); }
+  87% { transform: translate(-3px, 1px); clip-path: inset(12% 0 58% 0); }
+  90% { transform: translate(3px, -1px); clip-path: inset(62% 0 8% 0); }
+  93% { transform: translate(-2px, 2px); clip-path: inset(30% 0 42% 0); }
+  96% { transform: translate(2px, -2px); clip-path: inset(80% 0 2% 0); }
+}
+
+/* ── Effet typing (sous-titre hero) ─────────── */
+.typing::after {
+  content: '▌';
+  margin-left: 2px;
+  color: var(--accent, #6c5ce7);
+  animation: caret-blink 0.85s step-end infinite;
+}
+
+.typing-done::after {
+  animation: caret-blink 0.85s step-end infinite, caret-fade 1s ease 2.2s forwards;
+}
+
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+@keyframes caret-fade {
+  to { opacity: 0; }
+}
+
+/* ── Barre de progression de lecture ────────── */
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #6c5ce7, #00e5ff);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 1200;
+}
+
+/* ── Micro-interactions ─────────────────────── */
+.posts-grid article:hover .read-more i,
+.posts-grid article:focus-within .read-more i {
+  animation: nudge-x 0.7s ease infinite alternate;
+}
+
+@keyframes nudge-x {
+  to { transform: translateX(5px); }
+}
+
+.theme-toggle:active i {
+  animation: spin-pop 0.45s ease;
+}
+
+@keyframes spin-pop {
+  50% { transform: rotate(160deg) scale(1.25); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.core-mark {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.core-brand:hover .core-mark {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.btn-back {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-back::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.25) 50%, transparent 60%);
+  transform: translateX(-110%);
+}
+
+.btn-back:hover::after {
+  animation: sheen 0.8s ease;
+}
+
+@keyframes sheen {
+  to { transform: translateX(110%); }
+}
+
+/* ── Accessibilité : mouvement réduit ───────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+  .glitch::before,
+  .glitch::after { display: none; }
+  .read-progress { display: none; }
+  .typing::after,
+  .typing-done::after,
+  .posts-grid article:hover .read-more i,
+  .theme-toggle:active i,
+  .btn-back:hover::after {
+    animation: none !important;
+  }
+}
