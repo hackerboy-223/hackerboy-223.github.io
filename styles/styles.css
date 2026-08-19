@@ -1040,3 +1040,178 @@ html.dark .assistant-chat .msg.user {
     animation: none !important;
   }
 }
+/* ═══════════════════════════════════════════════
+   MOBILE DISPLAY — affichage mobile complet
+   ═══════════════════════════════════════════════ */
+
+/* Pas de défilement horizontal parasite (glitch, reveals) */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Contenus larges : jamais de débordement sur petit écran */
+.content-article pre,
+.content-article table {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content-article img,
+.content-article video,
+.content-article iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.content-article code {
+  word-break: break-word;
+}
+
+/* Menu mobile en thème sombre (fond blanc corrigé) */
+@media (max-width: 860px) {
+  html.dark .drift-nav {
+    background: rgba(13, 13, 15, 0.96);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Cibles tactiles ≥ 44px */
+  .pulse-toggle,
+  .theme-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .btn-back {
+    padding: 11px 22px;
+  }
+
+  .post-hero {
+    padding: 36px 0 6px;
+  }
+
+  .content-article section {
+    scroll-margin-top: calc(var(--nav-h) + 12px);
+  }
+}
+
+/* Téléphones (≤540px) */
+@media (max-width: 540px) {
+  .page-hero h1 {
+    font-size: clamp(1.55rem, 8vw, 2rem);
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .page-hero p {
+    font-size: 0.92rem;
+  }
+
+  .post-hero h1 {
+    font-size: clamp(1.35rem, 7vw, 1.7rem);
+  }
+
+  .content-article section h2 {
+    font-size: 1.2rem;
+  }
+
+  .content-article section p,
+  .content-article section li {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .card-thumb {
+    height: 140px;
+  }
+
+  /* Assistant : plein écran de largeur, champs empilés */
+  .assistant-container {
+    padding: 14px;
+    max-width: 100%;
+  }
+
+  .assistant-chat {
+    max-height: 240px;
+  }
+
+  .assistant-chat .msg {
+    max-width: 94%;
+    font-size: 0.9rem;
+  }
+
+  .assistant-inputs {
+    flex-direction: column;
+  }
+
+  .assistant-btn {
+    width: 100%;
+    padding: 12px;
+    min-height: 44px;
+  }
+
+  /* iOS : évite le zoom auto au focus (police ≥ 16px) */
+  .assistant-input {
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  /* Barre de lecture plus fine sur mobile */
+  .reading-progress {
+    height: 2px;
+  }
+}
+
+/* Très petits écrans (≤360px) */
+@media (max-width: 360px) {
+  .container,
+  .neo-shell,
+  .footer-content {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .page-hero h1 {
+    font-size: 1.4rem;
+  }
+
+  article {
+    padding: 16px 12px 14px;
+  }
+}
+
+/* Encoches iPhone / Android (safe areas) */
+@supports (padding: max(0px)) {
+  .neo-shell,
+  .container,
+  .footer-content {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+
+  footer {
+    padding-bottom: max(36px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Paysage mobile : menu déroulant scrollable */
+@media (max-height: 500px) and (max-width: 860px) {
+  .drift-nav {
+    max-height: calc(100vh - var(--nav-h));
+    overflow-y: auto;
+  }
+}
+
+/* Écrans tactiles : pas d'effets hover persistants */
+@media (hover: none) {
+  article:hover {
+    transform: none;
+  }
+
+  .social-link:hover {
+    transform: none;
+  }
+}
+
