@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/styles.css?v=2">
+  <link rel="stylesheet" href="../styles/styles.css?v=3">
 </head>
 <body data-page="article" data-post-slug="post1">
 
@@ -32,6 +32,7 @@
       <a href="../index.html#articles">Articles</a>
       <a href="../index.html?filter=programmation#articles">Programmation</a>
       <a href="../index.html?filter=cybersécurité#articles">Cybersécurité</a>
+      <a href="../index.html#exploits">Exploits</a>
       <a href="../index.html#apropos">À propos</a>
     </nav>
     <div class="header-actions">
@@ -41,11 +42,12 @@
   </div>
 </header>
 
+<div class="reading-progress" aria-hidden="true"><span></span></div>
 <main class="article-page">
   <div class="shell article-hero">
     <div class="article-kicker"><a href="../index.html#articles">← Retour aux articles</a><span class="dot"></span><span>Informatique</span></div>
     <div class="article-hero-grid">
-      <div><h1>Tout savoir sur l&#x27;informatique</h1><p class="article-lead">L&#x27;informatique, c&#x27;est bien plus que des ordinateurs : découvrez ses domaines, son histoire et son impact sur notre quotidien.</p><div class="article-meta"><span>2024-12-20</span><span>Par H@CKERBOY</span></div></div>
+      <div><h1>Tout savoir sur l&#x27;informatique</h1><p class="article-lead">L&#x27;informatique, c&#x27;est bien plus que des ordinateurs : découvrez ses domaines, son histoire et son impact sur notre quotidien.</p><div class="article-meta"><span>2024-12-20</span><span>Par H@CKERBOY</span><button class="save-article" id="save-article" type="button">☆ Enregistrer</button></div></div>
       <div class="article-cover"><img src="../images/matrix-1460603554sdB.jpg" alt="Illustration : Tout savoir sur l&#x27;informatique" width="900" height="560"></div>
     </div>
   </div>
@@ -53,34 +55,27 @@
     <aside class="article-aside"><div class="aside-card"><span class="footer-label">Dans cet article</span><nav class="toc" id="toc" aria-label="Sommaire de l'article"></nav></div><div class="aside-card aside-callout"><span class="status-dot"></span><p>Lecture libre, sans jargon inutile.</p></div></aside>
     <article class="article-content"><section id="def">
 <h2>Qu'est-ce que l'Informatique ?</h2>
-<p>L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le
-                    matériel informatique, le logiciel et les réseaux qui permettent d'exécuter des programmes et de
-                    stocker des données.</p>
+<p>L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le matériel informatique, le logiciel et les réseaux qui permettent d'exécuter des programmes et de stocker des données.</p>
 
 </section>
 <section id="histoire">
 <h2>Histoire de l'Informatique</h2>
-<p>L'informatique a des racines dans des siècles d'avancées en mathématiques et en logique. Les
-                    premières machines à calculer ont été créées au 17e siècle, mais c'est au 20e siècle que
-                    l'ordinateur moderne a émergé.</p>
+<p>L'informatique a des racines dans des siècles d'avancées en mathématiques et en logique. Les premières machines à calculer ont été créées au 17e siècle, mais c'est au 20e siècle que l'ordinateur moderne a émergé.</p>
 <ul>
 <li><strong>1930s :</strong> Alan Turing pose les bases théoriques de l'informatique moderne.</li>
 <li><strong>1940s :</strong> Les premiers ordinateurs électroniques apparaissent.</li>
-<li><strong>1950s-1970s :</strong> L'ère des ordinateurs mainframes et la naissance des langages de
-                        programmation.</li>
+<li><strong>1950s-1970s :</strong> L'ère des ordinateurs mainframes et la naissance des langages de programmation.</li>
 <li><strong>1980s-1990s :</strong> L'avènement des ordinateurs personnels et du réseau Internet.</li>
 </ul>
 
 </section>
 <section id="matériel">
 <h2>Matériel Informatique</h2>
-<p>Le matériel informatique se compose de tous les composants physiques nécessaires à l'exécution des
-                    logiciels. Cela inclut les ordinateurs, les périphériques, et les systèmes de stockage.</p>
+<p>Le matériel informatique se compose de tous les composants physiques nécessaires à l'exécution des logiciels. Cela inclut les ordinateurs, les périphériques, et les systèmes de stockage.</p>
 <ul>
 <li><strong>Processeur (CPU) :</strong> Le cerveau de l'ordinateur qui exécute les instructions.</li>
 <li><strong>Carte mère :</strong> Le composant central qui relie tous les autres composants.</li>
-<li><strong>Mémoire (RAM) :</strong> Permet de stocker temporairement les données en cours de
-                        traitement.</li>
+<li><strong>Mémoire (RAM) :</strong> Permet de stocker temporairement les données en cours de traitement.</li>
 <li><strong>Disque dur (HDD) / SSD :</strong> Le stockage permanent des données.</li>
 <li><strong>Carte graphique :</strong> Gère l'affichage visuel sur l'écran.</li>
 </ul>
@@ -88,43 +83,33 @@
 </section>
 <section id="logiciel">
 <h2>Logiciel Informatique</h2>
-<p>Le logiciel est l'ensemble des programmes qui permettent à un ordinateur de réaliser des tâches
-                    spécifiques. Il existe deux principaux types de logiciels : les logiciels systèmes et les logiciels
-                    applicatifs.</p>
+<p>Le logiciel est l'ensemble des programmes qui permettent à un ordinateur de réaliser des tâches spécifiques. Il existe deux principaux types de logiciels : les logiciels systèmes et les logiciels applicatifs.</p>
 <ul>
-<li><strong>Logiciels systèmes :</strong> Ils assurent le fonctionnement de l'ordinateur (ex :
-                        système d'exploitation comme Windows, macOS, Linux).</li>
-<li><strong>Logiciels applicatifs :</strong> Permettent d'exécuter des tâches spécifiques pour
-                        l'utilisateur (ex : navigateurs web, éditeurs de texte, jeux vidéo).</li>
+<li><strong>Logiciels systèmes :</strong> Ils assurent le fonctionnement de l'ordinateur (ex : système d'exploitation comme Windows, macOS, Linux).</li>
+<li><strong>Logiciels applicatifs :</strong> Permettent d'exécuter des tâches spécifiques pour l'utilisateur (ex : navigateurs web, éditeurs de texte, jeux vidéo).</li>
 </ul>
 
 </section>
 <section id="reseaux">
 <h2>Réseaux Informatiques</h2>
-<p>Les réseaux informatiques permettent de connecter plusieurs ordinateurs entre eux pour partager des
-                    données. Internet est le réseau informatique mondial le plus important.</p>
+<p>Les réseaux informatiques permettent de connecter plusieurs ordinateurs entre eux pour partager des données. Internet est le réseau informatique mondial le plus important.</p>
 <ul>
-<li><strong>LAN (Réseau Local) :</strong> Un réseau qui couvre une petite zone géographique, comme
-                        une maison ou un bureau.</li>
-<li><strong>WAN (Réseau Étendu) :</strong> Un réseau qui s'étend sur de grandes distances, comme
-                        Internet.</li>
-<li><strong>Protocoles de communication :</strong> Des règles définissant comment les ordinateurs
-                        communiquent entre eux (ex : TCP/IP, HTTP).</li>
+<li><strong>LAN (Réseau Local) :</strong> Un réseau qui couvre une petite zone géographique, comme une maison ou un bureau.</li>
+<li><strong>WAN (Réseau Étendu) :</strong> Un réseau qui s'étend sur de grandes distances, comme Internet.</li>
+<li><strong>Protocoles de communication :</strong> Des règles définissant comment les ordinateurs communiquent entre eux (ex : TCP/IP, HTTP).</li>
 </ul>
 
 </section>
 <section id="programmation">
 <h2>Programmation Informatique</h2>
-<p>La programmation est l'art d'écrire des instructions que l'ordinateur peut exécuter. Les programmeurs
-                    utilisent des langages de programmation pour créer des logiciels.</p>
+<p>La programmation est l'art d'écrire des instructions que l'ordinateur peut exécuter. Les programmeurs utilisent des langages de programmation pour créer des logiciels.</p>
 <ul>
 <li><strong>Langages de programmation populaires :</strong> Python, Java, C++, JavaScript, Ruby.</li>
 <li><strong>Paradigmes de programmation :</strong> Procédural, orienté objet, fonctionnel, logique.</li>
-<li><strong>Développement web :</strong> Créer des applications web avec des technologies comme
-                        HTML, CSS, JavaScript.</li>
+<li><strong>Développement web :</strong> Créer des applications web avec des technologies comme HTML, CSS, JavaScript.</li>
 </ul>
 
-</section></article>
+</section><section class="quiz-section" data-quiz="post1"><div class="eyebrow">Pause active</div><h2>Teste ta compréhension</h2><p>Quel élément décrit le mieux un système informatique ?</p><div class="quiz-options"><button type="button" data-quiz-answer="0" data-quiz-correct="0">Un ensemble de composants qui traitent et transmettent des informations</button><button type="button" data-quiz-answer="1" data-quiz-correct="0">Uniquement un écran</button><button type="button" data-quiz-answer="2" data-quiz-correct="0">Un mot de passe</button></div><p class="quiz-feedback" aria-live="polite"></p></section></article>
   </div>
   <section class="shell article-end"><div><span class="footer-label">Continuer l’exploration</span><h2>Un autre sujet à ouvrir ?</h2></div><a class="button button-primary" href="../index.html#articles">Voir tous les articles <span>↗</span></a></section>
 </main>
@@ -135,11 +120,11 @@
       <a class="brand brand-footer" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark">H</span><span class="brand-copy"><strong>H@CKERBOY</strong><small>digital field notes</small></span></a>
       <p class="footer-note">Des notes claires sur le code, les systèmes et la sécurité numérique.</p>
     </div>
-    <div class="footer-column"><span class="footer-label">Explorer</span><a href="../index.html#articles">Tous les articles</a><a href="../index.html?filter=programmation#articles">Programmation</a><a href="../index.html?filter=cybersécurité#articles">Cybersécurité</a></div>
+    <div class="footer-column"><span class="footer-label">Explorer</span><a href="../index.html#articles">Tous les articles</a><a href="../index.html?filter=programmation#articles">Programmation</a><a href="../index.html?filter=cybersécurité#articles">Cybersécurité</a><a href="../index.html#exploits">Exploits</a></div>
     <div class="footer-column"><span class="footer-label">Me retrouver</span><a href="https://wa.me/22384122222" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer">Snapchat</a></div>
   </div>
   <div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Conçu pour apprendre, tester, partager.</span></div>
 </footer>
 
-<script src="../js/site.js?v=2" defer></script>
+<script src="../js/site.js?v=3" defer></script>
 </body></html>

@@ -68,5 +68,25 @@
     "category": "apropos",
     "excerpt": "Découvrez le parcours, la vision et les passions de H@CKERBOY, créateur du blog.",
     "image": "images/hack8080.jpg"
+  },
+  {
+    "id": "post7",
+    "slug": "post7",
+    "title": "Construire et publier un site moderne",
+    "date": "2025-05-02",
+    "author": "H@CKERBOY",
+    "category": "programmation",
+    "excerpt": "Une méthode concrète pour passer d’une idée à un site statique propre, versionné et publié.",
+    "image": "images/program.png"
+  },
+  {
+    "id": "post8",
+    "slug": "post8",
+    "title": "Sécurité web : apprendre dans le bon cadre",
+    "date": "2025-05-10",
+    "author": "H@CKERBOY",
+    "category": "cybersécurité",
+    "excerpt": "Les réflexes essentiels pour auditer un projet web avec autorisation, méthode et responsabilité.",
+    "image": "images/hacker.webp"
   }
 ]

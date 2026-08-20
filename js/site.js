@@ -124,3 +124,102 @@
     revealTargets.forEach(target => observer.observe(target));
   }
 })();
+
+
+/* Enrichment: article interactions */
+(() => {
+  const root = document.documentElement;
+  const progress = document.querySelector('.reading-progress span');
+  const article = document.querySelector('.article-content');
+  if (progress && article) {
+    const updateProgress = () => {
+      const start = article.getBoundingClientRect().top + window.scrollY - 180;
+      const total = Math.max(1, article.offsetHeight - window.innerHeight * .55);
+      const ratio = Math.min(1, Math.max(0, (window.scrollY - start) / total));
+      progress.style.width = `${ratio * 100}%`;
+    };
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+  }
+
+  const saveButton = document.querySelector('#save-article');
+  const slug = document.body.dataset.postSlug;
+  if (saveButton && slug) {
+    const key = `hackerboy-saved-${slug}`;
+    const setSavedState = saved => {
+      saveButton.classList.toggle('is-saved', saved);
+      saveButton.textContent = saved ? '★ Enregistré' : '☆ Enregistrer';
+      saveButton.setAttribute('aria-pressed', String(saved));
+    };
+    setSavedState(localStorage.getItem(key) === 'true');
+    saveButton.addEventListener('click', () => {
+      const saved = localStorage.getItem(key) !== 'true';
+      localStorage.setItem(key, String(saved));
+      setSavedState(saved);
+    });
+  }
+
+  document.querySelectorAll('[data-quiz]').forEach(quiz => {
+    const feedback = quiz.querySelector('.quiz-feedback');
+    quiz.querySelectorAll('[data-quiz-answer]').forEach(option => option.addEventListener('click', () => {
+      const correct = option.dataset.quizAnswer === option.dataset.quizCorrect;
+      quiz.querySelectorAll('[data-quiz-answer]').forEach(item => item.classList.remove('is-correct', 'is-wrong'));
+      option.classList.add(correct ? 'is-correct' : 'is-wrong');
+      if (feedback) feedback.textContent = correct ? 'Bonne réponse. Tu peux continuer.' : 'Pas tout à fait. Relis le passage puis réessaie.';
+    }));
+  });
+
+  const htmlInput = document.querySelector('#html-lab-input');
+  const htmlPreview = document.querySelector('#html-lab-preview h3');
+  htmlInput?.addEventListener('input', () => { if (htmlPreview) htmlPreview.textContent = htmlInput.value || 'Ton titre apparaîtra ici'; });
+
+  const hue = document.querySelector('#css-hue');
+  const radius = document.querySelector('#css-radius');
+  const cssCard = document.querySelector('#css-lab-card');
+  const hueValue = document.querySelector('#css-hue-value');
+  const radiusValue = document.querySelector('#css-radius-value');
+  const updateCssLab = () => {
+    if (!cssCard) return;
+    const hueNumber = hue?.value || 160;
+    const radiusNumber = radius?.value || 18;
+    cssCard.style.background = `hsl(${hueNumber} 65% 48% / .18)`;
+    cssCard.style.borderColor = `hsl(${hueNumber} 65% 48% / .5)`;
+    cssCard.style.borderRadius = `${radiusNumber}px`;
+    if (hueValue) hueValue.textContent = `${hueNumber}°`;
+    if (radiusValue) radiusValue.textContent = `${radiusNumber}px`;
+  };
+  hue?.addEventListener('input', updateCssLab);
+  radius?.addEventListener('input', updateCssLab);
+  updateCssLab();
+
+  let counter = 0;
+  const counterValue = document.querySelector('#counter-value');
+  document.querySelector('#counter-add')?.addEventListener('click', () => { counter += 1; if (counterValue) counterValue.textContent = counter; });
+  document.querySelector('#counter-reset')?.addEventListener('click', () => { counter = 0; if (counterValue) counterValue.textContent = counter; });
+
+  const pythonInput = document.querySelector('#python-lab-input');
+  const pythonOutput = document.querySelector('#python-lab-output');
+  document.querySelector('#python-lab-run')?.addEventListener('click', () => {
+    const names = (pythonInput?.value || '').split(',').map(name => name.trim()).filter(Boolean).slice(0, 6);
+    if (pythonOutput) pythonOutput.textContent = names.length ? names.map(name => `Bonjour ${name} !`).join('\n') : 'Ajoute au moins un prénom.';
+  });
+
+  const passwordInput = document.querySelector('#password-lab-input');
+  const strengthBar = document.querySelector('#strength-bar');
+  const strengthLabel = document.querySelector('#strength-label');
+  passwordInput?.addEventListener('input', () => {
+    const value = passwordInput.value;
+    const score = Math.min(5, (value.length >= 12 ? 2 : value.length >= 8 ? 1 : 0) + (/[A-Z]/.test(value) ? 1 : 0) + (/[0-9]/.test(value) ? 1 : 0) + (/[^A-Za-z0-9]/.test(value) ? 1 : 0));
+    const labels = ['Aucune donnée saisie.', 'Très faible.', 'À renforcer.', 'Correcte, mais améliorable.', 'Bonne base.', 'Solide pour un exercice local.'];
+    if (strengthBar) { strengthBar.style.width = `${score * 20}%`; strengthBar.style.background = score < 2 ? 'var(--danger)' : score < 4 ? 'var(--warning)' : 'var(--accent)'; }
+    if (strengthLabel) strengthLabel.textContent = labels[score];
+  });
+
+  document.querySelectorAll('.certificate-gallery img').forEach(image => image.addEventListener('click', () => {
+    const overlay = document.createElement('div');
+    overlay.className = 'image-lightbox';
+    overlay.innerHTML = `<button type="button" aria-label="Fermer l’image">×</button><img src="${image.src}" alt="${image.alt}">`;
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', event => { if (event.target === overlay || event.target.tagName === 'BUTTON') overlay.remove(); });
+  }));
+})();
