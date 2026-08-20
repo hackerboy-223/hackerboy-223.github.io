@@ -417,3 +417,13 @@ body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-even
   .terminal-card, .terminal-status span:first-child b, .terminal-caret { animation: none; }
   .hero h1 em { background: none; color: var(--accent); }
 }
+
+/* Contextual internal linking */
+.related-section { padding-top: 1rem; padding-bottom: 5rem; }
+.related-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.related-link { display: grid; gap: .55rem; min-height: 150px; padding: 1.35rem; color: var(--text); text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); transition: transform 180ms var(--ease), border-color 180ms var(--ease), background-color 180ms var(--ease); }
+.related-link:hover, .related-link:focus-visible { transform: translateY(-4px); border-color: var(--accent); background: var(--surface-2); }
+.related-link span { color: var(--accent); font: 500 .68rem/1.2 "DM Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+.related-link strong { max-width: 28rem; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.2; }
+.related-link em { color: var(--muted); font-size: .85rem; font-style: normal; }
+@media (max-width: 640px) { .related-grid { grid-template-columns: 1fr; } .related-section { padding-bottom: 3.5rem; } }
