@@ -1,115 +1,73 @@
-<!DOCTYPE html>
-<html lang="fr">
-
+<!doctype html>
+<html lang="fr" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Introduction au HTML – H@CKERBOY BLOG</title>
-    <meta name="description" content="Apprenez les bases du HTML, le langage de balisage pour créer des pages web : structure, balises essentielles et bonnes pratiques.">
-    <meta name="keywords" content="HTML, programmation, développement web, tutoriel, balises, H@CKERBOY">
-    <meta name="author" content="H@CKERBOY">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://hackerboy-223.github.io/posts/post3.html">
-    <link rel="icon" type="image/x-icon" href="../icon/hack8080.ico">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Introduction au HTML – H@CKERBOY BLOG">
-    <meta property="og:description" content="Apprenez les bases du HTML, le langage de balisage pour créer des pages web : structure, balises essentielles et bonnes pratiques.">
-    <meta property="og:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
-    <meta property="og:url" content="https://hackerboy-223.github.io/posts/post3.html">
-    <meta property="og:locale" content="fr_FR">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Introduction au HTML – H@CKERBOY BLOG">
-    <meta name="twitter:description" content="Apprenez les bases du HTML, le langage de balisage pour créer des pages web : structure, balises essentielles et bonnes pratiques.">
-    <meta name="twitter:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Poppins:wght@400;500;600&display=swap">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="../styles/styles.css">
-
-    <!-- Données structurées JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Introduction au HTML – H@CKERBOY BLOG",
-      "inLanguage": "fr-FR",
-      "datePublished": "2025-01-10",
-      "author": { "@type": "Person", "name": "H@CKERBOY" },
-      "publisher": { "@type": "Person", "name": "H@CKERBOY" },
-      "mainEntityOfPage": "https://hackerboy-223.github.io/posts/post3.html"
-    }
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Introduction au HTML — H@CKERBOY</title>
+  <meta name="description" content="Le HTML est la fondation de toute page web. Structure, balises essentielles et bonnes pratiques pour bien démarrer.">
+  <meta name="author" content="H@CKERBOY">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hackerboy-223.github.io/posts/post3.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Introduction au HTML — H@CKERBOY">
+  <meta property="og:description" content="Le HTML est la fondation de toute page web. Structure, balises essentielles et bonnes pratiques pour bien démarrer.">
+  <meta property="og:url" content="https://hackerboy-223.github.io/posts/post3.html">
+  <meta property="og:image" content="https://hackerboy-223.github.io/images/program.png">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" href="../icon/hack8080.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css?v=2">
 </head>
+<body data-page="article" data-post-slug="post3">
 
-<body data-post-slug="post3">
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="../index.html" aria-label="H@CKERBOY, accueil">
+      <span class="brand-mark">H</span>
+      <span class="brand-copy"><strong>H@CKERBOY</strong><small>digital field notes</small></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <a href="../index.html#articles">Articles</a>
+      <a href="../index.html?filter=programmation#articles">Programmation</a>
+      <a href="../index.html?filter=cybersécurité#articles">Cybersécurité</a>
+      <a href="../index.html#apropos">À propos</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Activer le thème clair" title="Changer de thème">☼</button>
+      <button class="menu-button" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
 
-    <header class="neo-header" role="banner">
-        <div class="neo-shell">
-            <a href="../index.html" class="core-brand" aria-label="H@CKERBOY — accueil">
-                <img src="../images/hack8080.jpg" alt="Logo H@CKERBOY" class="core-mark" width="44" height="44">
-            </a>
-
-            <nav class="drift-nav" id="drift-nav" aria-label="Navigation principale">
-                <ul>
-                    <li><a href="../index.html#programmation">Programmation</a></li>
-                    <li><a href="../index.html#informatique">Informatique</a></li>
-                    <li><a href="../index.html#cybersécurité">Cybersécurité</a></li>
-                    <li><a href="../index.html#apropos">À propos</a></li>
-                </ul>
-            </nav>
-
-            <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème" title="Mode sombre / clair">
-                <i class="fa-solid fa-moon" aria-hidden="true"></i>
-            </button>
-
-            <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
-                aria-controls="drift-nav">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
-
-    <main>
-        <section class="post-hero">
-            <div class="container">
-                <h1>Introduction au HTML</h1>
-                <!-- TODO résolu : .btn-back placé juste après le <h1> -->
-                <a class="btn-back" href="../index.html#programmation">&larr; Retour au blog</a>
-                <p class="meta">Publié le 10 janvier 2025 | Par H@CKERBOY</p>
-            </div>
-        </section>
-
-        <div class="container">
-
-            <section id="html">
-                <h2>Qu'est-ce que le HTML ?</h2>
-                <p>Le HTML (HyperText Markup Language) est le langage de base pour créer des pages web. Il utilise
+<main class="article-page">
+  <div class="shell article-hero">
+    <div class="article-kicker"><a href="../index.html#articles">← Retour aux articles</a><span class="dot"></span><span>Programmation</span></div>
+    <div class="article-hero-grid">
+      <div><h1>Introduction au HTML</h1><p class="article-lead">Le HTML est la fondation de toute page web. Structure, balises essentielles et bonnes pratiques pour bien démarrer.</p><div class="article-meta"><span>2025-01-10</span><span>Par H@CKERBOY</span></div></div>
+      <div class="article-cover"><img src="../images/program.png" alt="Illustration : Introduction au HTML" width="900" height="560"></div>
+    </div>
+  </div>
+  <div class="shell article-layout">
+    <aside class="article-aside"><div class="aside-card"><span class="footer-label">Dans cet article</span><nav class="toc" id="toc" aria-label="Sommaire de l'article"></nav></div><div class="aside-card aside-callout"><span class="status-dot"></span><p>Lecture libre, sans jargon inutile.</p></div></aside>
+    <article class="article-content"><section id="html">
+<h2>Qu'est-ce que le HTML ?</h2>
+<p>Le HTML (HyperText Markup Language) est le langage de base pour créer des pages web. Il utilise
                     des balises pour structurer le contenu.</p>
-                <h3>Structure de base</h3>
-                <p>Une page HTML commence toujours par <code>&lt;!DOCTYPE html&gt;</code> et contient des éléments comme
+<h3>Structure de base</h3>
+<p>Une page HTML commence toujours par <code>&lt;!DOCTYPE html&gt;</code> et contient des éléments comme
                     <code>&lt;head&gt;</code> et <code>&lt;body&gt;</code>.</p>
-                <h3>Balises importantes</h3>
-                <ul>
-                    <li><code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> : Titres</li>
-                    <li><code>&lt;p&gt;</code> : Paragraphes</li>
-                    <li><code>&lt;a&gt;</code> : Liens</li>
-                    <li><code>&lt;img&gt;</code> : Images</li>
-                    <li><code>&lt;div&gt;</code> : Conteneurs</li>
-                </ul>
-                <h3>Exemple minimal</h3>
-                <pre><code>&lt;!DOCTYPE html&gt;
+<h3>Balises importantes</h3>
+<ul>
+<li><code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> : Titres</li>
+<li><code>&lt;p&gt;</code> : Paragraphes</li>
+<li><code>&lt;a&gt;</code> : Liens</li>
+<li><code>&lt;img&gt;</code> : Images</li>
+<li><code>&lt;div&gt;</code> : Conteneurs</li>
+</ul>
+<h3>Exemple minimal</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="fr"&gt;
   &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -119,84 +77,29 @@
     &lt;h1&gt;Bonjour le monde !&lt;/h1&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-                <h3>Bonnes pratiques</h3>
-                <ul>
-                    <li>Utiliser des balises sémantiques (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>,
+<h3>Bonnes pratiques</h3>
+<ul>
+<li>Utiliser des balises sémantiques (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>,
                         <code>&lt;footer&gt;</code>…).</li>
-                    <li>Toujours renseigner l'attribut <code>alt</code> des images.</li>
-                    <li>Valider son code avec le validateur du W3C.</li>
-                </ul>
-            </section>
+<li>Toujours renseigner l'attribut <code>alt</code> des images.</li>
+<li>Valider son code avec le validateur du W3C.</li>
+</ul>
+</section></article>
+  </div>
+  <section class="shell article-end"><div><span class="footer-label">Continuer l’exploration</span><h2>Un autre sujet à ouvrir ?</h2></div><a class="button button-primary" href="../index.html#articles">Voir tous les articles <span>↗</span></a></section>
+</main>
 
-        </div>
-    </main>
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div>
+      <a class="brand brand-footer" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark">H</span><span class="brand-copy"><strong>H@CKERBOY</strong><small>digital field notes</small></span></a>
+      <p class="footer-note">Des notes claires sur le code, les systèmes et la sécurité numérique.</p>
+    </div>
+    <div class="footer-column"><span class="footer-label">Explorer</span><a href="../index.html#articles">Tous les articles</a><a href="../index.html?filter=programmation#articles">Programmation</a><a href="../index.html?filter=cybersécurité#articles">Cybersécurité</a></div>
+    <div class="footer-column"><span class="footer-label">Me retrouver</span><a href="https://wa.me/22384122222" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer">Snapchat</a></div>
+  </div>
+  <div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Conçu pour apprendre, tester, partager.</span></div>
+</footer>
 
-    <section class="post-navigation container">
-        <h3>Autres articles</h3>
-        <ul>
-            <li><a href="post1.html">Tout savoir sur l'informatique</a></li>
-            <li><a href="post2.html">C'est quoi un Hacker ?</a></li>
-            <li><a href="post3.html">Introduction au HTML</a></li>
-            <li><a href="post4.html">Introduction au CSS</a></li>
-            <li><a href="post5.html">Introduction à JavaScript</a></li>
-            <li><a href="post6.html">Introduction à Python</a></li>
-            <li><a href="hackerboy.html">Qui est H@CKERBOY ?</a></li>
-        </ul>
-    </section>
-
-    <footer role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>H@CKERBOY</h3>
-                <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
-                <div class="social-links">
-                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"
-                        aria-label="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
-                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"
-                        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            <nav class="footer-links" aria-label="Liens rapides">
-                <a href="../index.html#programmation">Programmation</a>
-                <a href="../index.html#informatique">Informatique</a>
-                <a href="../index.html#cybersécurité">Cybersécurité</a>
-                <a href="../index.html#apropos">À propos</a>
-            </nav>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 H@CKERBOY. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-    <script src="../js/dynamic.js" defer></script>
-    <script src="../js/ios-theme-toggle.js" defer></script>
-    <script src="../js/animations.js" defer></script>
-    <script>
-        (function () {
-            var toggle = document.getElementById('pulse-toggle');
-            var nav = document.getElementById('drift-nav');
-            if (!toggle || !nav) return;
-
-            toggle.addEventListener('click', function () {
-                var isOpen = nav.classList.toggle('open');
-                toggle.classList.toggle('open', isOpen);
-                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    nav.classList.remove('open');
-                    toggle.classList.remove('open');
-                    toggle.setAttribute('aria-expanded', 'false');
-                    toggle.setAttribute('aria-label', 'Ouvrir le menu');
-                });
-            });
-        })();
-    </script>
-
-</body>
-
-</html>
+<script src="../js/site.js?v=2" defer></script>
+</body></html>

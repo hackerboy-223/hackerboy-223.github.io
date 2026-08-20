@@ -1,177 +1,135 @@
-<!DOCTYPE html>
-<html lang="fr">
-
+<!doctype html>
+<html lang="fr" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description"
-        content="La Masterclass Python : De Zéro à H@CKER. Apprenez Python de manière intensive et pratique.">
-    <meta name="keywords" content="Python, programmation, développement, tutoriel, langage, hacker, masterclass">
-    <meta name="author" content="H@CKERBOY">
-    <link rel="icon" type="image/x-icon" href="../icon/hack8080.ico">
-    <title>La Masterclass Python : De Zéro à H@CKER</title>
-    <link rel="canonical" href="https://hackerboy-223.github.io/posts/post6.html">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Masterclass Python : De Zéro à H@CKER — H@CKERBOY</title>
+  <meta name="description" content="La Masterclass Python : De Zéro à H@CKER. Un langage simple, puissant et polyvalent — idéal pour débuter et aller loin !">
+  <meta name="author" content="H@CKERBOY">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hackerboy-223.github.io/posts/post6.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="La Masterclass Python : De Zéro à H@CKER — H@CKERBOY">
+  <meta property="og:description" content="La Masterclass Python : De Zéro à H@CKER. Un langage simple, puissant et polyvalent — idéal pour débuter et aller loin !">
+  <meta property="og:url" content="https://hackerboy-223.github.io/posts/post6.html">
+  <meta property="og:image" content="https://hackerboy-223.github.io/images/hack.jfif">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" href="../icon/hack8080.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css?v=2">
 </head>
+<body data-page="article" data-post-slug="post6">
 
-<body data-post-slug="post6">
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="../index.html" aria-label="H@CKERBOY, accueil">
+      <span class="brand-mark">H</span>
+      <span class="brand-copy"><strong>H@CKERBOY</strong><small>digital field notes</small></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <a href="../index.html#articles">Articles</a>
+      <a href="../index.html?filter=programmation#articles">Programmation</a>
+      <a href="../index.html?filter=cybersécurité#articles">Cybersécurité</a>
+      <a href="../index.html#apropos">À propos</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Activer le thème clair" title="Changer de thème">☼</button>
+      <button class="menu-button" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
 
-    <header class="neo-header" role="banner">
-        <div class="neo-shell">
-            <a href="../index.html" class="core-brand" aria-label="H@CKERBOY — accueil">
-                <img src="../images/hack8080.jpg" alt="Logo H@CKERBOY" class="core-mark" width="44" height="44">
-            </a>
-
-            <nav class="drift-nav" id="drift-nav" aria-label="Navigation principale">
-                <ul>
-                    <li><a href="../index.html#programmation">Programmation</a></li>
-                    <li><a href="../index.html#informatique">Informatique</a></li>
-                    <li><a href="../index.html#cybersécurité">Cybersécurité</a></li>
-                    <li><a href="../index.html#apropos">À propos</a></li>
-                </ul>
-            </nav>
-
-            <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème" title="Mode sombre / clair">
-                <i class="fa-solid fa-moon" aria-hidden="true"></i>
-            </button>
-
-            <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
-                aria-controls="drift-nav">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
-
-    <main>
-        <!-- En-tête du Cours -->
-        <header class="course-header">
-            <div class="glass-badge">PYTHON_PROTOCOL_V1</div>
-            <h1 class="neon-title">La Masterclass Python : De Zéro à H@CKER</h1>
-            <!-- TODO résolu : .btn-back placé juste après le <h1> -->
-            <a class="btn-back" href="../index.html#programmation">&larr; Retour au blog</a>
-            <p class="course-intro">Le langage le plus puissant du monde, démystifié. Pas de blabla académique, juste du
-                code pur pour automatiser, créer et dominer.</p>
-        </header>
-
-        <!-- Navigation Rapide (Sticky si possible) -->
-        <nav class="course-nav glass-panel">
-            <ul>
-                <li><a href="#lvl1">🟢 Lvl 1: Bases</a></li>
-                <li><a href="#lvl2">🟡 Lvl 2: Logique</a></li>
-                <li><a href="#lvl3">🟠 Lvl 3: Data</a></li>
-                <li><a href="#lvl4">🔴 Lvl 4: OOP</a></li>
-            </ul>
-        </nav>
-
-        <!-- LEVEL 1 -->
-        <section id="lvl1" class="course-module">
-            <div class="module-header">
-                <span class="level-tag l-green">LEVEL 1</span>
-                <h2>Le Setup & Les Variables</h2>
-            </div>
-
-            <div class="glass-card content-block">
-                <h3>📦 Les Variables : Tes Containers</h3>
-                <p>Imagine une boîte en carton. Tu écris "Score" dessus, et tu mets "10" dedans. C'est ça, une variable.
+<main class="article-page">
+  <div class="shell article-hero">
+    <div class="article-kicker"><a href="../index.html#articles">← Retour aux articles</a><span class="dot"></span><span>Programmation</span></div>
+    <div class="article-hero-grid">
+      <div><h1>La Masterclass Python : De Zéro à H@CKER</h1><p class="article-lead">La Masterclass Python : De Zéro à H@CKER. Un langage simple, puissant et polyvalent — idéal pour débuter et aller loin !</p><div class="article-meta"><span>2025-01-25</span><span>Par H@CKERBOY</span></div></div>
+      <div class="article-cover"><img src="../images/hack.jfif" alt="Illustration : La Masterclass Python : De Zéro à H@CKER" width="900" height="560"></div>
+    </div>
+  </div>
+  <div class="shell article-layout">
+    <aside class="article-aside"><div class="aside-card"><span class="footer-label">Dans cet article</span><nav class="toc" id="toc" aria-label="Sommaire de l'article"></nav></div><div class="aside-card aside-callout"><span class="status-dot"></span><p>Lecture libre, sans jargon inutile.</p></div></aside>
+    <article class="article-content"><section class="course-module" id="lvl1">
+<div class="module-header">
+<span class="level-tag l-green">LEVEL 1</span>
+<h2>Le Setup &amp; Les Variables</h2>
+</div>
+<div class="glass-card content-block">
+<h3>📦 Les Variables : Tes Containers</h3>
+<p>Imagine une boîte en carton. Tu écris "Score" dessus, et tu mets "10" dedans. C'est ça, une variable.
                     En Python, c'est le <strong>Typage Dynamique</strong> : le code devine tout seul ce qu'il y a dans
                     la boîte.</p>
+<!-- Placeholder pour l'image -->
 
-                <!-- Placeholder pour l'image -->
-                <figure class="visual-concept">
-                    <img src="https://www.data-bird.co/images/blog/variables-python.png" alt="Schéma mémoire variable"
-                        class="img-fluid rounded shadow">
-                    <figcaption>Visualisation : La variable pointe vers la valeur en mémoire.</figcaption>
-                </figure>
-
-                <div class="code-terminal">
-                    <div class="terminal-header">script.py</div>
-                    <pre><code class="language-python">
+<div class="code-terminal">
+<div class="terminal-header">script.py</div>
+<pre><code class="language-python">
 pseudo = "H@CKERBOY"  # String (Texte)
 niveau = 99           # Integer (Entier)
 is_admin = True       # Boolean (Vrai/Faux)
 
 print(f"User: {pseudo} | Lvl: {niveau}")
                     </code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- LEVEL 2 -->
-        <section id="lvl2" class="course-module">
-            <div class="module-header">
-                <span class="level-tag l-yellow">LEVEL 2</span>
-                <h2>Le Flow de Contrôle (L'IA de base)</h2>
-            </div>
-
-            <div class="glass-card content-block">
-                <h3>🧠 IF / ELSE : Le Cerveau</h3>
-                <p>C'est la prise de décision. Si X arrive, fais Y. Sinon, fais Z. Sans ça, ton programme est stupide.
+</div>
+</div>
+</section>
+<section class="course-module" id="lvl2">
+<div class="module-header">
+<span class="level-tag l-yellow">LEVEL 2</span>
+<h2>Le Flow de Contrôle (L'IA de base)</h2>
+</div>
+<div class="glass-card content-block">
+<h3>🧠 IF / ELSE : Le Cerveau</h3>
+<p>C'est la prise de décision. Si X arrive, fais Y. Sinon, fais Z. Sans ça, ton programme est stupide.
                 </p>
-
-                <div class="hacker-tip">
-                    <strong>💡 PRO TIP :</strong> L'indentation (les espaces) est vitale en Python. Pas d'accolades {},
+<div class="hacker-tip">
+<strong>💡 PRO TIP :</strong> L'indentation (les espaces) est vitale en Python. Pas d'accolades {},
                     juste des tabulations.
                 </div>
-
-                <div class="code-terminal">
-                    <div class="terminal-header">security.py</div>
-                    <pre><code class="language-python">
+<div class="code-terminal">
+<div class="terminal-header">security.py</div>
+<pre><code class="language-python">
 batterie = 15
 
-if batterie < 20:
+if batterie &lt; 20:
     print("⚠️ Mode économie activé")
 elif batterie == 100:
     print("🔋 Puissance maximale")
 else:
     print("System stable.")
                     </code></pre>
-                </div>
+</div>
 
-                <figure class="visual-concept">
-                    <!-- Lien vers l'image flowchart -->
-                    <img src="https://pynative.com/wp-content/uploads/2021/07/python-if-else-if-statement-flowchart.png"
-                        alt="Flowchart If Else" class="img-fluid rounded shadow">
-                </figure>
-            </div>
-        </section>
-
-        <!-- LEVEL 3 -->
-        <section id="lvl3" class="course-module">
-            <div class="module-header">
-                <span class="level-tag l-orange">LEVEL 3</span>
-                <h2>L'Arsenal des Données</h2>
-            </div>
-
-            <div class="glass-card content-block">
-                <h3>Listes vs Dictionnaires : Le Duel</h3>
-                <p>C'est l'erreur classique des débutants. Apprends la différence maintenant.</p>
-
-                <div class="comparison-table">
-                    <div class="comp-item">
-                        <h4>📜 La Liste [ ]</h4>
-                        <p>Une collection ordonnée. Comme une playlist.</p>
-                        <code>items = ["épée", "bouclier"]</code>
-                        <span class="use-case">Usage : Stocker des logs, des tâches.</span>
-                    </div>
-                    <div class="comp-divider">VS</div>
-                    <div class="comp-item">
-                        <h4>📖 Le Dictionnaire { }</h4>
-                        <p>Des paires Clé/Valeur. Comme un profil utilisateur.</p>
-                        <code>user = {"nom": "Neo", "id": 1}</code>
-                        <span class="use-case">Usage : Configs, API, Data complexe.</span>
-                    </div>
-                </div>
-
-                <div class="code-terminal">
-                    <div class="terminal-header">server_config.py</div>
-                    <pre><code class="language-python">
+</div>
+</section>
+<section class="course-module" id="lvl3">
+<div class="module-header">
+<span class="level-tag l-orange">LEVEL 3</span>
+<h2>L'Arsenal des Données</h2>
+</div>
+<div class="glass-card content-block">
+<h3>Listes vs Dictionnaires : Le Duel</h3>
+<p>C'est l'erreur classique des débutants. Apprends la différence maintenant.</p>
+<div class="comparison-table">
+<div class="comp-item">
+<h4>📜 La Liste [ ]</h4>
+<p>Une collection ordonnée. Comme une playlist.</p>
+<code>items = ["épée", "bouclier"]</code>
+<span class="use-case">Usage : Stocker des logs, des tâches.</span>
+</div>
+<div class="comp-divider">VS</div>
+<div class="comp-item">
+<h4>📖 Le Dictionnaire { }</h4>
+<p>Des paires Clé/Valeur. Comme un profil utilisateur.</p>
+<code>user = {"nom": "Neo", "id": 1}</code>
+<span class="use-case">Usage : Configs, API, Data complexe.</span>
+</div>
+</div>
+<div class="code-terminal">
+<div class="terminal-header">server_config.py</div>
+<pre><code class="language-python">
 # Dictionnaire complexe (JSON style)
 config = {
     "ip": "192.168.1.1",
@@ -182,29 +140,25 @@ config = {
 # Accès ultra-rapide
 print(config["ports"][0]) # Affiche : 80
                     </code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- LEVEL 4 -->
-        <section id="lvl4" class="course-module">
-            <div class="module-header">
-                <span class="level-tag l-red">LEVEL 4</span>
-                <h2>Programmation Orientée Objet (OOP)</h2>
-            </div>
-
-            <div class="glass-card content-block">
-                <h3>🏭 Classes & Objets : L'Usine</h3>
-                <p>Pour construire des gros systèmes, tu ne peux pas juste écrire du code en vrac. Tu as besoin de plans
+</div>
+</div>
+</section>
+<section class="course-module" id="lvl4">
+<div class="module-header">
+<span class="level-tag l-red">LEVEL 4</span>
+<h2>Programmation Orientée Objet (OOP)</h2>
+</div>
+<div class="glass-card content-block">
+<h3>🏭 Classes &amp; Objets : L'Usine</h3>
+<p>Pour construire des gros systèmes, tu ne peux pas juste écrire du code en vrac. Tu as besoin de plans
                     (Blueprints).</p>
-                <ul class="feature-list">
-                    <li><strong>Classe :</strong> Le plan de construction (Ex: Plan d'un Robot).</li>
-                    <li><strong>Objet :</strong> Le robot construit (Ex: Terminator T-800).</li>
-                </ul>
-
-                <div class="code-terminal">
-                    <div class="terminal-header">bot_factory.py</div>
-                    <pre><code class="language-python">
+<ul class="feature-list">
+<li><strong>Classe :</strong> Le plan de construction (Ex: Plan d'un Robot).</li>
+<li><strong>Objet :</strong> Le robot construit (Ex: Terminator T-800).</li>
+</ul>
+<div class="code-terminal">
+<div class="terminal-header">bot_factory.py</div>
+<pre><code class="language-python">
 class Robot:
     def __init__(self, nom, force):
         self.nom = nom
@@ -217,84 +171,24 @@ class Robot:
 bot1 = Robot("T-800", 500)
 bot1.attack() # Output: T-800 frappe avec 500kg de force !
                     </code></pre>
-                </div>
-            </div>
-        </section>
+</div>
+</div>
+</section></article>
+  </div>
+  <section class="shell article-end"><div><span class="footer-label">Continuer l’exploration</span><h2>Un autre sujet à ouvrir ?</h2></div><a class="button button-primary" href="../index.html#articles">Voir tous les articles <span>↗</span></a></section>
+</main>
 
-        <!-- Footer Motivation -->
-        <footer class="course-footer">
-            <h3>Prêt à déployer ?</h3>
-            <p>Le code ne s'apprend pas en lisant, mais en tapant. Ouvre VS Code.</p>
-            <a href="https://vscode.dev" target="_blank" rel="noopener noreferrer" class="liquid-btn">Lancer l'IDE</a>
-        </footer>
-    </main>
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div>
+      <a class="brand brand-footer" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark">H</span><span class="brand-copy"><strong>H@CKERBOY</strong><small>digital field notes</small></span></a>
+      <p class="footer-note">Des notes claires sur le code, les systèmes et la sécurité numérique.</p>
+    </div>
+    <div class="footer-column"><span class="footer-label">Explorer</span><a href="../index.html#articles">Tous les articles</a><a href="../index.html?filter=programmation#articles">Programmation</a><a href="../index.html?filter=cybersécurité#articles">Cybersécurité</a></div>
+    <div class="footer-column"><span class="footer-label">Me retrouver</span><a href="https://wa.me/22384122222" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer">Snapchat</a></div>
+  </div>
+  <div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Conçu pour apprendre, tester, partager.</span></div>
+</footer>
 
-    <section class="post-navigation container">
-        <h3>Autres articles</h3>
-        <ul>
-            <li><a href="post1.html">Tout savoir sur l'informatique</a></li>
-            <li><a href="post2.html">C'est quoi un Hacker ?</a></li>
-            <li><a href="post3.html">Qui est H@CKERBOY ?</a></li>
-            <li><a href="post4.html">Introduction au CSS</a></li>
-            <li><a href="post5.html">Introduction à JavaScript</a></li>
-            <li><a href="post6.html">Introduction à Python</a></li>
-            <li><a href="hackerboy.html">À propos</a></li>
-        </ul>
-    </section>
-
-    <footer role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>H@CKERBOY</h3>
-                <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
-                <div class="social-links">
-                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-snapchat"></i></a>
-                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            <nav class="footer-links" aria-label="Liens rapides">
-                <a href="../index.html#programmation">Programmation</a>
-                <a href="../index.html#informatique">Informatique</a>
-                <a href="../index.html#cybersécurité">Cybersécurité</a>
-                <a href="../index.html#apropos">À propos</a>
-            </nav>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 H@CKERBOY. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-    <script src="../js/dynamic.js" defer></script>
-    <script src="../js/ios-theme-toggle.js" defer></script>
-    <script src="../js/animations.js" defer></script>
-    <script>
-        (function () {
-            var toggle = document.getElementById('pulse-toggle');
-            var nav = document.getElementById('drift-nav');
-            if (!toggle || !nav) return;
-
-            toggle.addEventListener('click', function () {
-                var isOpen = nav.classList.toggle('open');
-                toggle.classList.toggle('open', isOpen);
-                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    nav.classList.remove('open');
-                    toggle.classList.remove('open');
-                    toggle.setAttribute('aria-expanded', 'false');
-                    toggle.setAttribute('aria-label', 'Ouvrir le menu');
-                });
-            });
-        })();
-    </script>
-
-</body>
-
-</html>
+<script src="../js/site.js?v=2" defer></script>
+</body></html>

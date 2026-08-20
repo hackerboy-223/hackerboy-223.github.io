@@ -1,254 +1,145 @@
-<!DOCTYPE html>
-<html lang="fr">
-
+<!doctype html>
+<html lang="fr" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Tout savoir sur l'informatique – H@CKERBOY BLOG</title>
-    <meta name="description" content="L'informatique expliquée simplement : histoire, matériel, logiciel, réseaux et programmation. Un guide complet pour débutants par H@CKERBOY.">
-    <meta name="keywords" content="informatique, matériel, logiciel, réseaux, programmation, histoire de l'informatique, H@CKERBOY">
-    <meta name="author" content="H@CKERBOY">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://hackerboy-223.github.io/posts/post1.html">
-    <link rel="icon" type="image/x-icon" href="../icon/hack8080.ico">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Tout savoir sur l'informatique – H@CKERBOY BLOG">
-    <meta property="og:description" content="L'informatique expliquée simplement : histoire, matériel, logiciel, réseaux et programmation. Un guide complet pour débutants par H@CKERBOY.">
-    <meta property="og:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
-    <meta property="og:url" content="https://hackerboy-223.github.io/posts/post1.html">
-    <meta property="og:locale" content="fr_FR">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tout savoir sur l'informatique – H@CKERBOY BLOG">
-    <meta name="twitter:description" content="L'informatique expliquée simplement : histoire, matériel, logiciel, réseaux et programmation. Un guide complet pour débutants par H@CKERBOY.">
-    <meta name="twitter:image" content="https://hackerboy-223.github.io/images/hack8080.jpg">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=Poppins:wght@400;500;600&display=swap">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="../styles/styles.css">
-
-    <!-- Données structurées JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Tout savoir sur l'informatique – H@CKERBOY BLOG",
-      "inLanguage": "fr-FR",
-      "datePublished": "2024-12-20",
-      "author": { "@type": "Person", "name": "H@CKERBOY" },
-      "publisher": { "@type": "Person", "name": "H@CKERBOY" },
-      "mainEntityOfPage": "https://hackerboy-223.github.io/posts/post1.html"
-    }
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tout savoir sur l&#x27;informatique — H@CKERBOY</title>
+  <meta name="description" content="L&#x27;informatique, c&#x27;est bien plus que des ordinateurs : découvrez ses domaines, son histoire et son impact sur notre quotidien.">
+  <meta name="author" content="H@CKERBOY">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hackerboy-223.github.io/posts/post1.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Tout savoir sur l&#x27;informatique — H@CKERBOY">
+  <meta property="og:description" content="L&#x27;informatique, c&#x27;est bien plus que des ordinateurs : découvrez ses domaines, son histoire et son impact sur notre quotidien.">
+  <meta property="og:url" content="https://hackerboy-223.github.io/posts/post1.html">
+  <meta property="og:image" content="https://hackerboy-223.github.io/images/matrix-1460603554sdB.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" href="../icon/hack8080.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css?v=2">
 </head>
+<body data-page="article" data-post-slug="post1">
 
-<body data-post-slug="post1">
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="../index.html" aria-label="H@CKERBOY, accueil">
+      <span class="brand-mark">H</span>
+      <span class="brand-copy"><strong>H@CKERBOY</strong><small>digital field notes</small></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <a href="../index.html#articles">Articles</a>
+      <a href="../index.html?filter=programmation#articles">Programmation</a>
+      <a href="../index.html?filter=cybersécurité#articles">Cybersécurité</a>
+      <a href="../index.html#apropos">À propos</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Activer le thème clair" title="Changer de thème">☼</button>
+      <button class="menu-button" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
 
-    <header class="neo-header" role="banner">
-        <div class="neo-shell">
-            <a href="../index.html" class="core-brand" aria-label="H@CKERBOY — accueil">
-                <img src="../images/hack8080.jpg" alt="Logo H@CKERBOY" class="core-mark" width="44" height="44">
-            </a>
-
-            <nav class="drift-nav" id="drift-nav" aria-label="Navigation principale">
-                <ul>
-                    <li><a href="../index.html#programmation">Programmation</a></li>
-                    <li><a href="../index.html#informatique">Informatique</a></li>
-                    <li><a href="../index.html#cybersécurité">Cybersécurité</a></li>
-                    <li><a href="../index.html#apropos">À propos</a></li>
-                </ul>
-            </nav>
-
-            <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème" title="Mode sombre / clair">
-                <i class="fa-solid fa-moon" aria-hidden="true"></i>
-            </button>
-
-            <button class="pulse-toggle" id="pulse-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
-                aria-controls="drift-nav">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
-
-    <main>
-        <section class="post-hero">
-            <div class="container">
-                <h1>Tout savoir sur l'informatique</h1>
-                <!-- TODO résolu : .btn-back placé juste après le <h1> -->
-                <a class="btn-back" href="../index.html#informatique">&larr; Retour au blog</a>
-                <p class="meta">Publié le 20 décembre 2024 | Par H@CKERBOY</p>
-            </div>
-        </section>
-
-        <div class="container">
-
-            <section id="def">
-                <h2>Qu'est-ce que l'Informatique ?</h2>
-                <p>L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le
+<main class="article-page">
+  <div class="shell article-hero">
+    <div class="article-kicker"><a href="../index.html#articles">← Retour aux articles</a><span class="dot"></span><span>Informatique</span></div>
+    <div class="article-hero-grid">
+      <div><h1>Tout savoir sur l&#x27;informatique</h1><p class="article-lead">L&#x27;informatique, c&#x27;est bien plus que des ordinateurs : découvrez ses domaines, son histoire et son impact sur notre quotidien.</p><div class="article-meta"><span>2024-12-20</span><span>Par H@CKERBOY</span></div></div>
+      <div class="article-cover"><img src="../images/matrix-1460603554sdB.jpg" alt="Illustration : Tout savoir sur l&#x27;informatique" width="900" height="560"></div>
+    </div>
+  </div>
+  <div class="shell article-layout">
+    <aside class="article-aside"><div class="aside-card"><span class="footer-label">Dans cet article</span><nav class="toc" id="toc" aria-label="Sommaire de l'article"></nav></div><div class="aside-card aside-callout"><span class="status-dot"></span><p>Lecture libre, sans jargon inutile.</p></div></aside>
+    <article class="article-content"><section id="def">
+<h2>Qu'est-ce que l'Informatique ?</h2>
+<p>L'informatique est l'étude du traitement automatique de l'information. Elle concerne à la fois le
                     matériel informatique, le logiciel et les réseaux qui permettent d'exécuter des programmes et de
                     stocker des données.</p>
-                <img src="https://www.wmagence.com/upload/entreprise-informatique-1623657896-40246.jpg"
-                    alt="Concept informatique" loading="lazy" decoding="async">
-            </section>
 
-            <section id="histoire">
-                <h2>Histoire de l'Informatique</h2>
-                <p>L'informatique a des racines dans des siècles d'avancées en mathématiques et en logique. Les
+</section>
+<section id="histoire">
+<h2>Histoire de l'Informatique</h2>
+<p>L'informatique a des racines dans des siècles d'avancées en mathématiques et en logique. Les
                     premières machines à calculer ont été créées au 17e siècle, mais c'est au 20e siècle que
                     l'ordinateur moderne a émergé.</p>
-                <ul>
-                    <li><strong>1930s :</strong> Alan Turing pose les bases théoriques de l'informatique moderne.</li>
-                    <li><strong>1940s :</strong> Les premiers ordinateurs électroniques apparaissent.</li>
-                    <li><strong>1950s-1970s :</strong> L'ère des ordinateurs mainframes et la naissance des langages de
+<ul>
+<li><strong>1930s :</strong> Alan Turing pose les bases théoriques de l'informatique moderne.</li>
+<li><strong>1940s :</strong> Les premiers ordinateurs électroniques apparaissent.</li>
+<li><strong>1950s-1970s :</strong> L'ère des ordinateurs mainframes et la naissance des langages de
                         programmation.</li>
-                    <li><strong>1980s-1990s :</strong> L'avènement des ordinateurs personnels et du réseau Internet.</li>
-                </ul>
-                <img src="https://isn-charlemagne.fr/images/Eniac.jpg" alt="Évolution des ordinateurs" loading="lazy"
-                    decoding="async">
-            </section>
+<li><strong>1980s-1990s :</strong> L'avènement des ordinateurs personnels et du réseau Internet.</li>
+</ul>
 
-            <section id="matériel">
-                <h2>Matériel Informatique</h2>
-                <p>Le matériel informatique se compose de tous les composants physiques nécessaires à l'exécution des
+</section>
+<section id="matériel">
+<h2>Matériel Informatique</h2>
+<p>Le matériel informatique se compose de tous les composants physiques nécessaires à l'exécution des
                     logiciels. Cela inclut les ordinateurs, les périphériques, et les systèmes de stockage.</p>
-                <ul>
-                    <li><strong>Processeur (CPU) :</strong> Le cerveau de l'ordinateur qui exécute les instructions.</li>
-                    <li><strong>Carte mère :</strong> Le composant central qui relie tous les autres composants.</li>
-                    <li><strong>Mémoire (RAM) :</strong> Permet de stocker temporairement les données en cours de
+<ul>
+<li><strong>Processeur (CPU) :</strong> Le cerveau de l'ordinateur qui exécute les instructions.</li>
+<li><strong>Carte mère :</strong> Le composant central qui relie tous les autres composants.</li>
+<li><strong>Mémoire (RAM) :</strong> Permet de stocker temporairement les données en cours de
                         traitement.</li>
-                    <li><strong>Disque dur (HDD) / SSD :</strong> Le stockage permanent des données.</li>
-                    <li><strong>Carte graphique :</strong> Gère l'affichage visuel sur l'écran.</li>
-                </ul>
-                <img src="https://cdn-blog.superprof.com/blog_fr/wp-content/uploads/2018/07/ordi-que-choisir.jpg.webp"
-                    alt="Composants matériels" loading="lazy" decoding="async">
-            </section>
+<li><strong>Disque dur (HDD) / SSD :</strong> Le stockage permanent des données.</li>
+<li><strong>Carte graphique :</strong> Gère l'affichage visuel sur l'écran.</li>
+</ul>
 
-            <section id="logiciel">
-                <h2>Logiciel Informatique</h2>
-                <p>Le logiciel est l'ensemble des programmes qui permettent à un ordinateur de réaliser des tâches
+</section>
+<section id="logiciel">
+<h2>Logiciel Informatique</h2>
+<p>Le logiciel est l'ensemble des programmes qui permettent à un ordinateur de réaliser des tâches
                     spécifiques. Il existe deux principaux types de logiciels : les logiciels systèmes et les logiciels
                     applicatifs.</p>
-                <ul>
-                    <li><strong>Logiciels systèmes :</strong> Ils assurent le fonctionnement de l'ordinateur (ex :
+<ul>
+<li><strong>Logiciels systèmes :</strong> Ils assurent le fonctionnement de l'ordinateur (ex :
                         système d'exploitation comme Windows, macOS, Linux).</li>
-                    <li><strong>Logiciels applicatifs :</strong> Permettent d'exécuter des tâches spécifiques pour
+<li><strong>Logiciels applicatifs :</strong> Permettent d'exécuter des tâches spécifiques pour
                         l'utilisateur (ex : navigateurs web, éditeurs de texte, jeux vidéo).</li>
-                </ul>
-                <img src="https://www.aquilapp.fr/wp-content/uploads/2024/01/types-de-logiciels-informatique-1536x758.jpg"
-                    alt="Développement logiciel" loading="lazy" decoding="async">
-            </section>
+</ul>
 
-            <section id="reseaux">
-                <h2>Réseaux Informatiques</h2>
-                <p>Les réseaux informatiques permettent de connecter plusieurs ordinateurs entre eux pour partager des
+</section>
+<section id="reseaux">
+<h2>Réseaux Informatiques</h2>
+<p>Les réseaux informatiques permettent de connecter plusieurs ordinateurs entre eux pour partager des
                     données. Internet est le réseau informatique mondial le plus important.</p>
-                <ul>
-                    <li><strong>LAN (Réseau Local) :</strong> Un réseau qui couvre une petite zone géographique, comme
+<ul>
+<li><strong>LAN (Réseau Local) :</strong> Un réseau qui couvre une petite zone géographique, comme
                         une maison ou un bureau.</li>
-                    <li><strong>WAN (Réseau Étendu) :</strong> Un réseau qui s'étend sur de grandes distances, comme
+<li><strong>WAN (Réseau Étendu) :</strong> Un réseau qui s'étend sur de grandes distances, comme
                         Internet.</li>
-                    <li><strong>Protocoles de communication :</strong> Des règles définissant comment les ordinateurs
+<li><strong>Protocoles de communication :</strong> Des règles définissant comment les ordinateurs
                         communiquent entre eux (ex : TCP/IP, HTTP).</li>
-                </ul>
-                <img src="https://cdn.futura-sciences.com/cdn-cgi/image/width=1520,quality=50,format=auto/sources/images/Reseau-informatique-connexion.jpeg"
-                    alt="Connexion réseau moderne" loading="lazy" decoding="async">
-            </section>
+</ul>
 
-            <section id="programmation">
-                <h2>Programmation Informatique</h2>
-                <p>La programmation est l'art d'écrire des instructions que l'ordinateur peut exécuter. Les programmeurs
+</section>
+<section id="programmation">
+<h2>Programmation Informatique</h2>
+<p>La programmation est l'art d'écrire des instructions que l'ordinateur peut exécuter. Les programmeurs
                     utilisent des langages de programmation pour créer des logiciels.</p>
-                <ul>
-                    <li><strong>Langages de programmation populaires :</strong> Python, Java, C++, JavaScript, Ruby.</li>
-                    <li><strong>Paradigmes de programmation :</strong> Procédural, orienté objet, fonctionnel, logique.</li>
-                    <li><strong>Développement web :</strong> Créer des applications web avec des technologies comme
+<ul>
+<li><strong>Langages de programmation populaires :</strong> Python, Java, C++, JavaScript, Ruby.</li>
+<li><strong>Paradigmes de programmation :</strong> Procédural, orienté objet, fonctionnel, logique.</li>
+<li><strong>Développement web :</strong> Créer des applications web avec des technologies comme
                         HTML, CSS, JavaScript.</li>
-                </ul>
-                <img src="https://idruide.com/wp-content/uploads/2022/04/pexels-pixabay-276452.jpg"
-                    alt="Écriture de code" loading="lazy" decoding="async">
-            </section>
+</ul>
 
-        </div>
-    </main>
+</section></article>
+  </div>
+  <section class="shell article-end"><div><span class="footer-label">Continuer l’exploration</span><h2>Un autre sujet à ouvrir ?</h2></div><a class="button button-primary" href="../index.html#articles">Voir tous les articles <span>↗</span></a></section>
+</main>
 
-    <section class="post-navigation container">
-        <h3>Autres articles</h3>
-        <ul>
-            <li><a href="post1.html">Tout savoir sur l'informatique</a></li>
-            <li><a href="post2.html">C'est quoi un Hacker ?</a></li>
-            <li><a href="post3.html">Introduction au HTML</a></li>
-            <li><a href="post4.html">Introduction au CSS</a></li>
-            <li><a href="post5.html">Introduction à JavaScript</a></li>
-            <li><a href="post6.html">Introduction à Python</a></li>
-            <li><a href="hackerboy.html">Qui est H@CKERBOY ?</a></li>
-        </ul>
-    </section>
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div>
+      <a class="brand brand-footer" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark">H</span><span class="brand-copy"><strong>H@CKERBOY</strong><small>digital field notes</small></span></a>
+      <p class="footer-note">Des notes claires sur le code, les systèmes et la sécurité numérique.</p>
+    </div>
+    <div class="footer-column"><span class="footer-label">Explorer</span><a href="../index.html#articles">Tous les articles</a><a href="../index.html?filter=programmation#articles">Programmation</a><a href="../index.html?filter=cybersécurité#articles">Cybersécurité</a></div>
+    <div class="footer-column"><span class="footer-label">Me retrouver</span><a href="https://wa.me/22384122222" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer">Snapchat</a></div>
+  </div>
+  <div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Conçu pour apprendre, tester, partager.</span></div>
+</footer>
 
-    <footer role="contentinfo">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>H@CKERBOY</h3>
-                <p>Blog sur l'informatique, la cybersécurité et l'innovation technologique.</p>
-                <div class="social-links">
-                    <a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer"
-                        aria-label="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
-                    <a href="https://wa.me/+22384122222" target="_blank" rel="noopener noreferrer"
-                        aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            <nav class="footer-links" aria-label="Liens rapides">
-                <a href="../index.html#programmation">Programmation</a>
-                <a href="../index.html#informatique">Informatique</a>
-                <a href="../index.html#cybersécurité">Cybersécurité</a>
-                <a href="../index.html#apropos">À propos</a>
-            </nav>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 H@CKERBOY. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-    <script src="../js/dynamic.js" defer></script>
-    <script src="../js/ios-theme-toggle.js" defer></script>
-    <script src="../js/animations.js" defer></script>
-    <script>
-        (function () {
-            var toggle = document.getElementById('pulse-toggle');
-            var nav = document.getElementById('drift-nav');
-            if (!toggle || !nav) return;
-
-            toggle.addEventListener('click', function () {
-                var isOpen = nav.classList.toggle('open');
-                toggle.classList.toggle('open', isOpen);
-                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                toggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
-            });
-
-            nav.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    nav.classList.remove('open');
-                    toggle.classList.remove('open');
-                    toggle.setAttribute('aria-expanded', 'false');
-                    toggle.setAttribute('aria-label', 'Ouvrir le menu');
-                });
-            });
-        })();
-    </script>
-
-</body>
-
-</html>
+<script src="../js/site.js?v=2" defer></script>
+</body></html>

@@ -1,124 +1,31 @@
-# H@CKERBOY Blog 🚀
+# H@CKERBOY — Digital field notes
 
-Bienvenue sur le blog de **H@CKERBOY** – votre espace pour explorer l'univers fascinant de l'informatique 🖥️ et du hacking 🔍.
+Site statique de H@CKERBOY, publié sur [hackerboy-223.github.io](https://hackerboy-223.github.io/). Le projet rassemble des articles accessibles sur la programmation, l’informatique et la cybersécurité.
 
-## 📚 Contenu du Blog
+## Structure
 
-- **Tous savoir sur l’informatique** 💡  
-  Explorez des articles sur le matériel, le logiciel et les réseaux qui transforment notre monde digital.
+| Élément | Rôle |
+|---|---|
+| `index.html` | Accueil éditorial, filtres, recherche et H@CKERBOT local |
+| `posts/` | Pages d’articles normalisées |
+| `data/posts.json` | Métadonnées des articles |
+| `styles/styles.css` | Système visuel unique, responsive et accessible |
+| `js/site.js` | Navigation, thème, filtres, recherche, sommaire et assistant |
+| `images/` | Illustrations locales des articles |
+| `sitemap.xml` / `robots.txt` | Référencement du site |
 
-- **C'est quoi un Hacker ?** 🔒  
-  Une plongée dans l'univers du cryptage et de la cybersécurité pour protéger vos données personnelles.
+## Prévisualiser localement
 
-- **⚠ Attention, ceci est un test !! ⚠**  
-  Un espace dédié aux expérimentations et tests, où rien n'est pris au sérieux… enfin presque !
-
-## 🛠️ Technologies Utilisées
-
-- **GitHub Pages** : Hébergement simple et efficace pour des sites statiques.
-- **HTML5 & CSS3** : Pour une structure moderne et un design responsive.
-- **JavaScript** : Pour ajouter de l’interactivité et du dynamisme.
-
-## 🤔 Pourquoi ce blog ?
-
-Lancé le **20 décembre 2024**, ce blog s'adresse à tous ceux qui souhaitent :
-- Apprendre et approfondir leurs connaissances en informatique.
-- Découvrir les coulisses du hacking et de la sécurité en ligne.
-- Partager et échanger sur des sujets techniques passionnants.
-
-Chaque article est conçu pour rendre l'informatique accessible, intriguante et surtout pratique pour vous aider à mieux comprendre l'environnement digital. 🌐
-
-## 🤝 Rejoignez la Communauté
-
-Vos retours et commentaires sont précieux ! N'hésitez pas à interagir, poser des questions et partager vos découvertes. Ensemble, nous construisons un espace d'échange où la curiosité mène à l'innovation. 💬
-
-## 🔗 Liens Utiles
-
-- **Site Web** : [https://hackerboy-223.github.io/](https://hackerboy-223.github.io/)
-- **Articles & Publications** : Parcourez le blog pour trouver des tutoriels, des analyses et bien plus encore.
-- **whatsapp contact** : https://wa.me/+22384122222
-
----
-
-*© 2024 H@CKERBOY. Tous droits réservés.*
-
-## 🗂️ Structure du projet
-
-```
-├── index.html          # Accueil (cartes générées depuis data/posts.json)
-├── posts/              # Articles statiques (post1..post6, hackerboy)
-├── js/
-│   ├── dynamic.js      # Cartes de l'accueil + fond animé (particules)
-│   ├── assistant.js    # Widget H@CKERBOT (accueil)
-│   └── ios-theme-toggle.js  # Mode sombre/clair persistant
-├── styles/             # styles.css + styles.min.css (généré)
-├── data/posts.json     # Métadonnées des articles (source des cartes)
-├── api/posts.php       # API locale optionnelle (ne fonctionne PAS sur GitHub Pages)
-├── robots.txt          # À la racine (requis par les moteurs de recherche)
-└── sitemap.xml
-```
-
-> ⚠️ GitHub Pages ne sert que des fichiers statiques : `api/posts.php` n'est utile
-> qu'en local (`php -S localhost:8000`). Le site lit directement `data/posts.json`.
-
-## 🧪 Développement local
+Depuis la racine du dépôt :
 
 ```bash
-python3 -m http.server 8000
-# puis ouvrir http://localhost:8000
+python3 -m http.server 4173
 ```
 
-## 📈 Performance & Image Optimization (local)
+Puis ouvrir `http://127.0.0.1:4173/`.
 
-If you want faster load times and smaller bandwidth usage, generate optimized responsive images locally and serve them with `picture`/`srcset`.
+## Principes de la refonte
 
-Recommended ImageMagick commands (run locally on Windows via PowerShell):
+Le site utilise une direction éditoriale sombre, une palette cyan/vert électrique, une typographie lisible et une grille responsive. Les anciennes dépendances et les scripts fragmentés ont été retirés au profit de JavaScript natif sans dépendance. Les interactions sont progressives : le contenu reste lisible sans JavaScript, tandis que les filtres, la recherche, le thème et le sommaire améliorent l’expérience lorsqu’il est activé.
 
-1) Create WebP at multiple sizes (320, 640, 1200px widths):
-
-```powershell
-# Replace <image> with filename, e.g. hack8080.jpg
-magick convert <image> -strip -resize 320x -quality 80 images/<name>-320.webp
-magick convert <image> -strip -resize 640x -quality 80 images/<name>-640.webp
-magick convert <image> -strip -resize 1200x -quality 80 images/<name>-1200.webp
-```
-
-2) (Optional) Create AVIF variants (smaller but slower to encode):
-
-```powershell
-magick convert <image> -strip -resize 640x -quality 60 images/<name>-640.avif
-magick convert <image> -strip -resize 1200x -quality 60 images/<name>-1200.avif
-```
-
-3) Example: optimize `hack8080.jpg` into WebP
-
-```powershell
-magick convert hack8080.jpg -strip -resize 640x -quality 80 images/hack8080-640.webp
-magick convert hack8080.jpg -strip -resize 1200x -quality 80 images/hack8080-1200.webp
-```
-
-Add `images/` to your repo (or host on CDN) and update img markup.
-
-### Example `picture` markup to add to pages
-
-```html
-<picture>
-  <source type="image/avif" srcset="/images/hack8080-1200.avif 1200w, /images/hack8080-640.avif 640w" sizes="(max-width: 800px) 640px, 1200px">
-  <source type="image/webp" srcset="/images/hack8080-1200.webp 1200w, /images/hack8080-640.webp 640w" sizes="(max-width: 800px) 640px, 1200px">
-  <img src="/hack8080.jpg" alt="H@CKERBOY" loading="lazy" decoding="async" fetchpriority="low">
-</picture>
-```
-
-### Ping search engines (after sitemap updates)
-Use this command to notify Google (replace with your site URL):
-
-```powershell
-Invoke-WebRequest "https://www.google.com/ping?sitemap=https://hackerboy-223.github.io/sitemap.xml"
-```
-
-If you want, I can:
-- Add `images/` placeholders and update pages to use `picture` markup for selected images.
-- Generate a PowerShell script that runs ImageMagick for all local images in the repo (you'll run it locally).
-
-Vérification effectuée le 12 juin 2026 par H@CKERBOY
-
+Le site est entièrement statique et compatible avec GitHub Pages. Les liens sociaux et les images existantes ont été conservés lorsqu’ils apportent une valeur directe au contenu.
