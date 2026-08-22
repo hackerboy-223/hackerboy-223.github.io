@@ -92,6 +92,7 @@ La priorité n’est pas d’accumuler des fonctionnalités, mais de construire 
 
 ## Références publiques
 
+- [Profil LinkedIn de Drissa Diarra](https://www.linkedin.com/in/drissa-diarra-4171ab430)
 - [Portfolio en production](https://hackerboy-223.vercel.app/)
 - [Dépôt GitHub](https://github.com/hackerboy-223/hackerboy-223.github.io)
 - [Études de cas](https://hackerboy-223.vercel.app/projects.html)

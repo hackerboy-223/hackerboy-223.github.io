@@ -715,3 +715,32 @@ body { font-size: clamp(15px, .18vw + 14px, 17px); letter-spacing: -.006em; }
   .header-cta { display: none; }
   .header-actions { margin-left: auto; }
 }
+
+
+/* Social presence cards — identifiable, accessible and deliberately quiet. */
+.social-links { display: grid; gap: 12px; }
+.social-card { --social-accent: var(--accent); position: relative; display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 14px; min-height: 76px; padding: 12px 15px 12px 12px; border: 1px solid var(--hairline); border-radius: 18px; background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 92%, var(--social-accent) 8%), color-mix(in srgb, var(--bg-soft) 90%, transparent)); color: var(--text); text-decoration: none; overflow: hidden; transition: transform .22s var(--ease-premium), border-color .22s, box-shadow .22s, background .22s; }
+.social-card::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--social-accent); opacity: .9; }
+.social-card::after { content: ''; position: absolute; width: 110px; height: 110px; right: -58px; top: -58px; border-radius: 50%; background: var(--social-accent); opacity: .06; pointer-events: none; }
+.social-card:hover, .social-card:focus-visible { transform: translate(3px, -2px); border-color: color-mix(in srgb, var(--social-accent) 70%, var(--hairline)); box-shadow: 0 16px 34px color-mix(in srgb, var(--social-accent) 12%, transparent); background: color-mix(in srgb, var(--surface) 84%, var(--social-accent) 16%); }
+.social-card:active { transform: scale(.985); }
+.social-icon { position: relative; z-index: 1; display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid color-mix(in srgb, var(--social-accent) 42%, var(--hairline)); border-radius: 15px; background: color-mix(in srgb, var(--social-accent) 12%, var(--surface)); color: var(--social-accent); }
+.social-icon-svg { display: block; width: 23px; height: 23px; fill: currentColor; }
+.social-card-instagram .social-icon-svg rect, .social-card-instagram .social-icon-svg circle { fill: none; stroke: currentColor; stroke-width: 1.7; }
+.social-card-instagram .social-icon-svg .social-icon-fill { fill: currentColor; stroke: none; }
+.social-card-copy { position: relative; z-index: 1; display: grid; min-width: 0; gap: 2px; }
+.social-platform { color: var(--social-accent); font: .59rem 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
+.social-card-copy strong { overflow: hidden; font-size: .86rem; letter-spacing: -.02em; text-overflow: ellipsis; white-space: nowrap; }
+.social-card-copy small { overflow: hidden; color: var(--muted); font-size: .68rem; text-overflow: ellipsis; white-space: nowrap; }
+.social-arrow { position: relative; z-index: 1; align-self: start; padding-top: 4px; color: var(--social-accent); font-size: 1.05rem; transition: transform .22s var(--ease-premium); }
+.social-card:hover .social-arrow, .social-card:focus-visible .social-arrow { transform: translate(2px, -2px); }
+.social-card-linkedin { --social-accent: #63b3e5; }
+.social-card-github { --social-accent: var(--accent); }
+.social-card-whatsapp { --social-accent: #63e6a2; }
+.social-card-instagram { --social-accent: #e8a2c0; }
+.social-card-snapchat { --social-accent: #ffd166; }
+.contact-signature { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; color: var(--dim); font: .65rem 'DM Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
+.contact-signature .status-dot { width: 6px; height: 6px; }
+:root[data-theme="light"] .social-card { background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 94%, var(--social-accent) 6%), color-mix(in srgb, var(--bg-soft) 92%, transparent)); }
+@media (hover: none), (pointer: coarse) { .social-card:hover, .social-card:focus-visible { transform: none; } .social-card:hover .social-arrow, .social-card:focus-visible .social-arrow { transform: none; } }
+@media (max-width: 620px) { .social-card { min-height: 72px; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 12px; border-radius: 16px; } .social-icon { width: 44px; height: 44px; border-radius: 13px; } .social-icon-svg { width: 21px; height: 21px; } .contact-signature { align-items: flex-start; line-height: 1.6; } }
