@@ -1,10 +1,10 @@
-# H@CKERBOY — Portfolio, laboratoire et journal technique
+# Drissa Diarra (H@CKERBOY) — Portfolio, laboratoire et journal technique
 
 [![Site en production](https://img.shields.io/badge/site-en%20production-00d9c0?style=flat-square)](https://hackerboy-223.vercel.app/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-compatible-111827?style=flat-square&logo=github)](https://hackerboy-223.github.io/)
 [![Langue](https://img.shields.io/badge/contenu-français-16a34a?style=flat-square)](https://hackerboy-223.vercel.app/)
 
-**H@CKERBOY** est un portfolio technique francophone et un laboratoire public consacré au développement web, à l’intelligence artificielle, à la programmation et à la cybersécurité éthique. Le dépôt sert à publier des projets, documenter des expérimentations et partager des ressources accessibles avec d’autres développeurs, étudiants et personnes qui apprennent en construisant.
+**Drissa Diarra**, connu sous le pseudonyme **H@CKERBOY**, est un développeur malien et le créateur de ce portfolio technique francophone et un laboratoire public consacré au développement web, à l’intelligence artificielle, à la programmation et à la cybersécurité éthique. Le dépôt sert à publier des projets, documenter des expérimentations et partager des ressources accessibles avec d’autres développeurs, étudiants et personnes qui apprennent en construisant.
 
 Le site est accessible sur [hackerboy-223.vercel.app](https://hackerboy-223.vercel.app/) et reste compatible avec [GitHub Pages](https://hackerboy-223.github.io/).
 
@@ -104,4 +104,4 @@ Aucune licence open source formelle n’est actuellement déclarée dans le dép
 
 ---
 
-Construit et documenté par **H@CKERBOY**, depuis Bamako, Mali.
+Construit et documenté par **Drissa Diarra**, connu sous le pseudonyme **H@CKERBOY**, depuis Bamako, Mali.

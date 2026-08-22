@@ -4,7 +4,7 @@
     "slug": "post1",
     "title": "Informatique : domaines, histoire et usages",
     "date": "2024-12-20",
-    "author": "H@CKERBOY",
+    "author": "Drissa Diarra (H@CKERBOY)",
     "category": "informatique",
     "excerpt": "Comprendre l’informatique, ses grands domaines, son histoire et son impact sur les usages numériques du quotidien.",
     "image": "images/matrix-1460603554sdB.jpg"
@@ -14,7 +14,7 @@
     "slug": "post2",
     "title": "Qu’est-ce qu’un hacker ? Définition et éthique",
     "date": "2024-12-20",
-    "author": "H@CKERBOY",
+    "author": "Drissa Diarra (H@CKERBOY)",
     "category": "cybersécurité",
     "excerpt": "Définition claire du mot hacker, différences entre les profils, motivations et place de l’éthique en cybersécurité.",
     "image": "images/hacker.webp"
@@ -24,7 +24,7 @@
     "slug": "post3",
     "title": "Introduction au HTML : structure et balises essentielles",
     "date": "2025-01-10",
-    "author": "H@CKERBOY",
+    "author": "Drissa Diarra (H@CKERBOY)",
     "category": "programmation",
     "excerpt": "Apprendre les bases du HTML, les balises sémantiques et la structure d’une page web accessible et bien organisée.",
     "image": "images/program.png"
@@ -34,7 +34,7 @@
     "slug": "post4",
     "title": "Introduction au CSS : styles, mise en page et responsive",
     "date": "2025-01-15",
-    "author": "H@CKERBOY",
+    "author": "Drissa Diarra (H@CKERBOY)",
     "category": "programmation",
     "excerpt": "Découvrir le CSS, les couleurs, la mise en page, les composants et les principes d’un design responsive.",
     "image": "images/program.png"
@@ -44,7 +44,7 @@
     "slug": "post5",
     "title": "JavaScript : rendre une page web interactive",
     "date": "2025-01-20",
-    "author": "H@CKERBOY",
+    "author": "Drissa Diarra (H@CKERBOY)",
     "category": "programmation",
     "excerpt": "Comprendre les bases de JavaScript, les événements, l’état d’une interface et les premières interactions web.",
     "image": "images/téléchargement.png"
@@ -54,7 +54,7 @@
     "slug": "post6",
     "title": "Apprendre Python : les bases du langage pour débuter",
     "date": "2025-01-25",
-    "author": "H@CKERBOY",
+    "author": "Drissa Diarra (H@CKERBOY)",
     "category": "programmation",
     "excerpt": "Un parcours Python progressif pour comprendre les variables, les conditions, les boucles et les fonctions sans se perdre.",
     "image": "images/hack.jfif"
@@ -64,7 +64,7 @@
     "slug": "hackerboy",
     "title": "Qui est H@CKERBOY ? Parcours, projets et vision",
     "date": "2025-04-11",
-    "author": "H@CKERBOY",
+    "author": "Drissa Diarra (H@CKERBOY)",
     "category": "apropos",
     "excerpt": "Découvrir le parcours, les projets, la vision et les passions de H@CKERBOY, créateur de ce carnet tech.",
     "image": "images/hack8080.jpg"
@@ -74,7 +74,7 @@
     "slug": "post7",
     "title": "Créer et publier un site web moderne avec GitHub Pages",
     "date": "2025-05-02",
-    "author": "H@CKERBOY",
+    "author": "Drissa Diarra (H@CKERBOY)",
     "category": "programmation",
     "excerpt": "Une méthode concrète pour créer un site statique moderne, le versionner avec Git et le publier avec GitHub Pages.",
     "image": "images/program.png"
@@ -84,7 +84,7 @@
     "slug": "post8",
     "title": "Sécurité web : apprendre avec éthique",
     "date": "2025-05-10",
-    "author": "H@CKERBOY",
+    "author": "Drissa Diarra (H@CKERBOY)",
     "category": "cybersécurité",
     "excerpt": "Les réflexes essentiels pour apprendre l’audit web dans un laboratoire ou un cadre autorisé, avec méthode et responsabilité.",
     "image": "images/hacker.webp"
