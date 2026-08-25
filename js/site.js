@@ -111,7 +111,7 @@
     });
   }
 
-  const revealTargets = [...document.querySelectorAll('.post-card, .signal-grid > div, .bot-card, .article-content > section, .exploit-feature, .story-section, .certificate-gallery figure')];
+  const revealTargets = [...document.querySelectorAll('.section-heading, .project-card, .post-card, .expertise-item, .signal-grid > div, .bot-card, .article-content > section, .exploit-feature, .story-section, .certificate-gallery figure')];
   revealTargets.forEach((target, index) => {
     target.classList.add('reveal');
     target.style.setProperty('--reveal-delay', `${Math.min(index * 42, 280)}ms`);
@@ -148,26 +148,40 @@
   }, { passive: true });
   updateScrollState();
 
+  const navSections = [...document.querySelectorAll('main section[id]')];
+  const navLinks = [...document.querySelectorAll('.site-nav a')];
+  if (navSections.length && navLinks.length && 'IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => {
+          const href = new URL(link.href, window.location.href);
+          const active = href.hash === `#${entry.target.id}`;
+          link.classList.toggle('is-current', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-34% 0px -58% 0px', threshold: 0 });
+    navSections.forEach(section => sectionObserver.observe(section));
+  }
+
+  if (document.body.dataset.page === 'home' && !reducedMotion) {
+    const heroImage = document.querySelector('.portfolio-hero-image');
+    const updateHeroDepth = () => {
+      if (!heroImage || window.scrollY > window.innerHeight * 1.05) return;
+      heroImage.style.transform = `translate3d(0, ${Math.min(window.scrollY * .075, 36)}px, 0) scale(1.035)`;
+    };
+    window.addEventListener('scroll', updateHeroDepth, { passive: true });
+    updateHeroDepth();
+  }
+
   if (canHover && !reducedMotion) {
     window.addEventListener('pointermove', event => {
       document.documentElement.style.setProperty('--pointer-x', `${event.clientX}px`);
       document.documentElement.style.setProperty('--pointer-y', `${event.clientY}px`);
     }, { passive: true });
 
-    document.querySelectorAll('.post-card, .exploit-feature, .bot-card').forEach(card => {
-      card.dataset.tilt = 'true';
-      card.addEventListener('pointermove', event => {
-        const rect = card.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - .5;
-        const y = (event.clientY - rect.top) / rect.height - .5;
-        card.style.setProperty('--tilt-x', `${(x * 2.4).toFixed(2)}deg`);
-        card.style.setProperty('--tilt-y', `${(-y * 2.4).toFixed(2)}deg`);
-      });
-      card.addEventListener('pointerleave', () => {
-        card.style.setProperty('--tilt-x', '0deg');
-        card.style.setProperty('--tilt-y', '0deg');
-      });
-    });
   }
 
   const terminalMode = document.querySelector('.terminal-status span:last-child');
