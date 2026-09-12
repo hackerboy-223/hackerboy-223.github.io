@@ -1,104 +1,87 @@
 <!doctype html>
 <html lang="fr" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apprendre Python : les bases du langage pour débuter — H@CKERBOY</title>
-  <meta name="description" content="Un parcours Python progressif pour comprendre les variables, les conditions, les boucles et les fonctions sans se perdre.">
-  <meta name="author" content="Drissa Diarra (H@CKERBOY)">
-  <meta name="google-site-verification" content="PR2fKKHa4FpIDKVB-IGChjsu4pq1GVkNEIyTa2tWZVE">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://hackerboy-223.vercel.app/posts/post6.html">
-  <link rel="alternate" hreflang="fr" href="https://hackerboy-223.vercel.app/posts/post6.html">
-  <link rel="alternate" hreflang="x-default" href="https://hackerboy-223.vercel.app/posts/post6.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Apprendre Python : les bases du langage pour débuter — H@CKERBOY">
-  <meta property="og:description" content="Un parcours Python progressif pour comprendre les variables, les conditions, les boucles et les fonctions sans se perdre.">
-  <meta property="og:url" content="https://hackerboy-223.vercel.app/posts/post6.html">
-  <meta property="og:image" content="https://hackerboy-223.vercel.app/images/hack.jfif">
-  <meta property="og:image:alt" content="Illustration : Apprendre Python : les bases du langage pour débuter — H@CKERBOY">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="H@CKERBOY">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Apprendre Python : les bases du langage pour débuter — H@CKERBOY">
-  <meta name="twitter:description" content="Un parcours Python progressif pour comprendre les variables, les conditions, les boucles et les fonctions sans se perdre.">
-  <meta name="twitter:image" content="https://hackerboy-223.vercel.app/images/hack.jfif">
-  <meta name="twitter:image:alt" content="Illustration : Apprendre Python : les bases du langage pour débuter — H@CKERBOY">
-  <meta name="theme-color" content="#07110f">
-<meta property="article:published_time" content="2025-01-25T00:00:00+00:00"><meta property="article:modified_time" content="2026-08-20T00:00:00+00:00"><meta property="article:author" content="https://hackerboy-223.vercel.app/posts/hackerboy.html"><meta property="article:section" content="Programmation">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://hackerboy-223.vercel.app/posts/post6.html#article","url":"https://hackerboy-223.vercel.app/posts/post6.html","headline":"Apprendre Python : les bases du langage pour débuter — H@CKERBOY","name":"Apprendre Python : les bases du langage pour débuter — H@CKERBOY","description":"Un parcours Python progressif pour comprendre les variables, les conditions, les boucles et les fonctions sans se perdre.","image":["https://hackerboy-223.vercel.app/images/hack.jfif"],"author":{"@id":"https://hackerboy-223.vercel.app/posts/hackerboy.html#person"},"publisher":{"@id":"https://hackerboy-223.vercel.app/posts/hackerboy.html#person"},"inLanguage":"fr-FR","datePublished":"2025-01-25","dateModified":"2026-08-20","mainEntityOfPage":{"@id":"https://hackerboy-223.vercel.app/posts/post6.html#article"}},{"@type":"Person","@id":"https://hackerboy-223.vercel.app/posts/hackerboy.html#person","name":"Drissa Diarra","alternateName":["H@CKERBOY","hackerboy-223"],"url":"https://hackerboy-223.vercel.app/posts/hackerboy.html","description":"Drissa Diarra, connu sous le pseudonyme H@CKERBOY, est un développeur web et mobile malien basé à Bamako. Il crée des projets autour de l’intelligence artificielle et de la cybersécurité éthique.","jobTitle":"Développeur web et mobile","homeLocation":{"@type":"Place","name":"Bamako, Mali"},"sameAs":["https://github.com/hackerboy-223","https://www.linkedin.com/in/drissa-diarra-4171ab430","https://www.instagram.com/hacker.boy.223","https://snapchat.com/add/lehackerboyduml"],"knowsAbout":["Développement web","Développement mobile","Intelligence artificielle","Cybersécurité éthique","Linux et cloud"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://hackerboy-223.vercel.app/"},{"@type":"ListItem","position":2,"name":"Programmation","item":"https://hackerboy-223.vercel.app/?filter=programmation#articles"},{"@type":"ListItem","position":3,"name":"Apprendre Python : les bases du langage pour débuter"}]}]}</script>
-  <link rel="icon" href="../images/hack8080.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/styles.css?v=12">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python : bases solides, fonctions, structures de données et environnements — H@CKERBOY</title>
+  <meta name="description" content="Cours Python progressif : types, conditions, boucles, fonctions, listes, dictionnaires, exceptions, modules, fichiers et environnements virtuels.">
+  <meta name="author" content="Drissa Diarra (H@CKERBOY)"><meta name="robots" content="index, follow"><link rel="canonical" href="https://hackerboy-223.vercel.app/posts/post6.html">
+  <meta property="og:type" content="article"><meta property="og:title" content="Python : bases solides et bonnes pratiques — H@CKERBOY"><meta property="og:description" content="Apprendre Python en comprenant les structures du langage plutôt qu’en mémorisant des recettes."><meta property="og:url" content="https://hackerboy-223.vercel.app/posts/post6.html"><meta property="og:image" content="https://hackerboy-223.vercel.app/images/hack.jfif"><meta property="og:site_name" content="H@CKERBOY"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#000000">
+  <meta property="article:published_time" content="2025-01-25T00:00:00+00:00"><meta property="article:modified_time" content="2026-09-12T00:00:00+00:00"><meta property="article:section" content="Programmation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","url":"https://hackerboy-223.vercel.app/posts/post6.html","headline":"Python : bases solides, fonctions, structures de données et environnements","author":{"@type":"Person","name":"Drissa Diarra","alternateName":"H@CKERBOY"},"datePublished":"2025-01-25","dateModified":"2026-09-12","inLanguage":"fr-FR"},{"@type":"LearningResource","name":"Python pour débuter","learningResourceType":"Cours","educationalLevel":"Débutant","teaches":["Python","conditions","boucles","fonctions","structures de données","exceptions","venv"]}]}</script>
+  <link rel="icon" href="../images/hack8080.png"><link rel="stylesheet" href="../styles/styles.css?v=13">
 </head>
 <body data-page="article" data-post-slug="post6">
-
-<header class="site-header">
-  <div class="shell header-inner">
-    <a class="brand" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>Drissa Diarra · portfolio</small></span></a>
-    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
-      <a href="../index.html#projets">Projets</a>
-      <a href="../index.html#expertise">Expertise</a>
-      <a href="../index.html#exploits">Exploits</a>
-      <a href="../index.html#articles">Journal</a>
-      <a href="../about.html">À propos</a>
-    </nav>
-    <div class="header-actions">
-      <a class="header-cta" href="../index.html#contact">Me retrouver <span>↗</span></a>
-      <button class="icon-button" id="theme-toggle" type="button" aria-label="Activer le thème clair" title="Changer de thème">☼</button>
-      <button class="menu-button" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-
+<header class="site-header"><div class="shell header-inner"><a class="brand" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>Drissa Diarra · portfolio</small></span></a><nav class="site-nav" id="site-nav" aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#expertise">Expertise</a><a href="../index.html#exploits">Exploits</a><a href="../index.html#articles">Journal</a><a href="../about.html">À propos</a></nav><div class="header-actions"><a class="header-cta" href="../index.html#contact">Me retrouver <span>↗</span></a><button class="icon-button" id="theme-toggle" type="button" aria-label="Changer de thème">☼</button><button class="menu-button" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button></div></div></header>
 <div class="reading-progress" aria-hidden="true"><span></span></div>
 <main class="article-page">
-  <div class="shell article-hero">
-    <div class="article-kicker"><a href="../index.html#articles">← Retour aux articles</a><span class="dot"></span><span>Programmation</span></div>
-    <div class="article-hero-grid">
-      <div><h1>Apprendre Python : les bases du langage pour débuter</h1><p class="article-lead">Un parcours Python progressif pour comprendre les variables, les conditions, les boucles et les fonctions sans se perdre.</p><div class="article-meta"><span>2025-01-25</span><span>Par H@CKERBOY</span><button class="save-article" id="save-article" type="button">☆ Enregistrer</button></div></div>
-      <div class="article-cover"><img src="../images/hack.jfif" alt="Illustration : Apprendre Python : les bases du langage pour débuter" width="900" height="560" loading="eager" fetchpriority="high" decoding="async"></div>
-    </div>
-  </div>
-  <div class="shell article-layout">
-    <aside class="article-aside"><div class="aside-card"><span class="footer-label">Dans cet article</span><nav class="toc" id="toc" aria-label="Sommaire de l'article"></nav></div><div class="aside-card aside-callout"><span class="status-dot"></span><p>Lecture libre, sans jargon inutile.</p></div></aside>
-    <article class="article-content"><section>
-<div class="container">
-<section id="python">
-<h2>Qu'est-ce que Python ?</h2>
-<p>Python est un langage de programmation interprété, orienté objet et de haut niveau. Il est connu pour sa simplicité et sa lisibilité.</p>
-<h3>Installation</h3>
-<p>Pour installer Python, rendez-vous sur le site officiel python.org et téléchargez la dernière version.</p>
-<h3>Hello World</h3>
-<p>Le premier programme en Python est simple : <code>print("Hello, World!")</code></p>
-<h3>Variables et types</h3>
-<p>En Python, les variables sont dynamiquement typées. Exemples : <code>x = 5</code>, <code>name = "Alice"</code></p>
-<h3>Structures de contrôle</h3>
-<p>Python utilise l'indentation pour définir les blocs de code. Les structures incluent <code>if</code>, <code>for</code>, <code>while</code>.</p>
+  <div class="shell article-hero"><div class="article-kicker"><a href="../index.html#articles">← Retour aux cours</a><span class="dot"></span><span>Programmation</span></div><div class="article-hero-grid"><div><h1>Python est simple à lire, mais assez puissant pour de vrais systèmes.</h1><p class="article-lead">Ce cours te donne une base propre : types, contrôle du flux, fonctions, collections, erreurs, modules et environnements virtuels.</p><div class="course-meta"><span class="course-pill">Niveau · débutant</span><span class="course-pill">Lecture · 40 min</span><span class="course-pill">Python 3</span></div><div class="article-meta"><span>25 janv. 2025 · maj 12 sept. 2026</span><span>Par H@CKERBOY</span><button class="save-article" id="save-article" type="button">☆ Enregistrer</button></div></div><div class="article-cover"><img src="../images/hack.jfif" alt="Illustration Python" width="900" height="560" loading="eager" fetchpriority="high" decoding="async"></div></div></div>
+  <div class="shell article-layout"><aside class="article-aside"><div class="aside-card"><span class="footer-label">Dans ce cours</span><nav class="toc" id="toc" aria-label="Sommaire"></nav></div><div class="aside-card aside-callout"><span class="status-dot"></span><p>L’indentation n’est pas décorative en Python : elle définit la structure des blocs.</p></div></aside>
+  <article class="article-content">
+    <div class="course-overview"><div><span>Prérequis</span><strong>Aucune expérience requise</strong></div><div><span>Objectif</span><strong>Écrire un petit programme structuré</strong></div><div><span>Référence</span><strong>Documentation Python</strong></div></div>
+    <section class="course-objectives"><h2>Objectifs d’apprentissage</h2><ul><li>manipuler les principaux types et opérateurs ;</li><li>écrire conditions et boucles lisibles ;</li><li>concevoir des fonctions avec paramètres et valeurs de retour ;</li><li>choisir entre liste, tuple, dictionnaire et ensemble ;</li><li>gérer les erreurs avec <code>try</code>/<code>except</code> ;</li><li>isoler les dépendances d’un projet avec <code>venv</code>.</li></ul></section>
+    <section id="premier"><h2>1. Premier programme</h2><pre><code>name = "Awa"
+print(f"Bonjour {name} !")</code></pre><p>Python privilégie une syntaxe lisible. Les chaînes préfixées par <code>f</code> permettent d’insérer facilement des expressions dans du texte.</p></section>
+    <section id="types"><h2>2. Variables et types</h2><pre><code>age = 17             # int
+price = 12.5         # float
+name = "Moussa"      # str
+active = True        # bool
+nothing = None       # absence de valeur</code></pre><p>Python est dynamiquement typé : le type est associé à la valeur plutôt qu’à une déclaration explicite de variable. Cela ne signifie pas que les types sont inexistants.</p></section>
+    <section id="conditions"><h2>3. Conditions</h2><pre><code>score = 14
 
-</section>
-</div>
-</section><section class="lab-section"><div class="lab-heading"><span class="eyebrow">Mini-lab Python</span><h2>Simule une boucle de salutation</h2><p>Entre trois prénoms séparés par des virgules. Le navigateur simule la sortie attendue d’un petit programme.</p></div><div class="lab-grid"><label class="lab-control">Prénoms<input id="python-lab-input" value="Awa, Moussa, Fanta" type="text"><button class="button button-primary" id="python-lab-run" type="button">Exécuter</button></label><pre class="lab-output" id="python-lab-output">Bonjour Awa !
+if score >= 10:
+    print("Validé")
+elif score >= 8:
+    print("Presque")
+else:
+    print("À retravailler")</code></pre><p>L’indentation regroupe les instructions appartenant au même bloc.</p></section>
+    <section id="boucles"><h2>4. Boucles</h2><pre><code>skills = ["HTML", "CSS", "Python"]
+
+for skill in skills:
+    print(skill)
+
+attempts = 0
+while attempts < 3:
+    attempts += 1</code></pre><p>Utilise <code>for</code> lorsque tu parcours une collection, et <code>while</code> lorsqu’une répétition dépend d’une condition.</p></section>
+    <section id="collections"><h2>5. Structures de données</h2><table><thead><tr><th>Type</th><th>Caractéristique</th><th>Exemple</th></tr></thead><tbody><tr><td><code>list</code></td><td>ordonnée, modifiable</td><td><code>["HTML", "CSS"]</code></td></tr><tr><td><code>tuple</code></td><td>ordonné, non modifiable</td><td><code>(12.6, -8.0)</code></td></tr><tr><td><code>dict</code></td><td>paires clé-valeur</td><td><code>{"name": "Awa"}</code></td></tr><tr><td><code>set</code></td><td>valeurs uniques</td><td><code>{"Python", "JS"}</code></td></tr></tbody></table><pre><code>student = {
+    "name": "Fanta",
+    "score": 16,
+    "skills": ["Python", "HTML"]
+}
+print(student["name"])</code></pre></section>
+    <section id="fonctions"><h2>6. Fonctions</h2><pre><code>def calculate_total(price, quantity=1):
+    return price * quantity
+
+total = calculate_total(4500, 3)
+print(total)</code></pre><p>Une fonction doit idéalement accomplir une responsabilité identifiable. Les paramètres configurent son comportement et <code>return</code> fournit le résultat à l’appelant.</p></section>
+    <section id="comprehensions"><h2>7. Compréhensions : transformer une collection</h2><pre><code>prices = [5000, 12000, 28000, 45000]
+affordable = [price for price in prices if price <= 30000]</code></pre><p>Les compréhensions sont puissantes, mais une version trop complexe devient moins lisible qu’une boucle classique. La clarté reste prioritaire.</p></section>
+    <section id="exceptions"><h2>8. Gérer les erreurs</h2><pre><code>raw = input("Âge : ")
+
+try:
+    age = int(raw)
+except ValueError:
+    print("Entre un nombre valide.")</code></pre><p>Évite les <code>except:</code> trop larges lorsque tu peux cibler une exception précise. Cela empêche de masquer des erreurs inattendues.</p></section>
+    <section id="modules"><h2>9. Modules et imports</h2><pre><code># tools.py
+def slugify(text):
+    return text.lower().replace(" ", "-")
+
+# app.py
+from tools import slugify
+print(slugify("Mon Projet"))</code></pre><p>Les modules permettent de répartir les responsabilités dans plusieurs fichiers plutôt que d’accumuler tout le programme dans un seul script.</p></section>
+    <section id="venv"><h2>10. Environnements virtuels</h2><p>Deux projets peuvent dépendre de versions différentes d’une bibliothèque. La documentation Python recommande les environnements virtuels pour isoler les dépendances.</p><pre><code>python -m venv .venv</code></pre><p>Active ensuite l’environnement selon ton système, puis installe uniquement les dépendances nécessaires au projet. Le dossier d’environnement lui-même ne doit généralement pas être versionné.</p></section>
+    <section id="fichiers"><h2>11. Lire un fichier proprement</h2><pre><code>with open("notes.txt", "r", encoding="utf-8") as file:
+    content = file.read()
+
+print(content)</code></pre><p>Le bloc <code>with</code> garantit la fermeture correcte de la ressource après utilisation.</p></section>
+    <section class="lab-section"><div class="lab-heading"><span class="eyebrow">Mini-lab Python</span><h2>Simule une boucle de salutation</h2><p>Entre trois prénoms séparés par des virgules. Le navigateur simule la sortie attendue.</p></div><div class="lab-grid"><label class="lab-control">Prénoms<input id="python-lab-input" value="Awa, Moussa, Fanta" type="text"><button class="button button-primary" id="python-lab-run" type="button">Exécuter</button></label><pre class="lab-output" id="python-lab-output">Bonjour Awa !
 Bonjour Moussa !
-Bonjour Fanta !</pre></div></section><section class="quiz-section" data-quiz="post6"><div class="eyebrow">Pause active</div><h2>Teste ta compréhension</h2><p>Quelle structure répète une action en Python ?</p><div class="quiz-options"><button type="button" data-quiz-answer="0" data-quiz-correct="0">Une boucle</button><button type="button" data-quiz-answer="1" data-quiz-correct="0">Un titre h1</button><button type="button" data-quiz-answer="2" data-quiz-correct="0">Une feuille de style</button></div><p class="quiz-feedback" aria-live="polite"></p></section></article>
-  </div>
-  <section class="shell article-end"><div><span class="footer-label">Continuer l’exploration</span><h2>Un autre sujet à ouvrir ?</h2></div><a class="button button-primary" href="../index.html#articles">Voir tous les articles <span>↗</span></a></section>
-  <section class="shell related-section"><div class="section-heading"><div><span class="eyebrow">À poursuivre</span><h2>Tu pourrais aussi aimer</h2></div><p>Deux notes proches pour continuer ton parcours.</p></div><div class="related-grid"><a class="related-link" href="../posts/post7.html"><span>Programmation</span><strong>Créer et publier un site web moderne avec GitHub Pages</strong><em>Lire la note →</em></a><a class="related-link" href="../posts/post5.html"><span>Programmation</span><strong>JavaScript : rendre une page web interactive</strong><em>Lire la note →</em></a></div></section>
+Bonjour Fanta !</pre></div></section>
+    <section class="exercise-card"><h2>Mini-projet — analyser des notes</h2><p>Crée une liste de dictionnaires contenant <code>name</code> et <code>score</code>. Écris une fonction qui calcule la moyenne, affiche les élèves ayant au moins 10 et gère le cas d’une liste vide. Découpe le calcul et l’affichage en fonctions différentes.</p></section>
+    <section class="course-summary"><h2>À retenir</h2><ul><li>Python mise beaucoup sur la lisibilité et l’indentation.</li><li>Choisir la bonne structure de données simplifie le reste du programme.</li><li>Les fonctions et modules permettent de maîtriser la complexité.</li><li>Les environnements virtuels isolent les dépendances entre projets.</li></ul></section>
+    <section class="quiz-section" data-quiz="post6"><div class="eyebrow">Pause active</div><h2>Teste ta compréhension</h2><p>Pourquoi utiliser un environnement virtuel ?</p><div class="quiz-options"><button type="button" data-quiz-answer="0" data-quiz-correct="0">Pour isoler les dépendances d’un projet</button><button type="button" data-quiz-answer="1" data-quiz-correct="0">Pour remplacer les fonctions Python</button><button type="button" data-quiz-answer="2" data-quiz-correct="0">Pour rendre le HTML plus rapide</button></div><p class="quiz-feedback" aria-live="polite"></p></section>
+    <section class="reference-box"><h2>Références</h2><ul class="reference-list"><li><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer"><span>Python — Tutoriel officiel</span><small>bases du langage ↗</small></a></li><li><a href="https://docs.python.org/3/tutorial/venv.html" target="_blank" rel="noopener noreferrer"><span>Python — Environnements virtuels et paquets</span><small>venv ↗</small></a></li></ul></section>
+  </article></div>
+  <section class="shell article-end"><div><span class="footer-label">Cours suivant</span><h2>Versionner et publier un site avec GitHub Pages.</h2></div><a class="button button-primary" href="post7.html">Continuer <span>→</span></a></section>
 </main>
-
-<footer class="site-footer">
-  <div class="shell footer-grid">
-    <div>
-      <a class="brand brand-footer" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>Drissa Diarra · portfolio</small></span></a>
-      <p class="footer-note">Drissa Diarra · H@CKERBOY — développeur web & mobile, IA et cybersécurité. Bamako, Mali.</p>
-    </div>
-    <div class="footer-column"><span class="footer-label">Navigation</span><a href="../index.html#projets">Projets</a><a href="../index.html#expertise">Expertise</a><a href="../index.html#articles">Journal</a><a href="../exploits.html">Exploits</a></div>
-    <div class="footer-column"><span class="footer-label">Me retrouver</span><a href="https://www.linkedin.com/in/drissa-diarra-4171ab430" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/hackerboy-223" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://wa.me/22384122222" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer">Snapchat</a></div>
-  </div>
-  <div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Think. Build. Break. Learn. Repeat.</span></div>
-</footer>
-
-<script src="../js/site.js?v=5" defer></script>
+<footer class="site-footer"><div class="shell footer-grid"><div><a class="brand brand-footer" href="../index.html"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>portfolio</small></span></a><p class="footer-note">Développement web, IA, cybersécurité et apprentissage par la pratique.</p></div><div class="footer-column"><span class="footer-label">Navigation</span><a href="../index.html#projets">Projets</a><a href="../index.html#articles">Journal</a><a href="../about.html">À propos</a></div><div class="footer-column"><span class="footer-label">Me retrouver</span><a href="https://github.com/hackerboy-223" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/drissa-diarra-4171ab430" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div><div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Think. Build. Break. Learn. Repeat.</span></div></footer><script src="../js/site.js?v=5" defer></script>
 </body></html>

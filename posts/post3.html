@@ -1,96 +1,60 @@
 <!doctype html>
 <html lang="fr" data-theme="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Introduction au HTML : structure et balises essentielles — H@CKERBOY</title>
-  <meta name="description" content="Apprendre les bases du HTML, les balises sémantiques et la structure d’une page web accessible et bien organisée.">
-  <meta name="author" content="Drissa Diarra (H@CKERBOY)">
-  <meta name="google-site-verification" content="PR2fKKHa4FpIDKVB-IGChjsu4pq1GVkNEIyTa2tWZVE">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://hackerboy-223.vercel.app/posts/post3.html">
-  <link rel="alternate" hreflang="fr" href="https://hackerboy-223.vercel.app/posts/post3.html">
-  <link rel="alternate" hreflang="x-default" href="https://hackerboy-223.vercel.app/posts/post3.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Introduction au HTML : structure et balises essentielles — H@CKERBOY">
-  <meta property="og:description" content="Apprendre les bases du HTML, les balises sémantiques et la structure d’une page web accessible et bien organisée.">
-  <meta property="og:url" content="https://hackerboy-223.vercel.app/posts/post3.html">
-  <meta property="og:image" content="https://hackerboy-223.vercel.app/images/program.png">
-  <meta property="og:image:alt" content="Illustration : Introduction au HTML : structure et balises essentielles — H@CKERBOY">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="H@CKERBOY">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Introduction au HTML : structure et balises essentielles — H@CKERBOY">
-  <meta name="twitter:description" content="Apprendre les bases du HTML, les balises sémantiques et la structure d’une page web accessible et bien organisée.">
-  <meta name="twitter:image" content="https://hackerboy-223.vercel.app/images/program.png">
-  <meta name="twitter:image:alt" content="Illustration : Introduction au HTML : structure et balises essentielles — H@CKERBOY">
-  <meta name="theme-color" content="#07110f">
-<meta property="article:published_time" content="2025-01-10T00:00:00+00:00"><meta property="article:modified_time" content="2026-08-20T00:00:00+00:00"><meta property="article:author" content="https://hackerboy-223.vercel.app/posts/hackerboy.html"><meta property="article:section" content="Programmation">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://hackerboy-223.vercel.app/posts/post3.html#article","url":"https://hackerboy-223.vercel.app/posts/post3.html","headline":"Introduction au HTML : structure et balises essentielles — H@CKERBOY","name":"Introduction au HTML : structure et balises essentielles — H@CKERBOY","description":"Apprendre les bases du HTML, les balises sémantiques et la structure d’une page web accessible et bien organisée.","image":["https://hackerboy-223.vercel.app/images/program.png"],"author":{"@id":"https://hackerboy-223.vercel.app/posts/hackerboy.html#person"},"publisher":{"@id":"https://hackerboy-223.vercel.app/posts/hackerboy.html#person"},"inLanguage":"fr-FR","datePublished":"2025-01-10","dateModified":"2026-08-20","mainEntityOfPage":{"@id":"https://hackerboy-223.vercel.app/posts/post3.html#article"}},{"@type":"Person","@id":"https://hackerboy-223.vercel.app/posts/hackerboy.html#person","name":"Drissa Diarra","alternateName":["H@CKERBOY","hackerboy-223"],"url":"https://hackerboy-223.vercel.app/posts/hackerboy.html","description":"Drissa Diarra, connu sous le pseudonyme H@CKERBOY, est un développeur web et mobile malien basé à Bamako. Il crée des projets autour de l’intelligence artificielle et de la cybersécurité éthique.","jobTitle":"Développeur web et mobile","homeLocation":{"@type":"Place","name":"Bamako, Mali"},"sameAs":["https://github.com/hackerboy-223","https://www.linkedin.com/in/drissa-diarra-4171ab430","https://www.instagram.com/hacker.boy.223","https://snapchat.com/add/lehackerboyduml"],"knowsAbout":["Développement web","Développement mobile","Intelligence artificielle","Cybersécurité éthique","Linux et cloud"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://hackerboy-223.vercel.app/"},{"@type":"ListItem","position":2,"name":"Programmation","item":"https://hackerboy-223.vercel.app/?filter=programmation#articles"},{"@type":"ListItem","position":3,"name":"Introduction au HTML : structure et balises essentielles"}]}]}</script>
-  <link rel="icon" href="../images/hack8080.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/styles.css?v=12">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML moderne : structure, sémantique, accessibilité et formulaires — H@CKERBOY</title>
+  <meta name="description" content="Cours HTML complet : structure d’un document, sémantique, titres, liens, images, formulaires, accessibilité, SEO et bonnes pratiques modernes.">
+  <meta name="author" content="Drissa Diarra (H@CKERBOY)"><meta name="robots" content="index, follow"><link rel="canonical" href="https://hackerboy-223.vercel.app/posts/post3.html">
+  <meta property="og:type" content="article"><meta property="og:title" content="HTML moderne : structure, sémantique et accessibilité — H@CKERBOY"><meta property="og:description" content="Construire des pages HTML claires, accessibles et faciles à maintenir."><meta property="og:url" content="https://hackerboy-223.vercel.app/posts/post3.html"><meta property="og:image" content="https://hackerboy-223.vercel.app/images/program.png"><meta property="og:site_name" content="H@CKERBOY"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#000000">
+  <meta property="article:published_time" content="2025-01-10T00:00:00+00:00"><meta property="article:modified_time" content="2026-09-12T00:00:00+00:00"><meta property="article:section" content="Programmation">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","url":"https://hackerboy-223.vercel.app/posts/post3.html","headline":"HTML moderne : structure, sémantique, accessibilité et formulaires","author":{"@type":"Person","name":"Drissa Diarra","alternateName":"H@CKERBOY"},"datePublished":"2025-01-10","dateModified":"2026-09-12","inLanguage":"fr-FR"},{"@type":"LearningResource","name":"HTML moderne","learningResourceType":"Cours","educationalLevel":"Débutant","teaches":["HTML sémantique","accessibilité","formulaires","SEO de base"]}]}</script>
+  <link rel="icon" href="../images/hack8080.png"><link rel="stylesheet" href="../styles/styles.css?v=13">
 </head>
 <body data-page="article" data-post-slug="post3">
-
-<header class="site-header">
-  <div class="shell header-inner">
-    <a class="brand" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>Drissa Diarra · portfolio</small></span></a>
-    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
-      <a href="../index.html#projets">Projets</a>
-      <a href="../index.html#expertise">Expertise</a>
-      <a href="../index.html#exploits">Exploits</a>
-      <a href="../index.html#articles">Journal</a>
-      <a href="../about.html">À propos</a>
-    </nav>
-    <div class="header-actions">
-      <a class="header-cta" href="../index.html#contact">Me retrouver <span>↗</span></a>
-      <button class="icon-button" id="theme-toggle" type="button" aria-label="Activer le thème clair" title="Changer de thème">☼</button>
-      <button class="menu-button" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-
+<header class="site-header"><div class="shell header-inner"><a class="brand" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>Drissa Diarra · portfolio</small></span></a><nav class="site-nav" id="site-nav" aria-label="Navigation principale"><a href="../index.html#projets">Projets</a><a href="../index.html#expertise">Expertise</a><a href="../index.html#exploits">Exploits</a><a href="../index.html#articles">Journal</a><a href="../about.html">À propos</a></nav><div class="header-actions"><a class="header-cta" href="../index.html#contact">Me retrouver <span>↗</span></a><button class="icon-button" id="theme-toggle" type="button" aria-label="Changer de thème">☼</button><button class="menu-button" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button></div></div></header>
 <div class="reading-progress" aria-hidden="true"><span></span></div>
 <main class="article-page">
-  <div class="shell article-hero">
-    <div class="article-kicker"><a href="../index.html#articles">← Retour aux articles</a><span class="dot"></span><span>Programmation</span></div>
-    <div class="article-hero-grid">
-      <div><h1>Introduction au HTML : structure et balises essentielles</h1><p class="article-lead">Apprendre les bases du HTML, les balises sémantiques et la structure d’une page web accessible et bien organisée.</p><div class="article-meta"><span>2025-01-10</span><span>Par H@CKERBOY</span><button class="save-article" id="save-article" type="button">☆ Enregistrer</button></div></div>
-      <div class="article-cover"><img src="../images/program.png" alt="Illustration : Introduction au HTML : structure et balises essentielles" width="900" height="560" loading="eager" fetchpriority="high" decoding="async"></div>
-    </div>
-  </div>
-  <div class="shell article-layout">
-    <aside class="article-aside"><div class="aside-card"><span class="footer-label">Dans cet article</span><nav class="toc" id="toc" aria-label="Sommaire de l'article"></nav></div><div class="aside-card aside-callout"><span class="status-dot"></span><p>Lecture libre, sans jargon inutile.</p></div></aside>
-    <article class="article-content"><section><h2>La structure minimale d’une page HTML</h2><p>HTML décrit la structure et le sens d’une page. Une base correcte commence par une déclaration, un élément racine et deux zones principales : <code>&lt;head&gt;</code> pour les métadonnées et <code>&lt;body&gt;</code> pour le contenu visible.</p><pre><code>&lt;!doctype html&gt;
+  <div class="shell article-hero"><div class="article-kicker"><a href="../index.html#articles">← Retour aux cours</a><span class="dot"></span><span>Programmation</span></div><div class="article-hero-grid"><div><h1>HTML donne du sens au contenu avant même qu’il soit stylé.</h1><p class="article-lead">Apprends à construire une page sémantique, accessible, structurée pour les navigateurs, les moteurs de recherche et les technologies d’assistance.</p><div class="course-meta"><span class="course-pill">Niveau · débutant</span><span class="course-pill">Lecture · 30 min</span><span class="course-pill">Pratique · incluse</span></div><div class="article-meta"><span>10 janv. 2025 · maj 12 sept. 2026</span><span>Par H@CKERBOY</span><button class="save-article" id="save-article" type="button">☆ Enregistrer</button></div></div><div class="article-cover"><img src="../images/program.png" alt="Illustration de code HTML" width="900" height="560" loading="eager" fetchpriority="high" decoding="async"></div></div></div>
+  <div class="shell article-layout"><aside class="article-aside"><div class="aside-card"><span class="footer-label">Dans ce cours</span><nav class="toc" id="toc" aria-label="Sommaire"></nav></div><div class="aside-card aside-callout"><span class="status-dot"></span><p>HTML décrit la structure et le sens ; CSS présente ; JavaScript ajoute le comportement.</p></div></aside>
+  <article class="article-content">
+    <div class="course-overview"><div><span>Prérequis</span><strong>Aucun</strong></div><div><span>Objectif</span><strong>Une page sémantique complète</strong></div><div><span>Référence</span><strong>MDN Web Docs</strong></div></div>
+    <section class="course-objectives"><h2>Objectifs d’apprentissage</h2><ul><li>écrire la structure minimale d’un document HTML ;</li><li>choisir les éléments selon leur sens plutôt que leur apparence ;</li><li>créer liens, images, listes et formulaires accessibles ;</li><li>comprendre le rôle du <code>head</code>, des métadonnées et de l’attribut <code>lang</code> ;</li><li>éviter les erreurs qui rendent une page difficile à utiliser ou à maintenir.</li></ul></section>
+    <section id="structure"><h2>1. La structure minimale</h2><pre><code>&lt;!doctype html&gt;
 &lt;html lang="fr"&gt;
   &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
-    &lt;title&gt;Ma première page&lt;/title&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Mon projet&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;h1&gt;Bonjour le Web&lt;/h1&gt;
-    &lt;p&gt;Une page structurée est plus facile à lire et à maintenir.&lt;/p&gt;
+    &lt;h1&gt;Titre principal&lt;/h1&gt;
+    &lt;p&gt;Mon premier contenu.&lt;/p&gt;
   &lt;/body&gt;
-&lt;/html&gt;</code></pre></section><section><h2>Les balises qui donnent du sens</h2><p>Une balise sémantique explique le rôle du contenu au navigateur, aux moteurs de recherche et aux technologies d’assistance. Utilise un titre pour un titre, un paragraphe pour un paragraphe et un lien pour une destination.</p><ul><li><code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> structurent les niveaux de titres ;</li><li><code>&lt;p&gt;</code> contient un paragraphe lisible ;</li><li><code>&lt;a href="..."&gt;</code> crée un lien vers une autre ressource ;</li><li><code>&lt;img alt="..."&gt;</code> associe une image à une description utile.</li></ul></section><section><h2>Une méthode simple pour progresser</h2><p>Commence par écrire le contenu sans décoration, vérifie la hiérarchie des titres, puis ajoute le CSS et JavaScript seulement lorsque cela améliore l’expérience. Un HTML propre rend les prochaines étapes plus simples.</p></section><section class="lab-section"><div class="lab-heading"><span class="eyebrow">Mini-lab HTML</span><h2>Change le contenu, vois le résultat</h2><p>Une page commence par une structure. Modifie le texte puis applique-le à l’aperçu.</p></div><div class="lab-grid"><label class="lab-control">Ton titre<input id="html-lab-input" value="Bonjour, explorateur du web !" type="text"></label><div class="lab-preview" id="html-lab-preview"><span class="preview-label">aperçu</span><h3>Bonjour, explorateur du web !</h3><p>Le HTML donne une structure au contenu.</p></div></div></section><section class="quiz-section" data-quiz="post3"><div class="eyebrow">Pause active</div><h2>Teste ta compréhension</h2><p>Quel élément donne du sens à la structure d’une page ?</p><div class="quiz-options"><button type="button" data-quiz-answer="0" data-quiz-correct="0">Les balises HTML sémantiques</button><button type="button" data-quiz-answer="1" data-quiz-correct="0">Une image sans texte alternatif</button><button type="button" data-quiz-answer="2" data-quiz-correct="0">Une couleur aléatoire</button></div><p class="quiz-feedback" aria-live="polite"></p></section></article>
-  </div>
-  <section class="shell article-end"><div><span class="footer-label">Continuer l’exploration</span><h2>Un autre sujet à ouvrir ?</h2></div><a class="button button-primary" href="../index.html#articles">Voir tous les articles <span>↗</span></a></section>
-  <section class="shell related-section"><div class="section-heading"><div><span class="eyebrow">À poursuivre</span><h2>Tu pourrais aussi aimer</h2></div><p>Deux notes proches pour continuer ton parcours.</p></div><div class="related-grid"><a class="related-link" href="../posts/post7.html"><span>Programmation</span><strong>Créer et publier un site web moderne avec GitHub Pages</strong><em>Lire la note →</em></a><a class="related-link" href="../posts/post6.html"><span>Programmation</span><strong>Apprendre Python : les bases du langage pour débuter</strong><em>Lire la note →</em></a></div></section>
+&lt;/html&gt;</code></pre><p><code>&lt;!doctype html&gt;</code> indique un document HTML moderne. L’attribut <code>lang="fr"</code> aide notamment les lecteurs d’écran à prononcer correctement le contenu. Le <code>head</code> contient les métadonnées ; le <code>body</code>, le contenu affiché.</p></section>
+    <section id="semantique"><h2>2. La sémantique : le bon élément pour le bon rôle</h2><p>Un élément HTML doit décrire ce que représente le contenu. Un bouton doit être un <code>&lt;button&gt;</code>, un lien une balise <code>&lt;a&gt;</code>, un titre un élément <code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code>. Cette discipline apporte gratuitement une partie du comportement clavier, de l’accessibilité et de la compréhension machine.</p><div class="course-grid"><div class="course-card"><h3>&lt;header&gt;</h3><p>En-tête d’une page ou d’une section.</p></div><div class="course-card"><h3>&lt;nav&gt;</h3><p>Groupe principal de liens de navigation.</p></div><div class="course-card"><h3>&lt;main&gt;</h3><p>Contenu principal unique de la page.</p></div><div class="course-card"><h3>&lt;article&gt; / &lt;section&gt;</h3><p>Contenu autonome ou regroupement thématique.</p></div></div></section>
+    <section id="titres"><h2>3. Titres, paragraphes et hiérarchie</h2><p>Les titres structurent le document. Le plus important n’est pas leur taille visuelle mais leur relation logique. Utilise généralement un <code>h1</code> principal puis des <code>h2</code> pour les grandes sections, et descends de niveau lorsque le contenu est réellement imbriqué.</p><div class="lesson-note"><span class="lesson-label">Erreur fréquente</span>Choisir <code>h3</code> parce qu’il « a la bonne taille ». La taille appartient au CSS ; le niveau du titre appartient à la structure.</div></section>
+    <section id="liens-medias"><h2>4. Liens et images</h2><p>Un bon texte de lien doit annoncer la destination : « Lire le guide CSS » est plus utile que « cliquez ici ». Pour les images, l’attribut <code>alt</code> décrit la fonction ou l’information portée par l’image.</p><pre><code>&lt;a href="/cours/css.html"&gt;Lire le cours CSS&lt;/a&gt;
+&lt;img src="diagramme.png" alt="Schéma des couches d’une application web"&gt;</code></pre><p>Une image purement décorative peut avoir <code>alt=""</code> afin de ne pas ajouter du bruit aux technologies d’assistance.</p></section>
+    <section id="listes-tableaux"><h2>5. Listes et tableaux</h2><p>Utilise <code>&lt;ul&gt;</code> pour une liste sans ordre, <code>&lt;ol&gt;</code> lorsqu’il existe une séquence, et les éléments de tableau uniquement pour de vraies données tabulaires.</p><pre><code>&lt;table&gt;
+  &lt;caption&gt;Résultats&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th scope="col"&gt;Nom&lt;/th&gt;&lt;th scope="col"&gt;Score&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;...&lt;/tbody&gt;
+&lt;/table&gt;</code></pre></section>
+    <section id="formulaires"><h2>6. Formulaires accessibles</h2><p>Chaque champ doit avoir un libellé compréhensible. Le <code>name</code> identifie la donnée envoyée, le <code>type</code> décrit le type d’entrée, et les attributs natifs comme <code>required</code>, <code>minlength</code> ou <code>autocomplete</code> peuvent améliorer l’expérience.</p><pre><code>&lt;label for="email"&gt;Adresse e-mail&lt;/label&gt;
+&lt;input id="email" name="email" type="email" autocomplete="email" required&gt;</code></pre><p>Un <code>placeholder</code> ne doit pas remplacer un vrai <code>label</code> : il disparaît pendant la saisie et peut être difficile à interpréter.</p></section>
+    <section id="head"><h2>7. Le &lt;head&gt; : titre, viewport et métadonnées</h2><p>Le titre de page doit être spécifique. La métadonnée viewport évite un rendu desktop réduit sur mobile. Une description peut aider à présenter la page dans certains moteurs de recherche, même si elle ne garantit pas l’extrait affiché.</p><pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;meta name="description" content="Cours HTML pour débuter."&gt;</code></pre></section>
+    <section id="accessibilite"><h2>8. Accessibilité : commencer par le HTML natif</h2><ul class="checklist"><li>conserver un ordre de source logique ;</li><li>rendre les actions utilisables au clavier ;</li><li>utiliser de vrais boutons et liens ;</li><li>associer les labels aux champs ;</li><li>écrire des textes alternatifs pertinents ;</li><li>ne pas dépendre uniquement de la couleur pour transmettre une information.</li></ul><p>MDN insiste sur ce principe : un HTML sémantique apporte déjà de nombreux mécanismes d’accessibilité intégrés au navigateur.</p></section>
+    <section id="debug"><h2>9. Déboguer son HTML</h2><p>Lis d’abord la structure dans les outils développeur du navigateur. Vérifie les balises mal imbriquées, les liens cassés, les images sans alternative et l’ordre des titres. Les validateurs HTML peuvent ensuite compléter cette vérification.</p></section>
+    <section class="lab-section"><div class="lab-heading"><span class="eyebrow">Mini-lab HTML</span><h2>Change le contenu, vois le résultat</h2><p>Modifie le titre puis applique-le à l’aperçu.</p></div><div class="lab-grid"><label class="lab-control">Ton titre<input id="html-lab-input" value="Bonjour, explorateur du web !" type="text"></label><div class="lab-preview" id="html-lab-preview"><span class="preview-label">aperçu</span><h3>Bonjour, explorateur du web !</h3><p>Le HTML donne une structure au contenu.</p></div></div></section>
+    <section class="exercise-card"><h2>Exercice — crée une page de profil</h2><p>Construis uniquement en HTML une page contenant : un en-tête, une navigation, un <code>main</code>, une section « À propos », une liste de compétences, une image avec texte alternatif, un lien vers un projet et un formulaire de contact avec labels. Ne pense pas encore au CSS.</p></section>
+    <section class="course-summary"><h2>À retenir</h2><ul><li>HTML décrit la structure et le sens.</li><li>La sémantique améliore accessibilité, maintenance et compréhension machine.</li><li>Le CSS ne doit pas corriger une structure HTML mal choisie.</li><li>Un formulaire accessible commence par des labels et des contrôles natifs adaptés.</li></ul></section>
+    <section class="quiz-section" data-quiz="post3"><div class="eyebrow">Pause active</div><h2>Teste ta compréhension</h2><p>Pourquoi préférer un vrai <code>&lt;button&gt;</code> à un <code>&lt;div&gt;</code> cliquable ?</p><div class="quiz-options"><button type="button" data-quiz-answer="0" data-quiz-correct="0">Il possède une sémantique et des comportements clavier natifs</button><button type="button" data-quiz-answer="1" data-quiz-correct="0">Il rend automatiquement la page plus rapide</button><button type="button" data-quiz-answer="2" data-quiz-correct="0">Il remplace le CSS</button></div><p class="quiz-feedback" aria-live="polite"></p></section>
+    <section class="reference-box"><h2>Références</h2><ul class="reference-list"><li><a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Structuring_content" target="_blank" rel="noopener noreferrer"><span>MDN — Structurer le contenu avec HTML</span><small>HTML moderne ↗</small></a></li><li><a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Accessibility/HTML" target="_blank" rel="noopener noreferrer"><span>MDN — HTML et accessibilité</span><small>sémantique ↗</small></a></li></ul></section>
+  </article></div>
+  <section class="shell article-end"><div><span class="footer-label">Cours suivant</span><h2>Donner une forme au contenu avec CSS.</h2></div><a class="button button-primary" href="post4.html">Continuer <span>→</span></a></section>
 </main>
-
-<footer class="site-footer">
-  <div class="shell footer-grid">
-    <div>
-      <a class="brand brand-footer" href="../index.html" aria-label="H@CKERBOY, accueil"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>Drissa Diarra · portfolio</small></span></a>
-      <p class="footer-note">Drissa Diarra · H@CKERBOY — développeur web & mobile, IA et cybersécurité. Bamako, Mali.</p>
-    </div>
-    <div class="footer-column"><span class="footer-label">Navigation</span><a href="../index.html#projets">Projets</a><a href="../index.html#expertise">Expertise</a><a href="../index.html#articles">Journal</a><a href="../exploits.html">Exploits</a></div>
-    <div class="footer-column"><span class="footer-label">Me retrouver</span><a href="https://www.linkedin.com/in/drissa-diarra-4171ab430" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/hackerboy-223" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://wa.me/22384122222" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.instagram.com/hacker.boy.223" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://snapchat.com/add/lehackerboyduml" target="_blank" rel="noopener noreferrer">Snapchat</a></div>
-  </div>
-  <div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Think. Build. Break. Learn. Repeat.</span></div>
-</footer>
-
-<script src="../js/site.js?v=5" defer></script>
+<footer class="site-footer"><div class="shell footer-grid"><div><a class="brand brand-footer" href="../index.html"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>portfolio</small></span></a><p class="footer-note">Développement web, IA, cybersécurité et apprentissage par la pratique.</p></div><div class="footer-column"><span class="footer-label">Navigation</span><a href="../index.html#projets">Projets</a><a href="../index.html#articles">Journal</a><a href="../about.html">À propos</a></div><div class="footer-column"><span class="footer-label">Me retrouver</span><a href="https://github.com/hackerboy-223" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/drissa-diarra-4171ab430" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div><div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Think. Build. Break. Learn. Repeat.</span></div></footer><script src="../js/site.js?v=5" defer></script>
 </body></html>
