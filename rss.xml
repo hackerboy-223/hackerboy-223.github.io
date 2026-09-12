@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>H@CKERBOY — Cours, projets et notes techniques</title>
+    <link>https://hackerboy-223.vercel.app/</link>
+    <description>Web, intelligence artificielle, programmation et cybersécurité éthique par Drissa Diarra (H@CKERBOY), à Bamako.</description>
+    <language>fr-ML</language>
+    <lastBuildDate>Sat, 12 Sep 2026 21:24:48 GMT</lastBuildDate>
+    <atom:link href="https://hackerboy-223.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Informatique : fondamentaux, architecture, domaines et histoire</title>
+      <link>https://hackerboy-223.vercel.app/posts/post1.html</link>
+      <guid isPermaLink="true">https://hackerboy-223.vercel.app/posts/post1.html</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Cours complet d’introduction à l’informatique : données, algorithmes, matériel, logiciels, réseaux, histoire, domaines professionnels et sécurité.</description>
+    </item>
+    <item>
+      <title>Hacker, cybersécurité et éthique : comprendre les rôles et les limites</title>
+      <link>https://hackerboy-223.vercel.app/posts/post2.html</link>
+      <guid isPermaLink="true">https://hackerboy-223.vercel.app/posts/post2.html</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Comprendre la cybersécurité éthique, les rôles, le risque, l’autorisation et la divulgation responsable.</description>
+    </item>
+    <item>
+      <title>HTML moderne : structure, sémantique et accessibilité</title>
+      <link>https://hackerboy-223.vercel.app/posts/post3.html</link>
+      <guid isPermaLink="true">https://hackerboy-223.vercel.app/posts/post3.html</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Construire des pages HTML structurées, sémantiques, accessibles et faciles à maintenir.</description>
+    </item>
+    <item>
+      <title>CSS moderne : cascade, layout et responsive design</title>
+      <link>https://hackerboy-223.vercel.app/posts/post4.html</link>
+      <guid isPermaLink="true">https://hackerboy-223.vercel.app/posts/post4.html</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Maîtriser cascade, spécificité, box model, Flexbox, Grid, unités modernes et responsive design.</description>
+    </item>
+    <item>
+      <title>JavaScript moderne : logique, DOM, événements et asynchrone</title>
+      <link>https://hackerboy-223.vercel.app/posts/post5.html</link>
+      <guid isPermaLink="true">https://hackerboy-223.vercel.app/posts/post5.html</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Variables, fonctions, tableaux, DOM, événements, état, Promises, fetch, async/await et modules.</description>
+    </item>
+    <item>
+      <title>Python : les bases du langage pour débuter</title>
+      <link>https://hackerboy-223.vercel.app/posts/post6.html</link>
+      <guid isPermaLink="true">https://hackerboy-223.vercel.app/posts/post6.html</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Types, conditions, boucles, collections, fonctions, exceptions, modules, fichiers et environnements virtuels.</description>
+    </item>
+    <item>
+      <title>GitHub Pages : créer, versionner et publier un site statique</title>
+      <link>https://hackerboy-223.vercel.app/posts/post7.html</link>
+      <guid isPermaLink="true">https://hackerboy-223.vercel.app/posts/post7.html</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Git, GitHub Pages, publication, Actions, chemins relatifs, domaines personnalisés, HTTPS et dépannage.</description>
+    </item>
+    <item>
+      <title>Sécurité Web moderne : OWASP Top 10, conception sûre et défense</title>
+      <link>https://hackerboy-223.vercel.app/posts/post8.html</link>
+      <guid isPermaLink="true">https://hackerboy-223.vercel.app/posts/post8.html</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Cours défensif sur OWASP Top 10:2025, contrôle d’accès, authentification, configuration, dépendances, logs et réponse aux incidents.</description>
+    </item>
+  </channel>
+</rss>
