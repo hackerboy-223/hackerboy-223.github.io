@@ -8,7 +8,7 @@
   function setTheme(theme) {
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
-    localStorage.setItem('hb-theme', theme);
+    try { localStorage.setItem('hb-theme', theme); } catch (_) { /* Storage may be disabled. */ }
     const button = document.querySelector('#theme-toggle');
     if (button) {
       const isDark = theme === 'dark';
@@ -18,7 +18,15 @@
     }
   }
 
-  setTheme(localStorage.getItem('hb-theme') || 'dark');
+  const colorPreference = window.matchMedia('(prefers-color-scheme: dark)');
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem('hb-theme'); } catch (_) { /* Private browsing. */ }
+  setTheme(savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (colorPreference.matches ? 'dark' : 'light'));
+  colorPreference.addEventListener?.('change', event => {
+    let override = null;
+    try { override = localStorage.getItem('hb-theme'); } catch (_) {}
+    if (override !== 'dark' && override !== 'light') setTheme(event.matches ? 'dark' : 'light');
+  });
   document.querySelector('#theme-toggle')?.addEventListener('click', () => {
     setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
   });
@@ -39,6 +47,15 @@
     body.classList.toggle('menu-open', open);
   });
   menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.classList.contains('is-open')) {
+      closeMenu();
+      menuButton?.focus();
+    }
+  });
+  document.addEventListener('click', event => {
+    if (menu?.classList.contains('is-open') && !menu.contains(event.target) && !menuButton?.contains(event.target)) closeMenu();
+  });
 
   const cards = [...document.querySelectorAll('.post-card')];
   const filterButtons = [...document.querySelectorAll('.filter-button')];
@@ -52,7 +69,7 @@
     let visible = 0;
     cards.forEach(card => {
       const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter;
-      const matchesSearch = !query || card.dataset.search.includes(query);
+      const matchesSearch = !query || (card.dataset.search || card.textContent.toLowerCase()).includes(query);
       const show = matchesFilter && matchesSearch;
       card.classList.toggle('is-hidden', !show);
       if (show) visible += 1;
@@ -111,7 +128,7 @@
     });
   }
 
-  const revealTargets = [...document.querySelectorAll('.section-heading, .project-card, .post-card, .expertise-item, .signal-grid > div, .bot-card, .article-content > section, .exploit-feature, .story-section, .certificate-gallery figure')];
+  const revealTargets = body.dataset.page === 'home' ? [] : [...document.querySelectorAll('.section-heading, .project-card, .post-card, .expertise-item, .signal-grid > div, .bot-card, .article-content > section, .exploit-feature, .story-section, .certificate-gallery figure')];
   revealTargets.forEach((target, index) => {
     target.classList.add('reveal');
     target.style.setProperty('--reveal-delay', `${Math.min(index * 42, 280)}ms`);
@@ -204,7 +221,7 @@
   }));
 
   const tocLinks = [...document.querySelectorAll('.toc a')];
-  const headings = tocLinks.map(link => document.querySelector(link.hash)).filter(Boolean);
+  const headings = tocLinks.map(link => { try { return link.hash ? document.getElementById(decodeURIComponent(link.hash.slice(1))) : null; } catch (_) { return null; } }).filter(Boolean);
   if (tocLinks.length && 'IntersectionObserver' in window) {
     const tocObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -319,8 +336,18 @@
   document.querySelectorAll('.certificate-gallery img').forEach(image => image.addEventListener('click', () => {
     const overlay = document.createElement('div');
     overlay.className = 'image-lightbox';
-    overlay.innerHTML = `<button type="button" aria-label="Fermer l’image">×</button><img src="${image.src}" alt="${image.alt}">`;
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Fermer l’image');
+    close.textContent = '×';
+    const enlarged = document.createElement('img');
+    enlarged.src = image.currentSrc || image.src;
+    enlarged.alt = image.alt;
+    overlay.append(close, enlarged);
     document.body.appendChild(overlay);
-    overlay.addEventListener('click', event => { if (event.target === overlay || event.target.tagName === 'BUTTON') overlay.remove(); });
+    overlay.addEventListener('click', event => { if (event.target === overlay || event.target === close) overlay.remove(); });
+    const onKey = event => { if (event.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', onKey); } };
+    document.addEventListener('keydown', onKey);
+    close.focus();
   }));
 })();
