@@ -41,12 +41,16 @@
     body.classList.remove('menu-open');
   }
   menuButton?.addEventListener('click', () => {
+    if (!menu) return;
     const open = menu.classList.toggle('is-open');
     menuButton.classList.toggle('is-open', open);
     menuButton.setAttribute('aria-expanded', String(open));
     body.classList.toggle('menu-open', open);
   });
   menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  window.matchMedia('(min-width: 981px)').addEventListener?.('change', event => {
+    if (event.matches) closeMenu();
+  });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && menu?.classList.contains('is-open')) {
       closeMenu();
@@ -78,7 +82,10 @@
   }
   filterButtons.forEach(button => button.addEventListener('click', () => {
     activeFilter = button.dataset.filter;
-    filterButtons.forEach(item => item.classList.toggle('is-active', item === button));
+    filterButtons.forEach(item => {
+      item.classList.toggle('is-active', item === button);
+      item.setAttribute('aria-pressed', String(item === button));
+    });
     updateCards();
   }));
   if (filterButtons.length && activeFilter !== 'all') {
@@ -87,6 +94,7 @@
       filterButtons.forEach(item => item.classList.toggle('is-active', item === requestedButton));
     }
   }
+  filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item.classList.contains('is-active'))));
   updateCards();
   search?.addEventListener('input', updateCards);
 
@@ -344,9 +352,20 @@
     enlarged.src = image.currentSrc || image.src;
     enlarged.alt = image.alt;
     overlay.append(close, enlarged);
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Aperçu du certificat');
     document.body.appendChild(overlay);
-    overlay.addEventListener('click', event => { if (event.target === overlay || event.target === close) overlay.remove(); });
-    const onKey = event => { if (event.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', onKey); } };
+    const dismiss = () => {
+      overlay.remove();
+      document.removeEventListener('keydown', onKey);
+      image.focus?.();
+    };
+    const onKey = event => {
+      if (event.key === 'Escape') dismiss();
+      if (event.key === 'Tab') { event.preventDefault(); close.focus(); }
+    };
+    overlay.addEventListener('click', event => { if (event.target === overlay || event.target === close) dismiss(); });
     document.addEventListener('keydown', onKey);
     close.focus();
   }));
