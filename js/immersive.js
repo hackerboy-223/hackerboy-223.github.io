@@ -14,9 +14,12 @@
       items.push(el);
     });
   });
-  const targets = [...new Set(items)];
+  const targets = [...new Set(items)].filter(el => !el.closest('[hidden], .is-hidden'));
   if (!targets.length) return;
   targets.forEach(el => el.dataset.reveal = '');
+  // Don't conceal content if a previous-page scroll restoration lands below it.
+  const alreadyVisible = el => el.getBoundingClientRect().bottom > 0 && el.getBoundingClientRect().top < window.innerHeight;
+  targets.filter(alreadyVisible).forEach(el => el.classList.add('is-visible'));
   const progress = document.createElement('div');
   progress.className = 'immersive-progress';
   progress.setAttribute('aria-hidden', 'true');
@@ -29,7 +32,7 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
   document.documentElement.classList.add('immersive-ready');
-  targets.forEach(el => observer.observe(el));
+  targets.filter(el => !el.classList.contains('is-visible')).forEach(el => observer.observe(el));
   let scheduled = false;
   const update = () => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
