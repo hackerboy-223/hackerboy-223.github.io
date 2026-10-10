@@ -5,10 +5,10 @@
   const body = document.body;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function setTheme(theme) {
+  function setTheme(theme, persist = true) {
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
-    try { localStorage.setItem('hb-theme', theme); } catch (_) { /* Storage may be disabled. */ }
+    if (persist) { try { localStorage.setItem('hb-theme', theme); } catch (_) { /* Storage may be disabled. */ } }
     const button = document.querySelector('#theme-toggle');
     if (button) {
       const isDark = theme === 'dark';
@@ -21,11 +21,11 @@
   const colorPreference = window.matchMedia('(prefers-color-scheme: dark)');
   let savedTheme = null;
   try { savedTheme = localStorage.getItem('hb-theme'); } catch (_) { /* Private browsing. */ }
-  setTheme(savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (colorPreference.matches ? 'dark' : 'light'));
+  setTheme(savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (colorPreference.matches ? 'dark' : 'light'), false);
   colorPreference.addEventListener?.('change', event => {
     let override = null;
     try { override = localStorage.getItem('hb-theme'); } catch (_) {}
-    if (override !== 'dark' && override !== 'light') setTheme(event.matches ? 'dark' : 'light');
+    if (override !== 'dark' && override !== 'light') setTheme(event.matches ? 'dark' : 'light', false);
   });
   document.querySelector('#theme-toggle')?.addEventListener('click', () => {
     setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
