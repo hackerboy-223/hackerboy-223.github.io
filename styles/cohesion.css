@@ -1,0 +1,55 @@
+/* Design system cohesion layer — shared across every portfolio route */
+:root{
+  --hb-space:clamp(72px,9vw,132px);
+  --hb-round:24px;
+  --hb-focus:var(--accent);
+}
+html{scroll-padding-top:88px}
+body{overflow-wrap:break-word}
+main{min-width:0}
+main > section{scroll-margin-top:88px}
+.shell{max-width:var(--max)}
+.site-header{isolation:isolate}
+.site-header .header-inner{width:min(var(--max),calc(100% - 48px))}
+.section-heading{gap:clamp(16px,3vw,44px)}
+.section-heading h2{line-height:1.08}
+.section-heading > p{max-width:48ch;line-height:1.7}
+.projects-section,.exploits-section,.expertise-section,.about-section,.articles-section,.contact-section{padding-block:var(--hb-space)}
+.project-card,.post-card,.social-card,.hero-console{border:1px solid var(--line)!important;box-shadow:0 15px 42px rgba(0,0,0,.09);border-radius:var(--hb-round)}
+.project-card,.post-card{overflow:hidden}
+.project-visual,.card-image{overflow:hidden}
+.project-visual img,.card-image img{width:100%;object-fit:cover}
+.project-content p,.card-body p{line-height:1.7}
+.project-actions{display:flex;flex-wrap:wrap;gap:12px}
+.project-actions a{min-height:34px;display:inline-flex;align-items:center}
+button,a,input,textarea,select{touch-action:manipulation}
+:where(a,button,input,textarea,select,[tabindex]):focus-visible{outline:3px solid var(--hb-focus)!important;outline-offset:3px!important}
+:where(.button,.header-cta,.icon-button,.menu-button):focus-visible{outline-offset:5px!important}
+:is(.project-card,.post-card,.expertise-item,.social-card):focus-within{border-color:var(--line-strong)!important}
+:root[data-theme="light"] .project-card,:root[data-theme="light"] .post-card,:root[data-theme="light"] .social-card{box-shadow:0 16px 44px rgba(20,20,28,.06)}
+:root[data-theme="dark"] .project-card,:root[data-theme="dark"] .post-card,:root[data-theme="dark"] .social-card{box-shadow:0 18px 48px rgba(0,0,0,.22)}
+/* Avoid an oversized empty rail beside the introduction on mid-size desktops */
+@media(min-width:901px) and (max-width:1200px){
+ .portfolio-hero-grid{grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr)!important;gap:32px!important}
+ .portfolio-hero h1{font-size:clamp(3.2rem,6vw,5.6rem)!important}
+}
+@media(max-width:900px){
+ .portfolio-hero-grid{grid-template-columns:minmax(0,1fr)!important;gap:36px!important;min-height:0}
+ .hero-console{justify-self:stretch;width:min(100%,560px)}
+ .portfolio-hero{min-height:0!important}
+}
+@media(max-width:720px){
+ :root{--hb-space:70px;--hb-round:20px}
+ .site-header .header-inner{width:calc(100% - 32px)}
+ .portfolio-hero h1{overflow-wrap:normal;hyphens:auto;line-height:1.02!important;font-size:clamp(2.7rem,11.5vw,4.8rem)!important}
+ .portfolio-hero{padding-block:76px 64px!important}
+ .section-heading h2{font-size:clamp(2rem,9vw,3.7rem)!important;overflow-wrap:anywhere}
+ .hero-actions,.project-actions{gap:10px}
+ .hero-actions .button{max-width:100%}
+ .project-content,.card-body{min-width:0}
+ .footer-grid{gap:28px}
+ .site-nav{z-index:60}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important}
+}
