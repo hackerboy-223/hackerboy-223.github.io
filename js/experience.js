@@ -462,3 +462,222 @@
     markChapter();
   }
 })();
+
+
+/* H@CKERBOY Quest — short, accessible technical lessons.
+   Visual approach inspired by gamified learning paths; all illustrations are original.
+   Progressive enhancement: with JS disabled, complete tutorials remain visible. */
+(() => {
+  'use strict';
+  const order=['post1','post3','post4','post5','post6','post7','post2','post8'];
+  const progressKey='hb-learning-progress-v1';
+  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const getDone=()=>{
+    try{const arr=JSON.parse(localStorage.getItem(progressKey)||'[]');return Array.isArray(arr)?arr:[];}catch(_){return [];}
+  };
+  const icons={
+    post1:'M4 5h16v14H4z M8 9h8 M8 13h5',
+    post3:'m8 7-5 5 5 5 M16 7l5 5-5 5',
+    post4:'M12 3 4 12l8 9 8-9-8-9z M8 13h8',
+    post5:'M12 3v5 M12 16v5 M3 12h5 M16 12h5 M6 6l3 3 M15 15l3 3 M18 6l-3 3 M9 15l-3 3',
+    post6:'M6 8a3 3 0 0 1 3-3h6v6H9v4 M18 16a3 3 0 0 1-3 3H9v-6h6V9',
+    post7:'M6 4v11 M18 4v5a5 5 0 0 1-5 5H6 M3 15h6 M15 4h6 M9 19H3',
+    post2:'M12 2 4 6v6c0 5 4 8 8 10 4-2 8-5 8-10V6l-8-4z M9 12l2 2 4-4',
+    post8:'M6 11V8a6 6 0 0 1 12 0v3 M5 11h14v11H5z M12 15v3'
+  };
+  function icon(path){
+    const node=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    node.setAttribute('viewBox','0 0 24 24');
+    node.setAttribute('fill','none');node.setAttribute('stroke','currentColor');
+    node.setAttribute('stroke-width','2.4');node.setAttribute('stroke-linecap','round');
+    node.setAttribute('stroke-linejoin','round');node.setAttribute('aria-hidden','true');
+    const shape=document.createElementNS('http://www.w3.org/2000/svg','path');
+    shape.setAttribute('d',path);
+    node.append(shape);
+    return node;
+  }
+  const learning=document.querySelector('.learning-section');
+  if(learning){
+    const cards=[...learning.querySelectorAll('.learning-item[data-learning-item]')];
+    const grid=learning.querySelector('.learning-grid');
+    if(grid)grid.classList.add('quest-path');
+    const intro=learning.querySelector('.learning-header');
+    if(intro){
+      const mascot=document.createElement('div');
+      mascot.className='quest-companion';
+      mascot.setAttribute('aria-hidden','true');
+      const face=document.createElement('div');face.className='quest-companion-face';
+      for(let i=0;i<2;i++){const eye=document.createElement('span');eye.className='quest-eye';face.append(eye);}
+      const smile=document.createElement('span');smile.className='quest-smile';face.append(smile);
+      const sparkle=document.createElement('span');sparkle.className='quest-sparkle';sparkle.textContent='✦';
+      mascot.append(face,sparkle);
+      const bubble=document.createElement('div');bubble.className='quest-companion-bubble';
+      bubble.textContent='Ton prochain niveau t’attend !';
+      mascot.append(bubble);
+      intro.append(mascot);
+    }
+    cards.forEach((card,index)=>{
+      const node=document.createElement('span');
+      node.className='quest-node';
+      node.setAttribute('aria-hidden','true');
+      node.append(icon(icons[card.dataset.learningItem]||icons.post1));
+      card.prepend(node);
+      card.style.setProperty('--quest-index',String(index));
+    });
+    function refresh(){
+      const done=getDone();
+      const active=cards.find(card=>!done.includes(card.dataset.learningItem));
+      cards.forEach(card=>{
+        const completed=done.includes(card.dataset.learningItem);
+        card.classList.toggle('quest-completed',completed);
+        card.classList.toggle('quest-current',card===active);
+        const status=card.querySelector('.learning-status');
+        if(status)status.textContent=completed?'Terminé ✓':card===active?'Commencer →':'À explorer';
+        if(card===active)card.setAttribute('aria-label','Prochaine étape : '+(card.querySelector('h3')?.textContent||'cours'));
+        else card.removeAttribute('aria-label');
+      });
+      const bubble=learning.querySelector('.quest-companion-bubble');
+      if(bubble)bubble.textContent=active?'Ta prochaine étape : '+(active.querySelector('h3')?.textContent||'apprendre'):'Parcours terminé ! Bravo 🎉';
+      const counter=learning.querySelector('[data-learning-count]');
+      if(counter)counter.textContent=String(cards.filter(card=>done.includes(card.dataset.learningItem)).length)+' / '+String(cards.length);
+    }
+    window.addEventListener('storage',event=>{if(event.key===progressKey)refresh();});
+    refresh();
+  }
+
+  const slug=document.body?.dataset.postSlug;
+  if(!order.includes(slug))return;
+  const article=document.querySelector('.article-content');
+  const layout=document.querySelector('.article-layout');
+  if(!article||!layout)return;
+  const sections=[...article.children].filter(el=>el.tagName==='SECTION'&&el.querySelector('h2'));
+  if(sections.length<3)return;
+  const stages=[];
+  let pair=[];
+  const flush=()=>{if(pair.length){stages.push(pair);pair=[];}};
+  for(const section of sections){
+    const heading=section.querySelector('h2')?.textContent?.trim()||'';
+    if(/^\d+[.)]\s/.test(heading)){
+      pair.push(section);
+      if(pair.length===2)flush();
+    }else{
+      flush();stages.push([section]);
+    }
+  }
+  flush();
+  if(!stages.length)return;
+
+  // The header can show a brief challenge for each chapter; no fabricated XP or rankings.
+  const shell=document.createElement('div');shell.className='quest-lesson-shell';
+  const meta=document.createElement('div');meta.className='quest-lesson-meta';
+  const homeLink=document.createElement('a');homeLink.className='quest-lesson-home';
+  homeLink.href='../index.html#apprendre';homeLink.textContent='← Parcours';
+  const label=document.createElement('span');label.className='quest-lesson-step-label';
+  meta.append(homeLink,label);
+  const rail=document.createElement('div');rail.className='quest-lesson-rail';
+  rail.setAttribute('role','progressbar');rail.setAttribute('aria-label','Progression dans la leçon');
+  rail.setAttribute('aria-valuemin','0');rail.setAttribute('aria-valuemax',String(stages.length));
+  const railFill=document.createElement('div');railFill.className='quest-lesson-rail-fill';rail.append(railFill);
+  const heading=document.createElement('div');heading.className='quest-lesson-prompt';
+  const ch=document.createElement('span');ch.className='quest-lesson-kicker';ch.textContent='MISSION D’APPRENTISSAGE';
+  const title=document.createElement('h2');title.className='quest-lesson-title';
+  const subtitle=document.createElement('p');subtitle.className='quest-lesson-subtitle';
+  heading.append(ch,title,subtitle);
+  const modeToggle=document.createElement('button');modeToggle.type='button';modeToggle.className='quest-mode-toggle';
+  modeToggle.textContent='Afficher tout le cours';
+  shell.append(meta,rail,heading,modeToggle);
+  const tools=article.querySelector(':scope > .article-tools');
+  if(tools)tools.after(shell);else article.prepend(shell);
+
+  const controls=document.createElement('div');controls.className='quest-lesson-controls';
+  const prev=document.createElement('button');prev.className='quest-action-back';prev.type='button';prev.textContent='← Retour';
+  const next=document.createElement('button');next.className='quest-action-next';next.type='button';
+  const feedback=document.createElement('p');feedback.className='quest-lesson-feedback';
+  feedback.setAttribute('role','status');feedback.setAttribute('aria-live','polite');
+  controls.append(prev,feedback,next);
+  article.append(controls);
+  let current=0;
+  let full=false;
+  const storage='hb-learning-step-v1-'+slug;
+  const getSaved=()=>{try{const value=Number(sessionStorage.getItem(storage));return Number.isInteger(value)?value:0;}catch(_){return 0;}};
+  const saveStep=value=>{try{sessionStorage.setItem(storage,String(value));}catch(_){}};
+  const indexForHash=()=>{
+    const id=decodeURIComponent(window.location.hash.slice(1));
+    if(!id)return -1;
+    return stages.findIndex(group=>group.some(el=>el.id===id||!!el.querySelector('#'+CSS.escape(id))));
+  };
+  function jumpToStage(){
+    const top=shell.getBoundingClientRect().top+window.scrollY-80;
+    window.scrollTo({top:Math.max(0,top),behavior:reduced?'instant':'smooth'});
+  }
+  const stageTitle=index=>{
+    const titles=stages[index].map(el=>el.querySelector('h2')?.textContent?.trim()||'').filter(Boolean);
+    return titles.length===1?titles[0]:titles.map(t=>t.replace(/^\d+[.)]\s*/, '')).join(' + ');
+  };
+  function render(jump=false){
+    document.body.classList.toggle('quest-reading-full',full);
+    if(full){
+      sections.forEach(el=>el.hidden=false);
+      label.textContent='Mode lecture complète';
+      title.textContent='Tous les chapitres';
+      subtitle.textContent='Fais défiler librement, ou reviens au parcours guidé.';
+      rail.setAttribute('aria-valuenow',String(stages.length));
+      railFill.style.width='100%';
+      modeToggle.textContent='Revenir aux étapes';
+      controls.hidden=true;
+      if(jump)jumpToStage();
+      return;
+    }
+    current=Math.max(0,Math.min(stages.length-1,current));
+    sections.forEach(el=>el.hidden=true);
+    stages[current].forEach(el=>el.hidden=false);
+    label.textContent='ÉTAPE '+String(current+1)+' / '+String(stages.length);
+    title.textContent=stageTitle(current);
+    subtitle.textContent=current===0?'Commence avec les bases : un sujet à la fois.':current===stages.length-1?'Dernière étape ! Vérifie ce que tu as appris.':'Lis, teste les exemples et avance à ton rythme.';
+    railFill.style.width=String((current+1)/stages.length*100)+'%';
+    rail.setAttribute('aria-valuenow',String(current+1));
+    modeToggle.textContent='Afficher tout le cours';
+    controls.hidden=false;
+    prev.disabled=current===0;
+    next.textContent=current===stages.length-1?'✓ Terminer la leçon':'Continuer →';
+    feedback.textContent='';
+    saveStep(current);
+    if(jump)jumpToStage();
+  }
+  const hashIndex=indexForHash();
+  current=hashIndex>=0?hashIndex:Math.max(0,Math.min(stages.length-1,getSaved()));
+  render();
+  document.body.classList.add('quest-lesson-mode');
+  prev.addEventListener('click',()=>{if(current>0){current--;render(true);}});
+  next.addEventListener('click',()=>{
+    if(current<stages.length-1){current++;render(true);return;}
+    const mark=article.querySelector('[data-course-complete="'+slug+'"]');
+    if(mark&&mark.getAttribute('aria-pressed')!=='true')mark.click();
+    feedback.textContent='Bravo ! Leçon terminée. Tu peux passer au niveau suivant.';
+    next.textContent='✓ Leçon terminée';
+    next.disabled=true;
+    const following=order[order.indexOf(slug)+1];
+    if(following){
+      const link=document.createElement('a');link.className='quest-next-lesson';
+      link.href=following+'.html';link.textContent='Prochain niveau →';
+      if(!controls.querySelector('.quest-next-lesson'))controls.append(link);
+    }else{
+      const link=document.createElement('a');link.className='quest-next-lesson';
+      link.href='../index.html#apprendre';link.textContent='Voir ton parcours →';
+      if(!controls.querySelector('.quest-next-lesson'))controls.append(link);
+    }
+  });
+  modeToggle.addEventListener('click',()=>{full=!full;render(true);});
+  window.addEventListener('hashchange',()=>{
+    const index=indexForHash();
+    if(index>=0&&!full){current=index;render(false);}
+  });
+  const toc=document.querySelector('#toc');
+  toc?.addEventListener('click',event=>{
+    const link=event.target.closest('a[href^="#"]');
+    if(!link)return;
+    const id=decodeURIComponent(link.hash.slice(1));
+    const index=stages.findIndex(group=>group.some(el=>el.id===id||!!el.querySelector('#'+CSS.escape(id))));
+    if(index>=0){full=false;current=index;render(false);}
+  },true);
+})();
