@@ -638,3 +638,14 @@ body .project-card.smart-muted { opacity: .42 !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
+
+/* Site-wide hardening: keyboard accessibility, layout stability and mobile menus. */
+:target { scroll-margin-top: 84px; }
+[hidden], .is-hidden { display: none !important; }
+.site-nav a[aria-current="location"] { color: var(--text) !important; }
+@media(max-width:720px) {
+  .site-nav.is-open { max-height: min(75dvh, 540px); overflow-y: auto; overscroll-behavior: contain; }
+  .project-card, .post-card, .social-card { min-width: 0; }
+  .project-content, .card-body { overflow-wrap: anywhere; }
+}
+@media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto!important} }
