@@ -317,3 +317,148 @@
  window.addEventListener('storage',event=>{if(event.key===key)updateProgress();});
  updateProgress();
 })();
+
+
+/* Article UX v2: one reading system for all 9 posts.
+   Enhancements only: lessons and source code stay readable without JavaScript. */
+(() => {
+  'use strict';
+  if (document.body?.dataset.page !== 'article') return;
+  const content = document.querySelector('.article-content');
+  const aside = document.querySelector('.article-aside');
+  const toc = document.querySelector('#toc');
+  if (!content) return;
+
+  // Keep practical controls separate from prose and its structured heading hierarchy.
+  const toolbar = document.createElement('div');
+  toolbar.className = 'article-tools';
+  toolbar.setAttribute('aria-label', 'Outils de lecture');
+  const count = document.createElement('span');
+  count.className = 'article-tools-count';
+  const sections = [...content.children].filter(el => el.tagName === 'SECTION');
+  count.textContent = sections.length + ' sections · Lecture guidée';
+  const actions = document.createElement('div');
+  actions.className = 'article-tools-actions';
+  const linkButton = document.createElement('button');
+  linkButton.type = 'button';
+  linkButton.textContent = '↗ Copier le lien';
+  linkButton.setAttribute('aria-label', 'Copier le lien de cet article');
+  const printButton = document.createElement('button');
+  printButton.type = 'button';
+  printButton.textContent = '▤ Imprimer';
+  printButton.setAttribute('aria-label', 'Imprimer ou enregistrer cet article en PDF');
+  actions.append(linkButton, printButton);
+  toolbar.append(count, actions);
+  content.prepend(toolbar);
+
+  async function copyText(text) {
+    if (!navigator.clipboard?.writeText) return false;
+    try { await navigator.clipboard.writeText(text); return true; }
+    catch (_) { return false; }
+  }
+  linkButton.addEventListener('click', async () => {
+    const success = await copyText(window.location.href);
+    linkButton.textContent = success ? '✓ Lien copié' : 'Copie non disponible';
+    window.setTimeout(() => { linkButton.textContent = '↗ Copier le lien'; }, 2100);
+  });
+  printButton.addEventListener('click', () => window.print());
+
+  // A readable code editor-like frame; the actual code is preserved verbatim.
+  const labels = {
+    post1: 'Informatique', post2: 'Logique défensive', post3: 'HTML',
+    post4: 'CSS', post5: 'JavaScript', post6: 'Python',
+    post7: 'Terminal Git', post8: 'Sécurité Web'
+  };
+  const post = document.body.dataset.postSlug;
+  content.querySelectorAll('pre').forEach(pre => {
+    if (pre.closest('.code-window')) return;
+    const code = pre.querySelector('code');
+    if (!code) return;
+    const language = [...code.classList].find(value => value.startsWith('language-'));
+    const name = language
+      ? language.slice('language-'.length).toUpperCase()
+      : (labels[post] || 'Exemple de code');
+    const windowElement = document.createElement('div');
+    windowElement.className = 'code-window';
+    const top = document.createElement('div');
+    top.className = 'code-window-top';
+    const title = document.createElement('span');
+    title.className = 'code-window-title';
+    title.textContent = name;
+    const copy = document.createElement('button');
+    copy.className = 'code-copy';
+    copy.type = 'button';
+    copy.textContent = 'Copier';
+    copy.setAttribute('aria-label', 'Copier cet exemple de code');
+    copy.addEventListener('click', async () => {
+      const ok = await copyText(code.textContent || '');
+      copy.textContent = ok ? '✓ Copié' : 'Copie non disponible';
+      window.setTimeout(() => { copy.textContent = 'Copier'; }, 2100);
+    });
+    top.append(title, copy);
+    pre.parentNode.insertBefore(windowElement, pre);
+    windowElement.append(top, pre);
+  });
+
+  if (toc && aside) {
+    // On desktop, keep the outline visible; on mobile it opens above the lesson.
+    const tocCard = toc.closest('.aside-card');
+    if (tocCard) {
+      const toggle = document.createElement('button');
+      const tocLabel = tocCard.querySelector(':scope > .footer-label');
+      toggle.type = 'button';
+      toggle.className = 'toc-toggle';
+      toggle.setAttribute('aria-controls', toc.id);
+      toggle.setAttribute('aria-expanded', 'false');
+      const caption = document.createElement('span');
+      caption.textContent = tocLabel?.textContent || 'Sommaire du cours';
+      const arrow = document.createElement('span');
+      arrow.className = 'toc-chevron';
+      arrow.setAttribute('aria-hidden', 'true');
+      arrow.textContent = '⌄';
+      toggle.append(caption, arrow);
+      tocCard.insertBefore(toggle, toc);
+      aside.classList.add('is-collapsible');
+      toggle.addEventListener('click', () => {
+        const open = aside.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      toc.addEventListener('click', event => {
+        if (event.target.closest('a') && window.matchMedia('(max-width: 780px)').matches) {
+          aside.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Highlight the chapter currently being read, while preserving native anchors.
+    const links = [...toc.querySelectorAll('a[href^="#"]')];
+    const entries = links.map(a => ({
+      link: a,
+      heading: document.getElementById(a.getAttribute('href').slice(1))
+    })).filter(item => item.heading);
+    let ticking = false;
+    function markChapter() {
+      let current = 0;
+      for (let i = 0; i < entries.length; i++) {
+        if (entries[i].heading.getBoundingClientRect().top <= Math.max(150, innerHeight * .26)) current = i;
+      }
+      entries.forEach((item, i) => {
+        const active = i === current;
+        item.link.classList.toggle('is-current', active);
+        if (active) item.link.setAttribute('aria-current', 'location');
+        else item.link.removeAttribute('aria-current');
+      });
+      ticking = false;
+    }
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(markChapter);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('pageshow', onScroll, { passive: true });
+    markChapter();
+  }
+})();
