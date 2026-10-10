@@ -106,3 +106,43 @@ Aucune licence open source formelle n’est actuellement déclarée dans le dép
 ---
 
 Construit et documenté par **Drissa Diarra**, connu sous le pseudonyme **H@CKERBOY**, depuis Bamako, Mali.
+
+
+## Expérience éditoriale et apprentissage (octobre 2026)
+
+Le portfolio est aussi un **laboratoire pédagogique en français**, pensé pour les lecteurs débutants et pour les connexions modestes.
+
+### Interface
+
+- Design inspiré des narrations plein écran de Meta : grands titres, chapitres illustrés, transitions d’images et progression du récit au scroll.
+- Icônes vectorielles SVG ajoutées directement avec les API DOM, sans CDN ni police d’icônes.
+- Navigation rapide au clavier (Ctrl/⌘ + K) et lien vers le parcours débutant.
+- Animations basées sur IntersectionObserver, requestAnimationFrame et propriétés CSS transform/opacity. Aucune interception de la molette ou du tactile.
+- Support de prefers-reduced-motion et contenu lisible même lorsque JavaScript est désactivé.
+
+### Parcours débutant (8 modules)
+
+L’ordre conseillé est : **informatique générale → HTML → CSS → JavaScript → Python → Git/GitHub → éthique numérique → sécurité web**.
+
+Chaque cours a désormais : vocabulaire, objectifs, démarche pas à pas, exemple original à reproduire, erreur fréquente, questions d’autoévaluation, résultat attendu et références fiables. Le bouton « Leçon terminée » utilise uniquement le stockage local du navigateur. Il ne collecte pas de comptes ou de données personnelles et continue à laisser le contenu accessible sans JavaScript.
+
+### Sources pour la mise à jour des cours
+
+- [W3Schools — HTML](https://www.w3schools.com/html/), [CSS](https://www.w3schools.com/css/), [JavaScript](https://www.w3schools.com/js/), [Python](https://www.w3schools.com/python/), [Git](https://www.w3schools.com/git/), [programmation](https://www.w3schools.com/programming/) et [sécurité](https://www.w3schools.com/cybersecurity/).
+- [MDN — Apprendre le développement Web](https://developer.mozilla.org/fr/docs/Learn_web_development/), [Intersection Observer](https://developer.mozilla.org/fr/docs/Web/API/Intersection_Observer_API) et [réduction du mouvement](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion).
+- [Cloudflare — Comprendre le DNS](https://www.cloudflare.com/fr-fr/learning/dns/what-is-dns/).
+- [Python.org — Tutoriel officiel](https://docs.python.org/3/tutorial/), [GitHub Docs — Pages](https://docs.github.com/en/pages), [OWASP Developer Guide](https://devguide.owasp.org/en/).
+
+Les exemples des articles sont écrits pour ce portfolio et ne reproduisent pas les tutoriels tiers.
+
+### Vérification locale
+
+Avec Node.js installé, lancer :
+
+```sh
+node scripts/validate-site.mjs
+```
+
+Ce script analyse les pages HTML, leurs références locales, les liens externes ouvrant un nouvel onglet, le CSS, les scripts JavaScript et la présence des huit ateliers. Il complète mais ne remplace pas les tests visuels réels (mobile, tablette, clavier), Lighthouse et la vérification du déploiement Vercel.
+
+**Architecture :** site statique sans backend ni base de données ; aucune collecte de progression sur un serveur. Toute future fonctionnalité côté serveur devra faire l’objet d’un audit d’authentification, d’autorisation et de gestion des secrets.
