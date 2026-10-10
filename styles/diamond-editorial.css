@@ -2,7 +2,7 @@
    One final layer; works with existing static pages and light/dark themes. */
 :root[data-theme="light"]{
   --bg:#f8f9fc;--bg-soft:#edf1f6;--surface:#ffffff;--surface-2:#e7edf5;
-  --text:#172235;--muted:#536278;--dim:#65768b;
+  --text:#172235;--muted:#536278;--dim:#617187;
   --accent:#255f9a;--accent-2:#3c7eb7;--line:rgba(34,61,95,.10);
   --line-strong:rgba(34,61,95,.20);--hairline:rgba(34,61,95,.10);
   --ui-card:#ffffff;--ui-card-hover:#f5f8fc;
