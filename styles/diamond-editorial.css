@@ -1006,3 +1006,39 @@ body[data-page="article"] .learning-return{margin:0 0 10px;display:inline-flex}
  body[data-page="article"] .article-content > section{break-inside:avoid}
  body[data-page="article"] .code-window,body[data-page="article"] pre{break-inside:avoid}
 }
+
+
+
+/* Specificity guard against older !important rules in the dark-theme layer. */
+:root[data-theme="dark"] body[data-page="article"] .article-content pre,
+:root[data-theme="light"] body[data-page="article"] .article-content pre,
+:root[data-theme="dark"] body[data-page="article"] .article-content pre.guided-code,
+:root[data-theme="light"] body[data-page="article"] .article-content pre.guided-code{
+ background:#0e1928!important;
+ border:0!important;
+ color:#e5efff!important;
+}
+:root[data-theme="dark"] body[data-page="article"] .article-content pre code,
+:root[data-theme="light"] body[data-page="article"] .article-content pre code{
+ display:block;
+ padding:0!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ color:#e5efff!important;
+ white-space:pre!important;
+ overflow-wrap:normal!important;
+ word-break:normal!important;
+}
+:root[data-theme="dark"] body[data-page="article"] .article-content :not(pre)>code,
+:root[data-theme="light"] body[data-page="article"] .article-content :not(pre)>code{
+ background:color-mix(in srgb,var(--accent) 8%,var(--surface))!important;
+ color:var(--accent)!important;
+ border-color:color-mix(in srgb,var(--accent) 16%,var(--line))!important;
+}
+:root[data-theme="dark"] body[data-page="article"] .article-content blockquote,
+:root[data-theme="light"] body[data-page="article"] .article-content blockquote{
+ border-left:3px solid var(--accent)!important;
+ background:var(--bg-soft)!important;
+ color:var(--text)!important;
+}
