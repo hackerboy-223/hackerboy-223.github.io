@@ -277,10 +277,12 @@
       saveButton.textContent = saved ? '★ Enregistré' : '☆ Enregistrer';
       saveButton.setAttribute('aria-pressed', String(saved));
     };
-    setSavedState(localStorage.getItem(key) === 'true');
+    let saved = false;
+    try { saved = localStorage.getItem(key) === 'true'; } catch (_) { /* storage blocked */ }
+    setSavedState(saved);
     saveButton.addEventListener('click', () => {
-      const saved = localStorage.getItem(key) !== 'true';
-      localStorage.setItem(key, String(saved));
+      saved = !saved;
+      try { localStorage.setItem(key, String(saved)); } catch (_) { /* keep button usable in private mode */ }
       setSavedState(saved);
     });
   }
