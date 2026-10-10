@@ -46,6 +46,14 @@
       {name:'MaliBots Challenge',detail:'Médaille d’or 2025 · Développement Web',url:'/exploits.html',keywords:'exploits concours victoire'},
       {name:'Expertise',detail:'Web, IA, cybersécurité et cloud',url:'/#expertise',keywords:'competences skills'},
       {name:'Parcours débutant',detail:'Huit cours progressifs, ateliers et quiz',url:'/#apprendre',keywords:'apprendre debutant apprendre bases formations cours html css javascript python'},
+      {name:'Cours : Bases informatiques',detail:'Comprendre matériel, système et réseau',url:'/posts/post1.html',keywords:'informatique bits octets dns systeme'},
+      {name:'Cours : HTML',detail:'Créer un contenu sémantique et accessible',url:'/posts/post3.html',keywords:'balises html site formulaire'},
+      {name:'Cours : CSS',detail:'Concevoir un responsive élégant',url:'/posts/post4.html',keywords:'grille flexbox cascade'},
+      {name:'Cours : JavaScript',detail:'Comprendre la logique DOM et les événements',url:'/posts/post5.html',keywords:'js variables fonctions événements'},
+      {name:'Cours : Python',detail:'Apprendre fonctions, listes et contrôle',url:'/posts/post6.html',keywords:'python programmation debutant'},
+      {name:'Cours : Git et publication',detail:'Versionner et déployer un site',url:'/posts/post7.html',keywords:'git github pages commits'},
+      {name:'Cours : Éthique numérique',detail:'Responsabilité et analyse défensive',url:'/posts/post2.html',keywords:'hacking autorisation ethique'},
+      {name:'Cours : Sécurité Web',detail:'Défendre une application dès la conception',url:'/posts/post8.html',keywords:'securite owasp defense'},
       {name:'Journal',detail:'Articles et découvertes techniques',url:'/#articles',keywords:'blog tutoriels cours'},
       {name:'À propos',detail:'Parcours, formation et vision',url:'/about.html',keywords:'profil biographie'},
       {name:'Contact',detail:'Liens et réseaux professionnels',url:'/#contact',keywords:'linkedin whatsapp'},
@@ -281,7 +289,16 @@
     const status=node.querySelector('.learning-status');
     if(status)status.textContent=done?'Terminé':'À explorer';
   });
-  document.querySelectorAll('[data-course-complete]').forEach(button=>{
+  const courseContent=document.querySelector('article.article-content');
+ if(courseContent&&courseContent.querySelector('[data-course-complete]')&&!document.querySelector('.learning-return')){
+   const returnLink=document.createElement('a');
+   returnLink.className='learning-return';
+   returnLink.href='/#apprendre';
+   returnLink.textContent='← Retour au parcours débutant';
+   courseContent.parentElement.insertBefore(returnLink,courseContent);
+ }
+ 
+ document.querySelectorAll('[data-course-complete]').forEach(button=>{
     const done=learned.includes(button.dataset.courseComplete);
     button.setAttribute('aria-pressed',String(done));
     button.textContent=done?'✓ Leçon terminée':'Marquer cette leçon terminée';
