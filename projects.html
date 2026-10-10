@@ -63,7 +63,7 @@
       </div>
       <div>
         <form class="smart-query" id="smart-project-form">
-          <input id="smart-project-query" type="search" autocomplete="off" placeholder="Ex. je recrute un développeur frontend, e-commerce, IA…" aria-label="Décrire le type de projet recherché">
+          <input id="smart-project-query" type="search" maxlength="160" autocomplete="off" placeholder="Ex. je recrute un développeur frontend, e-commerce, IA…" aria-label="Décrire le type de projet recherché">
           <button type="submit">Analyser</button>
         </form>
         <div class="smart-chips" aria-label="Intentions rapides">
@@ -164,7 +164,7 @@
       resetClasses();
       cards.forEach(card => grid.appendChild(card));
       answer.textContent = 'Commencez par une intention : les cartes les plus pertinentes remonteront automatiquement.';
-      sessionStorage.removeItem('hb-project-intent-v1');
+      try { sessionStorage.removeItem('hb-project-intent-v1'); } catch (_) { /* Storage unavailable. */ }
       return;
     }
 
@@ -194,7 +194,7 @@
         answer.appendChild(link);
       }
     }
-    sessionStorage.setItem('hb-project-intent-v1', query);
+    try { sessionStorage.setItem('hb-project-intent-v1', query.slice(0, 160)); } catch (_) { /* Storage unavailable. */ }
   };
 
   form.addEventListener('submit', event => {
@@ -212,7 +212,8 @@
     apply(value);
   }));
 
-  const saved = sessionStorage.getItem('hb-project-intent-v1');
+  let saved = null;
+  try { saved = sessionStorage.getItem('hb-project-intent-v1'); } catch (_) { /* Storage unavailable. */ }
   if (saved) {
     input.value = saved;
     apply(saved);
