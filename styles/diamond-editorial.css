@@ -408,3 +408,8 @@ html{background:var(--bg)!important}
 @media(max-width:800px){.learning-header{display:block}.learning-counter{width:max-content;max-width:100%;margin-top:30px;min-width:205px}}
 @media(max-width:560px){.learning-section{padding:78px 0}.learning-header h2{font-size:clamp(2.65rem,10vw,4.1rem)}.learning-grid{grid-template-columns:minmax(0,1fr)}.learning-item{min-height:198px}.learning-item h3{margin-top:23px}.guided-lab{padding:20px;border-radius:21px}.guided-code{padding:15px!important}.guided-code code{font-size:.76rem}.guided-completion{padding:17px}.complete-lesson{width:100%}}
 @media(prefers-reduced-motion:reduce){.learning-item,.complete-lesson{transition:none!important}.learning-item:hover{transform:none!important}.db-story-track span.is-current::before{transform:scaleX(1)}}
+
+/* Discoverability for all guided lessons. */
+.learning-return{display:inline-flex;align-items:center;gap:8px;margin:0 0 24px;padding:10px 15px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface);color:var(--text)!important;font-size:.8rem;font-weight:650;text-decoration:none!important}
+.learning-return:hover{background:var(--surface-2);border-color:var(--accent)}
+.learning-return:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
