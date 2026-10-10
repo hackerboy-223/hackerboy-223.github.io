@@ -80,6 +80,28 @@ print(content)</code></pre><p>Le bloc <code>with</code> garantit la fermeture co
 Bonjour Moussa !
 Bonjour Fanta !</pre></div></section>
     <section class="exercise-card"><h2>Mini-projet — analyser des notes</h2><p>Crée une liste de dictionnaires contenant <code>name</code> et <code>score</code>. Écris une fonction qui calcule la moyenne, affiche les élèves ayant au moins 10 et gère le cas d’une liste vide. Découpe le calcul et l’affichage en fonctions différentes.</p></section>
+    <section class="guided-lab" id="guide-post6" aria-labelledby="guide-title-post6">
+  <div class="guided-label">Python &amp; logique · atelier progressif</div>
+  <h2 id="guide-title-post6">Décomposer un problème en fonctions testables</h2>
+  <p>Python permet de se concentrer sur la logique sans beaucoup de syntaxe. Pour progresser, il ne suffit pas de connaître les mots-clés : il faut savoir décomposer un problème en entrées, traitement et résultat. Les fonctions facilitent les vérifications, les listes rassemblent des valeurs et les conditions décrivent les cas à traiter. La gestion des erreurs évite qu’une entrée inattendue interrompe tout le programme.</p>
+  <h3>Pratique pas à pas</h3><ol class="guided-steps"><li>Crée un fichier notes.py avec l’exemple ci-dessous et exécute-le avec Python 3.</li><li>Remplace les notes par une liste vide pour observer la gestion de ce cas particulier.</li><li>Ajoute un appel avec [10, 15, 20] et prédis le résultat avant de relancer le programme. Explique la différence entre return et print.</li></ol>
+  <h3>Exemple à essayer</h3>
+  <pre class="guided-code"><code class="language-python">def moyenne(notes):
+    if not notes:
+        return None
+    return sum(notes) / len(notes)
+
+resultat = moyenne([12, 14, 16])
+if resultat is None:
+    print('Aucune note')
+else:
+    print(f'Moyenne : {resultat:.1f}')</code></pre>
+  <p class="guided-result"><strong>Ce que tu dois observer :</strong> Le programme affiche Moyenne : 14.0. Avec une liste vide, il renvoie None et évite une division par zéro.</p>
+  <p class="guided-warning"><strong>Erreur fréquente :</strong> Oublier de tester la liste vide ou confondre l’affichage d’un résultat avec la valeur renvoyée par une fonction.</p>
+  <div class="guided-selfcheck"><h3>Vérifie que tu as compris</h3><details><summary>Pourquoi découper un programme en fonctions courtes ?</summary><p>Pour faciliter la lecture, la réutilisation et les tests indépendants.</p></details><details><summary>Quelle erreur une liste vide pourrait-elle provoquer sans vérification ?</summary><p>Une division par zéro lors du calcul de la moyenne.</p></details></div>
+  <div class="guided-resources"><h3>Ressources de référence</h3><a class="learning-resource" href="https://www.w3schools.com/python/" target="_blank" rel="noopener noreferrer">W3Schools — Python</a><a class="learning-resource" href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer">Python.org — Tutoriel officiel</a><a class="learning-resource" href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions" target="_blank" rel="noopener noreferrer">Python.org — Fonctions</a></div>
+  <div class="guided-completion"><p>Une fois l’atelier réalisé et les questions comprises, valide cette étape dans ton parcours.</p><button class="complete-lesson" type="button" data-course-complete="post6" aria-pressed="false">Marquer cette leçon terminée</button></div>
+</section>
     <section class="course-summary"><h2>À retenir</h2><ul><li>Python mise beaucoup sur la lisibilité et l’indentation.</li><li>Choisir la bonne structure de données simplifie le reste du programme.</li><li>Les fonctions et modules permettent de maîtriser la complexité.</li><li>Les environnements virtuels isolent les dépendances entre projets.</li></ul></section>
     <section class="quiz-section" data-quiz="post6"><div class="eyebrow">Pause active</div><h2>Teste ta compréhension</h2><p>Pourquoi utiliser un environnement virtuel ?</p><div class="quiz-options"><button type="button" data-quiz-answer="0" data-quiz-correct="0">Pour isoler les dépendances d’un projet</button><button type="button" data-quiz-answer="1" data-quiz-correct="0">Pour remplacer les fonctions Python</button><button type="button" data-quiz-answer="2" data-quiz-correct="0">Pour rendre le HTML plus rapide</button></div><p class="quiz-feedback" aria-live="polite"></p></section>
     <section class="reference-box"><h2>Références</h2><ul class="reference-list"><li><a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener noreferrer"><span>Python — Tutoriel officiel</span><small>bases du langage ↗</small></a></li><li><a href="https://docs.python.org/3/tutorial/venv.html" target="_blank" rel="noopener noreferrer"><span>Python — Environnements virtuels et paquets</span><small>venv ↗</small></a></li></ul></section>
