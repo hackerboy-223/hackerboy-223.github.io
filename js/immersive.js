@@ -91,6 +91,19 @@
         }
       }
       activate(closest);
+      if (!reduced.matches) {
+        const rect = steps[closest].getBoundingClientRect();
+        const raw = (viewMid - rect.top) / Math.max(rect.height, 1);
+        const fraction = Math.max(0, Math.min(1, raw));
+        const currentBar = bars[closest];
+        if (currentBar) currentBar.style.setProperty('--chapter-progress', fraction.toFixed(3));
+        const visual = story.querySelector('.db-story-visual');
+        if (visual) {
+          visual.style.setProperty('--story-scale', (1.045 - fraction * .045).toFixed(4));
+          visual.style.setProperty('--story-shift', ((.5 - fraction) * 7).toFixed(2) + 'px');
+          visual.style.setProperty('--caption-shift', ((1 - fraction) * 8).toFixed(2) + 'px');
+        }
+      }
     }
     scheduled = false;
   }
