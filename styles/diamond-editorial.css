@@ -207,7 +207,7 @@ body{background:var(--bg)!important;color:var(--text);font-family:-apple-system,
 .db-story-chapter{
   min-height:70svh;display:flex;flex-direction:column;justify-content:center;
   padding:clamp(50px,7vw,90px) 0;
-  border-bottom:1px solid var(--line);opacity:.48;
+  border-bottom:1px solid var(--line);opacity:.82;
   transition:opacity .5s ease;
 }
 .db-story-chapter:last-child{border-bottom:0}
