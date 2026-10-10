@@ -1,51 +1,107 @@
-/* Immersive scroll: native IntersectionObserver + one passive scroll listener. */
+/* Immersive editorial scroll — native APIs, accessible, no external dependencies.
+ * 1) progressive reveals 2) reading progress 3) sticky story image crossfades
+ * No scroll hijacking, auto-play media or expensive full-page repaints. */
 (() => {
   'use strict';
-  if (document.body.dataset.page !== 'home' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (!('IntersectionObserver' in window) || !('requestAnimationFrame' in window)) return;
-  const sections = document.querySelectorAll('main > section:not(.portfolio-hero)');
-  const items = [];
-  sections.forEach(section => {
-    const heading = section.querySelector('.section-heading, .exploit-copy, .about-grid, .contact-copy, .proof-grid, .portfolio-about .shell');
-    if (heading) items.push(heading);
-    const tiles = section.querySelectorAll('.project-card, .expertise-item, .post-card, .proof-grid > div, .social-card');
-    tiles.forEach((el, i) => {
-      el.style.setProperty('--reveal-delay', Math.min(i % 4, 3) * 75 + 'ms');
-      items.push(el);
-    });
-  });
-  const targets = [...new Set(items)].filter(el => !el.closest('[hidden], .is-hidden'));
-  if (!targets.length) return;
-  targets.forEach(el => el.dataset.reveal = '');
-  // Don't conceal content if a previous-page scroll restoration lands below it.
-  const alreadyVisible = el => el.getBoundingClientRect().bottom > 0 && el.getBoundingClientRect().top < window.innerHeight;
-  targets.filter(alreadyVisible).forEach(el => el.classList.add('is-visible'));
+  const body = document.body;
+  if (!body) return;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const canObserve = 'IntersectionObserver' in window;
+  const hasFrame = 'requestAnimationFrame' in window;
+  const home = body.dataset.page === 'home';
+
   const progress = document.createElement('div');
   progress.className = 'immersive-progress';
   progress.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(progress);
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
+  body.appendChild(progress);
+
+  const story = document.querySelector('[data-story]');
+  const steps = story ? [...story.querySelectorAll('[data-story-chapter]')] : [];
+  const media = story ? [...story.querySelectorAll('.db-story-media')] : [];
+  const bars = story ? [...story.querySelectorAll('.db-story-track span')] : [];
+  const caption = story?.querySelector('[data-story-caption]');
+  const counter = story?.querySelector('[data-story-count]');
+  const titles = ['Diamond Block', 'MaliBots Challenge', 'Recherche & IA'];
+  let lastActive = -1;
+  function activate(index) {
+    if (index < 0 || index >= steps.length || index === lastActive) return;
+    lastActive = index;
+    steps.forEach((step, i) => step.classList.toggle('is-current', i === index));
+    media.forEach((item, i) => item.classList.toggle('is-current', i === index));
+    bars.forEach((bar, i) => {
+      bar.classList.toggle('is-current', i === index);
+      bar.classList.toggle('is-past', i < index);
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-  document.documentElement.classList.add('immersive-ready');
-  targets.filter(el => !el.classList.contains('is-visible')).forEach(el => observer.observe(el));
-  let scheduled = false;
-  const update = () => {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 1) + ')';
-    scheduled = false;
-  };
-  const onScroll = () => {
-    if (!scheduled) {
-      scheduled = true;
-      requestAnimationFrame(update);
+    if (caption) caption.textContent = titles[index] || '';
+    if (counter) counter.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(steps.length).padStart(2, '0');
+  }
+
+  // Always preserve all text in reading order. Without JavaScript the chapters stay visible.
+  if (story && steps.length) {
+    story.closest('.db-story')?.classList.remove('db-story-nojs');
+    activate(0);
+  }
+
+  if (canObserve && hasFrame && !reduced.matches) {
+    const selectors = home
+      ? '.section-heading, .project-card, .post-card, .expertise-item, .proof-grid > div, .exploit-feature, .social-card, .db-story-heading, .db-story-chapter, .about-grid > div'
+      : '.page-intro, .case-hero, .article-hero, .profile-fact, .case-aside-card, .timeline-item, .course-card, .article-content > p, .social-card, .section-action';
+    const candidates = [...document.querySelectorAll(selectors)].filter(el => {
+      if (el.classList.contains('reveal')) return false; // other pages already reveal via site.js
+      if (el.matches('[hidden], .is-hidden') || el.closest('[hidden], .is-hidden')) return false;
+      return true;
+    });
+    const targets = [...new Set(candidates)];
+    targets.forEach((el, index) => {
+      el.setAttribute('data-immersive', '');
+      el.style.setProperty('--immersive-delay', (index % 4) * 50 + 'ms');
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight * .9 && r.bottom > 0) el.classList.add('is-visible');
+    });
+    if (targets.length) {
+      document.documentElement.classList.add('immersive-ready');
+      const observer = new IntersectionObserver(entries => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      }, { threshold: 0.05, rootMargin: '0px 0px -28px 0px' });
+      targets.filter(el => !el.classList.contains('is-visible')).forEach(el => observer.observe(el));
     }
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  update();
+  }
+
+  let scheduled = false;
+  function update() {
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, window.scrollY / max)) + ')';
+
+    if (steps.length && window.innerWidth > 980) {
+      const viewMid = window.innerHeight * .53;
+      let closest = 0;
+      let distance = Infinity;
+      for (let i = 0; i < steps.length; i++) {
+        const rect = steps[i].getBoundingClientRect();
+        const midpoint = rect.top + rect.height / 2;
+        const nextDistance = Math.abs(midpoint - viewMid);
+        if (nextDistance < distance) {
+          distance = nextDistance;
+          closest = i;
+        }
+      }
+      activate(closest);
+    }
+    scheduled = false;
+  }
+  function schedule() {
+    if (scheduled) return;
+    scheduled = true;
+    if (hasFrame) requestAnimationFrame(update);
+    else update();
+  }
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule, { passive: true });
+  window.addEventListener('pageshow', schedule, { passive: true });
+  schedule();
 })();
