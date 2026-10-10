@@ -45,6 +45,7 @@
       {name:'Projets',detail:'Applications, produits et expérimentations',url:'/projects.html',keywords:'portfolio code developpement'},
       {name:'MaliBots Challenge',detail:'Médaille d’or 2025 · Développement Web',url:'/exploits.html',keywords:'exploits concours victoire'},
       {name:'Expertise',detail:'Web, IA, cybersécurité et cloud',url:'/#expertise',keywords:'competences skills'},
+      {name:'Parcours débutant',detail:'Huit cours progressifs, ateliers et quiz',url:'/#apprendre',keywords:'apprendre debutant apprendre bases formations cours html css javascript python'},
       {name:'Journal',detail:'Articles et découvertes techniques',url:'/#articles',keywords:'blog tutoriels cours'},
       {name:'À propos',detail:'Parcours, formation et vision',url:'/about.html',keywords:'profil biographie'},
       {name:'Contact',detail:'Liens et réseaux professionnels',url:'/#contact',keywords:'linkedin whatsapp'},
@@ -255,6 +256,15 @@
  });
  // Personal learning progress uses optional local storage and never blocks the lesson.
  const order=['post1','post3','post4','post5','post6','post7','post2','post8'];
+ const siteNav=document.querySelector('.site-nav');
+ if(siteNav&&!siteNav.querySelector('a[href$="#apprendre"]')){
+  const training=document.createElement('a');
+  training.href='/#apprendre';
+  training.textContent='Apprendre';
+  const articles=[...siteNav.querySelectorAll('a')].find(a=>a.getAttribute('href')?.includes('#articles'));
+  siteNav.insertBefore(training,articles||null);
+ }
+ 
  const key='hb-learning-progress-v1';
  const getProgress=()=>{
    try{
