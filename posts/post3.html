@@ -53,6 +53,35 @@
     <section id="debug"><h2>9. Déboguer son HTML</h2><p>Lis d’abord la structure dans les outils développeur du navigateur. Vérifie les balises mal imbriquées, les liens cassés, les images sans alternative et l’ordre des titres. Les validateurs HTML peuvent ensuite compléter cette vérification.</p></section>
     <section class="lab-section"><div class="lab-heading"><span class="eyebrow">Mini-lab HTML</span><h2>Change le contenu, vois le résultat</h2><p>Modifie le titre puis applique-le à l’aperçu.</p></div><div class="lab-grid"><label class="lab-control">Ton titre<input id="html-lab-input" value="Bonjour, explorateur du web !" type="text"></label><div class="lab-preview" id="html-lab-preview"><span class="preview-label">aperçu</span><h3>Bonjour, explorateur du web !</h3><p>Le HTML donne une structure au contenu.</p></div></div></section>
     <section class="exercise-card"><h2>Exercice — crée une page de profil</h2><p>Construis uniquement en HTML une page contenant : un en-tête, une navigation, un <code>main</code>, une section « À propos », une liste de compétences, une image avec texte alternatif, un lien vers un projet et un formulaire de contact avec labels. Ne pense pas encore au CSS.</p></section>
+    <section class="guided-lab" id="guide-post3" aria-labelledby="guide-title-post3">
+  <div class="guided-label">HTML sémantique · atelier progressif</div>
+  <h2 id="guide-title-post3">Créer une page accessible sans dépendance</h2>
+  <p>HTML décrit des rôles et une hiérarchie. Un titre principal <code>&lt;h1&gt;</code> indique le sujet, <code>&lt;main&gt;</code> délimite le contenu principal et une balise <code>&lt;button&gt;</code> correspond à une action. Un lien sert à naviguer ; un formulaire doit associer chaque champ à un label visible. Commencer par le HTML natif réduit la quantité de JavaScript nécessaire.</p>
+  <h3>Pratique pas à pas</h3>
+  <ol class="guided-steps"><li>Crée un fichier index.html dans un dossier de pratique, puis copie la structure ci-dessous.</li><li>Ouvre le fichier dans un navigateur ; vérifie le titre de l’onglet, l’ordre des titres et le lien.</li><li>Parcours la page uniquement au clavier avec Tab et Entrée. Ajoute ensuite une image avec un alt utile et un vrai formulaire de contact avec un label.</li></ol>
+  <h3>Exemple à essayer</h3>
+  <pre class="guided-code"><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Mon premier portfolio&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;&lt;a href=&quot;#contenu&quot;&gt;Aller au contenu&lt;/a&gt;&lt;/header&gt;
+  &lt;main id=&quot;contenu&quot;&gt;
+    &lt;h1&gt;Mes projets&lt;/h1&gt;
+    &lt;p&gt;Je découvre le développement web.&lt;/p&gt;
+    &lt;a href=&quot;projets.html&quot;&gt;Voir mes projets&lt;/a&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  <p class="guided-result"><strong>Ce que tu dois observer :</strong> La page reste compréhensible sans feuille CSS. Le navigateur affiche un titre, un paragraphe et un lien avec un comportement de clavier natif.</p>
+  <p class="guided-warning"><strong>Erreur fréquente :</strong> Utiliser des div partout ou employer un lien vide pour simuler un bouton : cela nuit à la navigation et à l’accessibilité.</p>
+  <div class="guided-selfcheck"><h3>Vérifie que tu as compris</h3><details><summary>Quel élément sert à l’action « Envoyer » dans un formulaire ?</summary><p>Un bouton de type submit dans le formulaire : &lt;button type=&quot;submit&quot;&gt;Envoyer&lt;/button&gt;.</p></details><details><summary>Pourquoi faut-il utiliser des labels et du texte alternatif adaptés ?</summary><p>Ils rendent les contrôles et images compréhensibles, notamment pour les lecteurs d’écran.</p></details></div>
+  <div class="guided-resources"><h3>Ressources de référence</h3><a class="learning-resource" href="https://www.w3schools.com/html/" target="_blank" rel="noopener noreferrer">W3Schools — HTML Tutorial</a><a class="learning-resource" href="https://www.w3schools.com/accessibility/index.php" target="_blank" rel="noopener noreferrer">W3Schools — Accessibilité</a><a class="learning-resource" href="https://developer.mozilla.org/fr/docs/Learn_web_development/Getting_started/Your_first_website" target="_blank" rel="noopener noreferrer">MDN — Votre premier site Web</a></div>
+  <div class="guided-completion"><p>Une fois l’atelier réalisé et les questions comprises, valide cette étape dans ton parcours.</p><button class="complete-lesson" type="button" data-course-complete="post3" aria-pressed="false">Marquer cette leçon terminée</button></div>
+</section>
     <section class="course-summary"><h2>À retenir</h2><ul><li>HTML décrit la structure et le sens.</li><li>La sémantique améliore accessibilité, maintenance et compréhension machine.</li><li>Le CSS ne doit pas corriger une structure HTML mal choisie.</li><li>Un formulaire accessible commence par des labels et des contrôles natifs adaptés.</li></ul></section>
     <section class="quiz-section" data-quiz="post3"><div class="eyebrow">Pause active</div><h2>Teste ta compréhension</h2><p>Pourquoi préférer un vrai <code>&lt;button&gt;</code> à un <code>&lt;div&gt;</code> cliquable ?</p><div class="quiz-options"><button type="button" data-quiz-answer="0" data-quiz-correct="0">Il possède une sémantique et des comportements clavier natifs</button><button type="button" data-quiz-answer="1" data-quiz-correct="0">Il rend automatiquement la page plus rapide</button><button type="button" data-quiz-answer="2" data-quiz-correct="0">Il remplace le CSS</button></div><p class="quiz-feedback" aria-live="polite"></p></section>
     <section class="reference-box"><h2>Références</h2><ul class="reference-list"><li><a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Structuring_content" target="_blank" rel="noopener noreferrer"><span>MDN — Structurer le contenu avec HTML</span><small>HTML moderne ↗</small></a></li><li><a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Accessibility/HTML" target="_blank" rel="noopener noreferrer"><span>MDN — HTML et accessibilité</span><small>sémantique ↗</small></a></li></ul></section>
