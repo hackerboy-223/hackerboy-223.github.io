@@ -35,6 +35,7 @@ Le portfolio met aujourd’hui l’accent sur trois projets, chacun avec une pag
 |---|---|---|
 | [H@CKERBOY GPT](https://hackerboy-223.vercel.app/projects/hackerboy-gpt.html) | Interface conversationnelle et expérimentation autour des API d’intelligence artificielle. | Prototype public déployé. |
 | [HOPE!](https://hackerboy-223.vercel.app/projects/hope.html) | Assistant orienté programmation, historique des échanges et exploration d’une architecture côté serveur. | Expérimentation documentée. |
+| [ZeroCode](https://hackerboy-223.vercel.app/projects/zerocode.html) | Agent de codage Python pour le terminal, interface TUI, outils de projet et routage multi-fournisseurs. | Projet phare ; dépôt source lié. |
 | [Fable 5](https://hackerboy-223.vercel.app/projects/fable-5.html) | Interface responsive autour des agents de programmation, des états intermédiaires et des fonctions serverless. | Expérimentation documentée. |
 
 Les pages de projet évitent de présenter une fonctionnalité comme terminée lorsqu’elle ne dispose pas encore d’une démonstration publique. Cette distinction permet de garder une documentation honnête et utile pour les personnes qui souhaitent comprendre le projet ou contribuer à son évolution.
@@ -48,7 +49,7 @@ Le site est volontairement statique et repose sur des technologies web fondament
 | `index.html` | Accueil du portfolio, identité, projets mis en avant, journal et reconnaissance. |
 | `about.html` | Parcours, méthode d’apprentissage et positionnement public de H@CKERBOY. |
 | `projects.html` | Vue d’ensemble des projets et accès aux études de cas. |
-| `projects/` | Pages détaillées des projets actuellement présentés. |
+| `projects/` | Pages détaillées des projets actuellement présentés, dont ZeroCode. |
 | `exploits.html` | Parcours, chronologie et certificats du MaliBots Challenge 2025. |
 | `posts/` | Articles techniques et expériences pédagogiques interactives. |
 | `data/posts.json` | Métadonnées éditoriales des articles. |
