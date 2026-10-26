@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZeroCode — Agent de programmation pour le terminal | H@CKERBOY</title>
+  <meta name="description" content="ZeroCode est un agent de programmation Python pour le terminal, avec interface TUI, outils de projet, permissions configurables et routage multi-fournisseurs.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hackerboy-223.vercel.app/projects/zerocode.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ZeroCode — Agent de programmation pour le terminal">
+  <meta property="og:description" content="Un agent de code Python pensé pour travailler dans les projets, vérifier les changements et utiliser plusieurs fournisseurs de modèles.">
+  <meta property="og:url" content="https://hackerboy-223.vercel.app/projects/zerocode.html">
+  <meta property="og:image" content="https://hackerboy-223.vercel.app/images/project-fable-5.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="H@CKERBOY">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#07110f">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ZeroCode","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS, Windows","description":"Agent de programmation Python pour le terminal avec interface TUI, outils de projet, permissions configurables et routage multi-fournisseurs.","author":{"@type":"Person","name":"Drissa Diarra","alternateName":"H@CKERBOY","url":"https://hackerboy-223.vercel.app/"},"codeRepository":"https://github.com/hackerboy-223/zerocode","programmingLanguage":"Python","license":"https://opensource.org/license/mit/"}</script>
+  <link rel="icon" href="../images/hack8080.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css?v=15">
+  <link rel="stylesheet" href="../styles/experience.css?v=1">
+  <link rel="stylesheet" href="../styles/immersive.css?v=3">
+  <link rel="stylesheet" href="../styles/diamond-editorial.css?v=3">
+</head>
+<body data-page="project">
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="../" aria-label="H@CKERBOY, accueil"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>Drissa Diarra · portfolio</small></span></a>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale"><a href="../#projets">Projets</a><a href="../#expertise">Expertise</a><a href="../#exploits">Exploits</a><a href="../#articles">Journal</a><a href="../about.html">À propos</a></nav>
+    <div class="header-actions"><a class="header-cta" href="../#contact">Me retrouver <span>↗</span></a><button class="icon-button" id="theme-toggle" type="button" aria-label="Changer de thème">☼</button><button class="menu-button" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button></div>
+  </div>
+</header>
+<main class="case-study-page">
+  <section class="shell case-hero"><div class="case-kicker"><a href="../projects.html">← Retour aux projets</a><span class="dot"></span><span>Projet phare · Agent de programmation</span></div><div class="case-hero-grid"><div><span class="eyebrow">Étude de cas · Drissa Diarra / H@CKERBOY</span><h1>ZeroCode</h1><p class="case-lead">Un agent de codage pour le terminal qui travaille dans le projet réel : il explore les fichiers, propose des modifications, lance des commandes et peut s’appuyer sur plusieurs fournisseurs de modèles.</p><div class="case-actions"><a class="button button-primary" href="https://github.com/hackerboy-223/zerocode" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub <span>↗</span></a><a class="button button-ghost" href="#installation">Installation <span>↓</span></a></div></div><div class="case-cover"><img src="../images/project-fable-5.jpg" alt="Visualisation abstraite d’un agent logiciel et de ses flux de travail" width="1200" height="900" loading="eager" fetchpriority="high" decoding="async"></div></div></section>
+  <section class="shell case-layout"><article class="case-main">
+    <section class="case-section"><span class="eyebrow">Le problème</span><h2>Passer du chat au travail concret.</h2><p>Un assistant de programmation devient réellement utile lorsqu’il peut comprendre la structure d’un dépôt, lire des fichiers ciblés, proposer une modification, exécuter les tests et présenter le résultat. ZeroCode rassemble ces étapes dans une expérience terminale.</p></section>
+    <section class="case-section"><span class="eyebrow">Fonctionnement</span><h2>Un agent, plusieurs fournisseurs.</h2><p>Une architecture modulaire sépare l’agent, le routeur, les clients compatibles avec l’API OpenAI, les outils de projet et la gestion des sessions. Le mécanisme de repli permet d’essayer d’autres fournisseurs lorsque le modèle sélectionné est indisponible ou limité.</p><div class="case-proof-list"><span class="case-proof-item">Python · CLI et TUI</span><span class="case-proof-item">Streaming et appels d’outils</span><span class="case-proof-item">Sessions reprenables</span><span class="case-proof-item">Catalogue multi-fournisseurs</span></div></section>
+    <section class="case-section"><span class="eyebrow">Sécurité</span><h2>Des permissions visibles avant l’autonomie.</h2><p>Les actions de lecture sont séparées des mutations. Les écritures et les commandes shell demandent une autorisation dans le mode normal, tandis que les chemins sont contrôlés et que les sorties de commande sont limitées. Le mode autonome reste plus risqué : il faut l’utiliser uniquement dans un dépôt de confiance et relire les changements.</p></section>
+    <section class="case-section"><span class="eyebrow">Technologies</span><h2>Un outil Python installable.</h2><p>Le projet utilise Python 3.10 ou plus récent, un paquet déclaratif via <code>pyproject.toml</code>, une commande console <code>zerocode</code> et des dépendances explicites. Les tests automatisés et Ruff font partie du flux de développement documenté.</p><p>Les modèles et quotas gratuits dépendent de fournisseurs tiers et peuvent changer. ZeroCode n’inclut pas de garantie de gratuité permanente pour un modèle précis.</p></section>
+    <section class="case-section" id="installation"><span class="eyebrow">Installation</span><h2>Prêt à l’essayer sur sa machine.</h2><p>Prérequis : Python 3.10+ et Git. La publication du dépôt en accès public est nécessaire avant que ces commandes puissent fonctionner pour tout le monde.</p><h3>Linux et macOS</h3><pre><code>python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+pipx install git+https://github.com/hackerboy-223/zerocode.git
+zerocode --version
+zerocode doctor</code></pre><h3>Windows · PowerShell</h3><pre><code>py -m pip install --user pipx
+py -m pipx ensurepath
+pipx install git+https://github.com/hackerboy-223/zerocode.git
+zerocode --version
+zerocode doctor</code></pre><p>Pour travailler depuis le code source ou contribuer :</p><pre><code>git clone https://github.com/hackerboy-223/zerocode.git
+cd zerocode
+python -m venv .venv
+# Linux / macOS
+source .venv/bin/activate
+# Windows PowerShell : .venv\Scripts\Activate.ps1
+python -m pip install -e ".[dev]"
+pytest
+ruff check src tests</code></pre><p>Après installation, lance <code>zerocode setup</code> pour configurer les fournisseurs, ou utilise un fournisseur anonyme disponible. Ne place jamais de clé API dans le dépôt. Les offres gratuites ont des limites et leurs conditions peuvent changer.</p></section>
+    <section class="case-section case-result"><span class="eyebrow">Résultat actuel</span><h2>Un projet logiciel complet, pas seulement une maquette.</h2><p>ZeroCode possède une architecture modulaire, des outils de fichiers et de shell, un routeur multi-fournisseurs, une interface terminale et une suite de tests. Les prochaines priorités sont de valider l’installation sur plusieurs systèmes, publier les versions et continuer le durcissement des permissions.</p></section>
+  </article><aside class="case-aside"><div class="case-aside-card"><span class="footer-label">Résumé</span><div class="case-proof-list"><span class="case-proof-item">Agent de codage</span><span class="case-proof-item">Terminal interactif</span><span class="case-proof-item">Multi-fournisseurs</span><span class="case-proof-item">Open source · MIT</span></div></div><div class="case-aside-card"><span class="footer-label">Stack</span><p class="case-stack">Python · Textual · httpx · Rich · pytest · Ruff</p></div><div class="case-aside-card"><span class="footer-label">Accès au code</span><p>Le dépôt source est actuellement privé. Son ouverture publique est nécessaire pour que les visiteurs puissent le cloner et l’installer.</p><a class="project-link" href="https://github.com/hackerboy-223/zerocode" target="_blank" rel="noopener noreferrer">Ouvrir GitHub <span>↗</span></a></div></aside></section>
+  <section class="shell case-next"><div><span class="footer-label">Projet phare</span><h2>Explorer ZeroCode et suivre son évolution.</h2></div><a class="button button-primary" href="https://github.com/hackerboy-223/zerocode" target="_blank" rel="noopener noreferrer">Dépôt GitHub <span>↗</span></a></section>
+</main>
+<footer class="site-footer"><div class="shell footer-grid"><div><a class="brand brand-footer" href="../"><span class="brand-mark"><img src="../images/hack8080.png" alt="Logo H@CKERBOY" width="44" height="44"></span><span class="brand-copy"><strong>H@CKERBOY</strong><small>Drissa Diarra · portfolio</small></span></a><p class="footer-note">Drissa Diarra · H@CKERBOY — développeur web & mobile, IA et cybersécurité. Bamako, Mali.</p></div><div class="footer-column"><span class="footer-label">Navigation</span><a href="../#projets">Projets</a><a href="../#expertise">Expertise</a><a href="../#articles">Journal</a><a href="../exploits.html">Exploits</a></div><div class="footer-column"><span class="footer-label">Me retrouver</span><a href="https://github.com/hackerboy-223" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/drissa-diarra-4171ab430" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div><div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Think. Build. Break. Learn. Repeat.</span></div></footer>
+<script src="../js/site.js?v=7" defer></script>
+</body>
+</html>
