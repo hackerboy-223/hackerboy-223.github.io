@@ -11,6 +11,11 @@
     <image:image><image:loc>https://hackerboy-223.vercel.app/images/portfolio-africa-tech.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://hackerboy-223.vercel.app/projects/zerocode.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <image:image><image:loc>https://hackerboy-223.vercel.app/images/project-fable-5.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://hackerboy-223.vercel.app/projects.html</loc>
     <lastmod>2026-09-11</lastmod>
     <image:image><image:loc>https://hackerboy-223.vercel.app/images/portfolio-ai.jpg</image:loc></image:image>
