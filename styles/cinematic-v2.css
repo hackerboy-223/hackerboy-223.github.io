@@ -1,0 +1,20 @@
+/* H@CKERBOY — cinematic layer, progressively enhanced and motion-safe. */
+:root{--hb-cinema-x:50%;--hb-cinema-y:35%}
+.portfolio-hero{position:relative;overflow:clip}
+.portfolio-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.22;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
+.portfolio-hero::after{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;background:radial-gradient(560px circle at var(--hb-cinema-x) var(--hb-cinema-y),rgba(108,160,255,.10),transparent 72%)}
+.portfolio-hero-grid{position:relative;z-index:1}
+.cinema-v2 .portfolio-hero .eyebrow,.cinema-v2 .portfolio-hero h1,.cinema-v2 .portfolio-hero .hero-text,.cinema-v2 .portfolio-hero .hero-actions,.cinema-v2 .portfolio-hero .hero-proof,.cinema-v2 .portfolio-hero .hero-console{animation:hb-cinema-enter .85s cubic-bezier(.2,.75,.2,1) both}
+.cinema-v2 .portfolio-hero h1{animation-delay:.08s}
+.cinema-v2 .portfolio-hero .hero-text{animation-delay:.16s}
+.cinema-v2 .portfolio-hero .hero-actions{animation-delay:.23s}
+.cinema-v2 .portfolio-hero .hero-proof{animation-delay:.3s}
+.cinema-v2 .portfolio-hero .hero-console{animation-delay:.2s}
+@keyframes hb-cinema-enter{from{opacity:0;transform:translate3d(0,22px,0);filter:blur(7px)}to{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}}
+.cinema-v2 .project-card{transform:translateZ(0);transition:transform .45s cubic-bezier(.2,.75,.2,1),border-color .3s,box-shadow .3s}
+.cinema-v2 .project-card:hover{transform:translateY(-5px);box-shadow:0 24px 70px rgba(0,0,0,.16)}
+.cinema-v2 .button,.cinema-v2 .header-cta,.cinema-v2 .social-card{transition:transform .25s cubic-bezier(.2,.75,.2,1),border-color .25s,background .25s}
+.cinema-v2 .button:hover,.cinema-v2 .header-cta:hover{transform:translateY(-2px)}
+.cinema-v2 .site-header{backdrop-filter:saturate(150%) blur(18px);-webkit-backdrop-filter:saturate(150%) blur(18px)}
+@media(prefers-reduced-motion:reduce){.cinema-v2 .portfolio-hero *,.cinema-v2 .project-card,.cinema-v2 .button{animation:none!important;transition:none!important}}
+@media(hover:none),(max-width:720px){.portfolio-hero::after{display:none}.cinema-v2 .project-card:hover{transform:none;box-shadow:none}}
