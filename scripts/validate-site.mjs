@@ -11,7 +11,17 @@ const pages=['index.html','about.html','projects.html','exploits.html','404.html
 const issues=[];
 let checks=0;
 const read=path=>readFile(join(root,path),'utf8');
+
 function check(ok,message){checks++;if(!ok)issues.push(message);}
+async function imageSignatureMatches(file){
+ const bytes=await readFile(file);
+ const extension=extname(file).toLowerCase();
+ if(extension==='.png')return bytes.length>=8&&bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]));
+ if(['.jpg','.jpeg','.jfif'].includes(extension))return bytes.length>=3&&bytes[0]===255&&bytes[1]===216&&bytes[2]===255;
+ if(extension==='.webp')return bytes.length>=12&&bytes.toString('ascii',0,4)==='RIFF'&&bytes.toString('ascii',8,12)==='WEBP';
+ if(extension==='.svg')return bytes.toString('utf8',0,2048).includes('<svg');
+ return true;
+}
 for(const path of pages){
  const html=await read(path),prefix=path.includes('/')?'../':'';
  const markup=html.replace(/<(pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi,'');
@@ -38,6 +48,14 @@ for(const path of pages){
   check((markup.match(/property=["']og:image:width["']/gi)||[]).length<=1,path+': unique Open Graph image width');
   check((markup.match(/property=["']og:image:height["']/gi)||[]).length<=1,path+': unique Open Graph image height');
   check((markup.match(/name=["']twitter:image["']/gi)||[]).length===1,path+': Twitter image');
+  try{
+   const socialUrl=new URL(socialImage);
+   if(socialUrl.hostname==='hackerboy-223.vercel.app'){
+    const socialAsset=join(root,decodeURIComponent(socialUrl.pathname.replace(/^\\/+/,'')));
+    check(existsSync(socialAsset),path+': Open Graph image exists locally');
+    if(existsSync(socialAsset))check(await imageSignatureMatches(socialAsset),path+': Open Graph image format matches its extension');
+   }
+  }catch(error){issues.push(path+': invalid Open Graph image URL');}
  }
  for(const match of markup.matchAll(/\b(?:href|src|data-fallback)=["']([^"']+)["']/gi)){
   const uri=match[1];
@@ -47,6 +65,8 @@ for(const path of pages){
   if(dest!==root&&!dest.startsWith(root+sep)){issues.push(path+': link outside project: '+uri);continue;}
   const found=existsSync(dest)||existsSync(join(dest,'index.html'));
   check(found,path+': local asset '+uri);
+  if(found&&['.png','.jpg','.jpeg','.jfif','.webp','.svg'].includes(extname(dest).toLowerCase()))
+   check(await imageSignatureMatches(dest),path+': image bytes match extension '+uri);
  }
 }
 for(let i=1;i<=8;i++){
