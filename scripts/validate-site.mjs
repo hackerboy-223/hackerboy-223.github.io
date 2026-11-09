@@ -34,6 +34,8 @@ for(const path of pages){
   check(/^https:\/\//i.test(socialImage),path+': absolute Open Graph image URL');
   check(/\.(?:png|jpe?g|webp)(?:[?#].*)?$/i.test(socialImage),path+': raster social preview');
   check((html.match(/property=["']og:image:alt["']/gi)||[]).length===1,path+': one Open Graph image description');
+  check((html.match(/property=["']og:image:width["']/gi)||[]).length<=1,path+': unique Open Graph image width');
+  check((html.match(/property=["']og:image:height["']/gi)||[]).length<=1,path+': unique Open Graph image height');
   check((html.match(/name=["']twitter:image["']/gi)||[]).length===1,path+': Twitter image');
  }
  for(const match of html.matchAll(/\b(?:href|src|data-fallback)=["']([^"']+)["']/gi)){
