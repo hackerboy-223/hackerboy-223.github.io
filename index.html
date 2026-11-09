@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="styles/immersive.css?v=3">
   <link rel="stylesheet" href="styles/cinematic-v2.css?v=1">
   <link rel="stylesheet" href="styles/immersive-3d.css?v=5">
-  <link rel="stylesheet" href="styles/diamond-editorial.css?v=3">
+  <link rel="stylesheet" href="styles/diamond-editorial.css?v=4">
 </head>
 <body data-page="home">
 
@@ -106,22 +106,22 @@
         <div class="db-story-stage" aria-hidden="true">
           <div class="db-story-visual">
             <div class="db-story-track"><span class="is-current"></span><span></span><span></span></div>
-            <figure class="db-story-media is-current"><img src="https://drissa-fashion.vercel.app/hero-fashion.png" alt="" loading="lazy" decoding="async" width="1200" height="900"></figure>
-            <figure class="db-story-media"><img src="images/exploits/malibots-medaille-or.jpg" alt="" loading="lazy" decoding="async" width="1200" height="900"></figure>
+            <figure class="db-story-media is-current"><img src="https://drissa-fashion.vercel.app/hero-fashion.png" data-fallback="/images/portfolio-hero.jpg" alt="" loading="lazy" decoding="async" width="1200" height="900"></figure>
+            <figure class="db-story-media"><img src="images/exploits/malibots-medaille-or.jpg" alt="" loading="lazy" decoding="async" width="1651" height="1184"></figure>
             <figure class="db-story-media"><img src="images/portfolio-ai.jpg" alt="" loading="lazy" decoding="async" width="1200" height="900"></figure>
             <div class="db-story-visual-caption"><strong data-story-caption>Diamond Block</strong><span class="db-story-count" data-story-count>01 / 03</span></div>
           </div>
         </div>
         <div class="db-story-chapters">
           <article class="db-story-chapter is-current" data-story-chapter="0">
-            <div class="db-story-mobile"><img src="https://drissa-fashion.vercel.app/hero-fashion.png" alt="Visuel de la boutique Diamond Block" loading="lazy" decoding="async" width="1200" height="900"></div>
+            <div class="db-story-mobile"><img src="https://drissa-fashion.vercel.app/hero-fashion.png" data-fallback="/images/portfolio-hero.jpg" alt="Visuel de la boutique Diamond Block" loading="lazy" decoding="async" width="1200" height="900"></div>
             <span class="db-step">01 / CONSTRUIRE</span>
             <h3>Du concept au produit réel.</h3>
             <p>Diamond Block m’a appris à relier interface, parcours utilisateur et logique métier. Un projet qui ne s’arrête pas à une belle maquette.</p>
             <a class="db-chapter-link" href="./projects/diamond-block.html">Découvrir Diamond Block <span aria-hidden="true">↗</span></a>
           </article>
           <article class="db-story-chapter" data-story-chapter="1">
-            <div class="db-story-mobile"><img src="images/exploits/malibots-medaille-or.jpg" alt="Certificat de la médaille d’or MaliBots Challenge 2025" loading="lazy" decoding="async" width="1200" height="900"></div>
+            <div class="db-story-mobile"><img src="images/exploits/malibots-medaille-or.jpg" alt="Certificat de la médaille d’or MaliBots Challenge 2025" loading="lazy" decoding="async" width="1651" height="1184"></div>
             <span class="db-step">02 / SE DÉPASSER</span>
             <h3>Mettre les idées à l’épreuve.</h3>
             <p>Une première place au MaliBots Challenge 2025, mais surtout une expérience d’équipe, de résolution de problèmes et de développement sous contrainte.</p>
@@ -140,7 +140,23 @@
   </section>
 
   <section class="projects-section" id="projets"><div class="shell"><div class="section-heading"><div><span class="eyebrow">Sélection de travaux</span><h2>Des idées devenues des systèmes.</h2></div><p>Des projets personnels et scolaires qui montrent comment j’apprends : en construisant des interfaces, des applications et des outils utiles.</p></div><div class="projects-grid"><article class="project-card project-featured" id="zerocode" data-project-type="Agent de programmation" data-smart="zerocode agent coding assistant ia terminal python cli open source installation multi fournisseurs glm kilo openrouter groq gemini linux macos windows sécurité outils développeur">
-  <a class="project-visual" href="./projects/zerocode.html" aria-label="Découvrir l’étude de cas ZeroCode"><img src="images/project-fable-5.jpg" alt="Flux de logique et d’automatisation représentant l’agent de programmation ZeroCode" loading="lazy" decoding="async" width="1200" height="900"><span class="project-status">Agent de code · Python</span></a>
+  <a class="project-visual" href="./projects/zerocode.html" aria-label="Découvrir l’étude de cas ZeroCode"><div class="zerocode-art zerocode-art-in-card" aria-hidden="true">
+  <div class="zerocode-window">
+    <div class="zerocode-titlebar"><span class="zerocode-dots"><i></i><i></i><i></i></span><span>ZeroCode / session</span><span class="zerocode-titlebar-label">LOCAL WORKSPACE</span></div>
+    <div class="zerocode-terminal-layout">
+      <aside class="zerocode-sidebar"><span class="is-current">workspace</span><span>sessions</span><span>providers</span><span>tools</span></aside>
+      <div class="zerocode-terminal">
+        <div class="zerocode-command"><b>$</b><span>zerocode --classic</span></div>
+        <div class="zerocode-command-meta">mode: <span>assisted</span> · route: <span>auto</span></div>
+        <div class="zerocode-command"><b>›</b><span>inspect project structure</span></div>
+        <div class="zerocode-command-meta"><span>read</span> · <span>grep</span> · <span>symbols</span></div>
+        <div class="zerocode-command"><b>›</b><span>prepare a controlled edit</span></div>
+        <div class="zerocode-consent"><i></i>approval required for write actions</div>
+      </div>
+    </div>
+    <div class="zerocode-statusbar"><span>Python · CLI / TUI</span><span>Multi-provider agent</span></div>
+  </div>
+</div><span class="project-status">Agent de code · Python</span></a>
   <div class="project-content">
     <div class="project-meta"><span>Intelligence artificielle · Open source</span><span>Python · CLI/TUI · LLM · Outils</span></div>
     <span class="featured-work-tag">Projet à la une</span>
@@ -151,7 +167,7 @@
   </div>
 </article><article class="project-card" data-project-type="E-commerce">
   <a class="project-visual" href="./projects/diamond-block.html" aria-label="Découvrir l’étude de cas Diamond Block">
-    <img src="https://drissa-fashion.vercel.app/hero-fashion.png" alt="Aperçu de la boutique mode Diamond Block" loading="lazy" decoding="async" width="1200" height="900">
+    <img src="https://drissa-fashion.vercel.app/hero-fashion.png" data-fallback="/images/portfolio-hero.jpg" alt="Aperçu de la boutique mode Diamond Block" loading="lazy" decoding="async" width="1200" height="900">
     <span class="project-status">Produit en ligne</span>
   </a>
   <div class="project-content">
@@ -172,7 +188,7 @@
   <a class="project-visual" href="./projects/fable-5.html" aria-label="Lire l’étude de cas Fable 5"><img src="images/project-fable-5.jpg" alt="Chemins de logique et nœuds d’automatisation représentant Fable 5" loading="lazy" decoding="async" width="1200" height="900"><span class="project-status">Expérimentation</span></a>
   <div class="project-content"><div class="project-meta"><span>Agent de programmation</span><span>HTML · CSS · JavaScript · API</span></div><h3><a href="./projects/fable-5.html">Fable 5</a></h3><p>Interface sombre et responsive qui explore les agents de programmation, les messages progressifs et les fonctions serverless.</p><div class="project-proof"><span>Interface responsive</span><span>Messages progressifs</span></div><div class="project-actions"><a class="project-link" href="./projects/fable-5.html">Voir l’étude de cas <span>↗</span></a><span class="project-link project-link-muted" aria-disabled="true">Démo publique à venir</span></div></div>
 </article></div><div class="section-action"><a class="button button-ghost" href="./projects.html">Voir tous les projets <span>↗</span></a></div></div></section>
-  <section class="exploits-section" id="exploits"><div class="shell"><div class="section-heading"><div><span class="eyebrow">Palmarès personnel</span><h2>Les exploits de H@CKERBOY</h2></div><p>Des étapes concrètes, des preuves et les leçons retenues sur le chemin.</p></div><div class="exploit-feature"><div class="exploit-copy"><span class="exploit-badge">MÉDAILLE D’OR · 2025</span><h3>Vainqueur du MaliBots Challenge 2025</h3><p>Les documents publiés attestent une <strong>médaille d’or en catégorie Dev Web</strong> au MaliBots Challenge 2025. Une preuve concrète du travail fourni pendant la compétition.</p><div class="exploit-meta"><span><strong>OR</strong> distinction</span><span><strong>DEV WEB</strong> catégorie</span><span><strong>2025</strong> édition</span></div><a class="button button-primary" href="./exploits.html">Voir le parcours <span>↗</span></a></div><div class="certificate-stack" aria-label="Certificats du MaliBots Challenge 2025"><img src="images/exploits/malibots-medaille-or.jpg" alt="Certificat de reconnaissance décerné pour la médaille d’or du MaliBots Challenge 2025" loading="lazy"><img src="images/exploits/malibots-top-3.jpg" alt="Certificat de réussite classant H@CKERBOY parmi les trois premiers du MaliBots Challenge 2025" loading="lazy"><span class="certificate-caption">MaliBots Challenge · DjoniFab × Université Bazo</span></div></div></div></section>
+  <section class="exploits-section" id="exploits"><div class="shell"><div class="section-heading"><div><span class="eyebrow">Palmarès personnel</span><h2>Les exploits de H@CKERBOY</h2></div><p>Des étapes concrètes, des preuves et les leçons retenues sur le chemin.</p></div><div class="exploit-feature"><div class="exploit-copy"><span class="exploit-badge">MÉDAILLE D’OR · 2025</span><h3>Vainqueur du MaliBots Challenge 2025</h3><p>Les documents publiés attestent une <strong>médaille d’or en catégorie Dev Web</strong> au MaliBots Challenge 2025. Une preuve concrète du travail fourni pendant la compétition.</p><div class="exploit-meta"><span><strong>OR</strong> distinction</span><span><strong>DEV WEB</strong> catégorie</span><span><strong>2025</strong> édition</span></div><a class="button button-primary" href="./exploits.html">Voir le parcours <span>↗</span></a></div><div class="certificate-stack" aria-label="Certificats du MaliBots Challenge 2025"><img src="images/exploits/malibots-medaille-or.jpg" alt="Certificat de reconnaissance décerné pour la médaille d’or du MaliBots Challenge 2025" loading="lazy"><img src="images/exploits/malibots-top-3.jpg" alt="Certificat de réussite classant H@CKERBOY parmi les trois premiers du MaliBots Challenge 2025" loading="lazy" decoding="async" width="1651" height="934"><span class="certificate-caption">MaliBots Challenge · DjoniFab × Université Bazo</span></div></div></div></section>
   <section class="expertise-section" id="expertise"><div class="shell"><div class="section-heading"><div><span class="eyebrow">Terrain de jeu</span><h2>Ce que j’explore.</h2></div><p>Je ne sépare pas le design, le code et les systèmes : l’expérience compte autant que la mécanique qui la rend possible.</p></div><div class="expertise-grid"><article class="expertise-item"><span class="expertise-index">01</span><div><h3>Développement web &amp; mobile</h3><p>Interfaces responsives, applications web, API, PWA et architectures frontend/backend.</p></div></article><article class="expertise-item"><span class="expertise-index">02</span><div><h3>Intelligence artificielle</h3><p>Assistants conversationnels, intégration de LLM, agents, prompt engineering et expériences éducatives.</p></div></article><article class="expertise-item"><span class="expertise-index">03</span><div><h3>Cybersécurité éthique</h3><p>Sécurité web, audit autorisé, protection des applications, API et apprentissage responsable.</p></div></article><article class="expertise-item"><span class="expertise-index">04</span><div><h3>Systèmes &amp; cloud</h3><p>Linux, Bash, Windows, déploiement, serverless, GitHub, Netlify, Render et Railway.</p></div></article></div></div></section>
   <section class="manifesto-scene" aria-labelledby="manifesto-title">
   <div class="shell manifesto-inner">
@@ -274,7 +290,7 @@
   <div class="shell footer-bottom"><span>© 2026 H@CKERBOY</span><span>Think. Build. Break. Learn. Repeat.</span></div>
 </footer>
 
-<script src="js/site.js?v=7" defer></script>
+<script src="js/site.js?v=8" defer></script>
 <script src="js/experience.js?v=3" defer></script>
 <script src="js/immersive.js?v=3" defer></script>
 <script src="js/cinematic-v2.js?v=1" defer></script>
