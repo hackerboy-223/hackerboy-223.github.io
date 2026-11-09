@@ -10,7 +10,7 @@
 .hb3d-heading p{max-width:48ch;margin:0 auto;color:#a8b7d0;font-size:.94rem;line-height:1.7}
 .hb3d-horizon{position:absolute;inset:0;pointer-events:none;opacity:.45;background:linear-gradient(90deg,transparent 49.9%,rgba(133,173,239,.12) 50%,transparent 50.1%),linear-gradient(0deg,transparent 49.9%,rgba(133,173,239,.1) 50%,transparent 50.1%);background-size:100% 100%;mask-image:radial-gradient(ellipse at center,#000 10%,transparent 75%)}
 .hb3d-grid{position:absolute;left:-50%;right:-50%;bottom:-38%;height:82%;transform:rotateX(72deg) translateZ(-90px);transform-origin:50% 0;background-image:linear-gradient(rgba(123,164,229,.17) 1px,transparent 1px),linear-gradient(90deg,rgba(123,164,229,.17) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(transparent,#000 25%,transparent 92%);pointer-events:none}
-.hb3d-world{position:relative;width:min(1000px,94vw);height:min(540px,65vh);transform-style:preserve-3d;transform:translate3d(0,0,var(--hb3d-camera,0px)) rotateX(var(--hb3d-tilt,0deg));will-change:transform}
+.hb3d-world{position:relative;width:min(1000px,94vw);height:min(540px,65vh);transform-style:preserve-3d;transform:translate3d(0,0,var(--hb3d-camera,0px)) rotateX(var(--hb3d-tilt,0deg));will-change:auto}
 .hb3d-orb{position:absolute;top:50%;left:50%;width:clamp(210px,34vw,420px);aspect-ratio:1;border:1px solid rgba(146,185,255,.2);border-radius:50%;transform:translate(-50%,-50%) translateZ(-650px) rotateX(72deg);box-shadow:0 0 90px rgba(64,119,220,.12),inset 0 0 70px rgba(64,119,220,.08)}
 .hb3d-orb::before,.hb3d-orb::after{content:"";position:absolute;inset:12%;border:1px solid rgba(146,185,255,.15);border-radius:50%}
 .hb3d-orb::after{inset:25%;border-color:rgba(146,185,255,.1)}
@@ -29,7 +29,7 @@
 .hb3d-scroll-line{width:70px;height:1px;background:linear-gradient(90deg,rgba(143,177,232,.1),rgba(143,177,232,.8))}
 .hb3d-progress{position:absolute;left:50%;bottom:clamp(14px,3vh,27px);width:min(260px,48vw);height:2px;transform:translateX(-50%);background:rgba(143,177,232,.16);overflow:hidden}
 .hb3d-progress span{display:block;width:100%;height:100%;transform:scaleX(var(--hb3d-progress,0));transform-origin:left;background:#9bc2ff}
-@media(max-width:720px){.hb3d-scroll{height:230vh}.hb3d-sticky{min-height:560px}.hb3d-heading{top:45px}.hb3d-heading p{font-size:.82rem}.hb3d-world{width:100%;height:55vh}.hb3d-project{width:min(290px,78vw);min-height:185px;padding:19px}.hb3d-project:nth-of-type(2){transform:translate3d(-50%,-50%,-390px) translateX(14vw) rotateY(-8deg)}.hb3d-project:nth-of-type(3){transform:translate3d(-50%,-50%,-680px) translateX(-14vw) rotateY(8deg)}.hb3d-project:nth-of-type(4){transform:translate3d(-50%,-50%,-970px)}.hb3d-project-top{margin-bottom:25px}.hb3d-footer{bottom:42px}}
+@media(max-width:720px){.hb3d-scroll{height:270vh}.hb3d-sticky{min-height:560px}.hb3d-heading{top:45px}.hb3d-heading p{font-size:.82rem}.hb3d-world{width:100%;height:55vh}.hb3d-project{width:min(290px,78vw);min-height:185px;padding:19px}.hb3d-project:nth-of-type(2){transform:translate3d(-50%,-50%,-390px) translateX(14vw) rotateY(-8deg)}.hb3d-project:nth-of-type(3){transform:translate3d(-50%,-50%,-680px) translateX(-14vw) rotateY(8deg)}.hb3d-project:nth-of-type(4){transform:translate3d(-50%,-50%,-970px)}.hb3d-project-top{margin-bottom:25px}.hb3d-footer{bottom:42px}}
 @media(prefers-reduced-motion:reduce){.hb3d-scroll{height:auto;overflow:visible}.hb3d-sticky{position:relative;top:auto;height:auto;min-height:0;padding:150px 20px 90px;perspective:none}.hb3d-heading{position:relative;top:auto;left:auto;transform:none;margin:0 auto 38px}.hb3d-world{display:grid;width:min(720px,100%);height:auto;gap:16px;transform:none!important;perspective:none}.hb3d-orb,.hb3d-horizon,.hb3d-grid{display:none}.hb3d-project,.hb3d-project:nth-of-type(n){position:relative;top:auto;left:auto;width:100%;min-height:0;transform:none;padding:22px}.hb3d-project-top{margin-bottom:20px}.hb3d-footer,.hb3d-progress{display:none}}
 @media(forced-colors:active){.hb3d-project{border:1px solid CanvasText}.hb3d-heading h2 em{color:LinkText}}
 
@@ -46,25 +46,23 @@
 
 /* Immersive WebGL layer and performance-safe presentation. */
 .hb3d-sticky{isolation:isolate;background:radial-gradient(ellipse at 50% 55%,rgba(18,43,83,.26),transparent 56%)}
+.hb3d-scroll.is-rendering .hb3d-world{will-change:transform}
 .hb3d-canvas{position:absolute;z-index:0;inset:0;width:100%;height:100%;display:block;pointer-events:none;opacity:.92}
 .hb3d-heading{z-index:4}
 .hb3d-world{z-index:2}
 .hb3d-orb{border-color:rgba(146,185,255,.28);box-shadow:0 0 110px rgba(64,119,220,.18),inset 0 0 90px rgba(64,119,220,.1)}
-.hb3d-project{backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:linear-gradient(145deg,rgba(24,42,72,.82),rgba(8,17,33,.76));box-shadow:0 30px 100px rgba(0,0,0,.44),inset 0 1px rgba(255,255,255,.12)}
+.hb3d-project{background:linear-gradient(145deg,rgba(24,42,72,.97),rgba(8,17,33,.95));box-shadow:0 30px 80px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.1)}
 .hb3d-project::before{content:"";position:absolute;inset:1px;border-radius:inherit;pointer-events:none;background:linear-gradient(125deg,rgba(157,194,255,.12),transparent 38%);opacity:.7}
 .hb3d-project h3,.hb3d-project p,.hb3d-project-top,.hb3d-project-arrow{position:relative}
 .hb3d-project:nth-of-type(1){margin-top:0}
-.hb3d-scroll[data-chapter="1"] .hb3d-project:nth-of-type(1),
-.hb3d-scroll[data-chapter="2"] .hb3d-project:nth-of-type(2),
-.hb3d-scroll[data-chapter="3"] .hb3d-project:nth-of-type(3),
-.hb3d-scroll[data-chapter="4"] .hb3d-project:nth-of-type(4){border-color:rgba(157,194,255,.72);box-shadow:0 35px 110px rgba(0,0,0,.5),0 0 55px rgba(85,145,235,.2)}
+.hb3d-project::after{content:"";position:absolute;inset:0;border:1px solid rgba(157,194,255,.72);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.hb3d-project.is-active::after{opacity:1}
 .hb3d-static .hb3d-canvas{display:none}
 @media(max-width:720px){
   .hb3d-canvas{opacity:.58}
-  .hb3d-project{backdrop-filter:none;-webkit-backdrop-filter:none}
 }
 @media(prefers-reduced-transparency:reduce){
-  .hb3d-project{backdrop-filter:none;-webkit-backdrop-filter:none;background:#101d32}
+  .hb3d-project{background:#101d32}
 }
 @media(forced-colors:active){.hb3d-canvas{display:none}}
 
