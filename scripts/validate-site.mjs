@@ -15,7 +15,8 @@ function check(ok,message){checks++;if(!ok)issues.push(message);}
 for(const path of pages){
  const html=await read(path),prefix=path.includes('/')?'../':'';
  check(html.includes(prefix+'styles/styles.css?v=16'),path+': local system-font stylesheet');
- check(!/fonts\\.googleapis\\.com|fonts\\.gstatic\\.com/i.test(html),path+': no external web fonts');
+ check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html),path+': no external web fonts');
+ check(html.includes(prefix+'images/hackerboy-mark.svg')||html.includes('/images/hackerboy-mark.svg'),path+': vector favicon');
  check(html.includes(prefix+'styles/diamond-editorial.css'),path+': theme stylesheet');
  check(html.includes(prefix+'js/experience.js'),path+': UI controls');
  check(html.includes(prefix+'js/immersive.js'),path+': scrolling');
@@ -31,8 +32,9 @@ for(const path of pages){
  const socialImage=html.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i)?.[1];
  if(socialImage){
   check(/^https:\/\//i.test(socialImage),path+': absolute Open Graph image URL');
-  check(/\\.(?:png|jpe?g|webp)(?:[?#].*)?$/i.test(socialImage),path+': raster social preview');
+  check(/\.(?:png|jpe?g|webp)(?:[?#].*)?$/i.test(socialImage),path+': raster social preview');
   check((html.match(/property=["']og:image:alt["']/gi)||[]).length===1,path+': one Open Graph image description');
+  check((html.match(/name=["']twitter:image["']/gi)||[]).length===1,path+': Twitter image');
  }
  for(const match of html.matchAll(/\b(?:href|src|data-fallback)=["']([^"']+)["']/gi)){
   const uri=match[1];
@@ -60,7 +62,7 @@ check(home.includes('images/hackerboy-mark.svg'),'home: lightweight vector brand
 check(existsSync(join(root,'images/hackerboy-mark.svg')),'Brand: vector mark asset');
 check(existsSync(join(root,'images/diamond-block-product.png')),'Diamond Block: local product image');
 const legacyCss=await read('styles/legacy.css');
-check(!/fonts\\.googleapis\\.com|fonts\\.gstatic\\.com/i.test(legacyCss),'legacy CSS: no external font import');
+check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(legacyCss),'legacy CSS: no external font import');
 check((await read('styles/styles.css')).includes("legacy.css?v=13"),'styles: refreshed local legacy stylesheet');
 const zeroCode=await read('projects/zerocode.html');
 check(zeroCode.includes('images/portfolio-ai.jpg'),'ZeroCode: raster social preview');
