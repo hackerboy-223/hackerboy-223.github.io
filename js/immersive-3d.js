@@ -107,6 +107,10 @@
 
   section.classList.add('hb3d-enhanced');
   gl.useProgram(program);
+  gl.clearColor(0, 0, 0, 0);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+
   const locations = {
     position: gl.getAttribLocation(program, 'a_position'),
     size: gl.getAttribLocation(program, 'a_size'),
@@ -262,10 +266,7 @@
     updateScene();
 
     const time = (now - startTime) / 1000;
-    gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
     gl.uniform1f(locations.time, time);
     gl.uniform1f(locations.progress, amount);
     gl.uniform1f(locations.aspect, canvas.width / Math.max(1, canvas.height));
