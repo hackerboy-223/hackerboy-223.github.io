@@ -1736,14 +1736,14 @@ body[data-page="article"].quest-lesson-mode.quest-reading-full .quest-lesson-con
   font:500 .58rem/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;
 }
 .zerocode-art-in-card{min-height:100%;aspect-ratio:16/9}
-.case-cover .zerocode-art{min-height:0;aspect-ratio:5/4;height:100%}
+.case-cover .zerocode-art{min-height:260px;aspect-ratio:5/4;height:auto}
 @media(max-width:640px){
   .zerocode-art{min-height:220px;padding:13px}
   .zerocode-terminal-layout{grid-template-columns:minmax(0,1fr)}
   .zerocode-sidebar{display:none}
   .zerocode-terminal{padding:15px 14px;font-size:.64rem}
   .zerocode-statusbar{flex-wrap:wrap}
-  .case-cover .zerocode-art{aspect-ratio:4/3}
+  .case-cover .zerocode-art{min-height:220px;aspect-ratio:4/3}
 }
 @media(prefers-reduced-motion:reduce){
   .zerocode-art *{transition:none!important}
