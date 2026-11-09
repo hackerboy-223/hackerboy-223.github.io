@@ -26,6 +26,8 @@ for(const path of pages){
   check(/\bwidth=["']?\d+["']?/i.test(tag)&&/\bheight=["']?\d+["']?/i.test(tag),path+': image dimensions');
   check(!/^https?:\/\//i.test(src),path+': local image source');
  }
+ const socialImage=html.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i)?.[1];
+ if(socialImage)check(/^https:\/\//i.test(socialImage),path+': absolute Open Graph image URL');
  for(const match of html.matchAll(/\b(?:href|src|data-fallback)=["']([^"']+)["']/gi)){
   const uri=match[1];
   if(!uri||uri[0]==='#'||/^(https?:|mailto:|tel:|data:|javascript:)/i.test(uri))continue;
@@ -49,6 +51,11 @@ check(home.includes('styles/immersive-3d.css'),'home: immersive 3D stylesheet');
 check(home.includes('js/immersive-3d.js'),'home: immersive 3D script');
 check(home.includes('images/diamond-block-preview.svg'),'home: local Diamond Block artwork');
 check(home.includes('images/hackerboy-mark.svg'),'home: lightweight vector brand mark');
+check(existsSync(join(root,'images/zerocode-preview.svg')),'ZeroCode: social preview asset');
+check(existsSync(join(root,'images/hackerboy-mark.svg')),'Brand: vector mark asset');
+const zeroCode=await read('projects/zerocode.html');
+check(zeroCode.includes('images/zerocode-preview.svg'),'ZeroCode: dedicated social preview');
+check(!zeroCode.includes('project-fable-5.jpg'),'ZeroCode: no Fable 5 image reuse');
 const immersive=await read('js/immersive-3d.js');
 check(immersive.includes("!('IntersectionObserver' in window)"),'immersive: observer fallback');
 check(immersive.includes("card.removeAttribute('tabindex')"),'immersive: static keyboard access');
