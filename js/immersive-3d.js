@@ -183,7 +183,6 @@
   let activeProject = -1;
   let lastProgressValue = -1;
 
-  const FRAME_INTERVAL = 1000 / 60;
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
   function updateScene() {
@@ -248,13 +247,8 @@
     frame = 0;
     if (!visible || destroyed || document.hidden) return;
 
-    // Cap at 60fps on high-refresh displays; never throttle a normal 60Hz screen to 30fps.
-    if (lastFrame && now - lastFrame < FRAME_INTERVAL) {
-      schedule();
-      return;
-    }
-
-    const delta = lastFrame ? Math.min((now - lastFrame) / 1000, 0.1) : 1 / 60;
+    // Follow the display refresh rate instead of imposing a lower frame cap.
+    const delta = lastFrame ? Math.min((now - lastFrame) / 1000, 0.05) : 1 / 60;
     lastFrame = now;
     if (!startTime) startTime = now;
 
@@ -286,6 +280,7 @@
 
     // Stop requesting frames when the camera has settled; resume on the next scroll.
     if (stillMoving) schedule();
+    else lastFrame = 0;
   }
 
   function schedule() {
