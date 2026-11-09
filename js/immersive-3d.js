@@ -69,7 +69,7 @@
         vec2 p = gl_PointCoord - 0.5;
         float d = length(p);
         if (d > 0.5) discard;
-        float glow = smoothstep(0.5, 0.02, d);
+        float glow = 1.0 - smoothstep(0.02, 0.5, d);
         vec3 tint = mix(vec3(0.25, 0.48, 0.85), vec3(0.55, 0.78, 1.0), fract(v_seed * 17.0));
         gl_FragColor = vec4(tint, v_alpha * glow);
       } else {
