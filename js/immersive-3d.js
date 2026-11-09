@@ -8,6 +8,8 @@
   const canvas = section.querySelector('[data-hb3d-canvas]');
   const world = section.querySelector('.hb3d-world');
   const progress = section.querySelector('.hb3d-progress');
+  const projectCards = Array.from(section.querySelectorAll('.hb3d-project'));
+  const projectDepths = [100, 420, 740, 1060];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   const lowPower = Boolean(
@@ -186,7 +188,17 @@
     world.style.setProperty('--hb3d-tilt', tilt.toFixed(2) + 'deg');
     section.style.setProperty('--hb3d-progress', amount.toFixed(3));
     if (progress) progress.setAttribute('aria-valuenow', String(Math.round(amount * 100)));
-    const chapter = Math.min(3, Math.floor(amount * 4)) + 1;
+    // Keep exactly one project in focus; switch at the midpoint between depth stops.
+    const activeIndex = projectDepths.reduce((best, depth, index, all) =>
+      Math.abs(camera - depth) < Math.abs(camera - all[best]) ? index : best, 0);
+    projectCards.forEach((card, index) => {
+      const active = index === activeIndex;
+      card.classList.toggle('is-active', active);
+      card.style.setProperty('--hb3d-card-opacity', active ? '1' : '0');
+      card.setAttribute('aria-hidden', String(!active));
+      card.setAttribute('tabindex', active ? '0' : '-1');
+    });
+    const chapter = activeIndex + 1;
     if (section.dataset.chapter !== String(chapter)) section.dataset.chapter = String(chapter);
     if (visible) schedule();
   }

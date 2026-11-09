@@ -67,3 +67,25 @@
   .hb3d-project{backdrop-filter:none;-webkit-backdrop-filter:none;background:#101d32}
 }
 @media(forced-colors:active){.hb3d-canvas{display:none}}
+
+
+/* One-at-a-time project reveal, driven by the camera's scroll position. */
+.hb3d-project{
+  opacity:var(--hb3d-card-opacity,0);
+  filter:blur(var(--hb3d-card-blur,7px));
+  pointer-events:none;
+  transition:opacity .24s ease,filter .24s ease,border-color .25s,box-shadow .25s;
+}
+.hb3d-project.is-active{
+  filter:blur(0);
+  pointer-events:auto;
+}
+.hb3d-static .hb3d-project,
+.hb3d-static .hb3d-project:nth-of-type(n){
+  opacity:1;
+  filter:none;
+  pointer-events:auto;
+}
+@media(prefers-reduced-motion:reduce){
+  .hb3d-project{opacity:1;filter:none;pointer-events:auto;transition:none}
+}
