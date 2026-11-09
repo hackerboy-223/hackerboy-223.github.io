@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {Script} from 'node:vm';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const pages=['index.html','about.html','projects.html','exploits.html','404.html',
- 'projects/diamond-block.html','projects/hackerboy-gpt.html','projects/hope.html','projects/fable-5.html',
+ 'projects/diamond-block.html','projects/hackerboy-gpt.html','projects/hope.html','projects/fable-5.html','projects/zerocode.html',
  ...Array.from({length:8},(_,i)=>'posts/post'+(i+1)+'.html'),'posts/hackerboy.html'];
 const issues=[];
 let checks=0;
