@@ -20,7 +20,13 @@ for(const path of pages){
  check((html.match(/<\/html>/gi)||[]).length===1,path+': closing HTML tag');
  for(const m of html.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi))
    check(/\brel=["'][^"']*\bnoopener\b/.test(m[0]),path+': safe external link');
- for(const match of html.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)){
+ for(const match of html.matchAll(/<img\b[^>]*>/gi)){
+  const tag=match[0],src=tag.match(/\bsrc=["']([^"']+)["']/i)?.[1]||'';
+  check(/\balt=["'][^"']*["']/i.test(tag),path+': image alt text');
+  check(/\bwidth=["']?\d+["']?/i.test(tag)&&/\bheight=["']?\d+["']?/i.test(tag),path+': image dimensions');
+  check(!/^https?:\/\//i.test(src),path+': local image source');
+ }
+ for(const match of html.matchAll(/\b(?:href|src|data-fallback)=["']([^"']+)["']/gi)){
   const uri=match[1];
   if(!uri||uri[0]==='#'||/^(https?:|mailto:|tel:|data:|javascript:)/i.test(uri))continue;
   const cleaned=uri.split(/[?#]/)[0];if(!cleaned)continue;
@@ -41,10 +47,15 @@ check(home.includes('data-story'),'home: scroll story');
 check(home.includes('data-hb3d-scroll'),'home: immersive 3D scene');
 check(home.includes('styles/immersive-3d.css'),'home: immersive 3D stylesheet');
 check(home.includes('js/immersive-3d.js'),'home: immersive 3D script');
-for(const file of ['js/site.js','js/experience.js','js/immersive.js','js/immersive-3d.js']){
+check(home.includes('images/diamond-block-preview.svg'),'home: local Diamond Block artwork');
+check(home.includes('images/hackerboy-mark.svg'),'home: lightweight vector brand mark');
+const immersive=await read('js/immersive-3d.js');
+check(immersive.includes("!('IntersectionObserver' in window)"),'immersive: observer fallback');
+check(immersive.includes("card.removeAttribute('tabindex')"),'immersive: static keyboard access');
+for(const file of ['js/site.js','js/experience.js','js/immersive.js','js/cinematic-v2.js','js/immersive-3d.js']){
  try{new Script(await read(file),{filename:file});checks++;}catch(e){issues.push(file+': '+e.message);}
 }
-for(const file of ['styles/diamond-editorial.css','styles/immersive.css','styles/immersive-3d.css']){
+for(const file of ['styles/legacy.css','styles/apple.css','styles/components.css','styles/course.css','styles/cohesion.css','styles/experience.css','styles/cinematic-v2.css','styles/diamond-editorial.css','styles/immersive.css','styles/immersive-3d.css']){
  const css=await read(file);
  check((css.match(/{/g)||[]).length===(css.match(/}/g)||[]).length,file+': balanced braces');
 }
