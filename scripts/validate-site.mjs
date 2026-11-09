@@ -14,31 +14,32 @@ const read=path=>readFile(join(root,path),'utf8');
 function check(ok,message){checks++;if(!ok)issues.push(message);}
 for(const path of pages){
  const html=await read(path),prefix=path.includes('/')?'../':'';
+ const markup=html.replace(/<(pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi,'');
  check(html.includes(prefix+'styles/styles.css?v=16'),path+': local system-font stylesheet');
  check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html),path+': no external web fonts');
  check(html.includes(prefix+'images/hackerboy-mark.svg')||html.includes('/images/hackerboy-mark.svg'),path+': vector favicon');
  check(html.includes(prefix+'styles/diamond-editorial.css'),path+': theme stylesheet');
  check(html.includes(prefix+'js/experience.js'),path+': UI controls');
  check(html.includes(prefix+'js/immersive.js'),path+': scrolling');
- check((html.match(/<\/html>/gi)||[]).length===1,path+': closing HTML tag');
- for(const m of html.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi))
+ check((markup.match(/<\/html>/gi)||[]).length===1,path+': closing HTML tag');
+ for(const m of markup.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi))
    check(/\brel=["'][^"']*\bnoopener\b/.test(m[0]),path+': safe external link');
- for(const match of html.matchAll(/<img\b[^>]*>/gi)){
+ for(const match of markup.matchAll(/<img\b[^>]*>/gi)){
   const tag=match[0],src=tag.match(/\bsrc=["']([^"']+)["']/i)?.[1]||'';
   check(/\balt=["'][^"']*["']/i.test(tag),path+': image alt text');
   check(/\bwidth=["']?\d+["']?/i.test(tag)&&/\bheight=["']?\d+["']?/i.test(tag),path+': image dimensions');
   check(!/^https?:\/\//i.test(src),path+': local image source');
  }
- const socialImage=html.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i)?.[1];
+ const socialImage=markup.match(/<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i)?.[1];
  if(socialImage){
   check(/^https:\/\//i.test(socialImage),path+': absolute Open Graph image URL');
   check(/\.(?:png|jpe?g|webp)(?:[?#].*)?$/i.test(socialImage),path+': raster social preview');
-  check((html.match(/property=["']og:image:alt["']/gi)||[]).length===1,path+': one Open Graph image description');
-  check((html.match(/property=["']og:image:width["']/gi)||[]).length<=1,path+': unique Open Graph image width');
-  check((html.match(/property=["']og:image:height["']/gi)||[]).length<=1,path+': unique Open Graph image height');
-  check((html.match(/name=["']twitter:image["']/gi)||[]).length===1,path+': Twitter image');
+  check((markup.match(/property=["']og:image:alt["']/gi)||[]).length===1,path+': one Open Graph image description');
+  check((markup.match(/property=["']og:image:width["']/gi)||[]).length<=1,path+': unique Open Graph image width');
+  check((markup.match(/property=["']og:image:height["']/gi)||[]).length<=1,path+': unique Open Graph image height');
+  check((markup.match(/name=["']twitter:image["']/gi)||[]).length===1,path+': Twitter image');
  }
- for(const match of html.matchAll(/\b(?:href|src|data-fallback)=["']([^"']+)["']/gi)){
+ for(const match of markup.matchAll(/\b(?:href|src|data-fallback)=["']([^"']+)["']/gi)){
   const uri=match[1];
   if(!uri||uri[0]==='#'||/^(https?:|mailto:|tel:|data:|javascript:)/i.test(uri))continue;
   const cleaned=uri.split(/[?#]/)[0];if(!cleaned)continue;
