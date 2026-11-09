@@ -38,10 +38,13 @@ for(let i=1;i<=8;i++){
 const home=await read('index.html');
 check(home.includes('id="apprendre"'),'home: course pathway');
 check(home.includes('data-story'),'home: scroll story');
-for(const file of ['js/site.js','js/experience.js','js/immersive.js']){
+check(home.includes('data-hb3d-scroll'),'home: immersive 3D scene');
+check(home.includes('styles/immersive-3d.css'),'home: immersive 3D stylesheet');
+check(home.includes('js/immersive-3d.js'),'home: immersive 3D script');
+for(const file of ['js/site.js','js/experience.js','js/immersive.js','js/immersive-3d.js']){
  try{new Script(await read(file),{filename:file});checks++;}catch(e){issues.push(file+': '+e.message);}
 }
-for(const file of ['styles/diamond-editorial.css','styles/immersive.css']){
+for(const file of ['styles/diamond-editorial.css','styles/immersive.css','styles/immersive-3d.css']){
  const css=await read(file);
  check((css.match(/{/g)||[]).length===(css.match(/}/g)||[]).length,file+': balanced braces');
 }
