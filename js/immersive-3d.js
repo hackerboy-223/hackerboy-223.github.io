@@ -170,6 +170,7 @@
   }
 
   let amount = 0;
+  let targetAmount = 0;
   let frame = 0;
   let lastFrame = 0;
   let visible = false;
@@ -178,16 +179,14 @@
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
-  function updateScroll() {
-    const rect = section.getBoundingClientRect();
-    const travel = Math.max(1, section.offsetHeight - window.innerHeight);
-    amount = clamp(-rect.top / travel, 0, 1);
+  function updateScene() {
     const camera = amount * 1180;
     const tilt = Math.sin(amount * Math.PI) * -2.4;
-    world.style.setProperty('--hb3d-camera', camera.toFixed(1) + 'px');
+    world.style.setProperty('--hb3d-camera', camera.toFixed(2) + 'px');
     world.style.setProperty('--hb3d-tilt', tilt.toFixed(2) + 'deg');
-    section.style.setProperty('--hb3d-progress', amount.toFixed(3));
+    section.style.setProperty('--hb3d-progress', amount.toFixed(4));
     if (progress) progress.setAttribute('aria-valuenow', String(Math.round(amount * 100)));
+
     // Keep exactly one project in focus; switch at the midpoint between depth stops.
     const activeIndex = projectDepths.reduce((best, depth, index, all) =>
       Math.abs(camera - depth) < Math.abs(camera - all[best]) ? index : best, 0);
@@ -200,6 +199,12 @@
     });
     const chapter = activeIndex + 1;
     if (section.dataset.chapter !== String(chapter)) section.dataset.chapter = String(chapter);
+  }
+
+  function updateScroll() {
+    const rect = section.getBoundingClientRect();
+    const travel = Math.max(1, section.offsetHeight - window.innerHeight);
+    targetAmount = clamp(-rect.top / travel, 0, 1);
     if (visible) schedule();
   }
 
@@ -223,8 +228,16 @@
       schedule();
       return;
     }
+    const delta = lastFrame ? Math.min((now - lastFrame) / 1000, 0.08) : 0.032;
     lastFrame = now;
     if (!startTime) startTime = now;
+
+    // Time-based exponential easing stays consistent across different refresh rates.
+    const easing = 1 - Math.exp(-delta * 10);
+    amount += (targetAmount - amount) * easing;
+    if (Math.abs(targetAmount - amount) < 0.0005) amount = targetAmount;
+    updateScene();
+
     const time = (now - startTime) / 1000;
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
