@@ -4,6 +4,27 @@
   const root = document.documentElement;
   const body = document.body;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const imageContainers = '.project-visual, .card-image, .case-cover, .article-cover, .db-story-visual, .db-story-mobile, .about-image, .vision-image, .certificate-stack, .certificate-gallery, .brand-mark';
+
+  function recoverImage(image) {
+    const fallback = image.dataset.fallback;
+    if (fallback && image.dataset.fallbackUsed !== 'true') {
+      image.dataset.fallbackUsed = 'true';
+      image.removeAttribute('srcset');
+      image.src = fallback;
+      return;
+    }
+
+    image.classList.add('is-image-unavailable');
+    const container = image.closest(imageContainers);
+    if (container) container.classList.add('has-image-error');
+  }
+
+  document.querySelectorAll('img').forEach(image => {
+    image.addEventListener('error', () => recoverImage(image));
+    if (image.complete && image.naturalWidth === 0) recoverImage(image);
+  });
+
 
   function setTheme(theme, persist = true) {
     root.dataset.theme = theme;
@@ -191,15 +212,7 @@
     navSections.forEach(section => sectionObserver.observe(section));
   }
 
-  if (document.body.dataset.page === 'home' && !reducedMotion) {
-    const heroImage = document.querySelector('.portfolio-hero-image');
-    const updateHeroDepth = () => {
-      if (!heroImage || window.scrollY > window.innerHeight * 1.05) return;
-      heroImage.style.transform = `translate3d(0, ${Math.min(window.scrollY * .075, 36)}px, 0) scale(1.035)`;
-    };
-    window.addEventListener('scroll', updateHeroDepth, { passive: true });
-    updateHeroDepth();
-  }
+  // Hero parallax is owned by cinematic-v2.js to avoid competing transform writes.
 
   if (canHover && !reducedMotion) {
     window.addEventListener('pointermove', event => {
