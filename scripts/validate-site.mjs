@@ -51,7 +51,7 @@ for(const path of pages){
   try{
    const socialUrl=new URL(socialImage);
    if(socialUrl.hostname==='hackerboy-223.vercel.app'){
-    const socialAsset=join(root,decodeURIComponent(socialUrl.pathname.replace(/^\\/+/,'')));
+    const socialAsset=resolve(root,'.'+decodeURIComponent(socialUrl.pathname));
     check(existsSync(socialAsset),path+': Open Graph image exists locally');
     if(existsSync(socialAsset))check(await imageSignatureMatches(socialAsset),path+': Open Graph image format matches its extension');
    }
