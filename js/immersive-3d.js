@@ -9,7 +9,10 @@
   const world = section.querySelector('.hb3d-world');
   const progress = section.querySelector('.hb3d-progress');
   const projectCards = Array.from(section.querySelectorAll('.hb3d-project'));
-  const projectDepths = [100, 420, 740, 1060];
+  const compactViewport = window.matchMedia('(max-width: 720px)');
+  const desktopProjectDepths = [100, 420, 740, 1060];
+  const compactProjectDepths = [100, 390, 680, 970];
+  let projectDepths = compactViewport.matches ? compactProjectDepths : desktopProjectDepths;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   const lowPower = Boolean(
@@ -102,6 +105,7 @@
     return;
   }
 
+  section.classList.add('hb3d-enhanced');
   gl.useProgram(program);
   const locations = {
     position: gl.getAttribLocation(program, 'a_position'),
@@ -176,66 +180,91 @@
   let visible = false;
   let destroyed = false;
   let startTime = 0;
+  let activeProject = -1;
+  let lastProgressValue = -1;
 
+  const FRAME_INTERVAL = 1000 / 60;
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
   function updateScene() {
-    const camera = amount * 1180;
+    const cameraTravel = projectDepths[projectDepths.length - 1] + 120;
+    const camera = amount * cameraTravel;
     const tilt = Math.sin(amount * Math.PI) * -2.4;
+
     world.style.setProperty('--hb3d-camera', camera.toFixed(2) + 'px');
     world.style.setProperty('--hb3d-tilt', tilt.toFixed(2) + 'deg');
     section.style.setProperty('--hb3d-progress', amount.toFixed(4));
-    if (progress) progress.setAttribute('aria-valuenow', String(Math.round(amount * 100)));
 
-    // Keep exactly one project in focus; switch at the midpoint between depth stops.
-    const activeIndex = projectDepths.reduce((best, depth, index, all) =>
+    const progressValue = Math.round(amount * 100);
+    if (progress && progressValue !== lastProgressValue) {
+      progress.setAttribute('aria-valuenow', String(progressValue));
+      lastProgressValue = progressValue;
+    }
+
+    // Update accessibility and card state only when the active project changes.
+    const nextProject = projectDepths.reduce((best, depth, index, all) =>
       Math.abs(camera - depth) < Math.abs(camera - all[best]) ? index : best, 0);
-    projectCards.forEach((card, index) => {
-      const active = index === activeIndex;
-      card.classList.toggle('is-active', active);
-      card.style.setProperty('--hb3d-card-opacity', active ? '1' : '0');
-      card.setAttribute('aria-hidden', String(!active));
-      card.setAttribute('tabindex', active ? '0' : '-1');
-    });
-    const chapter = activeIndex + 1;
-    if (section.dataset.chapter !== String(chapter)) section.dataset.chapter = String(chapter);
+
+    if (nextProject !== activeProject) {
+      projectCards.forEach((card, index) => {
+        const active = index === nextProject;
+        card.classList.toggle('is-active', active);
+        card.style.setProperty('--hb3d-card-opacity', active ? '1' : '0');
+        card.setAttribute('aria-hidden', String(!active));
+        card.setAttribute('tabindex', active ? '0' : '-1');
+      });
+
+      activeProject = nextProject;
+      section.dataset.chapter = String(nextProject + 1);
+    }
   }
 
   function updateScroll() {
     const rect = section.getBoundingClientRect();
     const travel = Math.max(1, section.offsetHeight - window.innerHeight);
     targetAmount = clamp(-rect.top / travel, 0, 1);
+
     if (visible) schedule();
   }
 
   function resize() {
+    projectDepths = compactViewport.matches ? compactProjectDepths : desktopProjectDepths;
+
     const rect = canvas.getBoundingClientRect();
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+    const dpr = Math.min(window.devicePixelRatio || 1, compactViewport.matches ? 1 : 1.25);
     const width = Math.max(1, Math.floor(rect.width * dpr));
     const height = Math.max(1, Math.floor(rect.height * dpr));
+
     if (canvas.width !== width || canvas.height !== height) {
       canvas.width = width;
       canvas.height = height;
       gl.viewport(0, 0, width, height);
     }
-    if (visible) schedule();
+
+    updateScroll();
   }
 
   function draw(now) {
     frame = 0;
     if (!visible || destroyed || document.hidden) return;
-    if (now - lastFrame < 32) {
+
+    // Cap at 60fps on high-refresh displays; never throttle a normal 60Hz screen to 30fps.
+    if (lastFrame && now - lastFrame < FRAME_INTERVAL) {
       schedule();
       return;
     }
-    const delta = lastFrame ? Math.min((now - lastFrame) / 1000, 0.08) : 0.032;
+
+    const delta = lastFrame ? Math.min((now - lastFrame) / 1000, 0.1) : 1 / 60;
     lastFrame = now;
     if (!startTime) startTime = now;
 
-    // Time-based exponential easing stays consistent across different refresh rates.
-    const easing = 1 - Math.exp(-delta * 10);
+    // One time-based camera interpolation drives the DOM and WebGL scene together.
+    const easing = 1 - Math.exp(-8 * delta);
     amount += (targetAmount - amount) * easing;
-    if (Math.abs(targetAmount - amount) < 0.0005) amount = targetAmount;
+
+    const stillMoving = Math.abs(targetAmount - amount) > 0.00035;
+    if (!stillMoving) amount = targetAmount;
+
     updateScene();
 
     const time = (now - startTime) / 1000;
@@ -254,7 +283,9 @@
     bindBuffer(pointBuffer);
     gl.uniform1f(locations.pointMode, 1);
     gl.drawArrays(gl.POINTS, 0, points.length / 5);
-    schedule();
+
+    // Stop requesting frames when the camera has settled; resume on the next scroll.
+    if (stillMoving) schedule();
   }
 
   function schedule() {
@@ -263,12 +294,16 @@
 
   const observer = new IntersectionObserver(entries => {
     visible = entries[0].isIntersecting;
+    section.classList.toggle('is-rendering', visible);
+
     if (visible) {
+      lastFrame = 0;
       resize();
       schedule();
-    } else if (frame) {
-      window.cancelAnimationFrame(frame);
+    } else {
+      if (frame) window.cancelAnimationFrame(frame);
       frame = 0;
+      lastFrame = 0;
     }
   }, { rootMargin: '100px 0px' });
   observer.observe(section);
@@ -277,17 +312,23 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', resize, { passive: true });
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden && frame) {
-      window.cancelAnimationFrame(frame);
+    if (document.hidden) {
+      if (frame) window.cancelAnimationFrame(frame);
       frame = 0;
-    } else if (!document.hidden) schedule();
+      lastFrame = 0;
+    } else {
+      updateScroll();
+      schedule();
+    }
   });
   canvas.addEventListener('webglcontextlost', event => {
     event.preventDefault();
     destroyed = true;
+    section.classList.remove('is-rendering', 'hb3d-enhanced');
     section.classList.add('hb3d-static');
+    if (frame) window.cancelAnimationFrame(frame);
+    frame = 0;
   }, { once: true });
 
-  updateScroll();
   resize();
 })();
