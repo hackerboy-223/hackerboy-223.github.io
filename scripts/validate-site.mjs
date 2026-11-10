@@ -80,12 +80,12 @@ check(home.includes('data-story'),'home: scroll story');
 check(home.includes('data-hb3d-scroll'),'home: immersive 3D scene');
 check(home.includes('styles/immersive-3d.css'),'home: immersive 3D stylesheet');
 check(home.includes('js/immersive-3d.js'),'home: immersive 3D script');
-check(home.includes('images/diamond-block-product.png'),'home: local Diamond Block product image');
+check(home.includes('images/diamond-block-product.jpg'),'home: local Diamond Block product image');
 check(home.includes('images/hackerboy-mark.svg'),'home: lightweight vector brand mark');
 check(home.includes('images/javascript-learning.svg'),'home: JavaScript article artwork');
 check(home.includes('images/python-learning.svg'),'home: Python article artwork');
 check(existsSync(join(root,'images/hackerboy-mark.svg')),'Brand: vector mark asset');
-check(existsSync(join(root,'images/diamond-block-product.png')),'Diamond Block: local product image');
+check(existsSync(join(root,'images/diamond-block-product.jpg')),'Diamond Block: local product image');
 check(existsSync(join(root,'images/javascript-learning.svg')),'JavaScript: local article artwork');
 check(existsSync(join(root,'images/python-learning.svg')),'Python: local article artwork');
 const legacyCss=await read('styles/legacy.css');
@@ -97,9 +97,18 @@ check(!zeroCode.includes('project-fable-5.jpg'),'ZeroCode: no Fable 5 image reus
 check((await read('posts/post5.html')).includes('javascript-learning.svg'),'JavaScript: matching article artwork');
 check((await read('posts/post6.html')).includes('python-learning.svg'),'Python: matching article artwork');
 const sitemap=await read('sitemap.xml');
-check(sitemap.includes('images/diamond-block-product.png'),'sitemap: local Diamond Block image');
+check(sitemap.includes('images/diamond-block-product.jpg'),'sitemap: local Diamond Block image');
 check(!sitemap.includes('drissa-fashion.vercel.app/hero-fashion.png'),'sitemap: no external Diamond Block image');
+check(sitemap.includes('images/program.webp'),'sitemap: correctly named WebP artwork');
+check(!sitemap.includes('images/program.png'),'sitemap: no mislabeled WebP image');
+check(sitemap.includes('images/hack8080.png')&&!sitemap.includes('images/hack8080.jpg'),'sitemap: correct H@CKERBOY image format');
 check(sitemap.includes('posts/post5.html</loc><lastmod>2026-11-09</lastmod>'),'sitemap: current article modification date');
+for(const match of sitemap.matchAll(/<image:loc>(https:\/\/hackerboy-223\.vercel\.app\/images\/[^<]+)<\/image:loc>/gi)){
+ const imageUrl=new URL(match[1]);
+ const imageFile=resolve(root,'.'+decodeURIComponent(imageUrl.pathname));
+ check(existsSync(imageFile),'sitemap: image asset '+imageUrl.pathname);
+ if(existsSync(imageFile))check(await imageSignatureMatches(imageFile),'sitemap: image bytes match extension '+imageUrl.pathname);
+}
 const immersive=await read('js/immersive-3d.js');
 check(immersive.includes("!('IntersectionObserver' in window)"),'immersive: observer fallback');
 check(immersive.includes("card.removeAttribute('tabindex')"),'immersive: static keyboard access');
