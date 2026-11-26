@@ -24,6 +24,8 @@ async function imageSignatureMatches(file){
 }
 for(const path of pages){
  const html=await read(path),prefix=path.includes('/')?'../':'';
+ check(html.includes('hack8080.png'),path+': original H@CKERBOY logo is present');
+ check(!html.includes('hackerboy-mark.svg'),path+': no temporary replacement logo remains');
  const markup=html.replace(/<(pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi,'');
  check(html.includes(prefix+'styles/styles.css?v=16'),path+': local system-font stylesheet');
  check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html),path+': no external web fonts');
