@@ -6,6 +6,10 @@
     <image:image><image:loc>https://hackerboy-223.vercel.app/images/portfolio-hero.jpg</image:loc></image:image>
   </url>
   <url>
+    <loc>https://hackerboy-223.vercel.app/cv.html</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
     <loc>https://hackerboy-223.vercel.app/about.html</loc>
     <lastmod>2026-11-09</lastmod>
     <image:image><image:loc>https://hackerboy-223.vercel.app/images/portfolio-africa-tech.jpg</image:loc></image:image>
