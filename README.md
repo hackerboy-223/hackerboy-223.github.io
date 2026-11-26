@@ -47,7 +47,7 @@ Le site est volontairement statique et repose sur des technologies web fondament
 | Élément | Rôle |
 |---|---|
 | `index.html` | Accueil du portfolio, identité, projets mis en avant, journal et reconnaissance. |
-| `about.html` | Parcours, méthode d’apprentissage et positionnement public de H@CKERBOY. |
+| `about.html` | Parcours, méthode d’apprentissage et positionnement public de H@CKERBOY. |\n| `cv.html` | CV consultable et imprimable, avec projets, formation et compétences vérifiables. |
 | `projects.html` | Vue d’ensemble des projets et accès aux études de cas. |
 | `projects/` | Pages détaillées des projets actuellement présentés, dont ZeroCode. |
 | `exploits.html` | Parcours, chronologie et certificats du MaliBots Challenge 2025. |
