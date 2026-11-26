@@ -45,7 +45,11 @@
     <lastmod>2026-11-09</lastmod>
     <image:image><image:loc>https://hackerboy-223.vercel.app/images/project-fable-5.jpg</image:loc></image:image>
   </url>
-  <url>\n    <loc>https://hackerboy-223.vercel.app/posts/hackerboy.html</loc>\n    <lastmod>2026-11-09</lastmod>\n    <image:image><image:loc>https://hackerboy-223.vercel.app/images/hack8080.png</image:loc></image:image>\n  </url>
+  <url>
+    <loc>https://hackerboy-223.vercel.app/posts/hackerboy.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <image:image><image:loc>https://hackerboy-223.vercel.app/images/hack8080.png</image:loc></image:image>
+  </url>
   <url>
     <loc>https://hackerboy-223.vercel.app/posts/post1.html</loc><lastmod>2026-11-09</lastmod>
     <image:image><image:loc>https://hackerboy-223.vercel.app/images/matrix-1460603554sdB.jpg</image:loc></image:image>
