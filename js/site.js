@@ -157,7 +157,10 @@
     });
   }
 
-  const revealTargets = body.dataset.page === 'home' ? [] : [...document.querySelectorAll('.section-heading, .project-card, .post-card, .expertise-item, .signal-grid > div, .bot-card, .article-content > section, .exploit-feature, .story-section, .certificate-gallery figure')];
+  const revealSelector = body.dataset.page === 'home'
+    ? '.section-heading, .proof-grid > div, .social-card, .contact-panel'
+    : '.section-heading, .project-card, .post-card, .expertise-item, .signal-grid > div, .bot-card, .article-content > section, .exploit-feature, .story-section, .certificate-gallery figure, .contact-panel, .social-card';
+  const revealTargets = [...document.querySelectorAll(revealSelector)];
   revealTargets.forEach((target, index) => {
     target.classList.add('reveal');
     target.style.setProperty('--reveal-delay', `${Math.min(index * 42, 280)}ms`);
@@ -183,8 +186,15 @@
   const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('.site-header');
+  const progress = document.createElement('div');
+  progress.className = 'page-scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progress);
   let ticking = false;
   const updateScrollState = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+    progress.style.transform = `scaleX(${ratio})`;
     document.body.classList.toggle('is-scrolling', window.scrollY > 18);
     if (header) header.classList.toggle('is-scrolled', window.scrollY > 24);
     ticking = false;
