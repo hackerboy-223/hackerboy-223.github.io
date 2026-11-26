@@ -5,7 +5,7 @@ import {resolve,dirname,join,relative,extname,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {Script} from 'node:vm';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const pages=['index.html','about.html','projects.html','exploits.html','404.html',
+const pages=['index.html','about.html','cv.html','projects.html','exploits.html','404.html',
  'projects/diamond-block.html','projects/hackerboy-gpt.html','projects/hope.html','projects/fable-5.html','projects/zerocode.html',
  ...Array.from({length:8},(_,i)=>'posts/post'+(i+1)+'.html'),'posts/hackerboy.html'];
 const issues=[];
@@ -84,6 +84,12 @@ check(home.includes('images/diamond-block-product.jpg'),'home: local Diamond Blo
 check(home.includes('images/hackerboy-mark.svg'),'home: lightweight vector brand mark');
 check(home.includes('images/javascript-learning.svg'),'home: JavaScript article artwork');
 check(home.includes('images/python-learning.svg'),'home: Python article artwork');
+check(home.includes('href="./cv.html"'),'home: direct CV link');
+const cv=await read('cv.html');
+check(cv.includes('id="cv-print"'),'CV: print and save as PDF action');
+check(cv.includes('ZeroCode')&&cv.includes('Diamond Block'),'CV: selected project evidence');
+check(cv.includes('Lycée Technique de Bamako'),'CV: education');
+check(cv.includes('MaliBots Challenge 2025'),'CV: verified distinction');
 check(existsSync(join(root,'images/hackerboy-mark.svg')),'Brand: vector mark asset');
 check(existsSync(join(root,'images/diamond-block-product.jpg')),'Diamond Block: local product image');
 check(existsSync(join(root,'images/javascript-learning.svg')),'JavaScript: local article artwork');
