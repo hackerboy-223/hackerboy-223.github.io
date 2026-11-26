@@ -2,7 +2,7 @@ name: Validate portfolio
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, polish/local-project-media-and-quality]
   push:
     branches: [main]
 
