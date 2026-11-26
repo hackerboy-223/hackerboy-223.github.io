@@ -222,15 +222,20 @@
 
   }
 
-  const terminalMode = document.querySelector('.terminal-status span:last-child');
-  if (terminalMode && !reducedMotion) {
-    const modes = ['learning_mode: on', 'build_mode: active', 'curiosity_mode: on', 'shipping_mode: ready'];
+  const terminalStatus = document.querySelector('[data-terminal-status]');
+  if (terminalStatus && !reducedMotion) {
+    const statuses = ['status: building', 'status: testing', 'status: improving', 'status: learning'];
     let index = 0;
     window.setInterval(() => {
-      index = (index + 1) % modes.length;
-      terminalMode.animate([{ opacity: .25, transform: 'translateY(4px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 220, easing: 'cubic-bezier(.23,1,.32,1)' });
-      terminalMode.textContent = modes[index];
-    }, 2600);
+      index = (index + 1) % statuses.length;
+      if (typeof terminalStatus.animate === 'function') {
+        terminalStatus.animate(
+          [{ opacity: .35, transform: 'translateY(3px)' }, { opacity: 1, transform: 'translateY(0)' }],
+          { duration: 240, easing: 'cubic-bezier(.23,1,.32,1)' }
+        );
+      }
+      terminalStatus.textContent = statuses[index];
+    }, 3200);
   }
 
   document.querySelectorAll('.filter-button').forEach(button => button.addEventListener('click', () => {
@@ -259,7 +264,7 @@
   }));
 
   if (document.body.dataset.page === 'home' && !reducedMotion) {
-    const heroWord = document.querySelector('.hero h1 em');
+    const heroWord = document.querySelector('.portfolio-hero h1 em');
     if (heroWord) heroWord.animate([{ backgroundPosition: '0% 50%' }, { backgroundPosition: '100% 50%' }, { backgroundPosition: '0% 50%' }], { duration: 7000, iterations: Infinity, easing: 'linear' });
   }
 })();
@@ -385,3 +390,6 @@
     close.focus();
   }));
 })();
+
+
+(() => { const button=document.querySelector('#cv-print'); if(button) button.addEventListener('click',()=>window.print()); })();
