@@ -48,6 +48,7 @@ Le site est volontairement statique et repose sur des technologies web fondament
 |---|---|
 | `index.html` | Accueil du portfolio, identité, projets mis en avant, journal et reconnaissance. |
 | `about.html` | Parcours, méthode d’apprentissage et positionnement public de H@CKERBOY. |
+| `cv.html` | CV consultable et imprimable, avec projets, formation et compétences vérifiables. |
 | `projects.html` | Vue d’ensemble des projets et accès aux études de cas. |
 | `projects/` | Pages détaillées des projets actuellement présentés, dont ZeroCode. |
 | `exploits.html` | Parcours, chronologie et certificats du MaliBots Challenge 2025. |
@@ -55,7 +56,7 @@ Le site est volontairement statique et repose sur des technologies web fondament
 | `data/posts.json` | Métadonnées éditoriales des articles. |
 | `styles/styles.css` | Système visuel responsive, thème sombre et composants du portfolio. |
 | `js/site.js` | Navigation, recherche, filtres, thème, sommaire, quiz et mini-laboratoires. |
-| `images/` | Visuels locaux du portfolio, des projets et des articles. |
+| `images/` | Visuels locaux du portfolio, dont le logo H@CKERBOY d’origine (`hack8080.png`), et images des projets et articles. |
 | `sitemap.xml` | URLs publiques déclarées aux moteurs de recherche. |
 | `robots.txt` | Règles d’exploration et déclaration du sitemap. |
 
