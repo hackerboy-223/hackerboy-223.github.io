@@ -56,6 +56,7 @@
       {name:'Cours : Sécurité Web',detail:'Défendre une application dès la conception',url:'/posts/post8.html',keywords:'securite owasp defense'},
       {name:'Journal',detail:'Articles et découvertes techniques',url:'/#articles',keywords:'blog tutoriels cours'},
       {name:'À propos',detail:'Parcours, formation et vision',url:'/about.html',keywords:'profil biographie'},
+      {name:'CV',detail:'Compétences, formation et projets sélectionnés',url:'/cv.html',keywords:'curriculum vitae experience compétences recrutement'},
       {name:'Contact',detail:'Liens et réseaux professionnels',url:'/#contact',keywords:'linkedin whatsapp'},
       {name:'GitHub',detail:'Code et projets publics',url:'https://github.com/hackerboy-223',keywords:'repository depot source'}
     ];

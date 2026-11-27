@@ -5,7 +5,7 @@ import {resolve,dirname,join,relative,extname,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {Script} from 'node:vm';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const pages=['index.html','about.html','projects.html','exploits.html','404.html',
+const pages=['index.html','about.html','cv.html','projects.html','exploits.html','404.html',
  'projects/diamond-block.html','projects/hackerboy-gpt.html','projects/hope.html','projects/fable-5.html','projects/zerocode.html',
  ...Array.from({length:8},(_,i)=>'posts/post'+(i+1)+'.html'),'posts/hackerboy.html'];
 const issues=[];
@@ -24,10 +24,12 @@ async function imageSignatureMatches(file){
 }
 for(const path of pages){
  const html=await read(path),prefix=path.includes('/')?'../':'';
+ check(html.includes('hack8080.png'),path+': original H@CKERBOY logo is present');
+ check(!html.includes('hackerboy-mark.svg'),path+': no temporary replacement logo remains');
  const markup=html.replace(/<(pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi,'');
  check(html.includes(prefix+'styles/styles.css?v=16'),path+': local system-font stylesheet');
  check(!/fonts\.googleapis\.com|fonts\.gstatic\.com/i.test(html),path+': no external web fonts');
- check(html.includes(prefix+'images/hackerboy-mark.svg')||html.includes('/images/hackerboy-mark.svg'),path+': vector favicon');
+ check(html.includes(prefix+'images/hack8080.png')||html.includes('/images/hack8080.png'),path+': original H@CKERBOY favicon');
  check(html.includes(prefix+'styles/diamond-editorial.css'),path+': theme stylesheet');
  check(html.includes(prefix+'js/experience.js'),path+': UI controls');
  check(html.includes(prefix+'js/immersive.js'),path+': scrolling');
@@ -81,10 +83,17 @@ check(home.includes('data-hb3d-scroll'),'home: immersive 3D scene');
 check(home.includes('styles/immersive-3d.css'),'home: immersive 3D stylesheet');
 check(home.includes('js/immersive-3d.js'),'home: immersive 3D script');
 check(home.includes('images/diamond-block-product.jpg'),'home: local Diamond Block product image');
-check(home.includes('images/hackerboy-mark.svg'),'home: lightweight vector brand mark');
+check(home.includes('images/hack8080.png'),'home: original H@CKERBOY brand mark');
 check(home.includes('images/javascript-learning.svg'),'home: JavaScript article artwork');
 check(home.includes('images/python-learning.svg'),'home: Python article artwork');
-check(existsSync(join(root,'images/hackerboy-mark.svg')),'Brand: vector mark asset');
+check(home.includes('href="./cv.html"'),'home: direct CV link');
+const cv=await read('cv.html');
+check(cv.includes('id="cv-print"'),'CV: print and save as PDF action');
+check(cv.includes('ZeroCode')&&cv.includes('Diamond Block'),'CV: selected project evidence');
+check(cv.includes('Lycée Technique de Bamako'),'CV: education');
+check(cv.includes('MaliBots Challenge 2025'),'CV: verified distinction');
+check(existsSync(join(root,'images/hack8080.png')),'Brand: original PNG logo asset');
+check(existsSync(join(root,'icon/hack8080.ico')),'Brand: original ICO icon asset');
 check(existsSync(join(root,'images/diamond-block-product.jpg')),'Diamond Block: local product image');
 check(existsSync(join(root,'images/javascript-learning.svg')),'JavaScript: local article artwork');
 check(existsSync(join(root,'images/python-learning.svg')),'Python: local article artwork');
