@@ -21,8 +21,19 @@
     (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2)
   );
 
-  if (!canvas || !world || reducedMotion.matches || lowPower) {
+  function showStaticExperience() {
+    section.classList.remove('is-rendering', 'hb3d-enhanced');
     section.classList.add('hb3d-static');
+    projectCards.forEach(card => {
+      card.classList.remove('is-active');
+      card.style.removeProperty('--hb3d-card-opacity');
+      card.removeAttribute('aria-hidden');
+      card.removeAttribute('tabindex');
+    });
+  }
+
+  if (!canvas || !world || reducedMotion.matches || lowPower || !('IntersectionObserver' in window)) {
+    showStaticExperience();
     return;
   }
 
@@ -36,7 +47,7 @@
   });
 
   if (!gl) {
-    section.classList.add('hb3d-static');
+    showStaticExperience();
     return;
   }
 
@@ -101,7 +112,7 @@
     gl.linkProgram(program);
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error('WebGL program link failed');
   } catch (error) {
-    section.classList.add('hb3d-static');
+    showStaticExperience();
     return;
   }
 
@@ -320,8 +331,7 @@
   canvas.addEventListener('webglcontextlost', event => {
     event.preventDefault();
     destroyed = true;
-    section.classList.remove('is-rendering', 'hb3d-enhanced');
-    section.classList.add('hb3d-static');
+    showStaticExperience();
     if (frame) window.cancelAnimationFrame(frame);
     frame = 0;
   }, { once: true });
