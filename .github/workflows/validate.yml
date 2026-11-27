@@ -1,0 +1,23 @@
+name: Validate portfolio
+
+on:
+  pull_request:
+    branches: [main, polish/local-project-media-and-quality]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate pages, links, assets, scripts and styles
+        run: node scripts/validate-site.mjs
