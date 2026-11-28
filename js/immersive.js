@@ -11,10 +11,15 @@
   const hasFrame = 'requestAnimationFrame' in window;
   const home = body.dataset.page === 'home';
 
-  const progress = document.createElement('div');
-  progress.className = 'immersive-progress';
-  progress.setAttribute('aria-hidden', 'true');
-  body.appendChild(progress);
+  const progress = document.querySelector('.page-scroll-progress')
+    ? null
+    : (() => {
+        const bar = document.createElement('div');
+        bar.className = 'immersive-progress';
+        bar.setAttribute('aria-hidden', 'true');
+        body.appendChild(bar);
+        return bar;
+      })();
 
   const story = document.querySelector('[data-story]');
   const steps = story ? [...story.querySelectorAll('[data-story-chapter]')] : [];
@@ -61,21 +66,33 @@
     });
     if (targets.length) {
       document.documentElement.classList.add('immersive-ready');
+      const revealVisible = () => {
+        targets.forEach(el => {
+          if (el.classList.contains('is-visible')) return;
+          const r = el.getBoundingClientRect();
+          if (r.top < window.innerHeight * 1.12 && r.bottom > -40) el.classList.add('is-visible');
+        });
+      };
       const observer = new IntersectionObserver(entries => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
           entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         }
-      }, { threshold: 0.05, rootMargin: '0px 0px -28px 0px' });
+      }, { threshold: 0.01, rootMargin: '120px 0px 140px 0px' });
       targets.filter(el => !el.classList.contains('is-visible')).forEach(el => observer.observe(el));
+      revealVisible();
+      window.addEventListener('scroll', revealVisible, { passive: true });
+      window.addEventListener('resize', revealVisible, { passive: true });
     }
   }
 
   let scheduled = false;
   function update() {
-    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, window.scrollY / max)) + ')';
+    if (progress) {
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, window.scrollY / max)) + ')';
+    }
 
     if (steps.length && window.innerWidth > 980) {
       const viewMid = window.innerHeight * .53;

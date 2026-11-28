@@ -22,9 +22,29 @@
 
   document.querySelectorAll('img').forEach(image => {
     image.addEventListener('error', () => recoverImage(image));
-    if (image.complete && image.naturalWidth === 0) recoverImage(image);
+    if (image.loading !== 'lazy' && image.complete && image.naturalWidth === 0) recoverImage(image);
   });
 
+
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  function buildSvgIcon(paths, filled = false) {
+    const svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', filled ? 'currentColor' : 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '1.85');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('focusable', 'false');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.classList.add('hb-icon');
+    paths.forEach(([tag, attrs]) => {
+      const node = document.createElementNS(SVG_NS, tag);
+      Object.entries(attrs).forEach(([k, v]) => node.setAttribute(k, String(v)));
+      svg.appendChild(node);
+    });
+    return svg;
+  }
 
   function setTheme(theme, persist = true) {
     root.dataset.theme = theme;
@@ -33,9 +53,20 @@
     const button = document.querySelector('#theme-toggle');
     if (button) {
       const isDark = theme === 'dark';
-      button.textContent = isDark ? '☼' : '◐';
+      const icon = isDark
+        ? buildSvgIcon([
+            ['circle', { cx: 12, cy: 12, r: 4 }],
+            ['path', { d: 'M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41' }]
+          ])
+        : buildSvgIcon([['path', { d: 'M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z' }]]);
+      button.replaceChildren(icon);
       button.setAttribute('aria-label', isDark ? 'Activer le thème clair' : 'Activer le thème sombre');
       button.title = isDark ? 'Passer au thème clair' : 'Passer au thème sombre';
+      if (persist && !reducedMotion) {
+        button.classList.remove('is-switching');
+        void button.offsetWidth;
+        button.classList.add('is-switching');
+      }
     }
   }
 
@@ -88,6 +119,14 @@
   const emptyState = document.querySelector('#empty-state');
   let activeFilter = new URLSearchParams(window.location.search).get('filter') || 'all';
   if (!['all', 'programmation', 'informatique', 'cybersécurité', 'apropos'].includes(activeFilter)) activeFilter = 'all';
+
+  const searchIconHost = document.querySelector('.search-field > span[aria-hidden="true"]');
+  if (searchIconHost) {
+    searchIconHost.replaceChildren(buildSvgIcon([
+      ['circle', { cx: 11, cy: 11, r: 7 }],
+      ['path', { d: 'm21 21-4.3-4.3' }]
+    ]));
+  }
 
   function updateCards() {
     const query = (search?.value || '').trim().toLowerCase();
@@ -167,6 +206,13 @@
   });
   if (!reducedMotion && 'IntersectionObserver' in window) {
     document.body.classList.add('motion-ready');
+    const revealVisibleInViewport = () => {
+      revealTargets.forEach(target => {
+        if (target.classList.contains('is-visible')) return;
+        const r = target.getBoundingClientRect();
+        if (r.top < window.innerHeight * 1.12 && r.bottom > -40) target.classList.add('is-visible');
+      });
+    };
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -174,8 +220,11 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: .08, rootMargin: '0px 0px -7% 0px' });
+    }, { threshold: .01, rootMargin: '120px 0px 140px 0px' });
     revealTargets.forEach(target => observer.observe(target));
+    revealVisibleInViewport();
+    window.addEventListener('scroll', revealVisibleInViewport, { passive: true });
+    window.addEventListener('resize', revealVisibleInViewport, { passive: true });
   } else {
     revealTargets.forEach(target => target.classList.add('is-visible'));
   }
@@ -232,20 +281,120 @@
 
   }
 
-  const terminalStatus = document.querySelector('[data-terminal-status]');
-  if (terminalStatus && !reducedMotion) {
+  const initialStatus = document.querySelector('[data-terminal-status]');
+  if (initialStatus && !reducedMotion) {
     const statuses = ['status: building', 'status: testing', 'status: improving', 'status: learning'];
     let index = 0;
     window.setInterval(() => {
+      const live = document.querySelector('[data-terminal-status]');
+      if (!live) return;
       index = (index + 1) % statuses.length;
-      if (typeof terminalStatus.animate === 'function') {
-        terminalStatus.animate(
+      if (typeof live.animate === 'function') {
+        live.animate(
           [{ opacity: .35, transform: 'translateY(3px)' }, { opacity: 1, transform: 'translateY(0)' }],
           { duration: 240, easing: 'cubic-bezier(.23,1,.32,1)' }
         );
       }
-      terminalStatus.textContent = statuses[index];
+      live.textContent = statuses[index];
     }, 3200);
+  }
+
+  const heroConsole = document.querySelector('.hero-console');
+  const consoleBody = heroConsole?.querySelector('.console-body');
+  if (heroConsole && consoleBody) {
+    const defaultNodes = [...consoleBody.childNodes].map(n => n.cloneNode(true));
+    const views = {
+      profil: null,
+      stack: {
+        rows: [
+          ['cat stack.front', 'HTML · CSS · JavaScript · TypeScript · React · Next.js'],
+          ['cat stack.back', 'Python · PHP · Laravel · API REST · PostgreSQL · Supabase'],
+          ['cat stack.ops', 'Git · GitHub · Linux · Vercel · Render']
+        ],
+        tags: ['full-stack', 'responsive & accessible'],
+        link: { label: 'Explorer l’expertise →', href: '#expertise' }
+      },
+      palmares: {
+        rows: [
+          ['cat malibots-2025.log', '1re place · Médaille d’or Développement Web'],
+          ['cat formation.txt', 'Lycée Technique de Bamako · STI Génie électronique'],
+          ['cat methode.txt', 'Comprendre → Construire → Tester → Améliorer']
+        ],
+        tags: ['MaliBots 2025', 'certificats vérifiés'],
+        link: { label: 'Voir les certificats →', href: '#exploits' }
+      },
+      projets: {
+        rows: [
+          ['ls -1 featured/', 'ZeroCode · Agent de codage Python CLI/TUI'],
+          ['cat prod/diamond-block', 'Boutique e-commerce Next.js · Supabase · Vercel'],
+          ['cat labs/ai', 'H@CKERBOY GPT · HOPE! · Fable 5']
+        ],
+        tags: ['open source', 'en production'],
+        link: { label: 'Parcourir les projets →', href: '#projets' }
+      }
+    };
+
+    const tabs = document.createElement('div');
+    tabs.className = 'console-tabs';
+    tabs.setAttribute('role', 'tablist');
+    tabs.setAttribute('aria-label', 'Vues du terminal H@CKERBOY');
+    const labels = { profil: 'profil', stack: 'stack', palmares: 'palmarès', projets: 'projets' };
+    const tabButtons = Object.keys(views).map(key => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'console-tab' + (key === 'profil' ? ' is-active' : '');
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-selected', String(key === 'profil'));
+      btn.textContent = labels[key];
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => {
+          const active = b === btn;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-selected', String(active));
+        });
+        consoleBody.replaceChildren();
+        if (key === 'profil') {
+          defaultNodes.forEach(n => consoleBody.appendChild(n.cloneNode(true)));
+          const liveStatus = consoleBody.querySelector('[data-terminal-status]');
+          if (liveStatus && initialStatus) liveStatus.textContent = initialStatus.textContent;
+          return;
+        }
+        const data = views[key];
+        data.rows.forEach(([cmd, out], i) => {
+          const pCmd = document.createElement('p');
+          pCmd.className = 'console-line-enter';
+          pCmd.style.animationDelay = `${i * 55}ms`;
+          const prompt = document.createElement('span');
+          prompt.className = 'prompt';
+          prompt.textContent = '➜ ';
+          const cmdSpan = document.createElement('span');
+          cmdSpan.className = 'cyan';
+          cmdSpan.textContent = cmd;
+          pCmd.append(prompt, cmdSpan);
+
+          const pOut = document.createElement('p');
+          pOut.className = 'console-output console-line-enter';
+          pOut.style.animationDelay = `${i * 55 + 25}ms`;
+          pOut.textContent = out;
+          consoleBody.append(pCmd, pOut);
+        });
+        const tagWrap = document.createElement('div');
+        tagWrap.className = 'console-tags console-line-enter';
+        data.tags.forEach(t => {
+          const s = document.createElement('span');
+          s.textContent = t;
+          tagWrap.appendChild(s);
+        });
+        const actionLink = document.createElement('a');
+        actionLink.className = 'console-action-link console-line-enter';
+        actionLink.href = data.link.href;
+        actionLink.textContent = data.link.label;
+        consoleBody.append(tagWrap, actionLink);
+      });
+      tabs.appendChild(btn);
+      return btn;
+    });
+    heroConsole.appendChild(tabs);
   }
 
   document.querySelectorAll('.filter-button').forEach(button => button.addEventListener('click', () => {
@@ -302,7 +451,22 @@
     const key = `hackerboy-saved-${slug}`;
     const setSavedState = saved => {
       saveButton.classList.toggle('is-saved', saved);
-      saveButton.textContent = saved ? '★ Enregistré' : '☆ Enregistrer';
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', saved ? 'currentColor' : 'none');
+      svg.setAttribute('stroke', 'currentColor');
+      svg.setAttribute('stroke-width', '1.85');
+      svg.setAttribute('stroke-linecap', 'round');
+      svg.setAttribute('stroke-linejoin', 'round');
+      svg.setAttribute('focusable', 'false');
+      svg.setAttribute('aria-hidden', 'true');
+      svg.classList.add('hb-icon');
+      const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      p.setAttribute('d', 'm19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16Z');
+      svg.appendChild(p);
+      const txt = document.createElement('span');
+      txt.textContent = saved ? 'Enregistré' : 'Enregistrer';
+      saveButton.replaceChildren(svg, txt);
       saveButton.setAttribute('aria-pressed', String(saved));
     };
     let saved = false;
